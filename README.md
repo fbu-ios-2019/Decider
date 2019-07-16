@@ -1,9 +1,6 @@
-Group Project - README Template
+Decider
 ===
 **Katelin Chan, Mary Pestana, and Mohamed Ally**
-
-
-# Decider
 
 ## Table of Contents
 1. [Overview](#Overview)
@@ -100,14 +97,7 @@ Optional:
     * ProfileViewController
 
 ## Wireframes
-
-
-![Uploading file..._eujzi7g67]()
-
-
-
-
-
+![](https://i.imgur.com/TPD1kAM.png)
 
 ### [BONUS] Digital Wireframes & Mockups
 

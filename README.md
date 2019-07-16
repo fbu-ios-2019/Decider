@@ -13,96 +13,130 @@ Group Project - README Template
 
 ## Overview
 ### Description
-Travel app that displays pictures of food/movies/places and allows the functionality to swipe left or right to help decide which place to go to based on location, reviews, or number of stars.
+Food & Drink / Travel app that displays pictures of food and allows the user to swipe left or right. Depending on liked and unliked images, a restaurant recommendation will be given based on price, location, reviews, and number of stars.
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
-- **Category:** Travel
-- **Mobile:** Mobile experience only, maps are used to help navigate to the decided place.
-- **Story:** A user can easily use this application to decide on a place to go for food or entertainment instead of wasting time arguing with friends and family.
-- **Market:** Anyone who is interested in food and entertainment or just traveling around.
-- **Habit:** Users will use this application daily/weekly depending on how often they go out for food and entertainment or how often they travel.
-- **Scope:** The application is very UI heavy and specific aspects are focused on design. An API of food will first be utilized to display images and help test the swipe functionality. More tabs will then be added for entertainment including movies and tourist attractions. 
+- **Category:** Food & Drink / Travel
+- **Mobile:** This app is primarily for mobile experience, maps are used to help navigate to the decided place.
+- **Story:** A user can easily use this app to decide on a place to eat instead of wasting time arguing with friends and family.
+- **Market:** Anyone who is interested in food and looking for a place to eat at.
+- **Habit:** Users will use this application daily/weekly depending on how often they go out for food.
+- **Scope:** The application is very UI heavy and specific aspects are focused on design. The Yelp API will be utilized to display images and help test the swipe functionality.
 
 ## Product Spec
 
 ### 1. User Stories (Required and Optional)
 
 **Required Must-have Stories**
-* User can view a list of restaurants near them from a food database.
-* Food images are loaded using the UIImageView category in the AFNetworking library.
-* User sees a loading state while waiting for the food API.
-* User can pull to refresh the food list.
-* User can swipe left and right on each image of food.
-* User can see a detailed view of the restaurant after tapping on the food image.
-* Algorithm decides on a specific restaurant based on right swipes and their reviews, location, and number of stars.
+* User can limit food options by choosing a specific category.
+* User can swipe left or right on each image of food, left for "don't like" and right for "like".
+* User can see several images of the same restaurant.
+* User can see a detailed view of a restaurant by clicking on a food image.
+* User can select a checkmark button to finish swiping.
+* User can see the Decider's recommendation on which restaurant to go to based on:
+    * Number of likes per restaurant
+    * Price
+    * Number of stars
+    * Reviews
+* User can see a detailed view of the recommended restaurant including reviews, number of stars, price range, location, and pictures of the menu.
+* User can see on a map the distance to the restaurant.
 
 **Optional Nice-to-have Stories**
-
 * User sees an error message when there's a networking error.
-* User can search for a restaurant.
 * Load a low resolution image first and then switch to a high resolution image when complete.
-* Add a navigation bar.
-* Customize the UI.
-* Functionality for movies, tourist attractions, etc.
-* User can click on address and see map details.
+* User can choose to see three recommendations (instead of only one) in a "Settings" screen.
+    * User can see the three recommendations on the map.
+* User can search for a restaurant.
+* User can choose between deciding food and touristic places.
+* User can see a changing emoji when swiping the pictures.
+* User can view restaurants in a list form.
+* User can add a price range filter (where only images of restaurants inside his budget are considered).
+* User can share the Decider's recommendation via WhatsApp, Messenger, and more.
+* User can create an account and set it up.
+    * User can create an account using Yelp, Google, and Facebook.
+    * User can see his past recommendations saved, as well as a list of his preferences.
+    * User can receive recommendations from the app, without the need of swiping.
+    * User can write a review and rate a restaurant.
 
 ### 2. Screen Archetypes
 
-* FoodListViewController
-* User can view a list of restaurants near them from a food database.
-* User sees a loading state while waiting for the food API.
-* User can pull to refresh the food list.
-* User can search for a restaurant.
-* FoodViewController
-* Food images are loaded using the UIImageView category in the AFNetworking library.
-* User can swipe left and right on each image of food.
-* DecisionViewController
-* Algorithm decides on a specific restaurant based on right swipes and their reviews, location, and number of stars.
+* HomeViewController
+    * User can limit food options by choosing a specific category
+    * User can swipe left or right on each image of food, left for "don't like" and right for "like".
+    * User can see several images of the same restaurant.
+    * User can select a checkmark button to finish swiping.
+    * User can see a detailed view of a restaurant by clicking on a food image.
+
 * DetailsViewController
-* User can see a detailed view of the restaurant after tapping on the food image.
+    * User can see a detailed view of the recommended restaurant including reviews, number of stars, price range, location, and pictures of the menu.
+
+* DecisionViewController
+    * User can see the Decider's recommendation on which restaurant to go to based on:
+        * Number of likes per restaurant
+        * Price
+        * Number of stars
+        * Reviews
+
 * MapViewController
-* User can click on address and see map details.
+    * User can see on a map the distance to the restaurant.
+
+Optional:
+* ListViewController
+* ProfileViewController
 
 ### 3. Navigation
 
-**Tab Navigation** (Tab to Screen)
-
-* FoodListViewController
-* MovieListViewController
-* PlaceListViewController
-
 **Flow Navigation** (Screen to Screen)
 
-* FoodListViewController
-* FoodViewController
-* DetailsViewController
-* DecisionViewController
-* MapViewController
-* MovieListViewController
-* MovieViewController
-* DetailsViewController
-* DecisionViewController
-* MapViewController
-* PlaceListViewController
-* PlaceViewController
-* DetailsViewController
-* DecisionViewController
-* MapViewController
+* HomeViewController
+    * DetailsViewController
+    * DecisionViewController
+    * MapViewController
+
+Optional:
+* Tab Navigation (Tab to Screen)
+    * HomeViewController
+    * ListViewController
+    * ProfileViewController
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+
+
+![Uploading file..._eujzi7g67]()
+
+
+
+
+
 
 ### [BONUS] Digital Wireframes & Mockups
 
 ### [BONUS] Interactive Prototype
 
-## Schema 
-[This section will be completed in Unit 9]
+## Schema
+Optional:
+* Heroku and MongoDB, and Parse
+
 ### Models
-[Add table of models]
+
+* Restuarant
+    * name (String)
+    * images (NSArray of Files)
+    * numberImages (Number)
+    * reviews (NSArray of Strings)
+    * numberReviews (Number)
+
 ### Networking
-- [Add list of network requests by screen ]
+ - FoodViewController
+    * GET https://api.yelp.com/v3/businesses/search
+    this is for getting all restaurants by using keyword "restaurants" and setting the location parameter to the users current location.
+    * GET https://api.yelp.com/v3/businesses/{id}
+     this is for getting all the details for a certain restaurant such as photos, ratings, prices etc
+     * GET https://www.googleapis.com/geolocation/v1/geolocate?key=YOUR_API_KEY
+        this api gets the users current location which will be used as a string query parameter fo the get businesses/search Yelp API call.
+        
+- MapViewController
+    * Google maps IOS https://developers.google.com/maps/documentation/ios-sdk/intro
+        this API would be useful in opeining a map whena user taps ona specific business' location from the DetailsViewController. 
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]

@@ -217,4 +217,7 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
     [self.frontCardView mdc_swipe:MDCSwipeDirectionRight];
 }
 
+- (IBAction)didTapDecide:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

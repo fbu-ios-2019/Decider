@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChooseFoodView.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@interface SwipeViewController : UIViewController <MDCSwipeToChooseDelegate>
 
-@interface SwipeViewController : UIViewController
+@property (nonatomic, strong) Food *currentFood;
+@property (nonatomic, strong) ChooseFoodView *frontCardView;
+@property (nonatomic, strong) ChooseFoodView *backCardView;
 
 @end
-
-NS_ASSUME_NONNULL_END

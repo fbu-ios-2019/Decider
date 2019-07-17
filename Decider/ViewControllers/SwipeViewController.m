@@ -54,11 +54,13 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
     // See the `nopeFrontCardView` and `likeFrontCardView` methods.
     [self constructNopeButton];
     [self constructLikedButton];
+    
+    NSLog(@"%@", _food);
 }
 
-- (NSUInteger)supportedInterfaceOrientations {
+/*- (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
-}
+}*/
 
 #pragma mark - MDCSwipeToChooseDelegate Protocol Methods
 

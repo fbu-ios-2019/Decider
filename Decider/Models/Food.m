@@ -27,7 +27,7 @@
 - (instancetype) image:(UIImage *)image {
     Food *obj = [[Food alloc] init];
     if (obj) {
-        _image = image;
+        obj.image = image;
     }
     return obj;
 }

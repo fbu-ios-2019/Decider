@@ -11,8 +11,8 @@
 //#import "ChooseFoodView.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 
-static const CGFloat ChoosePersonButtonHorizontalPadding = 80.f;
-static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
+static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
+static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 
 @interface SwipeViewController ()
 
@@ -171,8 +171,8 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
 - (void)constructNopeButton {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *image = [UIImage imageNamed:@"nope"];
-    button.frame = CGRectMake(ChoosePersonButtonHorizontalPadding,
-                              CGRectGetMaxY(self.frontCardView.frame) + ChoosePersonButtonVerticalPadding,
+    button.frame = CGRectMake(ChooseFoodButtonHorizontalPadding,
+                              CGRectGetMaxY(self.frontCardView.frame) + ChooseFoodButtonVerticalPadding,
                               image.size.width,
                               image.size.height);
     [button setImage:image forState:UIControlStateNormal];
@@ -190,8 +190,8 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
 - (void)constructLikedButton {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *image = [UIImage imageNamed:@"liked"];
-    button.frame = CGRectMake(CGRectGetMaxX(self.view.frame) - image.size.width - ChoosePersonButtonHorizontalPadding,
-                              CGRectGetMaxY(self.frontCardView.frame) + ChoosePersonButtonVerticalPadding,
+    button.frame = CGRectMake(CGRectGetMaxX(self.view.frame) - image.size.width - ChooseFoodButtonHorizontalPadding,
+                              CGRectGetMaxY(self.frontCardView.frame) + ChooseFoodButtonVerticalPadding,
                               image.size.width,
                               image.size.height);
     [button setImage:image forState:UIControlStateNormal];

@@ -19,6 +19,7 @@
 		F97CE67E22DD4E1D004798EF /* DeciderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE67D22DD4E1D004798EF /* DeciderUITests.m */; };
 		F97CE69022DF8D65004798EF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE68F22DF8D65004798EF /* HomeViewController.m */; };
 		F97CE69322DF8D74004798EF /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69222DF8D74004798EF /* DetailsViewController.m */; };
+		F97CE69622DF9489004798EF /* SwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69522DF9489004798EF /* SwipeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		F97CE68F22DF8D65004798EF /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F97CE69122DF8D74004798EF /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		F97CE69222DF8D74004798EF /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		F97CE69422DF9489004798EF /* SwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeViewController.h; sourceTree = "<group>"; };
+		F97CE69522DF9489004798EF /* SwipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +193,8 @@
 				F97CE68F22DF8D65004798EF /* HomeViewController.m */,
 				F97CE69122DF8D74004798EF /* DetailsViewController.h */,
 				F97CE69222DF8D74004798EF /* DetailsViewController.m */,
+				F97CE69422DF9489004798EF /* SwipeViewController.h */,
+				F97CE69522DF9489004798EF /* SwipeViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
 				F97CE69022DF8D65004798EF /* HomeViewController.m in Sources */,
+				F97CE69622DF9489004798EF /* SwipeViewController.m in Sources */,
 				F97CE69322DF8D74004798EF /* DetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,6 +20,9 @@
 		F97CE69022DF8D65004798EF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE68F22DF8D65004798EF /* HomeViewController.m */; };
 		F97CE69322DF8D74004798EF /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69222DF8D74004798EF /* DetailsViewController.m */; };
 		F97CE69622DF9489004798EF /* SwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69522DF9489004798EF /* SwipeViewController.m */; };
+		F97CE69922DFA766004798EF /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69822DFA766004798EF /* Food.m */; };
+		F97CE69F22DFAA7B004798EF /* ChooseFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69E22DFAA7B004798EF /* ChooseFoodView.m */; };
+		F97CE6A222DFACA0004798EF /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6A122DFACA0004798EF /* ImageView.m */; };
 		F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA022DF99A900032267 /* ReviewViewController.m */; };
 		F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA322DF99C000032267 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
@@ -71,6 +74,12 @@
 		F97CE69222DF8D74004798EF /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		F97CE69422DF9489004798EF /* SwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeViewController.h; sourceTree = "<group>"; };
 		F97CE69522DF9489004798EF /* SwipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeViewController.m; sourceTree = "<group>"; };
+		F97CE69722DFA766004798EF /* Food.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
+		F97CE69822DFA766004798EF /* Food.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
+		F97CE69D22DFAA7B004798EF /* ChooseFoodView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseFoodView.h; sourceTree = "<group>"; };
+		F97CE69E22DFAA7B004798EF /* ChooseFoodView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseFoodView.m; sourceTree = "<group>"; };
+		F97CE6A022DFACA0004798EF /* ImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageView.h; sourceTree = "<group>"; };
+		F97CE6A122DFACA0004798EF /* ImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
 		F9F33F9F22DF99A900032267 /* ReviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		F9F33FA022DF99A900032267 /* ReviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		F9F33FA222DF99C000032267 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -188,6 +197,10 @@
 		F97CE68B22DF8B81004798EF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F97CE69D22DFAA7B004798EF /* ChooseFoodView.h */,
+				F97CE69E22DFAA7B004798EF /* ChooseFoodView.m */,
+				F97CE6A022DFACA0004798EF /* ImageView.h */,
+				F97CE6A122DFACA0004798EF /* ImageView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +225,8 @@
 		F97CE68D22DF8B90004798EF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F97CE69722DFA766004798EF /* Food.h */,
+				F97CE69822DFA766004798EF /* Food.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -437,10 +452,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,
+				F97CE69922DFA766004798EF /* Food.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
 				F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */,
 				F97CE69022DF8D65004798EF /* HomeViewController.m in Sources */,
 				F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */,
+				F97CE6A222DFACA0004798EF /* ImageView.m in Sources */,
+				F97CE69F22DFAA7B004798EF /* ChooseFoodView.m in Sources */,
 				F97CE69622DF9489004798EF /* SwipeViewController.m in Sources */,
 				F97CE69322DF8D74004798EF /* DetailsViewController.m in Sources */,
 			);

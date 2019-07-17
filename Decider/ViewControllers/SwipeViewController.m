@@ -19,6 +19,11 @@
     // Do any additional setup after loading the view.
 }
 
+
+- (IBAction)didTapDecide:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 /*
 #pragma mark - Navigation
 

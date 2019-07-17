@@ -1,22 +1,26 @@
 PODS:
   - Bolts/Tasks (1.9.0)
+  - MDCSwipeToChoose (0.2.3)
   - Parse (1.17.2):
     - Parse/Core (= 1.17.2)
   - Parse/Core (1.17.2):
     - Bolts/Tasks (~> 1.9)
 
 DEPENDENCIES:
+  - MDCSwipeToChoose
   - Parse
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bolts
+    - MDCSwipeToChoose
     - Parse
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  MDCSwipeToChoose: 56239d98b4558c66e7c3c9069482befd26092270
   Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
 
-PODFILE CHECKSUM: fa855c931e46baee78d20f1552d90bcde09975f8
+PODFILE CHECKSUM: bf8bc128fd042a30acf48bb17019c1870c392aeb
 
 COCOAPODS: 1.7.2

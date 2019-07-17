@@ -10,6 +10,7 @@
 		0866223C6D672E9D88488C51 /* Pods_Decider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773AAEA063EAACACD758A0D6 /* Pods_Decider.framework */; };
 		15B7AE97DEED10E373C09D1F /* Pods_DeciderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1782806DD0C9AAF03DA272 /* Pods_DeciderUITests.framework */; };
 		19B0D6C16B340E5B55579E26 /* Pods_DeciderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26ACCCA742D4B0F9B59BCA34 /* Pods_DeciderTests.framework */; };
+		8610AE3D22DFD53500957D7C /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
 		F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE65A22DD4E1C004798EF /* AppDelegate.m */; };
 		F97CE66122DD4E1C004798EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F97CE65F22DD4E1C004798EF /* Main.storyboard */; };
 		F97CE66322DD4E1D004798EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F97CE66222DD4E1D004798EF /* Assets.xcassets */; };
@@ -49,6 +50,8 @@
 		26B611E0C2BEE249C2C35721 /* Pods-DeciderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeciderTests.release.xcconfig"; path = "Target Support Files/Pods-DeciderTests/Pods-DeciderTests.release.xcconfig"; sourceTree = "<group>"; };
 		59164B7944757DB341C464BC /* Pods-DeciderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeciderUITests.release.xcconfig"; path = "Target Support Files/Pods-DeciderUITests/Pods-DeciderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		773AAEA063EAACACD758A0D6 /* Pods_Decider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Decider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8610AE3B22DFD53500957D7C /* Routes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Routes.h; sourceTree = "<group>"; };
+		8610AE3C22DFD53500957D7C /* Routes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Routes.m; sourceTree = "<group>"; };
 		A3FD9D476A27FDFD2B950649 /* Pods-DeciderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeciderTests.debug.xcconfig"; path = "Target Support Files/Pods-DeciderTests/Pods-DeciderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A6EB06F9FB19324095671D58 /* Pods-Decider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decider.release.xcconfig"; path = "Target Support Files/Pods-Decider/Pods-Decider.release.xcconfig"; sourceTree = "<group>"; };
 		AC2A81FDC6C2F296EFC644F5 /* Pods-Decider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decider.debug.xcconfig"; path = "Target Support Files/Pods-Decider/Pods-Decider.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,10 +171,12 @@
 				F97CE65922DD4E1C004798EF /* AppDelegate.h */,
 				F97CE65A22DD4E1C004798EF /* AppDelegate.m */,
 				F97CE65F22DD4E1C004798EF /* Main.storyboard */,
+				8610AE3C22DFD53500957D7C /* Routes.m */,
 				F97CE66222DD4E1D004798EF /* Assets.xcassets */,
 				F97CE66422DD4E1D004798EF /* LaunchScreen.storyboard */,
 				F97CE66722DD4E1D004798EF /* Info.plist */,
 				F97CE66822DD4E1D004798EF /* main.m */,
+				8610AE3B22DFD53500957D7C /* Routes.h */,
 			);
 			path = Decider;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,
+				8610AE3D22DFD53500957D7C /* Routes.m in Sources */,
 				F97CE69922DFA766004798EF /* Food.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
 				F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */,

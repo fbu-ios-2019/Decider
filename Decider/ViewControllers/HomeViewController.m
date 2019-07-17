@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "Routes.h"
 
 @interface HomeViewController ()
 
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [Routes fetchRestaurantsOfType:@"mexican" nearLocation:@"sunnyvale"];
 }
 
 /*

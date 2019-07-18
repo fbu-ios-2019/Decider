@@ -10,7 +10,8 @@
 		0866223C6D672E9D88488C51 /* Pods_Decider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773AAEA063EAACACD758A0D6 /* Pods_Decider.framework */; };
 		15B7AE97DEED10E373C09D1F /* Pods_DeciderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1782806DD0C9AAF03DA272 /* Pods_DeciderUITests.framework */; };
 		19B0D6C16B340E5B55579E26 /* Pods_DeciderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26ACCCA742D4B0F9B59BCA34 /* Pods_DeciderTests.framework */; };
-		8610AE3D22DFD53500957D7C /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
+		8610AE4022E1013C00957D7C /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
+		8610AE4122E1014500957D7C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE68F22DF8D65004798EF /* HomeViewController.m */; };
 		F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE65A22DD4E1C004798EF /* AppDelegate.m */; };
 		F97CE66122DD4E1C004798EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F97CE65F22DD4E1C004798EF /* Main.storyboard */; };
 		F97CE66322DD4E1D004798EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F97CE66222DD4E1D004798EF /* Assets.xcassets */; };
@@ -18,7 +19,6 @@
 		F97CE66922DD4E1D004798EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE66822DD4E1D004798EF /* main.m */; };
 		F97CE67322DD4E1D004798EF /* DeciderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE67222DD4E1D004798EF /* DeciderTests.m */; };
 		F97CE67E22DD4E1D004798EF /* DeciderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE67D22DD4E1D004798EF /* DeciderUITests.m */; };
-		F97CE69022DF8D65004798EF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE68F22DF8D65004798EF /* HomeViewController.m */; };
 		F97CE69322DF8D74004798EF /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69222DF8D74004798EF /* DetailsViewController.m */; };
 		F97CE69622DF9489004798EF /* SwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69522DF9489004798EF /* SwipeViewController.m */; };
 		F97CE69922DFA766004798EF /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69822DFA766004798EF /* Food.m */; };
@@ -461,13 +461,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8610AE4122E1014500957D7C /* HomeViewController.m in Sources */,
+				8610AE4022E1013C00957D7C /* Routes.m in Sources */,
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,
-				8610AE3D22DFD53500957D7C /* Routes.m in Sources */,
 				F97CE69922DFA766004798EF /* Food.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
 				F97CE6A822DFE319004798EF /* Restaurant.m in Sources */,
 				F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */,
-				F97CE69022DF8D65004798EF /* HomeViewController.m in Sources */,
 				F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */,
 				F97CE6A222DFACA0004798EF /* ImageView.m in Sources */,
 				F97CE69F22DFAA7B004798EF /* ChooseFoodView.m in Sources */,
@@ -645,7 +645,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4XDFC548L2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Decider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -663,7 +663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4XDFC548L2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Decider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

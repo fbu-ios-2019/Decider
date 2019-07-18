@@ -30,10 +30,10 @@
 }
 
 - (IBAction)getCurrentLocation:(id)sender {
+    [self.locationManager requestAlwaysAuthorization];
     if ([CLLocationManager locationServicesEnabled]) {
         self.locationManager.delegate = self;
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        [self.locationManager requestAlwaysAuthorization];
         [self.locationManager startUpdatingLocation];
     } else {
         NSLog(@"Location services are not enabled");

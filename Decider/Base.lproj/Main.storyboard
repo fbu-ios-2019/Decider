@@ -66,7 +66,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Get My Location"/>
                                 <connections>
-                                    <action selector="didTapLocation:" destination="0QS-LQ-d2X" eventType="touchUpInside" id="nin-D6-q89"/>
+                                    <action selector="getCurrentLocation:" destination="0QS-LQ-d2X" eventType="touchUpInside" id="t31-ze-i6K"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nm4-QG-GZz">
@@ -81,9 +81,9 @@
                         <viewLayoutGuide key="safeArea" id="ARs-Uj-f1h"/>
                     </view>
                     <connections>
-                        <outlet property="addressLabel" destination="HyW-KI-QLe" id="vK1-kl-bJW"/>
-                        <outlet property="latitudeLabel" destination="nc3-RT-qZw" id="ww2-8V-NTw"/>
-                        <outlet property="longitudeLabel" destination="Nm4-QG-GZz" id="MbE-Pc-hZN"/>
+                        <outlet property="addressLabel" destination="HyW-KI-QLe" id="QHe-d2-T0V"/>
+                        <outlet property="latitudeLabel" destination="nc3-RT-qZw" id="EfB-8r-rUi"/>
+                        <outlet property="longitudeLabel" destination="Nm4-QG-GZz" id="kK3-E7-1fo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFh-Bw-T2S" userLabel="First Responder" sceneMemberID="firstResponder"/>

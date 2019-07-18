@@ -7,37 +7,40 @@
 //
 
 #import "LocationViewController.h"
+//#import <CoreLocation/CoreLocation.h>
 
 @interface LocationViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (strong,nonatomic) CLLocationManager *locationManager;
 
 @end
 
-@implementation LocationViewController {
-    CLLocationManager *locationManager;
-}
+@implementation LocationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    locationManager = [[CLLocationManager alloc] init];
+    self.locationManager = [[CLLocationManager alloc] init];
 }
 
 - (IBAction)didTapCancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)didTapLocation:(id)sender {
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager startUpdatingLocation];
+- (IBAction)getCurrentLocation:(id)sender {
+    if ([CLLocationManager locationServicesEnabled]) {
+        self.locationManager.delegate = self;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        [self.locationManager requestAlwaysAuthorization];
+        [self.locationManager startUpdatingLocation];
+    } else {
+        NSLog(@"Location services are not enabled");
+    }
 }
 
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    
     NSLog(@"didFailWithError: %@", error);
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
@@ -45,10 +48,10 @@
                                                             preferredStyle:(UIAlertControllerStyleAlert)];
     // create an error action
     UIAlertAction *errorAction = [UIAlertAction actionWithTitle:@"OK"
-                                                             style:UIAlertActionStyleCancel
-                                                           handler:^(UIAlertAction * _Nonnull action) {
-                                                               // handle try again response here. Doing nothing will dismiss the view.
-                                                           }];
+                                                          style:UIAlertActionStyleCancel
+                                                        handler:^(UIAlertAction * _Nonnull action) {
+                                                            // handle try again response here. Doing nothing will dismiss the view.
+                                                        }];
     // add the error action to the alertController
     [alert addAction:errorAction];
     
@@ -58,18 +61,13 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    CLLocation *newLocation = locations.lastObject;
+    CLLocation *newLocation = [locations lastObject];
     NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
-
+    
     if (currentLocation != nil) {
         self.longitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
         self.latitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
-        
-//    CLLocation *oldLocation;
-//    if (locations.count > 1) {
-//        oldLocation = locations[locations.count - 2];
-//    }
     }
 }
 

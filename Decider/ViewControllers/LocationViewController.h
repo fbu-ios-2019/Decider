@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface LocationViewController : UIViewController <CLLocationManagerDelegate>
 
-@end
+@property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+- (IBAction)getCurrentLocation:(id)sender;
 
-NS_ASSUME_NONNULL_END
+@end

@@ -477,7 +477,6 @@
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
 				F97CE6A822DFE319004798EF /* Restaurant.m in Sources */,
 				F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */,
-				F97CE69022DF8D65004798EF /* HomeViewController.m in Sources */,
 				F97CE6AB22E0EA24004798EF /* LocationViewController.m in Sources */,
 				F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */,
 				F97CE6A222DFACA0004798EF /* ImageView.m in Sources */,
@@ -656,7 +655,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4XDFC548L2;
 				INFOPLIST_FILE = Decider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -674,7 +673,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4XDFC548L2;
 				INFOPLIST_FILE = Decider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

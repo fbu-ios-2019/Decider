@@ -24,6 +24,7 @@
 		F97CE69922DFA766004798EF /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69822DFA766004798EF /* Food.m */; };
 		F97CE69F22DFAA7B004798EF /* ChooseFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69E22DFAA7B004798EF /* ChooseFoodView.m */; };
 		F97CE6A222DFACA0004798EF /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6A122DFACA0004798EF /* ImageView.m */; };
+		F97CE6A822DFE319004798EF /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6A722DFE319004798EF /* Restaurant.m */; };
 		F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA022DF99A900032267 /* ReviewViewController.m */; };
 		F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA322DF99C000032267 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,8 @@
 		F97CE69E22DFAA7B004798EF /* ChooseFoodView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseFoodView.m; sourceTree = "<group>"; };
 		F97CE6A022DFACA0004798EF /* ImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageView.h; sourceTree = "<group>"; };
 		F97CE6A122DFACA0004798EF /* ImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
+		F97CE6A622DFE319004798EF /* Restaurant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
+		F97CE6A722DFE319004798EF /* Restaurant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 		F9F33F9F22DF99A900032267 /* ReviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		F9F33FA022DF99A900032267 /* ReviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		F9F33FA222DF99C000032267 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -171,11 +174,11 @@
 				F97CE65922DD4E1C004798EF /* AppDelegate.h */,
 				F97CE65A22DD4E1C004798EF /* AppDelegate.m */,
 				F97CE65F22DD4E1C004798EF /* Main.storyboard */,
-				8610AE3C22DFD53500957D7C /* Routes.m */,
 				F97CE66222DD4E1D004798EF /* Assets.xcassets */,
 				F97CE66422DD4E1D004798EF /* LaunchScreen.storyboard */,
 				F97CE66722DD4E1D004798EF /* Info.plist */,
 				F97CE66822DD4E1D004798EF /* main.m */,
+				8610AE3C22DFD53500957D7C /* Routes.m */,
 				8610AE3B22DFD53500957D7C /* Routes.h */,
 			);
 			path = Decider;
@@ -232,6 +235,8 @@
 			children = (
 				F97CE69722DFA766004798EF /* Food.h */,
 				F97CE69822DFA766004798EF /* Food.m */,
+				F97CE6A622DFE319004798EF /* Restaurant.h */,
+				F97CE6A722DFE319004798EF /* Restaurant.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				8610AE3D22DFD53500957D7C /* Routes.m in Sources */,
 				F97CE69922DFA766004798EF /* Food.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
+				F97CE6A822DFE319004798EF /* Restaurant.m in Sources */,
 				F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */,
 				F97CE69022DF8D65004798EF /* HomeViewController.m in Sources */,
 				F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */,

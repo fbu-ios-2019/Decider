@@ -147,10 +147,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kSi-RY-9Vy"/>
                     </view>
+                    <connections>
+                        <segue destination="XeU-f6-TMk" kind="show" identifier="detailSegue" id="4gb-rm-ZKv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ee8-0f-w1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2014" y="-270"/>
+            <point key="canvasLocation" x="2230" y="-270"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="CjX-qx-GuH">
@@ -163,16 +166,36 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hnq-Zg-oGm">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2c-ba-zq8">
+                                        <rect key="frame" x="19" y="28" width="48" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="didTapCancel:" destination="XeU-f6-TMk" eventType="touchUpInside" id="o6O-tr-PDv"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMD-ZG-jdW">
+                                        <rect key="frame" x="19" y="66" width="336" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9y0-Rn-Afl"/>
                     </view>
                     <navigationItem key="navigationItem" id="ged-be-I7u"/>
+                    <connections>
+                        <outlet property="imageURL" destination="XMD-ZG-jdW" id="Wxp-Um-ulu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwY-1e-JfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4106" y="-1022"/>
+            <point key="canvasLocation" x="3309.5999999999999" y="-270.31484257871068"/>
         </scene>
         <!--Decider-->
         <scene sceneID="Ofg-FY-jPg">
@@ -201,24 +224,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxf-dR-tQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="106" y="-270"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="7BS-kL-he6">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vSY-M3-Kki" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qZ9-tG-eu9">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="XeU-f6-TMk" kind="relationship" relationship="rootViewController" id="SiD-Nc-5ht"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1yf-ij-NPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3282" y="-1022"/>
         </scene>
         <!--Review-->
         <scene sceneID="YXn-ST-Eyg">

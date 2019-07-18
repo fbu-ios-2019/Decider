@@ -11,6 +11,8 @@
 
 @interface HomeViewController ()
 
+@property (strong, nonatomic) NSArray *restaurants;
+
 @end
 
 @implementation HomeViewController

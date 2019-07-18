@@ -10,13 +10,19 @@
 
 @interface DetailsViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *imageURL;
+
 @end
 
 @implementation DetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    //self.imageURL.text = self.URL;
+}
+
+- (IBAction)didTapCancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

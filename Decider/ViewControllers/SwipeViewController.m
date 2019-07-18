@@ -10,6 +10,7 @@
 #import "Food.h"
 //#import "ChooseFoodView.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
+#import "DetailsViewController.h"
 
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
 static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
@@ -55,7 +56,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     [self constructNopeButton];
     [self constructLikedButton];
     
-    NSLog(@"%@", _food);
+    [self didTapImage];
 }
 
 /*- (NSUInteger)supportedInterfaceOrientations {
@@ -95,6 +96,8 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
                              self.backCardView.alpha = 1.f;
                          } completion:nil];
     }
+    
+    [self didTapImage];
 }
 
 #pragma mark - Internal Methods
@@ -145,6 +148,14 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
                                                                    options:options];
     [self.food removeObjectAtIndex:0];
     return foodView;
+}
+
+// Checks for tap gesture on UIImageView
+- (void)didTapImage {
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [self.frontCardView setUserInteractionEnabled:YES];
+    [self.frontCardView addGestureRecognizer:singleFingerTap];
 }
 
 #pragma mark View Contruction
@@ -217,7 +228,28 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     [self.frontCardView mdc_swipe:MDCSwipeDirectionRight];
 }
 
+// Dismisses the SwipeViewController goes back to HomeViewController
 - (IBAction)didTapDecide:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+// Segues to DetailsViewController
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+    //CGPoint location = [recognizer locationInView:[recognizer.view superview]];
+    [self performSegueWithIdentifier:@"detailSegue" sender:self];
+    NSLog(@"Success");
+}
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     if([segue.identifier isEqualToString:@"detailSegue"]) {
+         DetailsViewController *detailsViewController = [segue destinationViewController];
+         //detailsViewController.image = self.frontCardView.food.image;
+     }
+ }
+*/
+
 @end

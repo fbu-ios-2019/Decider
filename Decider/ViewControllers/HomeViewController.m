@@ -11,7 +11,7 @@
 
 @interface HomeViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (strong, nonatomic) NSArray *restaurants;
+@property (strong, nonatomic) NSDictionary *restaurants;
 
 // Picker view for category
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
@@ -30,9 +30,21 @@
     self.categoryPicker.delegate = self;
     self.categoryPicker.dataSource = self;
 
-    //NSDictionary *restaurants =
-    [Routes fetchRestaurantsOfType:@"mexican" nearLocation:@"sunnyvale"];
-    //NSLog(@"%@", restaurants);
+    NSURLSessionDataTask *task = [Routes fetchRestaurantsOfType:@"mexican" nearLocation:@"Sunnyvale" completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
+        if (error != nil) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        else {
+            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            NSLog(@"%@", results);
+            self.restaurants = results;
+        }
+        
+    }];
+    if (!task) {
+        NSLog(@"there was a network error");
+    }
     
     // Categories
     self.categories = [NSMutableArray arrayWithObjects:@"African", @"American", @"Barbeque", @"Brazilian", @"Breakfast & Brunch", @"Buffets", @"Coffee shops", @"Caribean", @"Chinese", @"Fast food", @"French", @"German", @"Indian", @"Italian", @"Japanese", @"Korean", @"Mediterranean", @"Mexican", @"Pizza", @"Salad", @"Sandwiches", @"Seafood", @"Thai", @"Vegan", @"Vegetarian", @"Vietnamese", nil];

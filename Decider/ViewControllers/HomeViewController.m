@@ -30,7 +30,9 @@
     self.categoryPicker.delegate = self;
     self.categoryPicker.dataSource = self;
 
+    //NSDictionary *restaurants =
     [Routes fetchRestaurantsOfType:@"mexican" nearLocation:@"sunnyvale"];
+    //NSLog(@"%@", restaurants);
     
     // Categories
     self.categories = [NSMutableArray arrayWithObjects:@"African", @"American", @"Barbeque", @"Brazilian", @"Breakfast & Brunch", @"Buffets", @"Coffee shops", @"Caribean", @"Chinese", @"Fast food", @"French", @"German", @"Indian", @"Italian", @"Japanese", @"Korean", @"Mediterranean", @"Mexican", @"Pizza", @"Salad", @"Sandwiches", @"Seafood", @"Thai", @"Vegan", @"Vegetarian", @"Vietnamese", nil];

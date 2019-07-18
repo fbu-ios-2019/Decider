@@ -24,9 +24,10 @@
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             
             NSLog(@"%@", results);
+            //return results;
         }
+        //return {};
     }];
     [task resume];
-    
 }
 @end

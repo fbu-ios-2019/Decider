@@ -40,7 +40,7 @@
                                 </state>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uer-pK-h6b">
-                                <rect key="frame" x="16" y="135" width="220" height="81"/>
+                                <rect key="frame" x="16" y="128" width="343" height="81"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ru-8q-ruF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1898" y="941"/>
+            <point key="canvasLocation" x="-1898.4000000000001" y="940.47976011994012"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xLR-1R-dkc">

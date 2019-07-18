@@ -178,8 +178,8 @@
 				F97CE66422DD4E1D004798EF /* LaunchScreen.storyboard */,
 				F97CE66722DD4E1D004798EF /* Info.plist */,
 				F97CE66822DD4E1D004798EF /* main.m */,
-				8610AE3C22DFD53500957D7C /* Routes.m */,
 				8610AE3B22DFD53500957D7C /* Routes.h */,
+				8610AE3C22DFD53500957D7C /* Routes.m */,
 			);
 			path = Decider;
 			sourceTree = "<group>";

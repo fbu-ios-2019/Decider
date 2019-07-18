@@ -19,6 +19,8 @@
 // Array with all the categories passed to the picker
 @property (strong, nonatomic) NSMutableArray *categories;
 
+@property (weak, nonatomic) IBOutlet UIButton *decideButton;
+
 
 @end
 
@@ -26,9 +28,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.categoryPicker.delegate = self;
     self.categoryPicker.dataSource = self;
+    
+    self.decideButton.layer.cornerRadius = 6;
 
     NSURLSessionDataTask *task = [Routes fetchRestaurantsOfType:@"mexican" nearLocation:@"Sunnyvale" completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
         if (error != nil) {
@@ -43,7 +47,7 @@
         
     }];
     if (!task) {
-        NSLog(@"there was a network error");
+        NSLog(@"There was a network error");
     }
     
     // Categories

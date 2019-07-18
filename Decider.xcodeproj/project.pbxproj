@@ -10,8 +10,6 @@
 		0866223C6D672E9D88488C51 /* Pods_Decider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773AAEA063EAACACD758A0D6 /* Pods_Decider.framework */; };
 		15B7AE97DEED10E373C09D1F /* Pods_DeciderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1782806DD0C9AAF03DA272 /* Pods_DeciderUITests.framework */; };
 		19B0D6C16B340E5B55579E26 /* Pods_DeciderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26ACCCA742D4B0F9B59BCA34 /* Pods_DeciderTests.framework */; };
-		8610AE4022E1013C00957D7C /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
-		8610AE4122E1014500957D7C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE68F22DF8D65004798EF /* HomeViewController.m */; };
 		F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE65A22DD4E1C004798EF /* AppDelegate.m */; };
 		F97CE66122DD4E1C004798EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F97CE65F22DD4E1C004798EF /* Main.storyboard */; };
 		F97CE66322DD4E1D004798EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F97CE66222DD4E1D004798EF /* Assets.xcassets */; };
@@ -27,6 +25,9 @@
 		F97CE6A822DFE319004798EF /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6A722DFE319004798EF /* Restaurant.m */; };
 		F97CE6AB22E0EA24004798EF /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6AA22E0EA24004798EF /* LocationViewController.m */; };
 		F97CE6AD22E0ECD7004798EF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */; };
+		F9E1F5F922E11EDB00458F0C /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
+		F9E1F5FA22E11EE200458F0C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE68F22DF8D65004798EF /* HomeViewController.m */; };
+		F9F13D7A22E12374001D1DB2 /* RecommendationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F13D7922E12374001D1DB2 /* RecommendationsViewController.m */; };
 		F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA022DF99A900032267 /* ReviewViewController.m */; };
 		F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA322DF99C000032267 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,8 @@
 		F97CE6A922E0EA24004798EF /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		F97CE6AA22E0EA24004798EF /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F9F13D7822E12374001D1DB2 /* RecommendationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendationsViewController.h; sourceTree = "<group>"; };
+		F9F13D7922E12374001D1DB2 /* RecommendationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendationsViewController.m; sourceTree = "<group>"; };
 		F9F33F9F22DF99A900032267 /* ReviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		F9F33FA022DF99A900032267 /* ReviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		F9F33FA222DF99C000032267 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 				F9F33FA322DF99C000032267 /* ProfileViewController.m */,
 				F97CE6A922E0EA24004798EF /* LocationViewController.h */,
 				F97CE6AA22E0EA24004798EF /* LocationViewController.m */,
+				F9F13D7822E12374001D1DB2 /* RecommendationsViewController.h */,
+				F9F13D7922E12374001D1DB2 /* RecommendationsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -470,11 +475,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8610AE4122E1014500957D7C /* HomeViewController.m in Sources */,
-				8610AE4022E1013C00957D7C /* Routes.m in Sources */,
+				F9E1F5FA22E11EE200458F0C /* HomeViewController.m in Sources */,
+				F9E1F5F922E11EDB00458F0C /* Routes.m in Sources */,
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,
 				F97CE69922DFA766004798EF /* Food.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
+				F9F13D7A22E12374001D1DB2 /* RecommendationsViewController.m in Sources */,
 				F97CE6A822DFE319004798EF /* Restaurant.m in Sources */,
 				F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */,
 				F97CE6AB22E0EA24004798EF /* LocationViewController.m in Sources */,
@@ -655,7 +661,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4XDFC548L2;
+				DEVELOPMENT_TEAM = 4N468U4NDV;
 				INFOPLIST_FILE = Decider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -673,7 +679,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4XDFC548L2;
+				DEVELOPMENT_TEAM = 4N468U4NDV;
 				INFOPLIST_FILE = Decider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -730,7 +736,7 @@
 			baseConfigurationReference = B7CEF4CD609400ECC2E4E5C2 /* Pods-DeciderUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4XDFC548L2;
+				DEVELOPMENT_TEAM = 4N468U4NDV;
 				INFOPLIST_FILE = DeciderUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -749,7 +755,7 @@
 			baseConfigurationReference = 59164B7944757DB341C464BC /* Pods-DeciderUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4XDFC548L2;
+				DEVELOPMENT_TEAM = 4N468U4NDV;
 				INFOPLIST_FILE = DeciderUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

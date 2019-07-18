@@ -88,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFh-Bw-T2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2639.1999999999998" y="1711.3943028485758"/>
+            <point key="canvasLocation" x="-3316" y="1710"/>
         </scene>
         <!--Decider-->
         <scene sceneID="qqV-mx-f7P">
@@ -118,15 +118,18 @@
                                 <state key="normal" title="Decide">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="geG-II-48k" kind="presentation" id="Tlz-nr-QnI"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uer-pK-h6b">
                                 <rect key="frame" x="16" y="128" width="168" height="81"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO5-Jw-Rqc">
-                                <rect key="frame" x="246" y="153" width="59" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO5-Jw-Rqc">
+                                <rect key="frame" x="291" y="143" width="53" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Location"/>
+                                <state key="normal" image="Icon-App-76x76"/>
                                 <connections>
                                     <segue destination="0QS-LQ-d2X" kind="presentation" id="DxH-1L-YUW"/>
                                 </connections>
@@ -138,6 +141,7 @@
                     <navigationItem key="navigationItem" title="Decider" id="Nu8-PI-WBb"/>
                     <connections>
                         <outlet property="categoryPicker" destination="uer-pK-h6b" id="1S5-4C-9Ub"/>
+                        <outlet property="decideButton" destination="wKJ-LA-PDG" id="Me0-qz-HKu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ru-8q-ruF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -248,7 +252,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ee8-0f-w1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1898" y="1711"/>
+            <point key="canvasLocation" x="-2542" y="1710"/>
+        </scene>
+        <!--Recommendations View Controller-->
+        <scene sceneID="BcO-IO-PVc">
+            <objects>
+                <viewController id="geG-II-48k" customClass="RecommendationsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mWt-ZL-7dr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K16-8P-tR6">
+                                <rect key="frame" x="16" y="617" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1499640052" green="0.52206242489999999" blue="0.1205621518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOk:" destination="geG-II-48k" eventType="touchUpInside" id="rRv-IU-qEW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="2w2-v6-hSf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Udm-Ms-by4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1282.4000000000001" y="1709.5952023988007"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="CjX-qx-GuH">
@@ -287,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwY-1e-JfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1898" y="2430"/>
+            <point key="canvasLocation" x="-2543" y="2479"/>
         </scene>
         <!--Decider-->
         <scene sceneID="Ofg-FY-jPg">
@@ -356,4 +388,7 @@
             <point key="canvasLocation" x="-146" y="204"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-App-76x76" width="76" height="76"/>
+    </resources>
 </document>

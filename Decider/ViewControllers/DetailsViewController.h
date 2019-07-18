@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailsViewController : UIViewController
 
-//@property (strong, nonatomic) NSString *URL;
+@property (strong, nonatomic) UIImage *picture;
 
 @end
 

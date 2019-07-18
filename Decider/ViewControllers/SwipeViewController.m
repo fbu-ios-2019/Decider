@@ -240,16 +240,15 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     NSLog(@"Success");
 }
 
-/*
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if([segue.identifier isEqualToString:@"detailSegue"]) {
          DetailsViewController *detailsViewController = [segue destinationViewController];
-         //detailsViewController.image = self.frontCardView.food.image;
+         detailsViewController.picture = self.frontCardView.food.image;
      }
  }
-*/
 
 @end

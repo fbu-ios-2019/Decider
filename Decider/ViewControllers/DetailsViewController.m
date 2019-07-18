@@ -10,7 +10,7 @@
 
 @interface DetailsViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *imageURL;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.imageURL.text = self.URL;
+    self.imageView.image = self.picture;
 }
 
 - (IBAction)didTapCancel:(id)sender {

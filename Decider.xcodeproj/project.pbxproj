@@ -25,6 +25,8 @@
 		F97CE69F22DFAA7B004798EF /* ChooseFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69E22DFAA7B004798EF /* ChooseFoodView.m */; };
 		F97CE6A222DFACA0004798EF /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6A122DFACA0004798EF /* ImageView.m */; };
 		F97CE6A822DFE319004798EF /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6A722DFE319004798EF /* Restaurant.m */; };
+		F97CE6AB22E0EA24004798EF /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6AA22E0EA24004798EF /* LocationViewController.m */; };
+		F97CE6AD22E0ECD7004798EF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */; };
 		F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA022DF99A900032267 /* ReviewViewController.m */; };
 		F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA322DF99C000032267 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
@@ -86,6 +88,9 @@
 		F97CE6A122DFACA0004798EF /* ImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
 		F97CE6A622DFE319004798EF /* Restaurant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
 		F97CE6A722DFE319004798EF /* Restaurant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		F97CE6A922E0EA24004798EF /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		F97CE6AA22E0EA24004798EF /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F9F33F9F22DF99A900032267 /* ReviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		F9F33FA022DF99A900032267 /* ReviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		F9F33FA222DF99C000032267 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -97,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F97CE6AD22E0ECD7004798EF /* CoreLocation.framework in Frameworks */,
 				0866223C6D672E9D88488C51 /* Pods_Decider.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +142,7 @@
 		DBFA312BA15C52B8D7C4CA16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */,
 				773AAEA063EAACACD758A0D6 /* Pods_Decider.framework */,
 				26ACCCA742D4B0F9B59BCA34 /* Pods_DeciderTests.framework */,
 				EC1782806DD0C9AAF03DA272 /* Pods_DeciderUITests.framework */,
@@ -226,6 +233,8 @@
 				F9F33FA022DF99A900032267 /* ReviewViewController.m */,
 				F9F33FA222DF99C000032267 /* ProfileViewController.h */,
 				F9F33FA322DF99C000032267 /* ProfileViewController.m */,
+				F97CE6A922E0EA24004798EF /* LocationViewController.h */,
+				F97CE6AA22E0EA24004798EF /* LocationViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -468,6 +477,8 @@
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
 				F97CE6A822DFE319004798EF /* Restaurant.m in Sources */,
 				F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */,
+				F97CE69022DF8D65004798EF /* HomeViewController.m in Sources */,
+				F97CE6AB22E0EA24004798EF /* LocationViewController.m in Sources */,
 				F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */,
 				F97CE6A222DFACA0004798EF /* ImageView.m in Sources */,
 				F97CE69F22DFAA7B004798EF /* ChooseFoodView.m in Sources */,

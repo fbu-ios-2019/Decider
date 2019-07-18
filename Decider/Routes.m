@@ -11,7 +11,8 @@
 @implementation Routes
 
 + (void) fetchRestaurantsOfType: (NSString *)category nearLocation: (NSString *)location {
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", @"http://localhost:1337/restaurants", category,location];
+    NSString *baseURl = @"https://decider-backend.herokuapp.com/restaurants";
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", baseURl, category,location];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];

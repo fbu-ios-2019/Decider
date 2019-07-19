@@ -7,6 +7,8 @@
 //
 
 #import "RecommendationsViewController.h"
+#import "AppDelegate.h"
+#import "HomeViewController.h"
 
 @interface RecommendationsViewController ()
 
@@ -21,7 +23,11 @@
 
 - (IBAction)didTapOk:(UIButton *)sender {
     
-    [self dismissViewControllerAnimated:YES completion: nil];
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    appDelegate.window.rootViewController = homeViewController;
+    
 }
 
 

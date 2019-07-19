@@ -26,4 +26,22 @@
     [task resume];
     return task;
 }
+
++ (NSURLSessionDataTask *) fetchCategories: (void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
+        NSString *urlString = @"https://decider-backend.herokuapp.com/categories";
+    
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            
+            if (completionHandler) {
+                completionHandler(data, response, error);
+            }
+            
+        }];
+        [task resume];
+        return task;
+    
+}
 @end

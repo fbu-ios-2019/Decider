@@ -54,9 +54,27 @@
         NSLog(@"There was a network error");
     }
     
-    // Categories
-    self.categories = [NSMutableArray arrayWithObjects:@"African", @"American", @"Barbeque", @"Brazilian", @"Breakfast & Brunch", @"Buffets", @"Coffee shops", @"Caribean", @"Chinese", @"Fast food", @"French", @"German", @"Indian", @"Italian", @"Japanese", @"Korean", @"Mediterranean", @"Mexican", @"Pizza", @"Salad", @"Sandwiches", @"Seafood", @"Thai", @"Vegan", @"Vegetarian", @"Vietnamese", nil];
-//    NSString *category = @"African";
+    NSURLSessionDataTask *categoryTask = [Routes fetchCategories:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
+        if (error != nil) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        else {
+            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            NSLog(@"%@", results);
+            self.categories = [results objectForKey:@"results"];
+            NSLog(@"%@", self.categories);
+        }
+        
+    }];
+    if (!categoryTask) {
+        NSLog(@"There was a network error");
+    }
+    
+    
+//    // Categories
+//    self.categories = [NSMutableArray arrayWithObjects:@"African", @"American", @"Barbeque", @"Brazilian", @"Breakfast & Brunch", @"Buffets", @"Coffee shops", @"Caribean", @"Chinese", @"Fast food", @"French", @"German", @"Indian", @"Italian", @"Japanese", @"Korean", @"Mediterranean", @"Mexican", @"Pizza", @"Salad", @"Sandwiches", @"Seafood", @"Thai", @"Vegan", @"Vegetarian", @"Vietnamese", nil];
+////    NSString *category = @"African";
 //    [self.categories addObject:category];
     
 }
@@ -85,7 +103,8 @@
 // Protocol method that returns the number of rows
 - (NSInteger)pickerView:(nonnull UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     // Hard coded number of categories we want to display
-    return self.categories.count;
+//    return self.categories.count;
+    return 20;
 }
 
 

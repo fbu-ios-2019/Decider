@@ -12,4 +12,6 @@
 
 + (NSURLSessionDataTask *) fetchRestaurantsOfType: (NSString *)category nearLocation: (NSString *)location offset: (int)offset count: (int)count  completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
 
++ (NSURLSessionDataTask *) fetchCategories: (void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
+
 @end

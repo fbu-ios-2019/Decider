@@ -10,8 +10,6 @@
 //#import "ImageLabelView.h"
 #import "Food.h"
 
-static const CGFloat ChoosePersonViewImageLabelWidth = 42.f;
-
 @interface ChooseFoodView ()
 //@property (nonatomic, strong) UIView *informationView;
 //@property (nonatomic, strong) UILabel *nameLabel;

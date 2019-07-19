@@ -13,7 +13,7 @@
 #import "DetailsViewController.h"
 
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
-static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
+static const CGFloat ChooseFoodButtonVerticalPadding = -25.f;
 
 @interface SwipeViewController ()
 
@@ -113,24 +113,16 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     // It would be trivial to download these from a web service
     // as needed, but for the purposes of this sample app we'll
     // simply store them in memory.
-    
-    NSString *url1 = @"https://s3-media3.fl.yelpcdn.com/bphoto/G7b8-1rbuLrs7hzX2RzEqw/o.jpg";
-    NSString *url2 = @"https://s3-media2.fl.yelpcdn.com/bphoto/uO-DrIADh57o7hvSyCpyRA/o.jpg";
-    NSString *url3 = @"https://s3-media3.fl.yelpcdn.com/bphoto/N9-PpWiM4h2-yvIVNy2nZw/o.jpg";
-    NSString *url4 = @"https://s3-media1.fl.yelpcdn.com/bphoto/C1N5XrTUnYyyulks-0ksmA/o.jpg";
-    
-    UIImage *image1 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url1]]];
-    UIImage *image2 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url2]]];
-    UIImage *image3 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url3]]];
-    UIImage *image4 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url4]]];
-    
-    return @[
-        [[Food alloc] image:image1],
-        [[Food alloc] image:image2],
-        [[Food alloc] image:image3],
-        [[Food alloc] image:image4],
-        ];
-    
+
+    NSMutableArray *foods = [[NSMutableArray alloc] init];
+    for(int i = 0; i < [self.restaurants count]; i++) {
+        NSDictionary *photoDictionary = [self.restaurants objectAtIndex:i];
+        NSString *url = [photoDictionary valueForKey:@"imageUrl"];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
+        NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
+        [foods addObject:[[Food alloc] image:image yelpid:yelpid]];
+    }
+    return foods;
 }
 
 - (ChooseFoodView *)popFoodViewWithFrame:(CGRect)frame {
@@ -193,7 +185,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 // Create and add the "nope" button.
 - (void)constructNopeButton {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage *image = [UIImage imageNamed:@"nope"];
+    UIImage *image = [UIImage imageNamed:@"skip"];
     button.frame = CGRectMake(ChooseFoodButtonHorizontalPadding,
                               CGRectGetMaxY(self.frontCardView.frame) + ChooseFoodButtonVerticalPadding,
                               image.size.width,
@@ -212,7 +204,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 // Create and add the "like" button.
 - (void)constructLikedButton {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage *image = [UIImage imageNamed:@"liked"];
+    UIImage *image = [UIImage imageNamed:@"like"];
     button.frame = CGRectMake(CGRectGetMaxX(self.view.frame) - image.size.width - ChooseFoodButtonHorizontalPadding,
                               CGRectGetMaxY(self.frontCardView.frame) + ChooseFoodButtonVerticalPadding,
                               image.size.width,

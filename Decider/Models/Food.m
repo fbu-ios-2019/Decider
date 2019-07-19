@@ -24,10 +24,12 @@
 //    return self;
 //}
 
-- (instancetype) image:(UIImage *)image {
+- (instancetype)image:(UIImage *)image
+               yelpid:(NSString *)yelpid; {
     Food *obj = [[Food alloc] init];
     if (obj) {
         obj.image = image;
+        obj.yelpid = yelpid;
     }
     return obj;
 }

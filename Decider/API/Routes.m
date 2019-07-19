@@ -10,9 +10,9 @@
 
 @implementation Routes
 
-+ (NSURLSessionDataTask *) fetchRestaurantsOfType: (NSString *)category nearLocation: (NSString *)location completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
-    NSString *baseURl = @"https://decider-backend.herokuapp.com/restaurants";
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", baseURl, category,location];
++ (NSURLSessionDataTask *) fetchRestaurantsOfType: (NSString *)category nearLocation: (NSString *)location offset: (int)offset count: (int)count  completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
+    NSString *baseURl = @"https://decider-backend.herokuapp.com/photos";
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%i/%i", baseURl, category, location, offset, count];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];

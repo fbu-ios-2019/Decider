@@ -13,12 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Food : NSObject
 
-//@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *yelpid;
 @property (nonatomic, strong) UIImage *image;
 //@property (nonatomic, assign) NSUInteger numberOfPhotos;
 
-- (instancetype)//initWithName:(NSString *)name
-                         image:(UIImage *)image;
+- (instancetype)image:(UIImage *)image
+                   yelpid:(NSString *)yelpid;
+
               //numberOfPhotos:(NSUInteger)numberOfPhotos;
 @end
 

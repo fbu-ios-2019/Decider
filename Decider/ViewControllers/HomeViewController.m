@@ -12,7 +12,7 @@
 
 @interface HomeViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (strong, nonatomic) NSDictionary *restaurants;
+@property (strong, nonatomic) NSArray *restaurants;
 
 // Picker view for category
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
@@ -38,14 +38,14 @@
     self.decideButton.layer.cornerRadius = 6;
     self.swipeButton.layer.cornerRadius = 6;
 
-    NSURLSessionDataTask *task = [Routes fetchRestaurantsOfType:@"mexican" nearLocation:@"Sunnyvale" completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
+    NSURLSessionDataTask *task = [Routes fetchRestaurantsOfType:@"all" nearLocation:@"Sunnyvale" offset:0 count:20 completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
         if (error != nil) {
             NSLog(@"%@", error.localizedDescription);
         }
         else {
-            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            NSArray *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             
-            // NSLog(@"%@", results);
+            NSLog(@"%@", results);
             self.restaurants = results;
         }
         

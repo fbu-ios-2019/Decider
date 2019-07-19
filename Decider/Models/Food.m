@@ -12,18 +12,6 @@
 
 #pragma mark - Object Lifecycle
 
-//- (instancetype)//initWithName:(NSString *)name
-//                         image:(UIImage *)image {
-//              //numberOfPhotos:(NSUInteger)numberOfPhotos {
-//    self = [super init];
-//    if (self) {
-//        //_name = name;
-//        _image = image;
-//        //_numberOfPhotos = numberOfPhotos;
-//    }
-//    return self;
-//}
-
 - (instancetype)image:(UIImage *)image
                yelpid:(NSString *)yelpid; {
     Food *obj = [[Food alloc] init];

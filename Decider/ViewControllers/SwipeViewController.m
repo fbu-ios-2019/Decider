@@ -18,6 +18,10 @@ static const CGFloat ChooseFoodButtonVerticalPadding = -25.f;
 @interface SwipeViewController ()
 
 @property (nonatomic, strong) NSMutableArray *food;
+@property (nonatomic, strong) NSMutableArray *foodLiked;
+@property (nonatomic, strong) NSMutableArray *foodUnliked;
+@property (weak, nonatomic) IBOutlet UILabel *unlikeCount;
+@property (weak, nonatomic) IBOutlet UILabel *likeCount;
 
 @end
 
@@ -39,6 +43,8 @@ static const CGFloat ChooseFoodButtonVerticalPadding = -25.f;
     [super viewDidLoad];
     
     _food = [[self defaultFood] mutableCopy];
+    self.foodLiked = [[NSMutableArray alloc] init];
+    self.foodUnliked = [[NSMutableArray alloc] init];
 
     // Display the first ChoosePersonView in front. Users can swipe to indicate
     // whether they like or dislike the person displayed.
@@ -74,11 +80,17 @@ static const CGFloat ChooseFoodButtonVerticalPadding = -25.f;
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
     // MDCSwipeToChooseView shows "NOPE" on swipes to the left,
     // and "LIKED" on swipes to the right.
+    
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"You unliked");
+        [self.foodUnliked addObject:self.currentFood];
     } else {
         NSLog(@"You liked");
+        [self.foodLiked addObject:self.currentFood];
     }
+    
+    self.unlikeCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.foodUnliked count]];
+    self.likeCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.foodLiked count]];
     
     // MDCSwipeToChooseView removes the view from the view hierarchy
     // after it is swiped (this behavior can be customized via the
@@ -145,11 +157,12 @@ static const CGFloat ChooseFoodButtonVerticalPadding = -25.f;
                                              CGRectGetHeight(frame));
     };
     
-    // Create a personView with the top person in the people array, then pop
-    // that person off the stack.
+    // Create a foodView with the top food in the food array, then pop
+    // that food off the stack.
     ChooseFoodView *foodView = [[ChooseFoodView alloc] initWithFrame:frame
                                                                     food:self.food[0]
                                                                    options:options];
+    //self.currentFood = [self.food objectAtIndex:0];
     [self.food removeObjectAtIndex:0];
     return foodView;
 }

@@ -22,6 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *decideButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *swipeButton;
 
 
 @end
@@ -35,6 +36,7 @@
     self.categoryPicker.dataSource = self;
     
     self.decideButton.layer.cornerRadius = 6;
+    self.swipeButton.layer.cornerRadius = 6;
 
     NSURLSessionDataTask *task = [Routes fetchRestaurantsOfType:@"mexican" nearLocation:@"Sunnyvale" completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
         if (error != nil) {

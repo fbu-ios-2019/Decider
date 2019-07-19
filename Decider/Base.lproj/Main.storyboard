@@ -107,7 +107,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tpf-5r-5wA" kind="presentation" identifier="swipeSegue" id="yVo-YJ-xPV"/>
+                                    <segue destination="tpf-5r-5wA" kind="show" id="cZm-Rh-cxs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKJ-LA-PDG">
@@ -142,6 +142,7 @@
                     <connections>
                         <outlet property="categoryPicker" destination="uer-pK-h6b" id="1S5-4C-9Ub"/>
                         <outlet property="decideButton" destination="wKJ-LA-PDG" id="Me0-qz-HKu"/>
+                        <outlet property="swipeButton" destination="9oA-jL-ELn" id="gga-5Q-W9q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ru-8q-ruF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -225,7 +226,7 @@
             <objects>
                 <viewController id="tpf-5r-5wA" customClass="SwipeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AwE-bC-Ti9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZ1-AZ-eNS">
@@ -290,7 +291,7 @@
             <objects>
                 <viewController id="XeU-f6-TMk" customClass="DetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UM8-MS-dJw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hnq-Zg-oGm">

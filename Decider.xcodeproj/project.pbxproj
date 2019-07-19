@@ -25,6 +25,8 @@
 		F97CE6A822DFE319004798EF /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6A722DFE319004798EF /* Restaurant.m */; };
 		F97CE6AB22E0EA24004798EF /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6AA22E0EA24004798EF /* LocationViewController.m */; };
 		F97CE6AD22E0ECD7004798EF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */; };
+		F988724B22E279FF00F85972 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F988724A22E279FF00F85972 /* PhotoCell.m */; };
+		F988724E22E27A7000F85972 /* PhotoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F988724D22E27A7000F85972 /* PhotoCollectionCell.m */; };
 		F9E1F5F922E11EDB00458F0C /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
 		F9E1F5FA22E11EE200458F0C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE68F22DF8D65004798EF /* HomeViewController.m */; };
 		F9F13D7A22E12374001D1DB2 /* RecommendationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F13D7922E12374001D1DB2 /* RecommendationsViewController.m */; };
@@ -92,6 +94,10 @@
 		F97CE6A922E0EA24004798EF /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		F97CE6AA22E0EA24004798EF /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F988724922E279FF00F85972 /* PhotoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
+		F988724A22E279FF00F85972 /* PhotoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
+		F988724C22E27A7000F85972 /* PhotoCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionCell.h; sourceTree = "<group>"; };
+		F988724D22E27A7000F85972 /* PhotoCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionCell.m; sourceTree = "<group>"; };
 		F9F13D7822E12374001D1DB2 /* RecommendationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendationsViewController.h; sourceTree = "<group>"; };
 		F9F13D7922E12374001D1DB2 /* RecommendationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendationsViewController.m; sourceTree = "<group>"; };
 		F9F33F9F22DF99A900032267 /* ReviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
@@ -218,6 +224,10 @@
 				F97CE69E22DFAA7B004798EF /* ChooseFoodView.m */,
 				F97CE6A022DFACA0004798EF /* ImageView.h */,
 				F97CE6A122DFACA0004798EF /* ImageView.m */,
+				F988724922E279FF00F85972 /* PhotoCell.h */,
+				F988724A22E279FF00F85972 /* PhotoCell.m */,
+				F988724C22E27A7000F85972 /* PhotoCollectionCell.h */,
+				F988724D22E27A7000F85972 /* PhotoCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -489,6 +499,8 @@
 				F97CE69922DFA766004798EF /* Food.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
 				F9F13D7A22E12374001D1DB2 /* RecommendationsViewController.m in Sources */,
+				F988724E22E27A7000F85972 /* PhotoCollectionCell.m in Sources */,
+				F988724B22E279FF00F85972 /* PhotoCell.m in Sources */,
 				F97CE6A822DFE319004798EF /* Restaurant.m in Sources */,
 				F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */,
 				F97CE6AB22E0EA24004798EF /* LocationViewController.m in Sources */,

@@ -7,10 +7,14 @@
 //
 
 #import "DetailsViewController.h"
+#import "PhotoCell.h"
+#import "PhotoCollectionCell.h"
 
-@interface DetailsViewController ()
+@interface DetailsViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *food;
 
 @end
 
@@ -18,11 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.imageView.image = self.picture;
-}
-
-- (IBAction)didTapCancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //self.imageView.image = self.picture;
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
 }
 
 /*
@@ -34,5 +37,23 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    PhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhotoCell"];
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
+}
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    PhotoCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCollectionCell" forIndexPath:indexPath];
+    return cell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.food.count;
+}
 
 @end

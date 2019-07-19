@@ -42,7 +42,7 @@
         else {
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             
-            NSLog(@"%@", results);
+            // NSLog(@"%@", results);
             self.restaurants = results;
         }
         

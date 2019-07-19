@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *decideButton;
 
 
+
 @end
 
 @implementation HomeViewController
@@ -57,6 +58,8 @@
 //    [self.categories addObject:category];
     
 }
+
+
 
 #pragma mark - Navigation
 

@@ -113,7 +113,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKJ-LA-PDG">
                                 <rect key="frame" x="16" y="578" width="343" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1499640052" green="0.52206242489999999" blue="0.1205621518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.4549019608" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Decide">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,10 +152,12 @@
         <scene sceneID="xLR-1R-dkc">
             <objects>
                 <tabBarController id="WCo-gS-Gag" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5t6-So-j8B">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" shadowImage="0" id="5t6-So-j8B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.93333333330000001" green="0.4549019608" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="Qhu-Jw-fyh" kind="relationship" relationship="viewControllers" id="fTk-AG-tmt"/>
@@ -321,16 +323,18 @@
             </objects>
             <point key="canvasLocation" x="-1898" y="2460"/>
         </scene>
-        <!--Decider-->
+        <!--Navigation Controller-->
         <scene sceneID="Ofg-FY-jPg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qhu-Jw-fyh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Decider" id="VTr-YA-Qd4"/>
+                    <tabBarItem key="tabBarItem" title="" image="decide_icon-29x29" selectedImage="selected_decide_icon-29x29" id="VTr-YA-Qd4">
+                        <color key="badgeColor" red="0.93333333330000001" green="0.4549019608" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="2Fl-a9-dDC">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Fl-a9-dDC">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1499640052" green="0.52206242489999999" blue="0.1205621518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.25098425149917603" green="0.2509734034538269" blue="0.25098079442977905" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
@@ -349,11 +353,11 @@
             </objects>
             <point key="canvasLocation" x="-1898" y="204"/>
         </scene>
-        <!--Review-->
+        <!--Navigation Controller-->
         <scene sceneID="YXn-ST-Eyg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="boq-yB-zzm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Review" id="POV-iN-lXg"/>
+                    <tabBarItem key="tabBarItem" title="" image="review_icon-29x29" largeContentSizeImage="review_icon-29x29" id="POV-iN-lXg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="844-Vs-TH8">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -368,11 +372,11 @@
             </objects>
             <point key="canvasLocation" x="-1034" y="204"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="vQ3-Io-h3B">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qsy-iz-zFw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="gb4-iP-4jO"/>
+                    <tabBarItem key="tabBarItem" title="" image="profile_icon-29x29" id="gb4-iP-4jO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QKr-X9-IwT">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -389,6 +393,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="0" width="16" height="16"/>
         <image name="Icon-App-76x76" width="76" height="76"/>
+        <image name="decide_icon-29x29" width="29" height="29"/>
+        <image name="profile_icon-29x29" width="29" height="29"/>
+        <image name="review_icon-29x29" width="29" height="29"/>
+        <image name="selected_decide_icon-29x29" width="29" height="29"/>
     </resources>
+    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

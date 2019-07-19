@@ -113,12 +113,24 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     // It would be trivial to download these from a web service
     // as needed, but for the purposes of this sample app we'll
     // simply store them in memory.
+    
+    NSString *url1 = @"https://s3-media3.fl.yelpcdn.com/bphoto/G7b8-1rbuLrs7hzX2RzEqw/o.jpg";
+    NSString *url2 = @"https://s3-media2.fl.yelpcdn.com/bphoto/uO-DrIADh57o7hvSyCpyRA/o.jpg";
+    NSString *url3 = @"https://s3-media3.fl.yelpcdn.com/bphoto/N9-PpWiM4h2-yvIVNy2nZw/o.jpg";
+    NSString *url4 = @"https://s3-media1.fl.yelpcdn.com/bphoto/C1N5XrTUnYyyulks-0ksmA/o.jpg";
+    
+    UIImage *image1 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url1]]];
+    UIImage *image2 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url2]]];
+    UIImage *image3 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url3]]];
+    UIImage *image4 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url4]]];
+    
     return @[
-        [[Food alloc] image:[UIImage imageNamed:@"photo1"]],
-        [[Food alloc] image:[UIImage imageNamed:@"photo2"]],
-        [[Food alloc] image:[UIImage imageNamed:@"photo3"]],
-        [[Food alloc] image:[UIImage imageNamed:@"photo4"]],
+        [[Food alloc] image:image1],
+        [[Food alloc] image:image2],
+        [[Food alloc] image:image3],
+        [[Food alloc] image:image4],
         ];
+    
 }
 
 - (ChooseFoodView *)popFoodViewWithFrame:(CGRect)frame {

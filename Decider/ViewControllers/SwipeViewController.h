@@ -11,8 +11,9 @@
 
 @interface SwipeViewController : UIViewController <MDCSwipeToChooseDelegate>
 
-@property (nonatomic, strong) Food *currentFood;
-@property (nonatomic, strong) ChooseFoodView *frontCardView;
-@property (nonatomic, strong) ChooseFoodView *backCardView;
+@property (strong, nonatomic) Food *currentFood;
+@property (strong, nonatomic) ChooseFoodView *frontCardView;
+@property (strong, nonatomic) ChooseFoodView *backCardView;
+@property (strong, nonatomic) NSDictionary *restaurants;
 
 @end

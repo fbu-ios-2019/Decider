@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "Routes.h"
+#import "SwipeViewController.h"
 
 @interface HomeViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
@@ -57,15 +58,16 @@
     
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"swipeSegue"]) {
+        SwipeViewController *swipeViewController = [segue destinationViewController];
+        swipeViewController.restaurants = self.restaurants;
+    }
 }
-*/
+
 
 
 // Protocol method that returns the number of columns (per row)

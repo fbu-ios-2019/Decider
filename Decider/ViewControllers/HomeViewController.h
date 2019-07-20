@@ -10,6 +10,4 @@
 
 @interface HomeViewController : UIViewController
 
-@property (strong, nonatomic) NSString *category;
-
 @end

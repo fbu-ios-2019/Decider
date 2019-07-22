@@ -312,9 +312,27 @@
                                     <action selector="getCurrentLocation:" destination="U9p-D9-POk" eventType="touchUpInside" id="oYW-c8-g3H"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ge2-V9-SM7">
+                                <rect key="frame" x="36" y="244" width="265" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueH-I8-GNN">
+                                <rect key="frame" x="36" y="244" width="265" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didTapDropdown:" destination="U9p-D9-POk" eventType="touchUpInside" id="FXZ-0A-AP6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Zjv-Iy-0Zu"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="a0L-Fk-J9a" appends="YES" id="7N6-wl-rx4"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4Xf-iT-wAs">
@@ -327,11 +345,17 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoryPicker" destination="TqN-7K-2zc" id="kgs-P2-5PE"/>
+                        <outlet property="categoryTextField" destination="ge2-V9-SM7" id="XG4-2f-wfq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFl-XP-oQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="a0L-Fk-J9a">
+                    <connections>
+                        <action selector="didTapScreen:" destination="U9p-D9-POk" id="KEt-JW-pJN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-94" y="1710"/>
+            <point key="canvasLocation" x="-95.200000000000003" y="1709.5952023988007"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="CjX-qx-GuH">

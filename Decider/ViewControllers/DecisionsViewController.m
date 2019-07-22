@@ -88,6 +88,10 @@
     self.categoryPicker.hidden = YES;
 }
 
+- (IBAction)didTapCancel:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 #pragma mark - Navigation
 

@@ -10,7 +10,7 @@
 
 @implementation Routes
 
-+ (NSURLSessionDataTask *) fetchRestaurantsOfType: (NSString *)category nearLocation: (NSString *)location offset: (int)offset count: (int)count  completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
++ (NSURLSessionDataTask *)fetchRestaurantsOfType:(NSString *)category nearLocation:(NSString *)location offset:(int)offset count:(int)count  completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
     NSString *baseURl = @"https://decider-backend.herokuapp.com/photos";
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%i/%i", baseURl, category, location, offset, count];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -27,7 +27,7 @@
     return task;
 }
 
-+ (NSURLSessionDataTask *) fetchCategories: (void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
++ (NSURLSessionDataTask *)fetchCategories:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
         NSString *urlString = @"https://decider-backend.herokuapp.com/categories";
     
         NSURL *url = [NSURL URLWithString:urlString];

@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DecisionsViewController : UIViewController
+@interface DecisionsViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) NSString *category;
+@property (strong, nonatomic) NSString *address;
 
 @end
 

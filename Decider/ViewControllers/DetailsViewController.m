@@ -7,14 +7,20 @@
 //
 
 #import "DetailsViewController.h"
-#import "PhotoCell.h"
 #import "PhotoCollectionCell.h"
 
-@interface DetailsViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface DetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *food;
+@property (weak, nonatomic) IBOutlet UIImageView *coverView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *reviewCount;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+//test array
+@property (strong, nonatomic) NSArray *photos;
 
 @end
 
@@ -22,10 +28,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.imageView.image = self.picture;
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
+
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
     
+    NSMutableArray *pictures = [[NSMutableArray alloc] init];
+    [pictures addObject:[UIImage imageNamed:@"photo1"]];
+    [pictures addObject:[UIImage imageNamed:@"photo2"]];
+    [pictures addObject:[UIImage imageNamed:@"photo3"]];
+    [pictures addObject:[UIImage imageNamed:@"photo4"]];
+    self.photos = pictures;
+    
+    self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
 }
 
 /*
@@ -38,22 +52,17 @@
 }
 */
 
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    PhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhotoCell"];
-    return cell;
-}
-
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-}
-
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PhotoCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCollectionCell" forIndexPath:indexPath];
+    //cell.imageView.image = [UIImage imageNamed:@"photo1"];
+    NSInteger *num = indexPath.row;
+    cell.imageView.image = [self.photos objectAtIndex:num];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.food.count;
+    return 4;
+    //return self.food.count;
 }
 
 @end

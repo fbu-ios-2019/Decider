@@ -13,7 +13,7 @@
 #import "DetailsViewController.h"
 
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
-static const CGFloat ChooseFoodButtonVerticalPadding = -25.f;
+static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 
 @interface SwipeViewController ()
 
@@ -179,7 +179,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = -25.f;
 
 - (CGRect)frontCardViewFrame {
     CGFloat horizontalPadding = 20.f;
-    CGFloat topPadding = 60.f;
+    CGFloat topPadding = 110.f;
     CGFloat bottomPadding = 200.f;
     return CGRectMake(horizontalPadding,
                       topPadding,

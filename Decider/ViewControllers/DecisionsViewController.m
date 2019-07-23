@@ -186,61 +186,42 @@
 
 // Category functions start
 
-//
-//- (IBAction)didTapDropdown:(id)sender {
-//    self.categoryPicker.hidden = NO;
-//}
+- (NSInteger)dropdownMenu:(nonnull MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component {
+    return 20;
+}
 
+- (NSInteger)numberOfComponentsInDropdownMenu:(nonnull MKDropdownMenu *)dropdownMenu {
+    return 1;
+}
 
-// Protocol method that returns the number of columns (per row)
-//- (NSInteger)numberOfComponentsInPickerView:(nonnull UIPickerView *)pickerView {
-//    // Hard coded number of categories we want to display
-//    return 1;
-//}
-//
-//
-//// Protocol method that returns the number of rows
-//- (NSInteger)pickerView:(nonnull UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-//     // return self.categories.count;
-//    return 20;
-//}
-//
-//
-//// Protocol mehtod that returns the data to display for the row and column that's being passed
-//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-//    return self.categories[row];
-//}
-//
-//
-//// Protocol method to save the user's selection
-//- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-//    self.category = self.categories[row];
-//    NSLog(@"User selected %@", self.categories[row]);
-//    
-//    self.categoryTextField.text = self.categories[row];
-//    
-//}
+- (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForComponent:(NSInteger)component {
+    self.selectedCategoryLabel.text = @"Category";
+    return @"";
+    
+}
+
+- (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return self.categories[row];
+}
+
+- (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    self.selectedCategoryLabel.text = self.categories[row];
+    self.category = self.categories[row];
+    [dropdownMenu closeAllComponentsAnimated:YES];
+}
+
 // Category functions end
 
 
 // Location functions start
 
-- (IBAction)didTapChangeLocation:(UIButton *)sender {
-    self.locationsTableView.hidden = NO;
-    self.selectedLocationButton.hidden = YES;
-}
-
-//- (IBAction)getCurrentLocation:(id)sender {
-//    [self.locationManager requestAlwaysAuthorization];
-//    if ([CLLocationManager locationServicesEnabled]) {
-//        self.locationManager.delegate = self;
-//        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-//        [self.locationManager startUpdatingLocation];
-//    } else {
-//        NSLog(@"Location services are not enabled");
-//    }
+//- (IBAction)didTapChangeLocation:(UIButton *)sender {
+//    self.locationsTableView.hidden = NO;
+//    self.selectedLocationButton.hidden = YES;
 //}
 
+
+// Function that gets current location
 - (void)getCurrentLocation {
     [self.locationManager requestAlwaysAuthorization];
     if ([CLLocationManager locationServicesEnabled]) {
@@ -252,11 +233,13 @@
     }
 }
 
+
 // Function that handles the selected location using a tap gesture to change the value of the label
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
     self.selectedLocationLabel.hidden = YES;
     self.locationsTableView.hidden = NO;
 }
+
 
 #pragma mark - CLLocationManagerDelegate
 
@@ -345,6 +328,7 @@
     self.selectedLocationLabel.hidden = NO;
 }
 
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     self.locationsTableView.hidden = NO;
     if (searchText.length != 0) {
@@ -364,6 +348,7 @@
     
 }
 
+
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     self.locationsSearchBar.showsCancelButton = YES;
 }
@@ -375,32 +360,10 @@
     self.locationsSearchBar.text = @"";
     [self.locationsSearchBar resignFirstResponder];
 }
+
     // Search bar functions end
+
 // Location functions end
 
-- (NSInteger)dropdownMenu:(nonnull MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component {
-    return 20;
-    // return self.categories.count;
-}
-
-- (NSInteger)numberOfComponentsInDropdownMenu:(nonnull MKDropdownMenu *)dropdownMenu {
-    return 1;
-}
-
-- (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForComponent:(NSInteger)component {
-    self.selectedCategoryLabel.text = @"Category";
-    return @"";
-    
-}
-
-- (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return self.categories[row];
-}
-
-- (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.selectedCategoryLabel.text = self.categories[row];
-    self.category = self.categories[row];
-    [dropdownMenu closeAllComponentsAnimated:YES];
-}
 
 @end

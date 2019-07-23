@@ -338,7 +338,9 @@
 }
 
 - (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForComponent:(NSInteger)component {
-    return @"Category";
+    self.selectedCategoryLabel.text = @"Category";
+    return @"";
+    
 }
 
 - (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForRow:(NSInteger)row forComponent:(NSInteger)component {

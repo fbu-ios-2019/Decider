@@ -284,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ee8-0f-w1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1007.2" y="2477.8110944527739"/>
+            <point key="canvasLocation" x="-1898" y="2526"/>
         </scene>
         <!--Recommendations View Controller-->
         <scene sceneID="BcO-IO-PVc">
@@ -378,21 +378,6 @@
                                     <action selector="getCurrentLocation:" destination="U9p-D9-POk" eventType="touchUpInside" id="oYW-c8-g3H"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="All" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ge2-V9-SM7">
-                                <rect key="frame" x="6" y="60" width="363" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueH-I8-GNN">
-                                <rect key="frame" x="6" y="55" width="363" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <connections>
-                                    <action selector="didTapDropdown:" destination="U9p-D9-POk" eventType="touchUpInside" id="FXZ-0A-AP6"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxW-Ia-WKj">
                                 <rect key="frame" x="11" y="23" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -413,6 +398,14 @@
                                     <segue destination="tpf-5r-5wA" kind="show" identifier="swipeSegue" id="BH9-IA-q8t"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="All" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uU-JJ-4K7">
+                                <rect key="frame" x="11" y="58" width="353" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -425,14 +418,14 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoryPicker" destination="TqN-7K-2zc" id="kgs-P2-5PE"/>
-                        <outlet property="categoryTextField" destination="ge2-V9-SM7" id="XG4-2f-wfq"/>
                         <outlet property="locationsSearchBar" destination="bxj-03-IuG" id="SFy-IA-j8a"/>
                         <outlet property="locationsTableView" destination="I3b-Mf-2hE" id="Hb6-cK-tC1"/>
+                        <outlet property="selectedCategoryLabel" destination="7uU-JJ-4K7" id="6xq-K9-3vm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFl-XP-oQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-95.200000000000003" y="1709.5952023988007"/>
+            <point key="canvasLocation" x="-1898.4000000000001" y="1739.2803598200901"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="CjX-qx-GuH">
@@ -557,7 +550,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwY-1e-JfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1007.2" y="3248.7256371814096"/>
+            <point key="canvasLocation" x="-1898" y="3298"/>
         </scene>
         <!--Decide-->
         <scene sceneID="Ofg-FY-jPg">

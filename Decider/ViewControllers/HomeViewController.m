@@ -18,7 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *swipeButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
-@property (weak, nonatomic) IBOutlet UILabel *searchButton;
+@property (weak, nonatomic) IBOutlet UILabel *startSwipingLabel;
+
 
 @end
 
@@ -29,8 +30,8 @@
     
     self.decideButton.layer.cornerRadius = 6;
     self.swipeButton.layer.cornerRadius = 6;
-    self.startButton.layer.cornerRadius = 6;
-    self.searchButton.layer.cornerRadius = 6;
+    self.startButton.layer.cornerRadius = 2;
+    self.startSwipingLabel.layer.cornerRadius = 4;
 
 }
 

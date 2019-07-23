@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^DeciderCompletionHandler)(NSData *data, NSURLResponse *response, NSError *error);
+
 @interface Routes : NSObject
 
-+ (NSURLSessionDataTask *)fetchRestaurantsOfType:(NSString *)category   nearLocation:(NSString *)location
-    offset:(int)offset
-    count:(int)count
-    completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
++ (NSURLSessionDataTask *)fetchRestaurantsOfCategory:(NSString *)category
+                                                nearLocation:(NSString *)location
+                                                      offset:(int)offset
+                                                       count:(int)count
+                                           completionHandler:(DeciderCompletionHandler)completionHandler;
 
 + (NSURLSessionDataTask *)fetchCategories:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
 

@@ -22,6 +22,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 @property (nonatomic, strong) NSMutableArray *foodUnliked;
 @property (weak, nonatomic) IBOutlet UILabel *unlikeCount;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
+@property (strong, nonatomic) NSString *yelpid;
 
 @end
 
@@ -73,7 +74,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 
 // This is called when a user didn't fully swipe left or right.
 - (void)viewDidCancelSwipe:(UIView *)view {
-    NSLog(@"You couldn't decide");
+    //NSLog(@"You couldn't decide");
 }
 
 // This is called then a user swipes the view fully left or right.
@@ -82,10 +83,10 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
     // and "LIKED" on swipes to the right.
     
     if (direction == MDCSwipeDirectionLeft) {
-        NSLog(@"You unliked");
+        //NSLog(@"You unliked");
         [self.foodUnliked addObject:self.currentFood];
     } else {
-        NSLog(@"You liked");
+        //NSLog(@"You liked");
         [self.foodLiked addObject:self.currentFood];
     }
     
@@ -254,7 +255,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
     //CGPoint location = [recognizer locationInView:[recognizer.view superview]];
     [self performSegueWithIdentifier:@"detailSegue" sender:self];
-    NSLog(@"Success");
+    //NSLog(@"Success");
 }
 
 
@@ -265,6 +266,12 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
      if([segue.identifier isEqualToString:@"detailSegue"]) {
          DetailsViewController *detailsViewController = [segue destinationViewController];
          detailsViewController.picture = self.frontCardView.food.image;
+         NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+         NSUInteger like = [formatter numberFromString:self.likeCount.text].unsignedIntegerValue;
+         NSUInteger unlike = [formatter numberFromString:self.unlikeCount.text].unsignedIntegerValue;
+         NSUInteger sum = like + unlike;
+         NSDictionary *photoDictionary = [self.restaurants objectAtIndex:sum];
+         detailsViewController.yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
      }
  }
 

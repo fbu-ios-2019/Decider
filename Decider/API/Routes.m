@@ -42,6 +42,24 @@
         }];
         [task resume];
         return task;
+}
+
++ (NSURLSessionDataTask *)fetchRestaurantDetails:(NSString *)yelpid completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
+    NSString *urlString = @"https://decider-backend.herokuapp.com/restaurants/";
+    NSString *fullURLstring = [urlString stringByAppendingString:yelpid];
+    
+    NSURL *url = [NSURL URLWithString:fullURLstring];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (completionHandler) {
+            completionHandler(data, response, error);
+        }
+        
+    }];
+    [task resume];
+    return task;
     
 }
 @end

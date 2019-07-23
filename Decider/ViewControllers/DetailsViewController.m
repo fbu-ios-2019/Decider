@@ -8,6 +8,7 @@
 
 #import "DetailsViewController.h"
 #import "PhotoCollectionCell.h"
+#import "Routes.h"
 
 @interface DetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *reviewCount;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+@property (strong, nonatomic) NSDictionary *details;
 //test array
 @property (strong, nonatomic) NSArray *photos;
 
@@ -40,6 +42,40 @@
     self.photos = pictures;
     
     self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    // Fetch restaurant details from database
+    NSURLSessionDataTask *task = [Routes fetchRestaurantDetails:self.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error != nil) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        else {
+            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            self.details = results;
+            NSLog(@"%@", results);
+            
+            //loading the details page information
+            NSString *URL = [self.details valueForKey:@"coverUrl"];
+            NSURL *url = [NSURL URLWithString:URL];
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            self.coverView.image = [[UIImage alloc] initWithData:data];
+            self.nameLabel.text = [self.details valueForKey:@"name"];
+            
+            long *num = [[self.details valueForKey:@"priceRating"] longValue];
+            NSString *price = @"";
+            for(long i = 0; i < num; i++) {
+                price = [price stringByAppendingString:@"$"];
+            }
+            self.priceLabel.text = price;
+            
+            
+            NSArray *categories = [self.details objectForKey:@"category"];
+            self.categoryLabel.text = [categories componentsJoinedByString:@", "];
+            self.reviewCount.text = [NSString stringWithFormat:@"%@", [self.details valueForKey:@"reviewCount"]];
+        }
+    }];
+    if (!task) {
+        NSLog(@"There was a network error");
+    }
 }
 
 /*

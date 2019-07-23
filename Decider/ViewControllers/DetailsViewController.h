@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DetailsViewController : UIViewController
 
 @property (strong, nonatomic) UIImage *picture;
+@property (strong, nonatomic) NSString *yelpid;
 
 @end
 

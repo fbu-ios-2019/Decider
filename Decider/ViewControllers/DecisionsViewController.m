@@ -254,13 +254,8 @@
 
 // Function that handles the selected location using a tap gesture to change the value of the label
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-    // CGPoint location = [recognizer locationInView:[recognizer.view superview]];
-    // [self performSegueWithIdentifier:@"usersProfileSegue" sender:self];
     self.selectedLocationLabel.hidden = YES;
     self.locationsTableView.hidden = NO;
-    NSLog(@"Success");
-    //Do stuff here...
-    
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -304,10 +299,12 @@
         if(error == nil && [placemarks count] > 0) {
             self.placemark = [placemarks lastObject];
             self.location = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
-                                      self.placemark.subThoroughfare, self.placemark.thoroughfare,
-                                      self.placemark.postalCode, self.placemark.locality,
-                                      self.placemark.administrativeArea,
-                                      self.placemark.country];
+               self.placemark.subThoroughfare,
+               self.placemark.thoroughfare,
+               self.placemark.postalCode,
+               self.placemark.locality,
+               self.placemark.administrativeArea,
+               self.placemark.country];
         }
         else {
             NSLog(@"%@", error.debugDescription);

@@ -8,6 +8,7 @@ target 'Decider' do
   # Pods for Decider
 	pod 'Parse'
 	pod 'MDCSwipeToChoose'
+	pod 'MKDropdownMenu'
 
   target 'DeciderTests' do
     inherit! :search_paths

@@ -10,8 +10,9 @@
 #import "Routes.h"
 #import "SwipeViewController.h"
 #import "CityCell.h"
+#import "MKDropdownMenu.h"
 
-@interface DecisionsViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface DecisionsViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKDropdownMenuDataSource, MKDropdownMenuDelegate>
 
 @property (strong, nonatomic) NSArray *restaurants;
 
@@ -31,6 +32,7 @@
 @property (strong, nonatomic) NSArray *cities;
 @property (strong, nonatomic) NSArray *filteredData;
 @property (weak, nonatomic) IBOutlet UISearchBar *locationsSearchBar;
+@property (weak, nonatomic) IBOutlet UILabel *selectedCategoryLabel;
 
 @end
 
@@ -56,9 +58,6 @@
     // Search bar delegates
     self.locationsSearchBar.delegate = self;
     
-    // Change category text field to what the user selected on the category picker
-    self.categoryTextField.inputView = self.categoryPicker;
-    
     // Hide category picker
     self.categoryPicker.hidden = YES;
     [self.locationsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -69,6 +68,15 @@
     [self fetchCategories];
     [self fetchLocations];
     
+    // Dropdown menu
+    MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(48, 53, 320, 44)];
+    dropdownMenu.dataSource = self;
+    dropdownMenu.delegate = self;
+    [self.view addSubview:dropdownMenu];
+    
+    // Change category text field to what the user selected on the category picker
+    // self.categoryTextField.inputView = picker
+    self.selectedCategoryLabel.text =  self.categories[dropdownMenu.selectedComponent];
 }
 
 
@@ -104,7 +112,6 @@
             // NSLog(@"%@", results);
             self.cities = [results objectForKey:@"results"];
             self.filteredData = self.cities;
-            // NSLog(@"%@", self.categories);
         }
         
     }];
@@ -248,7 +255,7 @@
     [self.geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if(error == nil && [placemarks count] > 0) {
             self.placemark = [placemarks lastObject];
-            self.address = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+            self.location = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
                                       self.placemark.subThoroughfare, self.placemark.thoroughfare,
                                       self.placemark.postalCode, self.placemark.locality,
                                       self.placemark.administrativeArea,
@@ -307,7 +314,8 @@
     
 }
 
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {    self.locationsSearchBar.showsCancelButton = YES;
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.locationsSearchBar.showsCancelButton = YES;
 }
 
 
@@ -319,5 +327,28 @@
 }
     // Search bar functions end
 // Location functions end
+
+- (NSInteger)dropdownMenu:(nonnull MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component {
+    return 20;
+    // return self.categories.count;
+}
+
+- (NSInteger)numberOfComponentsInDropdownMenu:(nonnull MKDropdownMenu *)dropdownMenu {
+    return 1;
+}
+
+- (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForComponent:(NSInteger)component {
+    return @"Category";
+}
+
+- (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return self.categories[row];
+}
+
+- (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    self.selectedCategoryLabel.text = self.categories[row];
+    self.category = self.categories[row];
+    [dropdownMenu closeAllComponentsAnimated:YES];
+}
 
 @end

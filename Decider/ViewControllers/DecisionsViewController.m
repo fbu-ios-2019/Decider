@@ -61,8 +61,39 @@
     
     // Hide category picker
     self.categoryPicker.hidden = YES;
+    [self.locationsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    // self.locationsTableView.hidden = YES;
     
-    // Fetch locations for the locations search bar
+    // Fetch information
+    [self fetchRestaurants];
+    [self fetchCategories];
+    [self fetchLocations];
+    
+}
+
+
+// Function that fetches restaurants from database
+- (void)fetchRestaurants {
+    NSURLSessionDataTask *task = [Routes fetchRestaurantsOfType:@"all" nearLocation:@"Sunnyvale" offset:0 count:20 completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
+        if (error != nil) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        else {
+            NSArray *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            NSLog(@"%@", results);
+            self.restaurants = results;
+        }
+        
+    }];
+    if (!task) {
+        NSLog(@"There was a network error");
+    }
+}
+
+
+// Function that fetches locations for the locations search bar
+- (void)fetchLocations {
     NSURLSessionDataTask *locationTask = [Routes fetchLocations:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
         if (error != nil) {
             NSLog(@"%@", error.localizedDescription);
@@ -80,25 +111,11 @@
     if (!locationTask) {
         NSLog(@"There was a network error");
     }
-    
-    // Fetch restaurants from database
-    NSURLSessionDataTask *task = [Routes fetchRestaurantsOfType:@"all" nearLocation:@"Sunnyvale" offset:0 count:20 completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
-        if (error != nil) {
-            NSLog(@"%@", error.localizedDescription);
-        }
-        else {
-            NSArray *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            
-            NSLog(@"%@", results);
-            self.restaurants = results;
-        }
-        
-    }];
-    if (!task) {
-        NSLog(@"There was a network error");
-    }
-    
-    // Fetch categories from database
+}
+
+
+// Function that fetches categories from database
+-(void)fetchCategories {
     NSURLSessionDataTask *categoryTask = [Routes fetchCategories:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
         if (error != nil) {
             NSLog(@"%@", error.localizedDescription);
@@ -115,8 +132,6 @@
     if (!categoryTask) {
         NSLog(@"There was a network error");
     }
-
-    
 }
 
 //- (IBAction)didTapScreen:(id)sender {
@@ -145,7 +160,6 @@
 
 
 - (IBAction)didTapDropdown:(id)sender {
-    
     self.categoryPicker.hidden = NO;
 }
 
@@ -245,8 +259,9 @@
         }
     }];
 }
-// Location functions end
 
+
+    // Search bar functions begin
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     CityCell *cell = [self.locationsTableView dequeueReusableCellWithIdentifier:@"CityCell" forIndexPath:indexPath];
     
@@ -274,6 +289,7 @@
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.locationsTableView.hidden = NO;
     if (searchText.length != 0) {
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
             return [evaluatedObject containsString:searchText];
@@ -297,8 +313,11 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     self.locationsSearchBar.showsCancelButton = NO;
+    self.locationsTableView.hidden = NO;
     self.locationsSearchBar.text = @"";
     [self.locationsSearchBar resignFirstResponder];
 }
+    // Search bar functions end
+// Location functions end
 
 @end

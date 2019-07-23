@@ -7,7 +7,7 @@
 //
 
 #import "SwipeViewController.h"
-#import "Food.h"
+#import "Restaurant.h"
 //#import "ChooseFoodView.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import "DetailsViewController.h"
@@ -133,7 +133,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
         NSString *url = [photoDictionary valueForKey:@"imageUrl"];
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
         NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
-        [foods addObject:[[Food alloc] image:image yelpid:yelpid]];
+        [foods addObject:[[Restaurant alloc] image:image yelpid:yelpid]];
     }
     return foods;
 }

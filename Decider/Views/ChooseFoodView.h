@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 
-@class Food;
+@class Restaurant;
 
 @interface ChooseFoodView : MDCSwipeToChooseView
 
-@property (nonatomic, strong, readonly) Food *food;
+@property (nonatomic, strong, readonly) Restaurant *food;
 
 - (instancetype)initWithFrame:(CGRect)frame
-                       food:(Food *)food
+                       food:(Restaurant *)food
                       options:(MDCSwipeToChooseViewOptions *)options;
 
 @end

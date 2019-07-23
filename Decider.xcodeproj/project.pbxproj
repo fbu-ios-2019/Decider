@@ -20,7 +20,6 @@
 		F97CE67E22DD4E1D004798EF /* DeciderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE67D22DD4E1D004798EF /* DeciderUITests.m */; };
 		F97CE69322DF8D74004798EF /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69222DF8D74004798EF /* DetailsViewController.m */; };
 		F97CE69622DF9489004798EF /* SwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69522DF9489004798EF /* SwipeViewController.m */; };
-		F97CE69922DFA766004798EF /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69822DFA766004798EF /* Food.m */; };
 		F97CE69F22DFAA7B004798EF /* ChooseFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE69E22DFAA7B004798EF /* ChooseFoodView.m */; };
 		F97CE6A222DFACA0004798EF /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6A122DFACA0004798EF /* ImageView.m */; };
 		F97CE6A822DFE319004798EF /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6A722DFE319004798EF /* Restaurant.m */; };
@@ -86,8 +85,6 @@
 		F97CE69222DF8D74004798EF /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		F97CE69422DF9489004798EF /* SwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeViewController.h; sourceTree = "<group>"; };
 		F97CE69522DF9489004798EF /* SwipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeViewController.m; sourceTree = "<group>"; };
-		F97CE69722DFA766004798EF /* Food.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
-		F97CE69822DFA766004798EF /* Food.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
 		F97CE69D22DFAA7B004798EF /* ChooseFoodView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseFoodView.h; sourceTree = "<group>"; };
 		F97CE69E22DFAA7B004798EF /* ChooseFoodView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseFoodView.m; sourceTree = "<group>"; };
 		F97CE6A022DFACA0004798EF /* ImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageView.h; sourceTree = "<group>"; };
@@ -261,8 +258,6 @@
 		F97CE68D22DF8B90004798EF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F97CE69722DFA766004798EF /* Food.h */,
-				F97CE69822DFA766004798EF /* Food.m */,
 				F97CE6A622DFE319004798EF /* Restaurant.h */,
 				F97CE6A722DFE319004798EF /* Restaurant.m */,
 			);
@@ -502,7 +497,6 @@
 				F9E1F5F922E11EDB00458F0C /* Routes.m in Sources */,
 				F9CD455822E761340038D859 /* RecommendationCell.m in Sources */,
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,
-				F97CE69922DFA766004798EF /* Food.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
 				F9F13D7A22E12374001D1DB2 /* RecommendationsViewController.m in Sources */,
 				F988729522E657B800F85972 /* PhotoCollectionCell.m in Sources */,

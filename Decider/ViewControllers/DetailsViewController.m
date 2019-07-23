@@ -36,12 +36,12 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
-    NSMutableArray *pictures = [[NSMutableArray alloc] init];
-    [pictures addObject:[UIImage imageNamed:@"photo1"]];
-    [pictures addObject:[UIImage imageNamed:@"photo2"]];
-    [pictures addObject:[UIImage imageNamed:@"photo3"]];
-    [pictures addObject:[UIImage imageNamed:@"photo4"]];
-    self.photos = pictures;
+//    NSMutableArray *pictures = [[NSMutableArray alloc] init];
+//    [pictures addObject:[UIImage imageNamed:@"photo1"]];
+//    [pictures addObject:[UIImage imageNamed:@"photo2"]];
+//    [pictures addObject:[UIImage imageNamed:@"photo3"]];
+//    [pictures addObject:[UIImage imageNamed:@"photo4"]];
+//    self.photos = pictures;
     
     self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
@@ -84,9 +84,6 @@
                                       zipcode,
                                       country];
             
-//            NSDateFormatter* day = [[NSDateFormatter alloc] init];
-//            [day setDateFormat: @"EEEE"];
-//            NSLog(@"the day is: %@", [day stringFromDate:[NSDate date]]);
             NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
             NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
             NSInteger weekday = [comps weekday] - 2;
@@ -105,6 +102,7 @@
             }
             self.images = pictures;
             NSLog(@"test");
+            [self.collectionView reloadData];
         }
     }];
     if (!task) {
@@ -126,13 +124,14 @@
     PhotoCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCollectionCell" forIndexPath:indexPath];
     //cell.imageView.image = [UIImage imageNamed:@"photo1"];
     NSInteger *num = indexPath.row;
-    cell.imageView.image = [self.photos objectAtIndex:num];
+    //cell.imageView.image = [self.photos objectAtIndex:num];
+    cell.imageView.image = [self.images objectAtIndex:num];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 4;
-    //return self.images.count;
+    //return 4;
+    return self.images.count;
 }
 
 @end

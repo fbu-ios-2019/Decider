@@ -12,14 +12,17 @@
 
 #pragma mark - Object Lifecycle
 
-- (instancetype)image:(UIImage *)image
-               yelpid:(NSString *)yelpid; {
-    Restaurant *obj = [[Restaurant alloc] init];
-    if (obj) {
-        obj.image = image;
-        obj.yelpid = yelpid;
-    }
-    return obj;
+- (instancetype)initWithImage:(UIImage *)image
+               yelpid:(NSString *)yelpid {
+//    Restaurant *obj = [[Restaurant alloc] init];
+//    if (obj) {
+//        obj.image = image;
+//        obj.yelpid = yelpid;
+//    }
+//    return obj;
+    self.image = image;
+    self.yelpid = yelpid;
+    return self;
 }
 
 @end

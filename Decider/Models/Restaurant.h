@@ -25,8 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic, strong) NSArray *hours;
 //@property (nonatomic, strong) NSArray *images;
 
-- (instancetype)image:(UIImage *)image
-               yelpid:(NSString *)yelpid;
+- (instancetype)initWithImage:(UIImage *)image
+                       yelpid:(NSString *)yelpid;
 
 @end
 

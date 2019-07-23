@@ -8,7 +8,7 @@
 
 #import "ChooseFoodView.h"
 //#import "ImageLabelView.h"
-#import "Restaurant.h"
+#import "Food.h"
 
 @interface ChooseFoodView ()
 
@@ -19,7 +19,7 @@
 #pragma mark - Object Lifecycle
 
 - (instancetype)initWithFrame:(CGRect)frame
-                       food:(Restaurant *)food
+                       food:(Food *)food
                       options:(MDCSwipeToChooseViewOptions *)options {
     self = [super initWithFrame:frame options:options];
     if (self) {

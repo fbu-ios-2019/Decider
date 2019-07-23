@@ -11,6 +11,7 @@
 		15B7AE97DEED10E373C09D1F /* Pods_DeciderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1782806DD0C9AAF03DA272 /* Pods_DeciderUITests.framework */; };
 		19B0D6C16B340E5B55579E26 /* Pods_DeciderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26ACCCA742D4B0F9B59BCA34 /* Pods_DeciderTests.framework */; };
 		F91047E322E681F20098D7B6 /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F91047E222E681F20098D7B6 /* CityCell.m */; };
+		F91F4D6722E7CBEA00D8D1F5 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6622E7CBEA00D8D1F5 /* Food.m */; };
 		F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE65A22DD4E1C004798EF /* AppDelegate.m */; };
 		F97CE66122DD4E1C004798EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F97CE65F22DD4E1C004798EF /* Main.storyboard */; };
 		F97CE66322DD4E1D004798EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F97CE66222DD4E1D004798EF /* Assets.xcassets */; };
@@ -65,6 +66,8 @@
 		EC1782806DD0C9AAF03DA272 /* Pods_DeciderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeciderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91047E122E681F20098D7B6 /* CityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityCell.h; sourceTree = "<group>"; };
 		F91047E222E681F20098D7B6 /* CityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityCell.m; sourceTree = "<group>"; };
+		F91F4D6522E7CBEA00D8D1F5 /* Food.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
+		F91F4D6622E7CBEA00D8D1F5 /* Food.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
 		F97CE65622DD4E1C004798EF /* Decider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97CE65922DD4E1C004798EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F97CE65A22DD4E1C004798EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -260,6 +263,8 @@
 			children = (
 				F97CE6A622DFE319004798EF /* Restaurant.h */,
 				F97CE6A722DFE319004798EF /* Restaurant.m */,
+				F91F4D6522E7CBEA00D8D1F5 /* Food.h */,
+				F91F4D6622E7CBEA00D8D1F5 /* Food.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 				F988729522E657B800F85972 /* PhotoCollectionCell.m in Sources */,
 				F97CE6A822DFE319004798EF /* Restaurant.m in Sources */,
 				F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */,
+				F91F4D6722E7CBEA00D8D1F5 /* Food.m in Sources */,
 				F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */,
 				F97CE6A222DFACA0004798EF /* ImageView.m in Sources */,
 				F9F13D7D22E28E64001D1DB2 /* DecisionsViewController.m in Sources */,

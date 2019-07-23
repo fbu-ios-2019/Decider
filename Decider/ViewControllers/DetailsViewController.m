@@ -12,7 +12,7 @@
 
 @interface DetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (strong, nonatomic) NSArray *images;
+@property (nonatomic, strong) NSArray *images;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -22,9 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
-@property (strong, nonatomic) NSDictionary *details;
-//test array
-@property (strong, nonatomic) NSArray *photos;
+@property (nonatomic, copy) NSDictionary *details;
 
 @end
 
@@ -35,14 +33,6 @@
 
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    
-//    NSMutableArray *pictures = [[NSMutableArray alloc] init];
-//    [pictures addObject:[UIImage imageNamed:@"photo1"]];
-//    [pictures addObject:[UIImage imageNamed:@"photo2"]];
-//    [pictures addObject:[UIImage imageNamed:@"photo3"]];
-//    [pictures addObject:[UIImage imageNamed:@"photo4"]];
-//    self.photos = pictures;
-    
     self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     // Fetch restaurant details from database
@@ -62,7 +52,7 @@
             self.coverView.image = [[UIImage alloc] initWithData:data];
             self.nameLabel.text = [self.details valueForKey:@"name"];
             
-            long *num = [[self.details valueForKey:@"priceRating"] longValue];
+            long num = [[self.details valueForKey:@"priceRating"] longValue];
             NSString *price = @"";
             for(long i = 0; i < num; i++) {
                 price = [price stringByAppendingString:@"$"];
@@ -132,6 +122,10 @@
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     //return 4;
     return self.images.count;
+}
+
+- (IBAction)didTapBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

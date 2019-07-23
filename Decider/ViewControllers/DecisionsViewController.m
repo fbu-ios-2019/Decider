@@ -338,9 +338,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    self.selectedLocationLabel.text = self.cities[indexPath.row];
-    self.location = self.cities[indexPath.row];
-    self.locationsSearchBar.text = self.cities[indexPath.row];
+    self.selectedLocationLabel.text = self.filteredData[indexPath.row];
+    self.location = self.filteredData[indexPath.row];
+    self.locationsSearchBar.text = self.filteredData[indexPath.row];
     self.locationsTableView.hidden = YES;
     self.selectedLocationLabel.hidden = NO;
 }

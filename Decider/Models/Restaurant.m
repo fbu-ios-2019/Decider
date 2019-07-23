@@ -12,24 +12,17 @@
 
 #pragma mark - Object Lifecycle
 
-//- (instancetype)//initWithName:(NSString *)name
-//                         image:(UIImage *)image {
-//              //numberOfPhotos:(NSUInteger)numberOfPhotos {
-//    self = [super init];
-//    if (self) {
-//        //_name = name;
-//        _image = image;
-//        //_numberOfPhotos = numberOfPhotos;
+- (instancetype)initWithImage:(UIImage *)image
+               yelpid:(NSString *)yelpid {
+//    Restaurant *obj = [[Restaurant alloc] init];
+//    if (obj) {
+//        obj.image = image;
+//        obj.yelpid = yelpid;
 //    }
-//    return self;
-//}
-
-- (instancetype) image:(UIImage *)image {
-    Restaurant *obj = [[Restaurant alloc] init];
-    if (obj) {
-        obj.image = image;
-    }
-    return obj;
+//    return obj;
+    self.image = image;
+    self.yelpid = yelpid;
+    return self;
 }
 
 @end

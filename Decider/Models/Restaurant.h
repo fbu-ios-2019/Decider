@@ -13,11 +13,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Restaurant : NSObject
 
-@property (nonatomic, strong) UIImage *image;
-//@property (nonatomic, assign) NSUInteger numberOfPhotos;
+@property (nonatomic, copy) NSString *yelpid;
+@property (nonatomic, strong) UIImage *image; //image displayed for swiping
 
-- (instancetype)//initWithName:(NSString *)name
-                         image:(UIImage *)image;
+//@property (nonatomic, strong) UIImage *coverImage;
+//@property (nonatomic, strong) NSString *name;
+//@property (nonatomic, strong) NSString *starRating;
+//@property (nonatomic, strong) NSString *reviewCount;
+//@property (nonatomic, strong) NSString *priceRating;
+//@property (nonatomic, strong) NSArray *categories;
+//@property (nonatomic, strong) NSArray *hours;
+//@property (nonatomic, strong) NSArray *images;
+
+- (instancetype)initWithImage:(UIImage *)image
+                       yelpid:(NSString *)yelpid;
 
 @end
 

@@ -2,7 +2,7 @@
 //  Food.h
 //  Decider
 //
-//  Created by kchan23 on 7/17/19.
+//  Created by kchan23 on 7/23/19.
 //  Copyright © 2019 kchan23. All rights reserved.
 //
 
@@ -13,14 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Food : NSObject
 
-@property (nonatomic, copy) NSString *yelpid;
 @property (nonatomic, strong) UIImage *image;
-//@property (nonatomic, assign) NSUInteger numberOfPhotos;
 
-- (instancetype)image:(UIImage *)image
-                   yelpid:(NSString *)yelpid;
+- (instancetype)initWithImage:(UIImage *)image;
 
-              //numberOfPhotos:(NSUInteger)numberOfPhotos;
 @end
 
 NS_ASSUME_NONNULL_END

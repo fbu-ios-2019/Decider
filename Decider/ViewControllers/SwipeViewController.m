@@ -22,7 +22,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 @property (nonatomic, strong) NSMutableArray *foodUnliked;
 @property (weak, nonatomic) IBOutlet UILabel *unlikeCount;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
-@property (strong, nonatomic) NSString *yelpid;
+@property (nonatomic, copy) NSString *yelpid;
 
 @end
 
@@ -133,7 +133,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
         NSString *url = [photoDictionary valueForKey:@"imageUrl"];
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
         NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
-        [foods addObject:[[Food alloc] image:image yelpid:yelpid]];
+        [foods addObject:[[Food alloc] initWithImage:image]];
     }
     return foods;
 }

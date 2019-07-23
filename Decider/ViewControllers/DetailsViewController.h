@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailsViewController : UIViewController
 
-@property (strong, nonatomic) UIImage *picture;
-@property (strong, nonatomic) NSString *yelpid;
+@property (nonatomic, strong) UIImage *picture;
+@property (nonatomic, copy) NSString *yelpid;
 
 @end
 

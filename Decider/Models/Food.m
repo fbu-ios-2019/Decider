@@ -2,7 +2,7 @@
 //  Food.m
 //  Decider
 //
-//  Created by kchan23 on 7/17/19.
+//  Created by kchan23 on 7/23/19.
 //  Copyright © 2019 kchan23. All rights reserved.
 //
 
@@ -12,14 +12,9 @@
 
 #pragma mark - Object Lifecycle
 
-- (instancetype)image:(UIImage *)image
-               yelpid:(NSString *)yelpid; {
-    Food *obj = [[Food alloc] init];
-    if (obj) {
-        obj.image = image;
-        obj.yelpid = yelpid;
-    }
-    return obj;
+- (instancetype)initWithImage:(UIImage *)image {
+    self.image = image;
+    return self;
 }
 
 @end

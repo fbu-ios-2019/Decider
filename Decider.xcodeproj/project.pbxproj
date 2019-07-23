@@ -10,6 +10,7 @@
 		0866223C6D672E9D88488C51 /* Pods_Decider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773AAEA063EAACACD758A0D6 /* Pods_Decider.framework */; };
 		15B7AE97DEED10E373C09D1F /* Pods_DeciderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1782806DD0C9AAF03DA272 /* Pods_DeciderUITests.framework */; };
 		19B0D6C16B340E5B55579E26 /* Pods_DeciderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26ACCCA742D4B0F9B59BCA34 /* Pods_DeciderTests.framework */; };
+		F91047E322E681F20098D7B6 /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F91047E222E681F20098D7B6 /* CityCell.m */; };
 		F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE65A22DD4E1C004798EF /* AppDelegate.m */; };
 		F97CE66122DD4E1C004798EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F97CE65F22DD4E1C004798EF /* Main.storyboard */; };
 		F97CE66322DD4E1D004798EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F97CE66222DD4E1D004798EF /* Assets.xcassets */; };
@@ -63,6 +64,8 @@
 		AC2A81FDC6C2F296EFC644F5 /* Pods-Decider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decider.debug.xcconfig"; path = "Target Support Files/Pods-Decider/Pods-Decider.debug.xcconfig"; sourceTree = "<group>"; };
 		B7CEF4CD609400ECC2E4E5C2 /* Pods-DeciderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeciderUITests.debug.xcconfig"; path = "Target Support Files/Pods-DeciderUITests/Pods-DeciderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EC1782806DD0C9AAF03DA272 /* Pods_DeciderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeciderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91047E122E681F20098D7B6 /* CityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityCell.h; sourceTree = "<group>"; };
+		F91047E222E681F20098D7B6 /* CityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityCell.m; sourceTree = "<group>"; };
 		F97CE65622DD4E1C004798EF /* Decider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97CE65922DD4E1C004798EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F97CE65A22DD4E1C004798EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -226,6 +229,8 @@
 				F97CE6A122DFACA0004798EF /* ImageView.m */,
 				F988729322E657B800F85972 /* PhotoCollectionCell.h */,
 				F988729422E657B800F85972 /* PhotoCollectionCell.m */,
+				F91047E122E681F20098D7B6 /* CityCell.h */,
+				F91047E222E681F20098D7B6 /* CityCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				F97CE69F22DFAA7B004798EF /* ChooseFoodView.m in Sources */,
 				F97CE69622DF9489004798EF /* SwipeViewController.m in Sources */,
 				F97CE69322DF8D74004798EF /* DetailsViewController.m in Sources */,
+				F91047E322E681F20098D7B6 /* CityCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

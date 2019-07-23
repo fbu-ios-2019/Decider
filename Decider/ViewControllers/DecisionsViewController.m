@@ -9,8 +9,9 @@
 #import "DecisionsViewController.h"
 #import "Routes.h"
 #import "SwipeViewController.h"
+#import "CityCell.h"
 
-@interface DecisionsViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface DecisionsViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (strong, nonatomic) NSArray *restaurants;
 
@@ -25,6 +26,13 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLGeocoder *geocoder;
 @property (strong, nonatomic) CLPlacemark *placemark;
+    // Search bar
+@property (weak, nonatomic) IBOutlet UITableView *locationsTableView;
+@property (strong, nonatomic) NSArray *cities;
+@property (strong, nonatomic) NSArray *filteredData;
+@property (weak, nonatomic) IBOutlet UISearchBar *locationsSearchBar;
+
+
 
 @end
 
@@ -34,16 +42,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+        // Delegates
     // Category delegates
     self.categoryPicker.delegate = self;
     self.categoryPicker.dataSource = self;
-    self.categoryTextField.inputView = self.categoryPicker;
-    
-    self.categoryPicker.hidden = YES;
     
     // Location delegates
     self.locationManager = [[CLLocationManager alloc] init];
     self.geocoder = [[CLGeocoder alloc] init];
+    
+    // Table view delegates
+    self.locationsTableView.delegate = self;
+    self.locationsTableView.dataSource = self;
+    
+    // Search bar delegates
+    self.locationsSearchBar.delegate = self;
+    
+    // Change category text field to what the user selected on the category picker
+    self.categoryTextField.inputView = self.categoryPicker;
+    
+    // Hide category picker
+    self.categoryPicker.hidden = YES;
     
     // Fetch restaurants from database
     NSURLSessionDataTask *task = [Routes fetchRestaurantsOfType:@"all" nearLocation:@"Sunnyvale" offset:0 count:20 completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
@@ -210,5 +229,59 @@
     }];
 }
 // Location functions end
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    CityCell *cell = [self.locationsTableView dequeueReusableCellWithIdentifier:@"CityCell" forIndexPath:indexPath];
+    
+    NSString *city;
+    
+    if (self.filteredData != nil) {
+        city = self.filteredData[indexPath.row];
+    } else {
+        city = self.cities[indexPath.row];
+    }
+    
+    cell.cityLabel.text = city;
+    
+    return cell;
+}
+
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.filteredData.count;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchText.length != 0) {
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
+            return [evaluatedObject containsString:searchText];
+        }];
+        self.filteredData = [self.cities filteredArrayUsingPredicate:predicate];
+        
+        NSLog(@"%@", self.filteredData);
+        
+    }
+    else {
+        self.filteredData = self.cities;
+    }
+    
+    [self.locationsTableView reloadData];
+    
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {    self.locationsSearchBar.showsCancelButton = YES;
+}
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    self.locationsSearchBar.showsCancelButton = NO;
+    self.locationsSearchBar.text = @"";
+    [self.locationsSearchBar resignFirstResponder];
+}
 
 @end

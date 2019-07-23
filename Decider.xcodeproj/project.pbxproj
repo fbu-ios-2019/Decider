@@ -26,6 +26,7 @@
 		F97CE6A822DFE319004798EF /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6A722DFE319004798EF /* Restaurant.m */; };
 		F97CE6AD22E0ECD7004798EF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */; };
 		F988729522E657B800F85972 /* PhotoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F988729422E657B800F85972 /* PhotoCollectionCell.m */; };
+		F9CD455822E761340038D859 /* RecommendationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CD455722E761340038D859 /* RecommendationCell.m */; };
 		F9E1F5F922E11EDB00458F0C /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
 		F9E1F5FA22E11EE200458F0C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE68F22DF8D65004798EF /* HomeViewController.m */; };
 		F9F13D7A22E12374001D1DB2 /* RecommendationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F13D7922E12374001D1DB2 /* RecommendationsViewController.m */; };
@@ -96,6 +97,8 @@
 		F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F988729322E657B800F85972 /* PhotoCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionCell.h; sourceTree = "<group>"; };
 		F988729422E657B800F85972 /* PhotoCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionCell.m; sourceTree = "<group>"; };
+		F9CD455622E761340038D859 /* RecommendationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendationCell.h; sourceTree = "<group>"; };
+		F9CD455722E761340038D859 /* RecommendationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendationCell.m; sourceTree = "<group>"; };
 		F9F13D7822E12374001D1DB2 /* RecommendationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendationsViewController.h; sourceTree = "<group>"; };
 		F9F13D7922E12374001D1DB2 /* RecommendationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendationsViewController.m; sourceTree = "<group>"; };
 		F9F13D7B22E28E64001D1DB2 /* DecisionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DecisionsViewController.h; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				F988729422E657B800F85972 /* PhotoCollectionCell.m */,
 				F91047E122E681F20098D7B6 /* CityCell.h */,
 				F91047E222E681F20098D7B6 /* CityCell.m */,
+				F9CD455622E761340038D859 /* RecommendationCell.h */,
+				F9CD455722E761340038D859 /* RecommendationCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -495,6 +500,7 @@
 			files = (
 				F9E1F5FA22E11EE200458F0C /* HomeViewController.m in Sources */,
 				F9E1F5F922E11EDB00458F0C /* Routes.m in Sources */,
+				F9CD455822E761340038D859 /* RecommendationCell.m in Sources */,
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,
 				F97CE69922DFA766004798EF /* Food.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,

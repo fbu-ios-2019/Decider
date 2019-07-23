@@ -12,7 +12,8 @@
 #import "CityCell.h"
 #import "MKDropdownMenu.h"
 
-@interface DecisionsViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKDropdownMenuDataSource, MKDropdownMenuDelegate>
+@interface DecisionsViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKDropdownMenuDataSource, MKDropdownMenuDelegate>
+// UIPickerViewDelegate, UIPickerViewDataSource
 
 @property (strong, nonatomic) NSArray *restaurants;
 
@@ -21,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
 // Array with all the categories passed to the picker
 @property (strong, nonatomic) NSMutableArray *categories;
-@property (weak, nonatomic) IBOutlet UITextField *categoryTextField;
 
 // Location
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -33,6 +33,8 @@
 @property (strong, nonatomic) NSArray *filteredData;
 @property (weak, nonatomic) IBOutlet UISearchBar *locationsSearchBar;
 @property (weak, nonatomic) IBOutlet UILabel *selectedCategoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *selectedLocationLabel;
+@property (weak, nonatomic) IBOutlet UIButton *selectedLocationButton;
 
 @end
 
@@ -44,8 +46,8 @@
 
         // Delegates
     // Category delegates
-    self.categoryPicker.delegate = self;
-    self.categoryPicker.dataSource = self;
+    // self.categoryPicker.delegate = self;
+    // self.categoryPicker.dataSource = self;
     
     // Location delegates
     self.locationManager = [[CLLocationManager alloc] init];
@@ -60,6 +62,8 @@
     
     // Hide category picker
     self.categoryPicker.hidden = YES;
+    
+    // Locations table view style
     [self.locationsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     // self.locationsTableView.hidden = YES;
     
@@ -67,8 +71,17 @@
     [self fetchRestaurants];
     [self fetchCategories];
     [self fetchLocations];
+    [self getCurrentLocation];
     
-    // Dropdown menu
+    self.selectedCategoryLabel.layer.cornerRadius = 6;
+    self.locationsSearchBar.placeholder = @"Location";
+    self.locationsSearchBar.searchBarStyle = UISearchBarStyleMinimal;
+    // self.locationsSearchBar.text = @"Current location";
+    
+    self.selectedLocationLabel.layer.cornerRadius = 6;
+    self.locationsTableView.hidden = YES;
+    
+    // Dropdown menu for category
     MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(48, 53, 320, 44)];
     dropdownMenu.dataSource = self;
     dropdownMenu.delegate = self;
@@ -77,6 +90,14 @@
     // Change category text field to what the user selected on the category picker
     // self.categoryTextField.inputView = picker
     self.selectedCategoryLabel.text =  self.categories[dropdownMenu.selectedComponent];
+    
+    
+    
+    // Tap gesture for location
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [self.selectedLocationLabel setUserInteractionEnabled:YES];
+    [self.selectedLocationLabel addGestureRecognizer:singleFingerTap];
 }
 
 
@@ -165,45 +186,62 @@
 
 // Category functions start
 
-
-- (IBAction)didTapDropdown:(id)sender {
-    self.categoryPicker.hidden = NO;
-}
+//
+//- (IBAction)didTapDropdown:(id)sender {
+//    self.categoryPicker.hidden = NO;
+//}
 
 
 // Protocol method that returns the number of columns (per row)
-- (NSInteger)numberOfComponentsInPickerView:(nonnull UIPickerView *)pickerView {
-    // Hard coded number of categories we want to display
-    return 1;
-}
-
-
-// Protocol method that returns the number of rows
-- (NSInteger)pickerView:(nonnull UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-     // return self.categories.count;
-    return 20;
-}
-
-
-// Protocol mehtod that returns the data to display for the row and column that's being passed
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return self.categories[row];
-}
-
-
-// Protocol method to save the user's selection
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.category = self.categories[row];
-    NSLog(@"User selected %@", self.categories[row]);
-    
-    self.categoryTextField.text = self.categories[row];
-    
-}
+//- (NSInteger)numberOfComponentsInPickerView:(nonnull UIPickerView *)pickerView {
+//    // Hard coded number of categories we want to display
+//    return 1;
+//}
+//
+//
+//// Protocol method that returns the number of rows
+//- (NSInteger)pickerView:(nonnull UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+//     // return self.categories.count;
+//    return 20;
+//}
+//
+//
+//// Protocol mehtod that returns the data to display for the row and column that's being passed
+//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+//    return self.categories[row];
+//}
+//
+//
+//// Protocol method to save the user's selection
+//- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+//    self.category = self.categories[row];
+//    NSLog(@"User selected %@", self.categories[row]);
+//    
+//    self.categoryTextField.text = self.categories[row];
+//    
+//}
 // Category functions end
 
 
 // Location functions start
-- (IBAction)getCurrentLocation:(id)sender {
+
+- (IBAction)didTapChangeLocation:(UIButton *)sender {
+    self.locationsTableView.hidden = NO;
+    self.selectedLocationButton.hidden = YES;
+}
+
+//- (IBAction)getCurrentLocation:(id)sender {
+//    [self.locationManager requestAlwaysAuthorization];
+//    if ([CLLocationManager locationServicesEnabled]) {
+//        self.locationManager.delegate = self;
+//        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+//        [self.locationManager startUpdatingLocation];
+//    } else {
+//        NSLog(@"Location services are not enabled");
+//    }
+//}
+
+- (void)getCurrentLocation {
     [self.locationManager requestAlwaysAuthorization];
     if ([CLLocationManager locationServicesEnabled]) {
         self.locationManager.delegate = self;
@@ -214,6 +252,16 @@
     }
 }
 
+// Function that handles the selected location using a tap gesture to change the value of the label
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+    // CGPoint location = [recognizer locationInView:[recognizer.view superview]];
+    // [self performSegueWithIdentifier:@"usersProfileSegue" sender:self];
+    self.selectedLocationLabel.hidden = YES;
+    self.locationsTableView.hidden = NO;
+    NSLog(@"Success");
+    //Do stuff here...
+    
+}
 
 #pragma mark - CLLocationManagerDelegate
 
@@ -293,6 +341,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    self.selectedLocationLabel.text = self.cities[indexPath.row];
+    self.location = self.cities[indexPath.row];
+    self.locationsSearchBar.text = self.cities[indexPath.row];
+    self.locationsTableView.hidden = YES;
+    self.selectedLocationLabel.hidden = NO;
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {

@@ -12,7 +12,7 @@
 
 @interface DetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (strong, nonatomic) NSArray *food;
+@property (strong, nonatomic) NSArray *images;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -69,10 +69,42 @@
             }
             self.priceLabel.text = price;
             
-            
             NSArray *categories = [self.details objectForKey:@"category"];
             self.categoryLabel.text = [categories componentsJoinedByString:@", "];
             self.reviewCount.text = [NSString stringWithFormat:@"%@", [self.details valueForKey:@"reviewCount"]];
+            
+            NSString *address = [self.details valueForKey:@"address"];
+            NSString *city = [self.details valueForKey:@"city"];
+            NSString *state = [self.details valueForKey:@"state"];
+            NSString *zipcode = [self.details valueForKey:@"zipcode"];
+            NSString *country = [self.details valueForKey:@"country"];
+            self.addressLabel.text = [NSString stringWithFormat:@"%@\n%@ %@ %@\n%@",
+                                      address,
+                                      city, state,
+                                      zipcode,
+                                      country];
+            
+//            NSDateFormatter* day = [[NSDateFormatter alloc] init];
+//            [day setDateFormat: @"EEEE"];
+//            NSLog(@"the day is: %@", [day stringFromDate:[NSDate date]]);
+            NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
+            NSInteger weekday = [comps weekday] - 2;
+            NSArray *hours = [[[self.details objectForKey:@"hours"] valueForKey:@"open"] objectAtIndex:0];
+            NSDictionary *day = [hours objectAtIndex:weekday];
+            NSString *start = [day objectForKey:@"start"];
+            NSString *end = [day objectForKey:@"end"];
+            self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", start, end];
+            
+            NSMutableArray *pictures = [[NSMutableArray alloc] init];
+            NSArray *test = [self.details objectForKey:@"images"];
+            for(int i = 0; i < [test count]; i++) {
+                NSURL *url = [NSURL URLWithString:[test objectAtIndex:i]];
+                NSData *data = [NSData dataWithContentsOfURL:url];
+                [pictures addObject:[[UIImage alloc] initWithData:data]];
+            }
+            self.images = pictures;
+            NSLog(@"test");
         }
     }];
     if (!task) {
@@ -100,7 +132,7 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 4;
-    //return self.food.count;
+    //return self.images.count;
 }
 
 @end

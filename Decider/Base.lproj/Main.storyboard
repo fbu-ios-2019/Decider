@@ -114,7 +114,7 @@
                                     <color key="titleShadowColor" red="0.93333333330000001" green="0.4549019608" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Lyy-gp-pi7" kind="show" id="hJF-f9-Im3"/>
+                                    <segue destination="U9p-D9-POk" kind="presentation" id="sbO-lR-EZF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  Search a category..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHd-CN-eoE">
@@ -298,9 +298,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="es7-va-DiC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.4549019608" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TqN-7K-2zc">
-                                <rect key="frame" x="0.0" y="20" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="427" width="375" height="240"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.91985084166915498" green="0.91985084166915498" blue="0.91985084166915498" alpha="0.73547196061643838" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO5-Jw-Rqc">
                                 <rect key="frame" x="137" y="308" width="100" height="51"/>
@@ -312,9 +322,38 @@
                                     <action selector="getCurrentLocation:" destination="U9p-D9-POk" eventType="touchUpInside" id="oYW-c8-g3H"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="All" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ge2-V9-SM7">
+                                <rect key="frame" x="6" y="60" width="363" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueH-I8-GNN">
+                                <rect key="frame" x="6" y="58" width="363" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <connections>
+                                    <action selector="didTapDropdown:" destination="U9p-D9-POk" eventType="touchUpInside" id="FXZ-0A-AP6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxW-Ia-WKj">
+                                <rect key="frame" x="11" y="23" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCancel:" destination="U9p-D9-POk" eventType="touchUpInside" id="TCw-PA-FDI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Zjv-Iy-0Zu"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="a0L-Fk-J9a" appends="YES" id="7N6-wl-rx4"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4Xf-iT-wAs">
@@ -327,11 +366,17 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoryPicker" destination="TqN-7K-2zc" id="kgs-P2-5PE"/>
+                        <outlet property="categoryTextField" destination="ge2-V9-SM7" id="XG4-2f-wfq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFl-XP-oQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="a0L-Fk-J9a">
+                    <connections>
+                        <action selector="didTapScreen:" destination="U9p-D9-POk" id="KEt-JW-pJN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-94" y="1710"/>
+            <point key="canvasLocation" x="-95.200000000000003" y="1709.5952023988007"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="CjX-qx-GuH">
@@ -513,24 +558,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1f-SK-XMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146" y="204"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="YWX-HB-DJ6">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lyy-gp-pi7" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="slZ-pn-3Pv">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="U9p-D9-POk" kind="relationship" relationship="rootViewController" id="YXH-gH-uFI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JbL-fk-poP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1034" y="1710"/>
         </scene>
     </scenes>
     <resources>

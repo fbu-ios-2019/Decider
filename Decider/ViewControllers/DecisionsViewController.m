@@ -19,8 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
 // Array with all the categories passed to the picker
 @property (strong, nonatomic) NSMutableArray *categories;
+@property (weak, nonatomic) IBOutlet UITextField *categoryTextField;
 
-    // Location
+// Location
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLGeocoder *geocoder;
 @property (strong, nonatomic) CLPlacemark *placemark;
@@ -36,6 +37,9 @@
     // Category delegates
     self.categoryPicker.delegate = self;
     self.categoryPicker.dataSource = self;
+    self.categoryTextField.inputView = self.categoryPicker;
+    
+    self.categoryPicker.hidden = YES;
     
     // Location delegates
     self.locationManager = [[CLLocationManager alloc] init];
@@ -66,9 +70,9 @@
         else {
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             
-            NSLog(@"%@", results);
+            // NSLog(@"%@", results);
             self.categories = [results objectForKey:@"results"];
-            NSLog(@"%@", self.categories);
+            // NSLog(@"%@", self.categories);
         }
         
     }];
@@ -77,6 +81,15 @@
     }
 
     
+}
+
+- (IBAction)didTapScreen:(id)sender {
+    [self.view endEditing:YES];
+    self.categoryPicker.hidden = YES;
+}
+
+- (IBAction)didTapCancel:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -93,6 +106,14 @@
 }
 
 // Category functions start
+
+
+- (IBAction)didTapDropdown:(id)sender {
+    
+    self.categoryPicker.hidden = NO;
+}
+
+
 // Protocol method that returns the number of columns (per row)
 - (NSInteger)numberOfComponentsInPickerView:(nonnull UIPickerView *)pickerView {
     // Hard coded number of categories we want to display
@@ -117,6 +138,9 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     self.category = self.categories[row];
     NSLog(@"User selected %@", self.categories[row]);
+    
+    self.categoryTextField.text = self.categories[row];
+    
 }
 // Category functions end
 

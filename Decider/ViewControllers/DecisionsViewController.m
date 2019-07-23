@@ -32,8 +32,6 @@
 @property (strong, nonatomic) NSArray *filteredData;
 @property (weak, nonatomic) IBOutlet UISearchBar *locationsSearchBar;
 
-
-
 @end
 
 
@@ -63,6 +61,25 @@
     
     // Hide category picker
     self.categoryPicker.hidden = YES;
+    
+    // Fetch locations for the locations search bar
+    NSURLSessionDataTask *locationTask = [Routes fetchLocations:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
+        if (error != nil) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        else {
+            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            // NSLog(@"%@", results);
+            self.cities = [results objectForKey:@"results"];
+            self.filteredData = self.cities;
+            // NSLog(@"%@", self.categories);
+        }
+        
+    }];
+    if (!locationTask) {
+        NSLog(@"There was a network error");
+    }
     
     // Fetch restaurants from database
     NSURLSessionDataTask *task = [Routes fetchRestaurantsOfType:@"all" nearLocation:@"Sunnyvale" offset:0 count:20 completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
@@ -102,10 +119,10 @@
     
 }
 
-- (IBAction)didTapScreen:(id)sender {
-    [self.view endEditing:YES];
-    self.categoryPicker.hidden = YES;
-}
+//- (IBAction)didTapScreen:(id)sender {
+//    [self.view endEditing:YES];
+//    self.categoryPicker.hidden = YES;
+//}
 
 - (IBAction)didTapCancel:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

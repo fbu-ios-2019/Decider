@@ -19,4 +19,7 @@
 
 + (NSURLSessionDataTask *)fetchRestaurantDetails:(NSString *)yelpid completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
 
++ (NSURLSessionDataTask *)fetchLocations:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
+
+
 @end

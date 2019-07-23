@@ -393,9 +393,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Zjv-Iy-0Zu"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="a0L-Fk-J9a" appends="YES" id="7N6-wl-rx4"/>
-                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4Xf-iT-wAs">
@@ -410,11 +407,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFl-XP-oQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="a0L-Fk-J9a">
-                    <connections>
-                        <action selector="didTapScreen:" destination="U9p-D9-POk" id="KEt-JW-pJN"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-95.200000000000003" y="1709.5952023988007"/>
         </scene>

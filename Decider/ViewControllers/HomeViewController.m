@@ -71,7 +71,7 @@
     [self.locationsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     // Fetch information
-    [self fetchRestaurants];
+    //[self fetchRestaurants];
     [self fetchCategories];
     [self fetchLocations];
     [self getCurrentLocation];
@@ -134,25 +134,6 @@
 
 }
 
-// Function that fetches restaurants from database
-- (void)fetchRestaurants {
-    NSURLSessionDataTask *task = [Routes fetchRestaurantsOfCategory:@"all" nearLocation:@"Mountain View" offset:0 completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
-        if (error != nil) {
-            NSLog(@"%@", error.localizedDescription);
-        }
-        else {
-            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            
-            NSLog(@"%@", results);
-            self.restaurants = [results objectForKey:@"results"];
-        }
-        
-    }];
-    if (!task) {
-        NSLog(@"There was a network error");
-    }
-}
-
 
 // Function that fetches locations for the locations search bar
 - (void)fetchLocations {
@@ -195,7 +176,7 @@
     }
 }
 
-
+/*
 #pragma mark - Navigation
 
 // Function to prepare before navigation
@@ -207,6 +188,7 @@
         swipeViewController.restaurants = self.restaurants;
     }
 }
+ */
 
 // Category functions start
 

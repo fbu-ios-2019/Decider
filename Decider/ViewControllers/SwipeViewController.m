@@ -9,7 +9,7 @@
 #import "SwipeViewController.h"
 #import "Food.h"
 #import "Restaurant.h"
-//#import "ChooseFoodView.h"
+#import "Routes.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import "DetailsViewController.h"
 
@@ -25,6 +25,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (nonatomic, copy) NSString *yelpid;
 @property (nonatomic, strong) Restaurant *currentRestaurant;
+@property (strong, nonatomic) NSArray *restaurants;
 
 @end
 
@@ -44,28 +45,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _food = [[self defaultFood] mutableCopy];
-    self.foodLiked = [[NSMutableArray alloc] init];
-    self.foodUnliked = [[NSMutableArray alloc] init];
-
-    // Display the first ChoosePersonView in front. Users can swipe to indicate
-    // whether they like or dislike the person displayed.
-    self.frontCardView = [self popFoodViewWithFrame:[self frontCardViewFrame]];
-    [self.view addSubview:self.frontCardView];
-    
-    // Display the second ChoosePersonView in back. This view controller uses
-    // the MDCSwipeToChooseDelegate protocol methods to update the front and
-    // back views after each user swipe.
-    self.backCardView = [self popFoodViewWithFrame:[self backCardViewFrame]];
-    [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
-    
-    // Add buttons to programmatically swipe the view left or right.
-    // See the `nopeFrontCardView` and `likeFrontCardView` methods.
-    [self constructNopeButton];
-    [self constructLikedButton];
-    
-    [self didTapImage];
+    [self fetchRestaurants];
 }
 
 /*- (NSUInteger)supportedInterfaceOrientations {
@@ -266,6 +246,48 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
         [self presentViewController:detailsViewController animated:YES completion:nil];
     });
 }
+
+
+// Function that fetches restaurants from database
+- (void)fetchRestaurants {
+    NSURLSessionDataTask *task = [Routes fetchRestaurantsOfCategory:@"all" nearLocation:@"Mountain View" offset:0 completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
+        if (error != nil) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        else {
+            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            NSLog(@"%@", results);
+            self.restaurants = [results objectForKey:@"results"];
+            
+            self.food = [[self defaultFood] mutableCopy];
+            self.foodLiked = [[NSMutableArray alloc] init];
+            self.foodUnliked = [[NSMutableArray alloc] init];
+            
+            // Display the first ChoosePersonView in front. Users can swipe to indicate
+            // whether they like or dislike the person displayed.
+            self.frontCardView = [self popFoodViewWithFrame:[self frontCardViewFrame]];
+            [self.view addSubview:self.frontCardView];
+            
+            // Display the second ChoosePersonView in back. This view controller uses
+            // the MDCSwipeToChooseDelegate protocol methods to update the front and
+            // back views after each user swipe.
+            self.backCardView = [self popFoodViewWithFrame:[self backCardViewFrame]];
+            [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
+            
+            // Add buttons to programmatically swipe the view left or right.
+            // See the `nopeFrontCardView` and `likeFrontCardView` methods.
+            [self constructNopeButton];
+            [self constructLikedButton];
+            
+            [self didTapImage];
+        }
+        
+    }];
+    if (!task) {
+        NSLog(@"There was a network error");
+    }
+}
+
 
  #pragma mark - Navigation
 

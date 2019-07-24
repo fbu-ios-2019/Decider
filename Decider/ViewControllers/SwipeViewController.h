@@ -14,6 +14,5 @@
 @property (strong, nonatomic) Food *currentFood;
 @property (strong, nonatomic) ChooseFoodView *frontCardView;
 @property (strong, nonatomic) ChooseFoodView *backCardView;
-@property (strong, nonatomic) NSArray *restaurants;
 
 @end

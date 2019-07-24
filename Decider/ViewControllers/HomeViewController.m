@@ -76,12 +76,36 @@
     [self fetchLocations];
     [self getCurrentLocation];
     
+    // Search bar style
     self.selectedCategoryLabel.layer.cornerRadius = 6;
-    self.locationsSearchBar.placeholder = @"Location";
-    self.locationsSearchBar.searchBarStyle = UISearchBarStyleMinimal;
+    self.locationsSearchBar.placeholder = @"Current location";
+    // self.locationsSearchBar.searchBarStyle = UISearchBarStyleMinimal;
+    
+    
+    self.locationsSearchBar.layer.borderWidth = 0;
+    // self.locationsSearchBar.layer.borderColor = [UIColor brownColor].CGColor;
+    self.locationsSearchBar.layer.cornerRadius = 6;
+    self.locationsSearchBar.barTintColor = [UIColor darkGrayColor];
+    self.locationsSearchBar.backgroundColor = [UIColor darkGrayColor];
+    
+    UITextField *textField = [self.locationsSearchBar valueForKey:@"_searchField"];
+    textField.textColor = [UIColor darkGrayColor];
+    textField.placeholder = @"Current location";
+    textField.leftViewMode = UITextFieldViewModeNever; //hiding left view
+    textField.backgroundColor = [UIColor whiteColor];
+    // textField.backgroundColor = [UIColor colorWithRed:255/255.0 green:246/255.0 blue:241/255.0 alpha:1.0];
+    textField.font = [UIFont systemFontOfSize:18.0];
+    [textField setValue:[UIColor brownColor] forKeyPath:@"_placeholderLabel.textColor"];
+    
+    UIImageView *imgview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 30)];
+    imgview.image = [UIImage imageNamed:@"searchIcon.png"]; //you need to set search icon for textfield's righ view
+    
+    textField.rightView = imgview;
+    textField.rightViewMode = UITextFieldViewModeAlways;
+    
     
     self.selectedLocationLabel.layer.cornerRadius = 6;
-    // self.locationsTableView.hidden = YES;
+    self.locationsTableView.hidden = YES;
     
     // Dropdown menu for category
     MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(12, 403, 351, 44)];

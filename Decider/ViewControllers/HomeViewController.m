@@ -55,8 +55,7 @@
     self.startSwipingLabel.layer.cornerRadius = 4;
     
     
-    // Delegates
-    
+        // Delegates
     // Location delegates
     self.locationManager = [[CLLocationManager alloc] init];
     self.geocoder = [[CLGeocoder alloc] init];
@@ -82,7 +81,7 @@
     self.locationsSearchBar.searchBarStyle = UISearchBarStyleMinimal;
     
     self.selectedLocationLabel.layer.cornerRadius = 6;
-    self.locationsTableView.hidden = YES;
+    // self.locationsTableView.hidden = YES;
     
     // Dropdown menu for category
     MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(12, 403, 351, 44)];
@@ -215,19 +214,15 @@
 
 // Function to change the row's font color and size
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [[NSAttributedString alloc] initWithString:self.categories[row] attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:20 weight:UIFontWeightThin],
-                                                        NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    return [[NSAttributedString alloc] initWithString:self.categories[row]
+                                           attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:20 weight:UIFontWeightThin],
+                       NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
 }
 
 // Category functions end
 
 
 // Location functions start
-
-//- (IBAction)didTapChangeLocation:(UIButton *)sender {
-//    self.locationsTableView.hidden = NO;
-//    self.selectedLocationButton.hidden = YES;
-//}
 
 
 // Function that gets current location
@@ -312,6 +307,7 @@
     NSString *city;
     
     if (self.filteredData != nil) {
+        // self.filteredData[0] =
         city = self.filteredData[indexPath.row];
     } else {
         city = self.cities[indexPath.row];
@@ -345,6 +341,7 @@
             return [evaluatedObject containsString:searchText];
         }];
         self.filteredData = [self.cities filteredArrayUsingPredicate:predicate];
+        // [self.filteredData insertObject:@"All" atIndex:0];
         
         NSLog(@"%@", self.filteredData);
         
@@ -359,7 +356,8 @@
 
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    self.locationsSearchBar.showsCancelButton = YES;
+    // self.locationsSearchBar.showsCancelButton = YES;
+    // --->>> SHOW "CURRENT LOCATION" BUTTON
 }
 
 

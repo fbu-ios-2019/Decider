@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
-@property (nonatomic, copy) NSDictionary *details;
 
 @end
 
@@ -35,69 +34,16 @@
     self.collectionView.delegate = self;
     self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    // Fetch restaurant details from database
-    NSURLSessionDataTask *task = [Routes fetchRestaurantDetails:self.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error != nil) {
-            NSLog(@"%@", error.localizedDescription);
-        }
-        else {
-            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            self.details = results;
-            NSLog(@"%@", results);
-            
-            //loading the details page information
-            NSString *URL = [self.details valueForKey:@"coverUrl"];
-            NSURL *url = [NSURL URLWithString:URL];
-            NSData *data = [NSData dataWithContentsOfURL:url];
-            self.coverView.image = [[UIImage alloc] initWithData:data];
-            self.nameLabel.text = [self.details valueForKey:@"name"];
-            
-            long num = [[self.details valueForKey:@"priceRating"] longValue];
-            NSString *price = @"";
-            for(long i = 0; i < num; i++) {
-                price = [price stringByAppendingString:@"$"];
-            }
-            self.priceLabel.text = price;
-            
-            NSArray *categories = [self.details objectForKey:@"category"];
-            self.categoryLabel.text = [categories componentsJoinedByString:@", "];
-            self.reviewCount.text = [NSString stringWithFormat:@"%@", [self.details valueForKey:@"reviewCount"]];
-            
-            NSString *address = [self.details valueForKey:@"address"];
-            NSString *city = [self.details valueForKey:@"city"];
-            NSString *state = [self.details valueForKey:@"state"];
-            NSString *zipcode = [self.details valueForKey:@"zipcode"];
-            NSString *country = [self.details valueForKey:@"country"];
-            self.addressLabel.text = [NSString stringWithFormat:@"%@\n%@ %@ %@\n%@",
-                                      address,
-                                      city, state,
-                                      zipcode,
-                                      country];
-            
-            NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-            NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
-            NSInteger weekday = [comps weekday] - 2;
-            NSArray *hours = [[[self.details objectForKey:@"hours"] valueForKey:@"open"] objectAtIndex:0];
-            NSDictionary *day = [hours objectAtIndex:weekday];
-            NSString *start = [day objectForKey:@"start"];
-            NSString *end = [day objectForKey:@"end"];
-            self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", start, end];
-            
-            NSMutableArray *pictures = [[NSMutableArray alloc] init];
-            NSArray *test = [self.details objectForKey:@"images"];
-            for(int i = 0; i < [test count]; i++) {
-                NSURL *url = [NSURL URLWithString:[test objectAtIndex:i]];
-                NSData *data = [NSData dataWithContentsOfURL:url];
-                [pictures addObject:[[UIImage alloc] initWithData:data]];
-            }
-            self.images = pictures;
-            NSLog(@"test");
-            [self.collectionView reloadData];
-        }
-    }];
-    if (!task) {
-        NSLog(@"There was a network error");
-    }
+    //loading the details page information
+    self.coverView.image = self.restaurant.coverImage;
+    self.nameLabel.text = self.restaurant.name;
+    self.priceLabel.text = self.restaurant.priceRating;
+    self.categoryLabel.text = self.restaurant.categoryString;
+    self.reviewCount.text = self.restaurant.reviewCount;
+    self.addressLabel.text = self.restaurant.address;
+    self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", self.restaurant.startTime, self.restaurant.endTime];
+    self.images = self.restaurant.images;
+    //[self.collectionView reloadData];
 }
 
 /*

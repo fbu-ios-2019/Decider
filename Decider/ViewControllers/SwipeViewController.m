@@ -247,11 +247,6 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
     [self.frontCardView mdc_swipe:MDCSwipeDirectionRight];
 }
 
-// Dismisses the SwipeViewController goes back to HomeViewController
-- (IBAction)didTapDecide:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 // Segues to DetailsViewController
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
     //CGPoint location = [recognizer locationInView:[recognizer.view superview]];
@@ -275,7 +270,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
          NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
          Restaurant *restaurant = [[Restaurant alloc] initWithYelpid:yelpid];
          detailsViewController.restaurant = restaurant;
-         detailsViewController.yelpid = yelpid;
+         //detailsViewController.yelpid = yelpid;
      }
  }
 

@@ -475,7 +475,7 @@
         <!--Details View Controller-->
         <scene sceneID="CjX-qx-GuH">
             <objects>
-                <viewController id="XeU-f6-TMk" customClass="DetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XeU-f6-TMk" customClass="DetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UM8-MS-dJw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

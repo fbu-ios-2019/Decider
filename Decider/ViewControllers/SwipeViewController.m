@@ -24,6 +24,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 @property (weak, nonatomic) IBOutlet UILabel *unlikeCount;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (nonatomic, copy) NSString *yelpid;
+@property (nonatomic, strong) Restaurant *currentRestaurant;
 
 @end
 
@@ -121,6 +122,13 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
     // Quick and dirty, just for the purposes of this sample app.
     _frontCardView = frontCardView;
     self.currentFood = frontCardView.food;
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+    NSUInteger like = [formatter numberFromString:self.likeCount.text].unsignedIntegerValue;
+    NSUInteger unlike = [formatter numberFromString:self.unlikeCount.text].unsignedIntegerValue;
+    NSUInteger sum = like + unlike;
+    NSDictionary *photoDictionary = [self.restaurants objectAtIndex:sum];
+    NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
+    self.currentRestaurant = [[Restaurant alloc] initWithYelpid:yelpid];
 }
 
 - (NSArray *)defaultFood {
@@ -249,14 +257,19 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 
 // Segues to DetailsViewController
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-    //CGPoint location = [recognizer locationInView:[recognizer.view superview]];
-    [self performSegueWithIdentifier:@"detailSegue" sender:self];
-    //NSLog(@"Success");
+    double delayInSeconds = 0.25;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        DetailsViewController *detailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"detailsVC"];
+        detailsViewController.restaurant = self.currentRestaurant;
+        [self presentViewController:detailsViewController animated:YES completion:nil];
+    });
 }
 
-
  #pragma mark - Navigation
- 
+
+/*
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if([segue.identifier isEqualToString:@"detailSegue"]) {
@@ -273,5 +286,6 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
          //detailsViewController.yelpid = yelpid;
      }
  }
+*/
 
 @end

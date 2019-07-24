@@ -472,59 +472,6 @@
             </objects>
             <point key="canvasLocation" x="-1034.4000000000001" y="2524.5877061469268"/>
         </scene>
-        <!--Decisions View Controller-->
-        <scene sceneID="3eJ-Jk-d7B">
-            <objects>
-                <viewController id="U9p-D9-POk" customClass="DecisionsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JSP-Bb-ae2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="es7-va-DiC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.38431372549019605" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxW-Ia-WKj">
-                                <rect key="frame" x="11" y="23" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapCancel:" destination="U9p-D9-POk" eventType="touchUpInside" id="TCw-PA-FDI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikH-tM-dQi">
-                                <rect key="frame" x="318" y="20" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <gestureRecognizers/>
-                        <viewLayoutGuide key="safeArea" id="Zjv-Iy-0Zu"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="4Xf-iT-wAs">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="KZs-l4-2M2"/>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="locationsSearchBar" destination="bxj-03-IuG" id="SFy-IA-j8a"/>
-                        <outlet property="locationsTableView" destination="I3b-Mf-2hE" id="Hb6-cK-tC1"/>
-                        <outlet property="selectedLocationLabel" destination="QpM-kH-xjC" id="1KC-3F-8fP"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hFl-XP-oQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-990" y="1756"/>
-        </scene>
         <!--Details View Controller-->
         <scene sceneID="CjX-qx-GuH">
             <objects>

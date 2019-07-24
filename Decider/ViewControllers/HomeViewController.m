@@ -85,13 +85,18 @@
     self.locationsTableView.hidden = YES;
     
     // Dropdown menu for category
-    MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(11, 404, 320, 44)];
+    MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(12, 403, 351, 44)];
     dropdownMenu.dataSource = self;
     dropdownMenu.delegate = self;
     [self.view addSubview:dropdownMenu];
     
+    dropdownMenu.rowSeparatorColor = [UIColor lightGrayColor];
+//    dropdownMenu.dropdownBackgroundColor = [UIColor lightGrayColor];
+    dropdownMenu.backgroundDimmingOpacity = -0.05;
+    dropdownMenu.dropdownCornerRadius = 8;
+    
+    
     // Change category text field to what the user selected on the category picker
-    // self.categoryTextField.inputView = picker
     self.selectedCategoryLabel.text =  self.categories[dropdownMenu.selectedComponent];
     
     
@@ -170,7 +175,6 @@
 
 // Function to prepare before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // --------->>>>>>> PUT THIS IN A BUTTON
     if([segue.identifier isEqualToString:@"swipeSegue"]) {
         // Get the new view controller using
         SwipeViewController *swipeViewController = [segue destinationViewController];
@@ -180,6 +184,8 @@
 }
 
 // Category functions start
+
+#pragma mark - MKDropdownMenuDataSource
 
 - (NSInteger)dropdownMenu:(nonnull MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component {
     return 20;
@@ -195,6 +201,8 @@
     
 }
 
+#pragma mark - MKDropdownMenuDelegate
+
 - (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     return self.categories[row];
 }
@@ -203,6 +211,12 @@
     self.selectedCategoryLabel.text = self.categories[row];
     self.category = self.categories[row];
     [dropdownMenu closeAllComponentsAnimated:YES];
+}
+
+// Function to change the row's font color and size
+- (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [[NSAttributedString alloc] initWithString:self.categories[row] attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:20 weight:UIFontWeightThin],
+                                                        NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
 }
 
 // Category functions end

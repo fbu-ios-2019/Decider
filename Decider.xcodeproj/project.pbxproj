@@ -12,6 +12,8 @@
 		19B0D6C16B340E5B55579E26 /* Pods_DeciderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26ACCCA742D4B0F9B59BCA34 /* Pods_DeciderTests.framework */; };
 		F91047E322E681F20098D7B6 /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F91047E222E681F20098D7B6 /* CityCell.m */; };
 		F91F4D6722E7CBEA00D8D1F5 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6622E7CBEA00D8D1F5 /* Food.m */; };
+		F91F4D6A22E8CAC800D8D1F5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6922E8CAC800D8D1F5 /* LoginViewController.m */; };
+		F91F4D6D22E8CAD500D8D1F5 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6C22E8CAD500D8D1F5 /* SignupViewController.m */; };
 		F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE65A22DD4E1C004798EF /* AppDelegate.m */; };
 		F97CE66122DD4E1C004798EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F97CE65F22DD4E1C004798EF /* Main.storyboard */; };
 		F97CE66322DD4E1D004798EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F97CE66222DD4E1D004798EF /* Assets.xcassets */; };
@@ -68,6 +70,10 @@
 		F91047E222E681F20098D7B6 /* CityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityCell.m; sourceTree = "<group>"; };
 		F91F4D6522E7CBEA00D8D1F5 /* Food.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
 		F91F4D6622E7CBEA00D8D1F5 /* Food.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
+		F91F4D6822E8CAC800D8D1F5 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		F91F4D6922E8CAC800D8D1F5 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		F91F4D6B22E8CAD500D8D1F5 /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		F91F4D6C22E8CAD500D8D1F5 /* SignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		F97CE65622DD4E1C004798EF /* Decider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97CE65922DD4E1C004798EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F97CE65A22DD4E1C004798EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -254,6 +260,10 @@
 				F9F13D7922E12374001D1DB2 /* RecommendationsViewController.m */,
 				F9F13D7B22E28E64001D1DB2 /* DecisionsViewController.h */,
 				F9F13D7C22E28E64001D1DB2 /* DecisionsViewController.m */,
+				F91F4D6822E8CAC800D8D1F5 /* LoginViewController.h */,
+				F91F4D6922E8CAC800D8D1F5 /* LoginViewController.m */,
+				F91F4D6B22E8CAD500D8D1F5 /* SignupViewController.h */,
+				F91F4D6C22E8CAD500D8D1F5 /* SignupViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -511,7 +521,9 @@
 				F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */,
 				F97CE6A222DFACA0004798EF /* ImageView.m in Sources */,
 				F9F13D7D22E28E64001D1DB2 /* DecisionsViewController.m in Sources */,
+				F91F4D6D22E8CAD500D8D1F5 /* SignupViewController.m in Sources */,
 				F97CE69F22DFAA7B004798EF /* ChooseFoodView.m in Sources */,
+				F91F4D6A22E8CAC800D8D1F5 /* LoginViewController.m in Sources */,
 				F97CE69622DF9489004798EF /* SwipeViewController.m in Sources */,
 				F97CE69322DF8D74004798EF /* DetailsViewController.m in Sources */,
 				F91047E322E681F20098D7B6 /* CityCell.m in Sources */,

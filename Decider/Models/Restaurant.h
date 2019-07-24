@@ -14,19 +14,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Restaurant : NSObject
 
 @property (nonatomic, copy) NSString *yelpid;
-@property (nonatomic, strong) UIImage *image; //image displayed for swiping
+@property (nonatomic, strong) UIImage *coverImage;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *starRating;
+@property (nonatomic, strong) NSString *reviewCount;
+@property (nonatomic, strong) NSString *priceRating;
+@property (nonatomic, strong) NSArray *categories;
+@property (nonatomic, strong) NSString *categoryString;
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSArray *hours;
+@property (nonatomic, strong) NSString *startTime;
+@property (nonatomic, strong) NSString *endTime;
+@property (nonatomic, strong) NSArray *images;
 
-//@property (nonatomic, strong) UIImage *coverImage;
-//@property (nonatomic, strong) NSString *name;
-//@property (nonatomic, strong) NSString *starRating;
-//@property (nonatomic, strong) NSString *reviewCount;
-//@property (nonatomic, strong) NSString *priceRating;
-//@property (nonatomic, strong) NSArray *categories;
-//@property (nonatomic, strong) NSArray *hours;
-//@property (nonatomic, strong) NSArray *images;
-
-- (instancetype)initWithImage:(UIImage *)image
-                       yelpid:(NSString *)yelpid;
+- (instancetype)initWithYelpid:(NSString *)yelpid;
 
 @end
 

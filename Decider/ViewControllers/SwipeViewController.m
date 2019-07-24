@@ -8,6 +8,7 @@
 
 #import "SwipeViewController.h"
 #import "Food.h"
+#import "Restaurant.h"
 //#import "ChooseFoodView.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import "DetailsViewController.h"
@@ -30,13 +31,13 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 
 #pragma mark - Object Lifecycle
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        _food = [[self defaultFood] mutableCopy];
-    }
-    return self;
-}
+//- (instancetype)init {
+//    self = [super init];
+//    if (self) {
+//        _food = [[self defaultFood] mutableCopy];
+//    }
+//    return self;
+//}
 
 #pragma mark - UIViewController Overrides
 
@@ -132,7 +133,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
         NSDictionary *photoDictionary = [self.restaurants objectAtIndex:i];
         NSString *url = [photoDictionary valueForKey:@"imageUrl"];
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
-        NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
+        //NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
         [foods addObject:[[Food alloc] initWithImage:image]];
     }
     return foods;
@@ -265,13 +266,16 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if([segue.identifier isEqualToString:@"detailSegue"]) {
          DetailsViewController *detailsViewController = [segue destinationViewController];
-         detailsViewController.picture = self.frontCardView.food.image;
+         //detailsViewController.picture = self.frontCardView.food.image;
          NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
          NSUInteger like = [formatter numberFromString:self.likeCount.text].unsignedIntegerValue;
          NSUInteger unlike = [formatter numberFromString:self.unlikeCount.text].unsignedIntegerValue;
          NSUInteger sum = like + unlike;
          NSDictionary *photoDictionary = [self.restaurants objectAtIndex:sum];
-         detailsViewController.yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
+         NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
+         Restaurant *restaurant = [[Restaurant alloc] initWithYelpid:yelpid];
+         detailsViewController.restaurant = restaurant;
+         detailsViewController.yelpid = yelpid;
      }
  }
 

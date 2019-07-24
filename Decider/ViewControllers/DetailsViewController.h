@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Restaurant.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailsViewController : UIViewController
 
-@property (nonatomic, strong) UIImage *picture;
+//@property (nonatomic, strong) UIImage *picture;
+@property (nonatomic, strong) Restaurant *restaurant;
 @property (nonatomic, copy) NSString *yelpid;
 
 @end

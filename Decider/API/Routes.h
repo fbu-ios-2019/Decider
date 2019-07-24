@@ -15,7 +15,6 @@ typedef void(^DeciderCompletionHandler)(NSData *data, NSURLResponse *response, N
 + (NSURLSessionDataTask *)fetchRestaurantsOfCategory:(NSString *)category
                                                 nearLocation:(NSString *)location
                                                       offset:(int)offset
-                                                       count:(int)count
                                            completionHandler:(DeciderCompletionHandler)completionHandler;
 
 + (NSURLSessionDataTask *)fetchCategories:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;

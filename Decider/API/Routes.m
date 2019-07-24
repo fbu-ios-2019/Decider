@@ -25,10 +25,10 @@
 + (NSURLSessionDataTask *)fetchRestaurantsOfCategory:(NSString *)category
                                     nearLocation:(NSString *)location
                                           offset:(int)offset
-                                           count:(int)count
                                completionHandler:(DeciderCompletionHandler)completionHandler {
     NSString *baseURl = @"https://decider-backend.herokuapp.com/photos";
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%i/%i", baseURl, category, location, offset, count];
+    NSString *place = [location stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%i", baseURl, category, place, offset];
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];

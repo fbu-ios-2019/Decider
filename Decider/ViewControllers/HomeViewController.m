@@ -176,19 +176,16 @@
     }
 }
 
-/*
 #pragma mark - Navigation
 
 // Function to prepare before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"swipeSegue"]) {
-        // Get the new view controller using
         SwipeViewController *swipeViewController = [segue destinationViewController];
-        // Pass restaurants to the next view controller
-        swipeViewController.restaurants = self.restaurants;
+        swipeViewController.category = self.category;
+        swipeViewController.location = nil;
     }
 }
- */
 
 // Category functions start
 

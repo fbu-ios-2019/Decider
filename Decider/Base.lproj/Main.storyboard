@@ -126,7 +126,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Swipe" id="dVb-YQ-JYf">
                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="tpf-5r-5wA" kind="show" identifier="swipeSegue" id="Ndh-SY-jbi"/>
+                                <segue destination="tpf-5r-5wA" kind="show" identifier="swipeSegue" id="oe8-30-ErH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -420,6 +420,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kSi-RY-9Vy"/>
                     </view>
+                    <navigationItem key="navigationItem" id="pyd-T9-tQo"/>
                     <connections>
                         <outlet property="likeCount" destination="7yl-dO-Ibh" id="4Wt-8q-CoK"/>
                         <outlet property="unlikeCount" destination="N3r-Xv-Mkv" id="G5g-fY-65V"/>
@@ -428,7 +429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ee8-0f-w1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1898" y="2526"/>
+            <point key="canvasLocation" x="-959.20000000000005" y="2525.4872563718145"/>
         </scene>
         <!--Recommendations View Controller-->
         <scene sceneID="BcO-IO-PVc">
@@ -471,7 +472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Udm-Ms-by4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1034.4000000000001" y="2524.5877061469268"/>
+            <point key="canvasLocation" x="-95.200000000000003" y="2524.5877061469268"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="CjX-qx-GuH">

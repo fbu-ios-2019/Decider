@@ -12,6 +12,7 @@
 #import "Routes.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import "DetailsViewController.h"
+#import "MBProgressHUD/MBProgressHUD.h"
 
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
 static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
@@ -250,6 +251,9 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 
 // Function that fetches restaurants from database
 - (void)fetchRestaurants {
+    UIView *window = [UIApplication sharedApplication].keyWindow;
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    [hud showAnimated:YES];
     NSURLSessionDataTask *task = [Routes fetchRestaurantsOfCategory:@"all" nearLocation:@"Mountain View" offset:0 completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
         if (error != nil) {
             NSLog(@"%@", error.localizedDescription);
@@ -280,6 +284,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
             [self constructLikedButton];
             
             [self didTapImage];
+            [hud hideAnimated:YES];
         }
         
     }];

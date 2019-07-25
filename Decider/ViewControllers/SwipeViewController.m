@@ -16,7 +16,7 @@
 #import "MBProgressHUD/MBProgressHUD.h"
 
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
-static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
+static const CGFloat ChooseFoodButtonVerticalPadding = 5.f;//20.f;
 
 @interface SwipeViewController ()
 

@@ -12,6 +12,7 @@
 
 @interface SignupViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
@@ -37,6 +38,12 @@
     PFUser *newUser = [PFUser user];
     
     // set user properties
+    [newUser setObject:self.nameField.text forKey:@"name"];
+    [newUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            
+        }
+    }];
     newUser.username = self.usernameField.text;
     newUser.email = self.emailField.text;
     newUser.password = self.passwordField.text;

@@ -115,7 +115,7 @@
     // self.locationsTableView.hidden = YES;
     
     // Dropdown menu for category
-    MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(12, 403, 351, 44)];
+    MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(self.selectedCategoryLabel.frame.origin.x, self.selectedCategoryLabel.frame.origin.y, 351, 44)];
     dropdownMenu.dataSource = self;
     dropdownMenu.delegate = self;
     [self.view addSubview:dropdownMenu];

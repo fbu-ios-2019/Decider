@@ -41,6 +41,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *selectedCategoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *selectedLocationLabel;
 //@property (weak, nonatomic) IBOutlet UIButton *selectedLocationButton;
+@property (nonatomic) BOOL currentLocationDefaulted;
+@property (weak, nonatomic) IBOutlet UIButton *currentLocationButton;
+@property (strong, nonatomic) NSString *currentLocation;
+
+
+
 
 @end
 
@@ -77,6 +83,7 @@
     [self getCurrentLocation];
     
     // Search bar style
+    self.currentLocationDefaulted = YES;
     self.selectedCategoryLabel.layer.cornerRadius = 9.2;
     self.locationsSearchBar.placeholder = @"";
     // self.locationsSearchBar.searchBarStyle = UISearchBarStyleMinimal;
@@ -301,6 +308,7 @@
                              self.placemark.locality,
                              self.placemark.administrativeArea,
                              self.placemark.country];
+            self.currentLocation = self.location;
         }
         else {
             NSLog(@"%@", error.debugDescription);
@@ -384,7 +392,20 @@
     [self.locationsSearchBar resignFirstResponder];
 }
 
+
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+}
+
+
+- (IBAction)didTapCurrentLocation:(UIButton *)sender {
+    if (self.currentLocationDefaulted == YES) {
+        self.currentLocationDefaulted = NO;
+        [self.currentLocationButton setSelected:YES];
+    } else {
+        self.currentLocationDefaulted = YES;
+        [self.currentLocationButton setSelected:NO];
+        self.location = self.currentLocation;
+    }
 }
 
 // Search bar functions end

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--DECIDER-->
+        <!--Home View Controller-->
         <scene sceneID="qqV-mx-f7P">
             <objects>
-                <viewController id="Z7s-I6-OeA" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="Z7s-I6-OeA" customClass="HomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XvN-e0-8LH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,12 +131,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Nld-Vj-Miq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="decide_icon-29x29" id="qBy-RG-nw2"/>
-                    <navigationItem key="navigationItem" title="DECIDER" id="Nu8-PI-WBb">
-                        <barButtonItem key="rightBarButtonItem" title="Swipe" id="dVb-YQ-JYf">
-                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Nu8-PI-WBb"/>
                     <connections>
                         <outlet property="currentLocationButton" destination="1vA-aJ-Tr7" id="BXC-MW-RMG"/>
                         <outlet property="locationsSearchBar" destination="bxj-03-IuG" id="aT5-dj-jfS"/>
@@ -149,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ru-8q-ruF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1954.4000000000001" y="203.74812593703149"/>
+            <point key="canvasLocation" x="-1954" y="985"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="4QJ-wt-Fsx">
@@ -310,7 +305,7 @@
                         <color key="selectedImageTintColor" red="0.93333333330000001" green="0.4549019608" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Z7s-I6-OeA" kind="relationship" relationship="viewControllers" id="9FI-qS-jR8"/>
+                        <segue destination="gnc-JH-SJg" kind="relationship" relationship="viewControllers" id="9FI-qS-jR8"/>
                         <segue destination="boq-yB-zzm" kind="relationship" relationship="viewControllers" id="znN-et-ony"/>
                         <segue destination="qsy-iz-zFw" kind="relationship" relationship="viewControllers" id="pbk-K7-gIQ"/>
                     </connections>
@@ -342,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPO-Ro-upl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1034" y="940"/>
+            <point key="canvasLocation" x="-1034" y="985"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="FMu-YM-g5m">
@@ -385,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfM-3J-DAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-146.40000000000001" y="939.58020989505258"/>
+            <point key="canvasLocation" x="-146" y="985"/>
         </scene>
         <!--Swipe View Controller-->
         <scene sceneID="Zj1-aa-7No">
@@ -427,7 +422,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kSi-RY-9Vy"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pyd-T9-tQo"/>
+                    <navigationItem key="navigationItem" id="pyd-T9-tQo">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="xxd-FM-eEo">
+                            <color key="tintColor" red="1" green="0.38431372549999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="likeCount" destination="7yl-dO-Ibh" id="4Wt-8q-CoK"/>
                         <outlet property="unlikeCount" destination="N3r-Xv-Mkv" id="G5g-fY-65V"/>
@@ -436,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ee8-0f-w1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1954" y="940"/>
+            <point key="canvasLocation" x="-1954" y="1745"/>
         </scene>
         <!--Recommendations View Controller-->
         <scene sceneID="BcO-IO-PVc">
@@ -612,7 +611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwY-1e-JfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1954" y="1745"/>
+            <point key="canvasLocation" x="-1954" y="3119"/>
         </scene>
         <!--Review-->
         <scene sceneID="YXn-ST-Eyg">
@@ -659,6 +658,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1f-SK-XMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146" y="204"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="dmm-kY-rt6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gnc-JH-SJg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="decide_icon-29x29" id="qBy-RG-nw2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="81K-X7-BMD">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.38431372549999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="1" green="0.38431372549999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Z7s-I6-OeA" kind="relationship" relationship="rootViewController" id="bFP-Hv-QfL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lMT-kb-zxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1954.4000000000001" y="203.74812593703149"/>
         </scene>
     </scenes>
     <resources>

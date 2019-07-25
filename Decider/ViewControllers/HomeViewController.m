@@ -12,6 +12,7 @@
 #import "CityCell.h"
 #import "MKDropdownMenu.h"
 
+
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKDropdownMenuDataSource, MKDropdownMenuDelegate>
 
 
@@ -59,7 +60,10 @@
     self.swipeButton.layer.cornerRadius = 6;
     // self.startButton.layer.cornerRadius = 2;
     self.startSwipingLabel.layer.cornerRadius = 4;
-    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                             forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
     
         // Delegates
     // Location delegates

@@ -13,6 +13,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.cityLabel.font = [UIFont systemFontOfSize:20 weight:UIFontWeightThin];
+    self.cityLabel.textColor = [UIColor darkGrayColor];
+    self.cityLabel.layer.borderWidth = 0.25;
+    self.cityLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

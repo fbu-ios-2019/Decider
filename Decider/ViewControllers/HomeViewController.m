@@ -226,14 +226,13 @@
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
     return [[NSAttributedString alloc] initWithString:self.categories[row]
                                            attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:20 weight:UIFontWeightThin],
-                       NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+                       NSForegroundColorAttributeName: [UIColor darkGrayColor]}];
 }
 
 // Category functions end
 
 
 // Location functions start
-
 
 // Function that gets current location
 - (void)getCurrentLocation {

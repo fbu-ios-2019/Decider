@@ -51,7 +51,7 @@
     
     // UI
     self.swipeButton.layer.cornerRadius = 6;
-    self.startButton.layer.cornerRadius = 2;
+    // self.startButton.layer.cornerRadius = 2;
     self.startSwipingLabel.layer.cornerRadius = 4;
     
     
@@ -84,9 +84,10 @@
     self.locationsSearchBar.layer.borderWidth = 0;
     self.locationsSearchBar.layer.borderColor = [UIColor clearColor].CGColor;
     self.locationsSearchBar.layer.cornerRadius = 4;
-    self.locationsSearchBar.barTintColor = [UIColor colorWithRed:255.0/255.0 green:98.0/255.0 blue:19.0/255.0 alpha:1.0];
-    self.locationsSearchBar.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:98.0/255.0 blue:19.0/255.0 alpha:1.0];
+     self.locationsSearchBar.barTintColor = [UIColor colorWithRed:255.0/255.0 green:98.0/255.0 blue:19.0/255.0 alpha:1.0];
+     self.locationsSearchBar.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:98.0/255.0 blue:19.0/255.0 alpha:1.0];
     
+    // Text field of search bar
     UITextField *textField = [self.locationsSearchBar valueForKey:@"_searchField"];
     textField.textColor = [UIColor darkGrayColor];
     textField.placeholder = @"Current location";
@@ -105,9 +106,13 @@
     textField.rightView = imgview;
     textField.rightViewMode = UITextFieldViewModeAlways;
     
+    self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(self.locationsSearchBar.layer.frame.size.width/4, 0);
+    
+    self.locationsTableView.layer.borderWidth = 0;
+    self.locationsTableView.layer.borderColor = [UIColor colorWithRed:255.0/255.0 green:98.0/255.0 blue:19.0/255.0 alpha:1.0].CGColor;
     
     self.selectedLocationLabel.layer.cornerRadius = 6;
-    self.locationsTableView.hidden = YES;
+    // self.locationsTableView.hidden = YES;
     
     // Dropdown menu for category
     MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(12, 403, 351, 44)];
@@ -334,8 +339,16 @@
     self.selectedLocationLabel.text = self.filteredData[indexPath.row];
     self.location = self.filteredData[indexPath.row];
     self.locationsSearchBar.text = self.filteredData[indexPath.row];
-    self.locationsTableView.hidden = YES;
-    self.selectedLocationLabel.hidden = NO;
+    self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(self.locationsSearchBar.layer.frame.size.width/4, 0);
+    // self.locationsTableView.hidden = YES;
+    // self.selectedLocationLabel.hidden = NO;
+//    // [self.view endEditing:YES];
+//    self.locationsSearchBar.showsCancelButton = NO;
+    [self.locationsSearchBar resignFirstResponder];
+    // [self searchBarCancelButtonClicked:self.locationsSearchBar];
+    
+
+    
 }
 
 
@@ -356,13 +369,12 @@
     }
     
     [self.locationsTableView reloadData];
-    
 }
 
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     // self.locationsSearchBar.showsCancelButton = YES;
-    // --->>> SHOW "CURRENT LOCATION" BUTTON
+    self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(0, 0);
 }
 
 
@@ -371,6 +383,9 @@
     self.locationsTableView.hidden = NO;
     self.locationsSearchBar.text = @"";
     [self.locationsSearchBar resignFirstResponder];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
 }
 
 // Search bar functions end

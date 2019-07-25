@@ -31,7 +31,6 @@
 		F9CD455822E761340038D859 /* RecommendationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CD455722E761340038D859 /* RecommendationCell.m */; };
 		F9E1F5F922E11EDB00458F0C /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
 		F9E1F5FA22E11EE200458F0C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE68F22DF8D65004798EF /* HomeViewController.m */; };
-		F9F13D7A22E12374001D1DB2 /* RecommendationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F13D7922E12374001D1DB2 /* RecommendationsViewController.m */; };
 		F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA022DF99A900032267 /* ReviewViewController.m */; };
 		F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA322DF99C000032267 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
@@ -104,8 +103,6 @@
 		F988729422E657B800F85972 /* PhotoCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionCell.m; sourceTree = "<group>"; };
 		F9CD455622E761340038D859 /* RecommendationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendationCell.h; sourceTree = "<group>"; };
 		F9CD455722E761340038D859 /* RecommendationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendationCell.m; sourceTree = "<group>"; };
-		F9F13D7822E12374001D1DB2 /* RecommendationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendationsViewController.h; sourceTree = "<group>"; };
-		F9F13D7922E12374001D1DB2 /* RecommendationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendationsViewController.m; sourceTree = "<group>"; };
 		F9F33F9F22DF99A900032267 /* ReviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		F9F33FA022DF99A900032267 /* ReviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		F9F33FA222DF99C000032267 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -253,8 +250,6 @@
 				F9F33FA022DF99A900032267 /* ReviewViewController.m */,
 				F9F33FA222DF99C000032267 /* ProfileViewController.h */,
 				F9F33FA322DF99C000032267 /* ProfileViewController.m */,
-				F9F13D7822E12374001D1DB2 /* RecommendationsViewController.h */,
-				F9F13D7922E12374001D1DB2 /* RecommendationsViewController.m */,
 				F91F4D6822E8CAC800D8D1F5 /* LoginViewController.h */,
 				F91F4D6922E8CAC800D8D1F5 /* LoginViewController.m */,
 				F91F4D6B22E8CAD500D8D1F5 /* SignupViewController.h */,
@@ -508,7 +503,6 @@
 				F9CD455822E761340038D859 /* RecommendationCell.m in Sources */,
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
-				F9F13D7A22E12374001D1DB2 /* RecommendationsViewController.m in Sources */,
 				F988729522E657B800F85972 /* PhotoCollectionCell.m in Sources */,
 				F97CE6A822DFE319004798EF /* Restaurant.m in Sources */,
 				F9F33FA122DF99A900032267 /* ReviewViewController.m in Sources */,

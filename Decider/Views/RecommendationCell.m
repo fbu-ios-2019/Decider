@@ -16,7 +16,7 @@
     
     self.restaurantName.text = restaurant.name;
     // --> Need to display all of them
-    self.category.text = restaurant.categories[0];
+    self.category.text = restaurant.categoryString;
     // --> Change strings to be icons
     self.numberOfStars.text = self.restaurant.starRating;
     self.price.text = self.restaurant.priceRating;

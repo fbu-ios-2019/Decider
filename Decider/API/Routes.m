@@ -65,4 +65,13 @@
     return task;
 }
 
++ (NSURLSessionDataTask *)fetchRecommendations:(DeciderCompletionHandler)completionHandler {
+    NSString *urlString = @"https://decider-backend.herokuapp.com/restaurants/recommendations";
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];
+    
+    return task;
+}
+
 @end

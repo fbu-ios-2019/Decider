@@ -23,5 +23,6 @@ typedef void(^DeciderCompletionHandler)(NSData *data, NSURLResponse *response, N
 
 + (NSURLSessionDataTask *)fetchLocations:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
 
++ (NSURLSessionDataTask *)fetchRecommendations:(DeciderCompletionHandler)completionHandler;
 
 @end

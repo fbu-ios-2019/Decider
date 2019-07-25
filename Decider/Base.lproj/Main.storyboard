@@ -217,7 +217,7 @@
         <!--Signup View Controller-->
         <scene sceneID="Ytm-9n-weK">
             <objects>
-                <viewController id="F24-81-6hQ" customClass="SignupViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signupVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F24-81-6hQ" customClass="SignupViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ICI-Vx-bT2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -12,10 +12,11 @@
 #import "Routes.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import "DetailsViewController.h"
+#import "ReviewViewController.h"
 #import "MBProgressHUD/MBProgressHUD.h"
 
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
-static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
+static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 
 @interface SwipeViewController ()
 
@@ -24,6 +25,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 @property (nonatomic, strong) NSMutableArray *foodUnliked;
 @property (weak, nonatomic) IBOutlet UILabel *unlikeCount;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
+@property long swipeTotal;
 @property (nonatomic, copy) NSString *yelpid;
 @property (nonatomic, strong) Restaurant *currentRestaurant;
 @property (strong, nonatomic) NSArray *restaurants;
@@ -93,6 +95,30 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
                          } completion:nil];
     }
     
+    self.swipeTotal = (long)[self.foodLiked count] + (long)[self.foodUnliked count];
+    if(self.swipeTotal % 5 == 0) {
+        NSString *message1 = @"You have swiped ";
+        NSString *message2 = [message1 stringByAppendingString:[NSString stringWithFormat:@"%ld", self.swipeTotal]];
+        NSString *finalMessage = [message2 stringByAppendingString:@" times."];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"View Recommendations?"
+                                                                       message:finalMessage
+                                                                preferredStyle:(UIAlertControllerStyleAlert)];
+        
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"View" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            //button click event
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ReviewViewController *reviewViewController = [storyboard instantiateViewControllerWithIdentifier:@"reviewVC"];
+            [self presentViewController:reviewViewController animated:YES completion:nil];
+        }];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Swipe More" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancel];
+        [alert addAction:ok];
+        
+        [self presentViewController:alert animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+        }];
+    }
+    
     [self didTapImage];
 }
 
@@ -107,6 +133,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
     NSUInteger like = [formatter numberFromString:self.likeCount.text].unsignedIntegerValue;
     NSUInteger unlike = [formatter numberFromString:self.unlikeCount.text].unsignedIntegerValue;
     NSUInteger sum = like + unlike;
+    NSLog(@"%ld", self.swipeTotal);
     NSDictionary *photoDictionary = [self.restaurants objectAtIndex:sum];
     NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
     self.currentRestaurant = [[Restaurant alloc] initWithYelpid:yelpid];
@@ -143,7 +170,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
     options.onPan = ^(MDCPanState *state){
         CGRect frame = [self backCardViewFrame];
         self.backCardView.frame = CGRectMake(frame.origin.x,
-                                             frame.origin.y - (state.thresholdRatio * 10.f),
+                                             frame.origin.y, //- (state.thresholdRatio * 10.f),
                                              CGRectGetWidth(frame),
                                              CGRectGetHeight(frame));
     };
@@ -181,7 +208,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 25.f;
 - (CGRect)backCardViewFrame {
     CGRect frontFrame = [self frontCardViewFrame];
     return CGRectMake(frontFrame.origin.x,
-                      frontFrame.origin.y + 10.f,
+                      frontFrame.origin.y, //+ 10.f,
                       CGRectGetWidth(frontFrame),
                       CGRectGetHeight(frontFrame));
 }

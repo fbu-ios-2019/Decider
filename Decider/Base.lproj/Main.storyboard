@@ -312,7 +312,7 @@
         <!--DECIDER-->
         <scene sceneID="LsG-ct-0tu">
             <objects>
-                <viewController id="DTV-rM-4Ll" customClass="ReviewViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="reviewVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DTV-rM-4Ll" customClass="ReviewViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Ah-4h-Bgl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -106,9 +106,13 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
         
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"View" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             //button click event
+           
+            // Call review view controller and send it the restaurants
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             ReviewViewController *reviewViewController = [storyboard instantiateViewControllerWithIdentifier:@"reviewVC"];
-            [self presentViewController:reviewViewController animated:YES completion:nil];
+            
+            [self showViewController:reviewViewController sender:self];
+        
         }];
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Swipe More" style:UIAlertActionStyleCancel handler:nil];
         [alert addAction:cancel];

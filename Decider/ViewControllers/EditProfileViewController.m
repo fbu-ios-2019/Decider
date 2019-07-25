@@ -37,7 +37,7 @@
         [self.user setObject:self.nameField.text forKey:@"name"];
     }
     PFFileObject *imageFile = [self.user objectForKey:@"tempImage"];
-    if(![self.nameField.text  isEqual: nil]) {
+    if(imageFile != nil) {
         [self.user setObject:imageFile forKey:@"profilePicture"];
         [self.user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error) {

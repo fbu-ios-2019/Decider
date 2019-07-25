@@ -115,7 +115,7 @@
     // self.locationsTableView.hidden = YES;
     
     // Dropdown menu for category
-    MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(12, 403, 351, 44)];
+    MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(self.selectedCategoryLabel.frame.origin.x, self.selectedCategoryLabel.frame.origin.y, 351, 44)];
     dropdownMenu.dataSource = self;
     dropdownMenu.delegate = self;
     [self.view addSubview:dropdownMenu];
@@ -226,14 +226,13 @@
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
     return [[NSAttributedString alloc] initWithString:self.categories[row]
                                            attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:20 weight:UIFontWeightThin],
-                       NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+                       NSForegroundColorAttributeName: [UIColor darkGrayColor]}];
 }
 
 // Category functions end
 
 
 // Location functions start
-
 
 // Function that gets current location
 - (void)getCurrentLocation {

@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Restaurant.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RecommendationCell : UITableViewCell
+
+@property (strong, nonatomic) Restaurant *restaurant;
+
+@property (weak, nonatomic) IBOutlet UILabel *restaurantName;
+@property (weak, nonatomic) IBOutlet UILabel *category;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfStars;
+@property (weak, nonatomic) IBOutlet UILabel *price;
+
 
 @end
 

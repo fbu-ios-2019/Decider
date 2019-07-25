@@ -77,7 +77,7 @@
     [self getCurrentLocation];
     
     // Search bar style
-    self.selectedCategoryLabel.layer.cornerRadius = 6;
+    self.selectedCategoryLabel.layer.cornerRadius = 9.2;
     self.locationsSearchBar.placeholder = @"";
     // self.locationsSearchBar.searchBarStyle = UISearchBarStyleMinimal;
     

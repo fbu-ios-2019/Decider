@@ -28,7 +28,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 5.f;//20.f;
 @property long swipeTotal;
 @property (nonatomic, copy) NSString *yelpid;
 @property (nonatomic, strong) Restaurant *currentRestaurant;
-@property (strong, nonatomic) NSArray *restaurants;
+@property (nonatomic, strong) NSArray *restaurants;
 
 @end
 
@@ -110,7 +110,8 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 5.f;//20.f;
             // Call review view controller and send it the restaurants
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             ReviewViewController *reviewViewController = [storyboard instantiateViewControllerWithIdentifier:@"reviewVC"];
-            
+            reviewViewController.foodLiked = self.foodLiked;
+            reviewViewController.foodUnliked = self.foodUnliked;
             [self showViewController:reviewViewController sender:self];
         
         }];

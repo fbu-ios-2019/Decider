@@ -113,6 +113,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 5.f;//20.f;
             reviewViewController.foodLiked = self.foodLiked;
             reviewViewController.foodUnliked = self.foodUnliked;
             [self showViewController:reviewViewController sender:self];
+            [self.tabBarController setSelectedIndex:1];
         
         }];
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Swipe More" style:UIAlertActionStyleCancel handler:nil];

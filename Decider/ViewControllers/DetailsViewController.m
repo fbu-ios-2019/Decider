@@ -20,7 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hoursLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reviewCount;
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UIButton *addressButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
@@ -42,7 +43,8 @@
     self.priceLabel.text = self.restaurant.priceRating;
     self.categoryLabel.text = self.restaurant.categoryString;
     self.reviewCount.text = self.restaurant.reviewCount;
-    self.addressLabel.text = self.restaurant.address;
+    [self.addressButton setTitle:self.restaurant.address forState:UIControlStateNormal];
+    self.addressButton.titleLabel.numberOfLines = 0;
     self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", self.restaurant.startTime, self.restaurant.endTime];
     self.images = self.restaurant.images;
     //[self.collectionView reloadData];

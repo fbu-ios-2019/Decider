@@ -15,6 +15,7 @@
 		F91F4D6A22E8CAC800D8D1F5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6922E8CAC800D8D1F5 /* LoginViewController.m */; };
 		F91F4D6D22E8CAD500D8D1F5 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6C22E8CAD500D8D1F5 /* SignupViewController.m */; };
 		F91F4D7022EA501F00D8D1F5 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6F22EA501F00D8D1F5 /* EditProfileViewController.m */; };
+		F9373AE322EB8C3400EA432F /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9373AE222EB8C3400EA432F /* LocationViewController.m */; };
 		F953DF6E22EA868500C41C43 /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
 		F953DF6F22EA868B00C41C43 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA022DF99A900032267 /* ReviewViewController.m */; };
 		F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE65A22DD4E1C004798EF /* AppDelegate.m */; };
@@ -75,6 +76,8 @@
 		F91F4D6C22E8CAD500D8D1F5 /* SignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		F91F4D6E22EA501F00D8D1F5 /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		F91F4D6F22EA501F00D8D1F5 /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
+		F9373AE122EB8C3400EA432F /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		F9373AE222EB8C3400EA432F /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		F97CE65622DD4E1C004798EF /* Decider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97CE65922DD4E1C004798EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F97CE65A22DD4E1C004798EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -259,6 +262,8 @@
 				F91F4D6C22E8CAD500D8D1F5 /* SignupViewController.m */,
 				F91F4D6E22EA501F00D8D1F5 /* EditProfileViewController.h */,
 				F91F4D6F22EA501F00D8D1F5 /* EditProfileViewController.m */,
+				F9373AE122EB8C3400EA432F /* LocationViewController.h */,
+				F9373AE222EB8C3400EA432F /* LocationViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -521,6 +526,7 @@
 				F97CE69622DF9489004798EF /* SwipeViewController.m in Sources */,
 				F97CE69322DF8D74004798EF /* DetailsViewController.m in Sources */,
 				F91047E322E681F20098D7B6 /* CityCell.m in Sources */,
+				F9373AE322EB8C3400EA432F /* LocationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

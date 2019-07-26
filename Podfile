@@ -10,6 +10,8 @@ target 'Decider' do
 	pod 'MDCSwipeToChoose'
 	pod 'MKDropdownMenu'
 	pod 'MBProgressHUD'
+	pod 'GoogleMaps'
+  	pod 'GooglePlaces'
 
   target 'DeciderTests' do
     inherit! :search_paths

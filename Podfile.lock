@@ -1,5 +1,12 @@
 PODS:
   - Bolts/Tasks (1.9.0)
+  - GoogleMaps (3.2.0):
+    - GoogleMaps/Maps (= 3.2.0)
+  - GoogleMaps/Base (3.2.0)
+  - GoogleMaps/Maps (3.2.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.2.0):
+    - GoogleMaps/Base (= 3.2.0)
   - MBProgressHUD (1.1.0)
   - MDCSwipeToChoose (0.2.3)
   - MKDropdownMenu (1.4)
@@ -9,6 +16,8 @@ PODS:
     - Bolts/Tasks (~> 1.9)
 
 DEPENDENCIES:
+  - GoogleMaps
+  - GooglePlaces
   - MBProgressHUD
   - MDCSwipeToChoose
   - MKDropdownMenu
@@ -17,6 +26,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bolts
+    - GoogleMaps
+    - GooglePlaces
     - MBProgressHUD
     - MDCSwipeToChoose
     - MKDropdownMenu
@@ -24,11 +35,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  GoogleMaps: 5046d7edfe381c1a0b20fdaf293915a375c3122b
+  GooglePlaces: 41bc2e480816b1234a48f4bec92e1c886f37cfe1
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MDCSwipeToChoose: 56239d98b4558c66e7c3c9069482befd26092270
   MKDropdownMenu: 269df4a41d21a1db684ce8bc709befe419fc5bae
   Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
 
-PODFILE CHECKSUM: 899ed7ac343953afd21ffd2fff7076ce13b211ad
+PODFILE CHECKSUM: 5c06a4e703d90e7d322ef41cd22cac77db921f68
 
 COCOAPODS: 1.7.2

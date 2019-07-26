@@ -21,11 +21,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *priceRating;
 @property (nonatomic, strong) NSArray *categories;
 @property (nonatomic, strong) NSString *categoryString;
+@property (nonatomic, strong) NSString *city;
+@property (nonatomic, strong) NSString *state;
+@property (nonatomic, strong) NSString *country;
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSArray *hours;
 @property (nonatomic, strong) NSString *startTime;
 @property (nonatomic, strong) NSString *endTime;
 @property (nonatomic, strong) NSArray *images;
+@property double latitude;
+@property double longitude;
 
 - (instancetype)initWithYelpid:(NSString *)yelpid;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

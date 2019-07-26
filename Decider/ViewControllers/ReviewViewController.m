@@ -10,6 +10,7 @@
 #import "RecommendationCell.h"
 #import "Restaurant.h"
 #import "Routes.h"
+#import "MBProgressHUD/MBProgressHUD.h"
 
 @interface ReviewViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -23,8 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Fetch restaurants
     [self fetchRecommendations];
 }
 
@@ -39,6 +38,9 @@
 */
 
 -(void)fetchRecommendations {
+    UIView *window = [UIApplication sharedApplication].keyWindow;
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    [hud showAnimated:YES];
     NSURLSessionDataTask *locationTask = [Routes fetchRecommendations:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
         if (error != nil) {
             NSLog(@"%@", error.localizedDescription);
@@ -52,13 +54,14 @@
             
             // Delegates
             self.tableView.dataSource = self;
-            self.tableView.delegate = self;        }
-        
+            self.tableView.delegate = self;
+            [self.tableView reloadData];
+            [hud hideAnimated:YES];
+        }
     }];
     if (!locationTask) {
         NSLog(@"There was a network error");
     }
-    [self.tableView reloadData];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -73,12 +76,10 @@
     cell.price.text = cell.restaurant.priceRating;
     
     return cell;
-    
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
 }
-
 
 @end

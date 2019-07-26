@@ -13,7 +13,7 @@
 
 #pragma mark - Object Lifecycle
 
-- (instancetype)initWithYelpid:(NSString *)yelpid completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
+- (instancetype)initWithYelpid:(NSString *)yelpid {
     self.yelpid = yelpid;
     NSURLSessionDataTask *task = [Routes fetchRestaurantDetails:self.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error != nil) {
@@ -38,7 +38,7 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     self.coverImage = [[UIImage alloc] initWithData:data];
     self.name = [dictionary valueForKey:@"name"];
-    self.starRating = [dictionary valueForKey:@"rating"];
+    self.starRating = [NSString stringWithFormat:@"%@", [dictionary valueForKey:@"rating"]];
     self.reviewCount = [NSString stringWithFormat:@"%@", [dictionary valueForKey:@"reviewCount"]];
     
     long num = [[dictionary valueForKey:@"priceRating"] longValue];

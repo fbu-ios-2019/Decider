@@ -11,17 +11,6 @@
 
 @implementation RecommendationCell
 
-- (void)setRestaurant:(Restaurant *)restaurant {
-    _restaurant = restaurant;
-
-    self.restaurantName.text = restaurant.name;
-    // --> Need to display all of them
-    self.category.text = restaurant.categoryString;
-    // --> Change strings to be icons
-    self.numberOfStars.text = self.restaurant.starRating;
-    self.price.text = self.restaurant.priceRating;
-}
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

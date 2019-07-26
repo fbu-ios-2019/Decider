@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSArray *images;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hoursLabel;
@@ -37,6 +38,7 @@
     //loading the details page information
     self.coverView.image = self.restaurant.coverImage;
     self.nameLabel.text = self.restaurant.name;
+    self.ratingLabel.text = self.restaurant.starRating;
     self.priceLabel.text = self.restaurant.priceRating;
     self.categoryLabel.text = self.restaurant.categoryString;
     self.reviewCount.text = self.restaurant.reviewCount;

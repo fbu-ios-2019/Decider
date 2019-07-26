@@ -370,6 +370,16 @@
                                                     <color key="textColor" red="0.14517178347800111" green="0.39886289290365229" blue="0.11541619000223557" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kox-rW-dub">
+                                                    <rect key="frame" x="319" y="27" width="37" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="SAVE">
+                                                        <color key="titleColor" red="1" green="0.38431372549999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTapSave:" destination="tlK-sh-zar" eventType="touchUpInside" id="eY2-dM-OGa"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -377,6 +387,7 @@
                                             <outlet property="numberOfStars" destination="f74-hv-NLu" id="bO5-7s-yIO"/>
                                             <outlet property="price" destination="8nl-AV-F4k" id="rwR-KF-DpB"/>
                                             <outlet property="restaurantName" destination="Pnn-L1-3g1" id="eJc-cC-dJI"/>
+                                            <outlet property="saveButton" destination="Kox-rW-dub" id="vg1-wV-3Bl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

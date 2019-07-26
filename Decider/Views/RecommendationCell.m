@@ -11,9 +11,9 @@
 
 @implementation RecommendationCell
 
--(void)setRestaurant:(Restaurant *)restaurant {
+- (void)setRestaurant:(Restaurant *)restaurant {
     _restaurant = restaurant;
-    
+
     self.restaurantName.text = restaurant.name;
     // --> Need to display all of them
     self.category.text = restaurant.categoryString;

@@ -52,13 +52,13 @@
             
             // Delegates
             self.tableView.dataSource = self;
-            self.tableView.delegate = self;
-        }
+            self.tableView.delegate = self;        }
         
     }];
     if (!locationTask) {
         NSLog(@"There was a network error");
     }
+    [self.tableView reloadData];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -66,8 +66,11 @@
     
     // Update cell with data
     NSDictionary *restaurantDict = self.recommendations[indexPath.row];
-    NSString *yelpid = [restaurantDict valueForKey:@"yelpId"];
-    cell.restaurant = [[Restaurant alloc] initWithYelpid:yelpid];
+    cell.restaurant = [[Restaurant alloc] initWithDictionary:restaurantDict];
+    cell.restaurantName.text = cell.restaurant.name;
+    cell.category.text = cell.restaurant.categoryString;
+    cell.numberOfStars.text = cell.restaurant.starRating;
+    cell.price.text = cell.restaurant.priceRating;
     
     return cell;
     

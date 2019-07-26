@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray *images;
 
 - (instancetype)initWithYelpid:(NSString *)yelpid;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
 

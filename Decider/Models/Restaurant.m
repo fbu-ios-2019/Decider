@@ -52,15 +52,15 @@
     self.categoryString = [self.categories componentsJoinedByString:@", "];
     
     NSString *address = [dictionary valueForKey:@"address"];
-    NSString *city = [dictionary valueForKey:@"city"];
-    NSString *state = [dictionary valueForKey:@"state"];
+    self.city = [dictionary valueForKey:@"city"];
+    self.state = [dictionary valueForKey:@"state"];
     NSString *zipcode = [dictionary valueForKey:@"zipcode"];
-    NSString *country = [dictionary valueForKey:@"country"];
-    self.address = [NSString stringWithFormat:@"%@\n%@ %@ %@\n%@",
+    self.country = [dictionary valueForKey:@"country"];
+    self.address = [NSString stringWithFormat:@"%@\n%@ %@\n%@",
                     address,
-                    city, state,
+                    [[self.city stringByAppendingString:@", "] stringByAppendingString:self.state],
                     zipcode,
-                    country];
+                    self.country];
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
@@ -81,6 +81,11 @@
         }
     }
     self.images = pictures;
+    
+    NSDictionary *coordinates = [dictionary objectForKey:@"coordinates"];
+    self.latitude = [[coordinates objectForKey:@"latitude"] doubleValue];
+    self.longitude = [[coordinates objectForKey:@"longitude"] doubleValue];
+    
     return self;
 }
 

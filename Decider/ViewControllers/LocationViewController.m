@@ -7,6 +7,7 @@
 //
 
 #import "LocationViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface LocationViewController ()
 
@@ -16,7 +17,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Create a GMSCameraPosition that tells the map to display the
+    // coordinate -33.86,151.20 at zoom level 6.
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.latitude//-33.86
+                                                            longitude:self.longitude//151.20
+                                                                 zoom:12];
+    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView.myLocationEnabled = YES;
+    self.view = mapView;
+    
+    // Creates a marker in the center of the map.
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = CLLocationCoordinate2DMake(self.latitude, self.longitude);//-33.86, 151.20);
+    marker.title = self.name;//@"Sydney";
+    marker.snippet = [[self.city stringByAppendingString:@", "] stringByAppendingString:self.state];//self.state;//@"Australia";
+    marker.map = mapView;
+}
+
+- (IBAction)didTapBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

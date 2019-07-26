@@ -9,6 +9,7 @@
 #import "DetailsViewController.h"
 #import "PhotoCollectionCell.h"
 #import "Routes.h"
+#import "LocationViewController.h"
 
 @interface DetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -50,15 +51,22 @@
     //[self.collectionView reloadData];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"locationSegue"]) {
+        LocationViewController *locationViewController = [segue destinationViewController];
+        locationViewController.city = self.restaurant.city;
+        locationViewController.state = self.restaurant.state;
+        locationViewController.country = self.restaurant.country;
+        locationViewController.name = self.restaurant.name;
+        locationViewController.latitude = self.restaurant.latitude;
+        locationViewController.longitude = self.restaurant.longitude;
+    }
 }
-*/
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PhotoCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCollectionCell" forIndexPath:indexPath];

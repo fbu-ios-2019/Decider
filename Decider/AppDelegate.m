@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
+@import GoogleMaps;
+@import GooglePlaces;
 
 @interface AppDelegate ()
 
@@ -17,7 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    [GMSServices provideAPIKey:@"AIzaSyAPCQMOoqpetifgQvKIhYrhBHS_DCL0tIM"];
+    [GMSPlacesClient provideAPIKey:@"AIzaSyAPCQMOoqpetifgQvKIhYrhBHS_DCL0tIM"];
+    
     ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         
         configuration.applicationId = @"decider-fbu";

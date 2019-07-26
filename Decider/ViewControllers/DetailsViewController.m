@@ -59,7 +59,7 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PhotoCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCollectionCell" forIndexPath:indexPath];
     //cell.imageView.image = [UIImage imageNamed:@"photo1"];
-    NSInteger *num = indexPath.row;
+    long num = indexPath.row;
     //cell.imageView.image = [self.photos objectAtIndex:num];
     cell.imageView.image = [self.images objectAtIndex:num];
     return cell;

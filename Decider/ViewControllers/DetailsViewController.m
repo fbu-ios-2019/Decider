@@ -10,8 +10,9 @@
 #import "PhotoCollectionCell.h"
 #import "Routes.h"
 #import "LocationViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface DetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface DetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource, GMSMapViewDelegate>
 
 @property (nonatomic, strong) NSArray *images;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
@@ -25,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *addressButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 
 @end
 
@@ -33,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.scrollView.alwaysBounceVertical = YES;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -49,6 +53,16 @@
     self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", self.restaurant.startTime, self.restaurant.endTime];
     self.images = self.restaurant.images;
     //[self.collectionView reloadData];
+    
+    self.mapView.myLocationEnabled = YES;
+    //Controls the type of map tiles that should be displayed.
+    self.mapView.mapType = kGMSTypeNormal;
+    //Shows the compass button on the map
+    self.mapView.settings.compassButton = YES;
+    //Shows the my location button on the map
+    self.mapView.settings.myLocationButton = YES;
+    //Sets the view controller to be the GMSMapView delegate
+    self.mapView.delegate = self;
 }
 
 #pragma mark - Navigation

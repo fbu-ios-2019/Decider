@@ -11,6 +11,8 @@
 
 @interface LocationViewController ()
 
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+
 @end
 
 @implementation LocationViewController
@@ -19,19 +21,31 @@
     [super viewDidLoad];
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.latitude//-33.86
-                                                            longitude:self.longitude//151.20
-                                                                 zoom:12];
-    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    mapView.myLocationEnabled = YES;
-    self.view = mapView;
+//    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.latitude//-33.86
+//                                                            longitude:self.longitude//151.20
+//                                                                 zoom:12];
+//    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+////    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake(0, 58, 375, 609) camera:camera];
+//    mapView.myLocationEnabled = YES;
+//    self.view = mapView;
+//
+//    // Creates a marker in the center of the map.
+//    GMSMarker *marker = [[GMSMarker alloc] init];
+//    marker.position = CLLocationCoordinate2DMake(self.latitude, self.longitude);//-33.86, 151.20);
+//    marker.title = self.name;//@"Sydney";
+//    marker.snippet = [[self.city stringByAppendingString:@", "] stringByAppendingString:self.state];//self.state;//@"Australia";
+//    marker.map = mapView;
     
-    // Creates a marker in the center of the map.
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(self.latitude, self.longitude);//-33.86, 151.20);
-    marker.title = self.name;//@"Sydney";
-    marker.snippet = [[self.city stringByAppendingString:@", "] stringByAppendingString:self.state];//self.state;//@"Australia";
-    marker.map = mapView;
+    //Controls whether the My Location dot and accuracy circle is enabled.
+    self.mapView.myLocationEnabled = YES;
+    //Controls the type of map tiles that should be displayed.
+    self.mapView.mapType = kGMSTypeNormal;
+    //Shows the compass button on the map
+    self.mapView.settings.compassButton = YES;
+    //Shows the my location button on the map
+    self.mapView.settings.myLocationButton = YES;
+    //Sets the view controller to be the GMSMapView delegate
+    self.mapView.delegate = self;
 }
 
 - (IBAction)didTapBack:(id)sender {

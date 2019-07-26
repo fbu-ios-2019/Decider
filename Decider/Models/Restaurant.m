@@ -67,7 +67,11 @@
             for(int i = 0; i < [test count]; i++) {
                 NSURL *url = [NSURL URLWithString:[test objectAtIndex:i]];
                 NSData *data = [NSData dataWithContentsOfURL:url];
+                if(data != nil) {
                 [pictures addObject:[[UIImage alloc] initWithData:data]];
+                } else {
+                    NSLog(@"Image empty");
+                }
             }
             self.images = pictures;
         }

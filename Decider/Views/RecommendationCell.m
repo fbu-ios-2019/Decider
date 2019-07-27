@@ -24,11 +24,7 @@
 
 
 - (IBAction)didTapSave:(UIButton *)sender {
-    // Save restaurant's Yelp ID on Parse User table
-//    [PFUser currentUser][@"savedRestaurants"] = self.restaurant.yelpid;
-//
     PFUser *user = [PFUser currentUser];
-//    PFQuery *query = [PFQuery queryWithClassName:@"User"];
     NSMutableArray *savedRestaurants = [user objectForKey:@"savedRestaurants"];
     if(savedRestaurants == nil) {
         savedRestaurants = [[NSMutableArray alloc] init];
@@ -41,23 +37,30 @@
             
         }
     }];
-    // Retrive object by ID
-//    [query ge]
-//
-//    PFObject *savedRestaurants = [user ge]
-//    [query getObjectInBackgroundWithId:self.restaurant.objectId block:^(NSError *error) {
-//
-//    }];
-    
 }
 
-//- (void)postSaveRestaurant:( NSString * _Nullable )yelpId withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-//
-//    [[[PFUser currentUser] setObject:; forKey:@"savedRestaurants"] ]
-//    [PFUser currentUser][@"savedRestaurants"] = self.restaurant.yelpid;
-//    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//        if (error != nil) {
-//            NSLog(@"%@", error.localizedDescription);
+//- (IBAction)didTapLike:(UIButton *)sender {
+//    // Refer to current user
+//    PFUser *user = [PFUser currentUser];
+//    
+//    // Save value that's stored on the database
+//    NSMutableArray *likedRestaurants = [user objectForKey:@"likedRestaurants"];
+//    
+//    // Update value
+//    if(likedRestaurants == nil) {
+//        likedRestaurants = [[NSMutableArray alloc] init];
+//    }
+//    
+//    if (self.restaurant.liked) {
+//        [likedRestaurants addObject:self.restaurant.yelpid];
+//    }
+//    
+//    // Save new value on database
+//    [user setObject:likedRestaurants forKey:@"likedRestaurants"];
+//    
+//    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            
 //        }
 //    }];
 //}

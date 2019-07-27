@@ -12,8 +12,8 @@
 #import "Routes.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import "DetailsViewController.h"
-#import "ReviewViewController.h"
 #import "MBProgressHUD/MBProgressHUD.h"
+#import "ProfileViewController.h"
 
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
 static const CGFloat ChooseFoodButtonVerticalPadding = 5.f;//20.f;
@@ -109,10 +109,10 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 5.f;//20.f;
            
             // Call review view controller and send it the restaurants
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            ReviewViewController *reviewViewController = [storyboard instantiateViewControllerWithIdentifier:@"reviewVC"];
-            reviewViewController.foodLiked = self.foodLiked;
-            reviewViewController.foodUnliked = self.foodUnliked;
-            [self showViewController:reviewViewController sender:self];
+            ProfileViewController *profileViewController = [storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
+            profileViewController.foodLiked = self.foodLiked;
+            profileViewController.foodUnliked = self.foodUnliked;
+            [self showViewController:profileViewController sender:self];
             [self.tabBarController setSelectedIndex:1];
         
         }];

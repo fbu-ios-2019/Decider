@@ -33,8 +33,7 @@
     if(savedRestaurants == nil) {
         savedRestaurants = [[NSMutableArray alloc] init];
     }
-    [savedRestaurants addObject:self.restaurant.name];
-    NSLog(@"%@", savedRestaurants);
+    [savedRestaurants addObject:self.restaurant.yelpid];
     [user setObject:savedRestaurants forKey:@"savedRestaurants"];
     
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

@@ -32,6 +32,10 @@
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    
+    // Set restaurant's yelp ID
+    self.yelpid = [dictionary valueForKey:@"yelpId"];
+    
     //loading the restaurant model information
     NSString *URL = [dictionary valueForKey:@"coverUrl"];
     NSURL *url = [NSURL URLWithString:URL];

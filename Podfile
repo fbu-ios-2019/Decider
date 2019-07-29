@@ -12,6 +12,7 @@ target 'Decider' do
 	pod 'MBProgressHUD'
 	pod 'GoogleMaps'
   	pod 'GooglePlaces'
+	pod 'HCSStarRatingView', '~> 1.5'
 
   target 'DeciderTests' do
     inherit! :search_paths

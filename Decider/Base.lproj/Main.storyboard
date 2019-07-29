@@ -321,10 +321,10 @@
             </objects>
             <point key="canvasLocation" x="-1034" y="-564"/>
         </scene>
-        <!--profileVC-->
+        <!--DECIDER-->
         <scene sceneID="FMu-YM-g5m">
             <objects>
-                <viewController storyboardIdentifier="profileVC" title="profileVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IO2-gL-xr2" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IO2-gL-xr2" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m9b-Uf-kU3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

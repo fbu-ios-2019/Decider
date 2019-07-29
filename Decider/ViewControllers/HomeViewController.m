@@ -196,10 +196,15 @@
 
 // Function to prepare before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if (self.category == nil) {
+        self.category = @"all";
+    }
+    
     if([segue.identifier isEqualToString:@"swipeSegue"]) {
         SwipeViewController *swipeViewController = [segue destinationViewController];
         swipeViewController.category = self.category;
-        swipeViewController.location = nil;
+        swipeViewController.location = self.location;
     }
 }
 
@@ -305,13 +310,14 @@
     [self.geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if(error == nil && [placemarks count] > 0) {
             self.placemark = [placemarks lastObject];
-            self.location = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
-                             self.placemark.subThoroughfare,
-                             self.placemark.thoroughfare,
-                             self.placemark.postalCode,
-                             self.placemark.locality,
-                             self.placemark.administrativeArea,
-                             self.placemark.country];
+            self.location = self.placemark.locality;
+//            self.location = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+//                             self.placemark.subThoroughfare,
+//                             self.placemark.thoroughfare,
+//                             self.placemark.postalCode,
+//                             self.placemark.locality,
+//                             self.placemark.administrativeArea,
+//                             self.placemark.country];
             self.currentLocation = self.location;
         }
         else {
@@ -349,6 +355,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.selectedLocationLabel.text = self.filteredData[indexPath.row];
     self.location = self.filteredData[indexPath.row];
+    [self.location componentsSeparatedByString:@","];
     self.locationsSearchBar.text = self.filteredData[indexPath.row];
     self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(self.locationsSearchBar.layer.frame.size.width/4, 0);
     // self.locationsTableView.hidden = YES;

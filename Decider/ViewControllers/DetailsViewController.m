@@ -11,6 +11,7 @@
 #import "Routes.h"
 #import "LocationViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "HCSStarRatingView.h"
 
 @interface DetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource, GMSMapViewDelegate>
 
@@ -44,7 +45,6 @@
     //loading the details page information
     self.coverView.image = self.restaurant.coverImage;
     self.nameLabel.text = self.restaurant.name;
-    self.ratingLabel.text = self.restaurant.starRating;
     self.priceLabel.text = self.restaurant.priceRating;
     self.categoryLabel.text = self.restaurant.categoryString;
     self.reviewCount.text = self.restaurant.reviewCount;
@@ -52,7 +52,6 @@
     self.addressButton.titleLabel.numberOfLines = 0;
     self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", self.restaurant.startTime, self.restaurant.endTime];
     self.images = self.restaurant.images;
-    //[self.collectionView reloadData];
     
     self.mapView.myLocationEnabled = YES;
     self.mapView.mapType = kGMSTypeNormal;
@@ -70,6 +69,18 @@
     marker.title = self.restaurant.name;
     marker.snippet = [[self.restaurant.city stringByAppendingString:@", "] stringByAppendingString:self.restaurant.state];
     marker.map = self.mapView;
+    
+    //star rating animation
+    self.ratingLabel.text = self.restaurant.starRating;
+    double starRating = [self.ratingLabel.text floatValue];
+    HCSStarRatingView *starRatingView = [[HCSStarRatingView alloc] initWithFrame:CGRectMake(8, 165, 95, 20)];
+    starRatingView.maximumValue = 5;
+    starRatingView.minimumValue = 0;
+    starRatingView.allowsHalfStars = YES;
+    starRatingView.value = starRating;
+    starRatingView.tintColor = [UIColor redColor];
+    [starRatingView addTarget:self action:@selector(didChangeValue:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:starRatingView];
 }
 
 #pragma mark - Navigation

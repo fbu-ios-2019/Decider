@@ -334,6 +334,17 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 5.f;//20.f;
     }
 }
 
+- (IBAction)didTapClose:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)didTapDecide:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    RecommendationsViewController *recommendationsViewController = [storyboard instantiateViewControllerWithIdentifier:@"recommendationsVC"];
+    recommendationsViewController.foodLiked = self.foodLiked;
+    recommendationsViewController.foodUnliked = self.foodUnliked;
+    [self showViewController:recommendationsViewController sender:self];
+}
 
  #pragma mark - Navigation
 

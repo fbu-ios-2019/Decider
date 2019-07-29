@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSMutableArray *foodLiked;
 @property (nonatomic, strong) NSMutableArray *foodUnliked;
+@property (strong, nonatomic) NSMutableArray *savedRestaurants;
 
 @end
 

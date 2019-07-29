@@ -14,6 +14,7 @@
 #import "DetailsViewController.h"
 #import "MBProgressHUD/MBProgressHUD.h"
 #import "ProfileViewController.h"
+#import "RecommendationsViewController.h"
 
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
 static const CGFloat ChooseFoodButtonVerticalPadding = 5.f;//20.f;
@@ -108,12 +109,19 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 5.f;//20.f;
             //button click event
            
             // Call review view controller and send it the restaurants
+//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//            ProfileViewController *profileViewController = [storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
+//            profileViewController.foodLiked = self.foodLiked;
+//            profileViewController.foodUnliked = self.foodUnliked;
+//            [self showViewController:profileViewController sender:self];
+//            [self.tabBarController setSelectedIndex:1];
+            
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            ProfileViewController *profileViewController = [storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
-            profileViewController.foodLiked = self.foodLiked;
-            profileViewController.foodUnliked = self.foodUnliked;
-            [self showViewController:profileViewController sender:self];
-            [self.tabBarController setSelectedIndex:1];
+            RecommendationsViewController *recommendationsViewController = [storyboard instantiateViewControllerWithIdentifier:@"recommendationsVC"];
+            recommendationsViewController.foodLiked = self.foodLiked;
+            recommendationsViewController.foodUnliked = self.foodUnliked;
+            [self showViewController:recommendationsViewController sender:self];
+            // [self.tabBarController setSelectedIndex:1];
         
         }];
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Swipe More" style:UIAlertActionStyleCancel handler:nil];

@@ -9,9 +9,10 @@
 #import "LocationViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface LocationViewController ()
+@interface LocationViewController () <GMSMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @end
 
@@ -19,34 +20,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Create a GMSCameraPosition that tells the map to display the
-    // coordinate -33.86,151.20 at zoom level 6.
-    //Controls whether the My Location dot and accuracy circle is enabled.
+ 
+    self.mapView.myLocationEnabled = YES;
+    self.mapView.mapType = kGMSTypeNormal;
+    self.mapView.settings.compassButton = YES;
+    self.mapView.settings.myLocationButton = YES;
+    self.mapView.delegate = self;
     
-    
-//    self.mapView.myLocationEnabled = YES;
-//    self.mapView.mapType = kGMSTypeNormal;
-//    self.mapView.settings.compassButton = YES;
-//    self.mapView.settings.myLocationButton = YES;
-//    self.mapView.delegate = self;
-//
-//
-    
-    
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.latitude//-33.86
-                                                            longitude:self.longitude//151.20
-                                                                 zoom:12];
-    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    //    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake(0, 58, 375, 609) camera:camera];
-    mapView.myLocationEnabled = YES;
-    self.view = mapView;
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.latitude
+                                                           longitude:self.longitude
+                                                                zoom:15
+                                                             bearing:30
+                                                        viewingAngle:45];
+    [self.mapView setCamera:camera];
 
-    // Creates a marker in the center of the map.
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(self.latitude, self.longitude);//-33.86, 151.20);
-    marker.title = self.name;//@"Sydney";
-    marker.snippet = [[self.city stringByAppendingString:@", "] stringByAppendingString:self.state];//self.state;//@"Australia";
-    marker.map = mapView;
+    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(self.latitude, self.longitude);
+    GMSMarker *marker = [GMSMarker markerWithPosition:position];
+    marker.title = self.name;
+    marker.snippet = [[self.city stringByAppendingString:@", "] stringByAppendingString:self.state];
+    marker.map = self.mapView;
+    
+    [self.view bringSubviewToFront:self.backButton];
 }
 
 - (IBAction)didTapBack:(id)sender {

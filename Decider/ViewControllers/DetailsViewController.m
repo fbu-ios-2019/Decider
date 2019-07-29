@@ -55,14 +55,21 @@
     //[self.collectionView reloadData];
     
     self.mapView.myLocationEnabled = YES;
-    //Controls the type of map tiles that should be displayed.
     self.mapView.mapType = kGMSTypeNormal;
-    //Shows the compass button on the map
     self.mapView.settings.compassButton = YES;
-    //Shows the my location button on the map
     self.mapView.settings.myLocationButton = YES;
-    //Sets the view controller to be the GMSMapView delegate
     self.mapView.delegate = self;
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.restaurant.latitude
+                                                            longitude:self.restaurant.longitude
+                                                                 zoom:15
+                                                              bearing:30
+                                                         viewingAngle:45];
+    [self.mapView setCamera:camera];
+    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(self.restaurant.latitude, self.restaurant.longitude);
+    GMSMarker *marker = [GMSMarker markerWithPosition:position];
+    marker.title = self.restaurant.name;
+    marker.snippet = [[self.restaurant.city stringByAppendingString:@", "] stringByAppendingString:self.restaurant.state];
+    marker.map = self.mapView;
 }
 
 #pragma mark - Navigation

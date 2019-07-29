@@ -139,7 +139,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 5.f;//20.f;
     NSUInteger like = [formatter numberFromString:self.likeCount.text].unsignedIntegerValue;
     NSUInteger unlike = [formatter numberFromString:self.unlikeCount.text].unsignedIntegerValue;
     NSUInteger sum = like + unlike;
-    NSLog(@"%ld", self.swipeTotal);
+//    NSLog(@"%ld", self.swipeTotal);
     NSDictionary *photoDictionary = [self.restaurants objectAtIndex:sum];
     NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
     self.currentRestaurant = [[Restaurant alloc] initWithYelpid:yelpid];

@@ -17,7 +17,6 @@
 		F91F4D7022EA501F00D8D1F5 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6F22EA501F00D8D1F5 /* EditProfileViewController.m */; };
 		F9373AE322EB8C3400EA432F /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9373AE222EB8C3400EA432F /* LocationViewController.m */; };
 		F953DF6E22EA868500C41C43 /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
-		F953DF6F22EA868B00C41C43 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA022DF99A900032267 /* ReviewViewController.m */; };
 		F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE65A22DD4E1C004798EF /* AppDelegate.m */; };
 		F97CE66122DD4E1C004798EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F97CE65F22DD4E1C004798EF /* Main.storyboard */; };
 		F97CE66322DD4E1D004798EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F97CE66222DD4E1D004798EF /* Assets.xcassets */; };
@@ -109,8 +108,6 @@
 		F988729422E657B800F85972 /* PhotoCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionCell.m; sourceTree = "<group>"; };
 		F9CD455622E761340038D859 /* RecommendationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendationCell.h; sourceTree = "<group>"; };
 		F9CD455722E761340038D859 /* RecommendationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendationCell.m; sourceTree = "<group>"; };
-		F9F33F9F22DF99A900032267 /* ReviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
-		F9F33FA022DF99A900032267 /* ReviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		F9F33FA222DF99C000032267 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F9F33FA322DF99C000032267 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -252,8 +249,6 @@
 				F97CE69222DF8D74004798EF /* DetailsViewController.m */,
 				F97CE69422DF9489004798EF /* SwipeViewController.h */,
 				F97CE69522DF9489004798EF /* SwipeViewController.m */,
-				F9F33F9F22DF99A900032267 /* ReviewViewController.h */,
-				F9F33FA022DF99A900032267 /* ReviewViewController.m */,
 				F9F33FA222DF99C000032267 /* ProfileViewController.h */,
 				F9F33FA322DF99C000032267 /* ProfileViewController.m */,
 				F91F4D6822E8CAC800D8D1F5 /* LoginViewController.h */,
@@ -526,7 +521,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F953DF6F22EA868B00C41C43 /* ReviewViewController.m in Sources */,
 				F953DF6E22EA868500C41C43 /* Routes.m in Sources */,
 				F9E1F5FA22E11EE200458F0C /* HomeViewController.m in Sources */,
 				F9CD455822E761340038D859 /* RecommendationCell.m in Sources */,

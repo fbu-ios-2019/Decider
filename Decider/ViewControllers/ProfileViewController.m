@@ -11,13 +11,20 @@
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "EditProfileViewController.h"
+#import "RecommendationCell.h"
+#import "Restaurant.h"
+#import "Routes.h"
+#import "MBProgressHUD/MBProgressHUD.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) PFUser *user;
+
+@property (strong, nonatomic) NSMutableArray *recommendations;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -25,6 +32,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self fetchRecommendations];
     
     if(self.user == nil){
         self.user = [PFUser currentUser];
@@ -56,6 +65,7 @@
     self.nameLabel.text = [self.user objectForKey:@"name"];
 }
 
+
 - (IBAction)didTapLogout:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         if(PFUser.currentUser == nil) {
@@ -69,6 +79,54 @@
             NSLog(@"Error logging out: %@", error);
         }
     }];
+}
+
+
+- (void)fetchRecommendations {
+    UIView *window = [UIApplication sharedApplication].keyWindow;
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    [hud showAnimated:YES];
+    NSURLSessionDataTask *locationTask = [Routes fetchRecommendations:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
+        if (error != nil) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        else {
+            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            // NSLog(@"%@", results);
+            self.recommendations = [results objectForKey:@"results"];
+            NSLog(@"%@", self.recommendations);
+            
+            // Delegates
+            self.tableView.dataSource = self;
+            self.tableView.delegate = self;
+            [self.tableView reloadData];
+            [hud hideAnimated:YES];
+        }
+    }];
+    if (!locationTask) {
+        NSLog(@"There was a network error");
+    }
+}
+
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    RecommendationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecommendationCell" forIndexPath:indexPath];
+    
+    // Update cell with data
+    NSDictionary *restaurantDict = self.recommendations[indexPath.row];
+    cell.restaurant = [[Restaurant alloc] initWithDictionary:restaurantDict];
+    cell.restaurantName.text = cell.restaurant.name;
+    cell.category.text = cell.restaurant.categoryString;
+    cell.numberOfStars.text = cell.restaurant.starRating;
+    cell.price.text = cell.restaurant.priceRating;
+    
+    return cell;
+}
+
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
 }
 
 #pragma mark - Navigation

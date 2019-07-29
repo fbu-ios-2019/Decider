@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ProfileViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray *foodLiked;
+@property (nonatomic, strong) NSMutableArray *foodUnliked;
+
 @end
 
 NS_ASSUME_NONNULL_END

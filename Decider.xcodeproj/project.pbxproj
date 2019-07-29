@@ -31,6 +31,7 @@
 		F97CE6A822DFE319004798EF /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6A722DFE319004798EF /* Restaurant.m */; };
 		F97CE6AD22E0ECD7004798EF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */; };
 		F988729522E657B800F85972 /* PhotoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F988729422E657B800F85972 /* PhotoCollectionCell.m */; };
+		F9B9F7E022EC2429003AACDB /* RecommendationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B9F7DF22EC2429003AACDB /* RecommendationsViewController.m */; };
 		F9CD455822E761340038D859 /* RecommendationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CD455722E761340038D859 /* RecommendationCell.m */; };
 		F9E1F5FA22E11EE200458F0C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE68F22DF8D65004798EF /* HomeViewController.m */; };
 		F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA322DF99C000032267 /* ProfileViewController.m */; };
@@ -106,6 +107,8 @@
 		F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F988729322E657B800F85972 /* PhotoCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionCell.h; sourceTree = "<group>"; };
 		F988729422E657B800F85972 /* PhotoCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionCell.m; sourceTree = "<group>"; };
+		F9B9F7DE22EC2429003AACDB /* RecommendationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendationsViewController.h; sourceTree = "<group>"; };
+		F9B9F7DF22EC2429003AACDB /* RecommendationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendationsViewController.m; sourceTree = "<group>"; };
 		F9CD455622E761340038D859 /* RecommendationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendationCell.h; sourceTree = "<group>"; };
 		F9CD455722E761340038D859 /* RecommendationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendationCell.m; sourceTree = "<group>"; };
 		F9F33FA222DF99C000032267 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -259,6 +262,8 @@
 				F91F4D6F22EA501F00D8D1F5 /* EditProfileViewController.m */,
 				F9373AE122EB8C3400EA432F /* LocationViewController.h */,
 				F9373AE222EB8C3400EA432F /* LocationViewController.m */,
+				F9B9F7DE22EC2429003AACDB /* RecommendationsViewController.h */,
+				F9B9F7DF22EC2429003AACDB /* RecommendationsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				F97CE6A222DFACA0004798EF /* ImageView.m in Sources */,
 				F91F4D6D22E8CAD500D8D1F5 /* SignupViewController.m in Sources */,
 				F97CE69F22DFAA7B004798EF /* ChooseFoodView.m in Sources */,
+				F9B9F7E022EC2429003AACDB /* RecommendationsViewController.m in Sources */,
 				F91F4D6A22E8CAC800D8D1F5 /* LoginViewController.m in Sources */,
 				F91F4D7022EA501F00D8D1F5 /* EditProfileViewController.m in Sources */,
 				F97CE69622DF9489004798EF /* SwipeViewController.m in Sources */,

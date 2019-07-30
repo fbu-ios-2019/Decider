@@ -14,8 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Food : NSObject
 
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, copy) NSString *yelpid;
 
-- (instancetype)initWithImage:(UIImage *)image;
+- (instancetype)initWithImage:(UIImage *)image yelpid:(NSString *)yelpid;
 
 @end
 

@@ -620,6 +620,7 @@
                                             <outlet property="saveButton" destination="JuK-Uj-Wnt" id="hcY-lE-zjP"/>
                                             <outlet property="unlikeButton" destination="Iz8-Ji-emh" id="beO-0q-d5M"/>
                                             <outlet property="unsaveButton" destination="FRQ-M4-ia8" id="Idj-fJ-WnK"/>
+                                            <segue destination="XeU-f6-TMk" kind="presentation" identifier="viewSegue" id="hmt-O3-5Iz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -939,7 +940,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwY-1e-JfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1954.4000000000001" y="2493.1034482758623"/>
+            <point key="canvasLocation" x="-1954" y="2508"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="ThN-Ik-olW">
@@ -1044,5 +1045,8 @@
         <image name="provisional_home_photo" width="1242" height="1671"/>
         <image name="selected_location_icon-29x29" width="29" height="29"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hmt-O3-5Iz"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

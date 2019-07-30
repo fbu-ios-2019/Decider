@@ -12,8 +12,9 @@
 
 #pragma mark - Object Lifecycle
 
-- (instancetype)initWithImage:(UIImage *)image {
+- (instancetype)initWithImage:(UIImage *)image yelpid:(NSString *)yelpid {
     self.image = image;
+    self.yelpid = yelpid;
     return self;
 }
 

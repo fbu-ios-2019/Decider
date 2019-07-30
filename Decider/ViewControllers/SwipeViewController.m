@@ -73,10 +73,10 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     
     if (direction == MDCSwipeDirectionLeft) {
         //NSLog(@"You unliked");
-        [self.foodUnliked addObject:self.currentFood];
+        [self.foodUnliked addObject:self.currentFood.yelpid];
     } else {
         //NSLog(@"You liked");
-        [self.foodLiked addObject:self.currentFood];
+        [self.foodLiked addObject:self.currentFood.yelpid];
     }
     
     self.unlikeCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.foodUnliked count]];
@@ -123,6 +123,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
             RecommendationsViewController *recommendationsViewController = [storyboard instantiateViewControllerWithIdentifier:@"recommendationsVC"];
             recommendationsViewController.foodLiked = self.foodLiked;
             recommendationsViewController.foodUnliked = self.foodUnliked;
+            recommendationsViewController.location = self.location;
             [self showViewController:recommendationsViewController sender:self];
             // [self.tabBarController setSelectedIndex:1];
         
@@ -166,8 +167,8 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
         NSDictionary *photoDictionary = [self.restaurants objectAtIndex:i];
         NSString *url = [photoDictionary valueForKey:@"imageUrl"];
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
-        //NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
-        [foods addObject:[[Food alloc] initWithImage:image]];
+        NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
+        [foods addObject:[[Food alloc] initWithImage:image yelpid:yelpid]];
     }
     return foods;
 }
@@ -348,6 +349,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     RecommendationsViewController *recommendationsViewController = [storyboard instantiateViewControllerWithIdentifier:@"recommendationsVC"];
     recommendationsViewController.foodLiked = self.foodLiked;
     recommendationsViewController.foodUnliked = self.foodUnliked;
+    recommendationsViewController.location = self.location;
     [self showViewController:recommendationsViewController sender:self];
 }
 

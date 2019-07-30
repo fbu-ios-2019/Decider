@@ -50,6 +50,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self fetchRestaurants];
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
 /*- (NSUInteger)supportedInterfaceOrientations {

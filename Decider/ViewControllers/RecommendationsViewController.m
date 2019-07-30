@@ -13,6 +13,7 @@
 #import "Routes.h"
 #import "MBProgressHUD/MBProgressHUD.h"
 #import "HomeViewController.h"
+#import "AppDelegate.h"
 
 @interface RecommendationsViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -79,10 +80,24 @@
 }
 
 - (IBAction)didTapHome:(UIButton *)sender {
+    [self.tabBarController.tabBar setHidden:NO];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+//    homeViewController.hidesBottomBarWhenPushed = NO;
+//
     [self showViewController:homeViewController sender:self];
-    homeViewController.hidesBottomBarWhenPushed = NO;
+//    [self.tabBarController setSelectedIndex:0];
+    
+    
+//    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+//    // homeViewController.hidesBottomBarWhenPushed = NO;
+//
+//    appDelegate.window.rootViewController = homeViewController;
+//    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 //- (IBAction)didTapHome:(id)sender {

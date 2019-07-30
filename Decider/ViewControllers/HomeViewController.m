@@ -210,7 +210,7 @@
         else {
             swipeViewController.location = self.location;
         }
-        swipeViewController.hidesBottomBarWhenPushed = YES;
+        // swipeViewController.hidesBottomBarWhenPushed = YES;
     }
 }
 

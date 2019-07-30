@@ -13,7 +13,7 @@
         <!--Home View Controller-->
         <scene sceneID="qqV-mx-f7P">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="Z7s-I6-OeA" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z7s-I6-OeA" customClass="HomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XvN-e0-8LH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

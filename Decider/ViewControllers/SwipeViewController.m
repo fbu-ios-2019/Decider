@@ -17,7 +17,7 @@
 #import "RecommendationsViewController.h"
 
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
-static const CGFloat ChooseFoodButtonVerticalPadding = 5.f;//20.f;
+static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 
 @interface SwipeViewController ()
 
@@ -295,7 +295,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 5.f;//20.f;
     UIView *window = [UIApplication sharedApplication].keyWindow;
     MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
     [hud showAnimated:YES];
-    NSURLSessionDataTask *task = [Routes fetchRestaurantsOfCategory:self.category nearLocation:self.location offset:0 completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
+    NSURLSessionDataTask *task = [Routes fetchRestaurantsOfCategory:@"all" nearLocation:@"Sunnyvale" offset:0 completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
         if (error != nil) {
             NSLog(@"%@", error.localizedDescription);
         }

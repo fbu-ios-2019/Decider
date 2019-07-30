@@ -12,11 +12,13 @@
 #import "Restaurant.h"
 #import "Routes.h"
 #import "MBProgressHUD/MBProgressHUD.h"
+#import "HomeViewController.h"
 
 @interface RecommendationsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *recommendations;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *homeButton;
 
 @end
 
@@ -76,6 +78,18 @@
     return 3;
 }
 
+- (IBAction)didTapHome:(UIButton *)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    [self showViewController:homeViewController sender:self];
+    homeViewController.hidesBottomBarWhenPushed = NO;
+}
+
+//- (IBAction)didTapHome:(id)sender {
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+//    [self showViewController:homeViewController sender:self];
+//}
 
 /*
 #pragma mark - Navigation

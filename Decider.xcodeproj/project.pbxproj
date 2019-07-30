@@ -10,13 +10,14 @@
 		0866223C6D672E9D88488C51 /* Pods_Decider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773AAEA063EAACACD758A0D6 /* Pods_Decider.framework */; };
 		15B7AE97DEED10E373C09D1F /* Pods_DeciderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1782806DD0C9AAF03DA272 /* Pods_DeciderUITests.framework */; };
 		19B0D6C16B340E5B55579E26 /* Pods_DeciderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26ACCCA742D4B0F9B59BCA34 /* Pods_DeciderTests.framework */; };
-		F91047E322E681F20098D7B6 /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F91047E222E681F20098D7B6 /* CityCell.m */; };
 		F91F4D6722E7CBEA00D8D1F5 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6622E7CBEA00D8D1F5 /* Food.m */; };
 		F91F4D6A22E8CAC800D8D1F5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6922E8CAC800D8D1F5 /* LoginViewController.m */; };
 		F91F4D6D22E8CAD500D8D1F5 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6C22E8CAD500D8D1F5 /* SignupViewController.m */; };
 		F91F4D7022EA501F00D8D1F5 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6F22EA501F00D8D1F5 /* EditProfileViewController.m */; };
 		F9373AE322EB8C3400EA432F /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9373AE222EB8C3400EA432F /* LocationViewController.m */; };
-		F953DF6E22EA868500C41C43 /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
+		F9619AD522F0146C0051CDAD /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F91047E222E681F20098D7B6 /* CityCell.m */; };
+		F9619AD622F014730051CDAD /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9619AD322F00AD10051CDAD /* CategoryCell.m */; };
+		F9619AD722F014780051CDAD /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
 		F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE65A22DD4E1C004798EF /* AppDelegate.m */; };
 		F97CE66122DD4E1C004798EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F97CE65F22DD4E1C004798EF /* Main.storyboard */; };
 		F97CE66322DD4E1D004798EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F97CE66222DD4E1D004798EF /* Assets.xcassets */; };
@@ -78,6 +79,8 @@
 		F91F4D6F22EA501F00D8D1F5 /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		F9373AE122EB8C3400EA432F /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		F9373AE222EB8C3400EA432F /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		F9619AD222F00AD10051CDAD /* CategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		F9619AD322F00AD10051CDAD /* CategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		F97CE65622DD4E1C004798EF /* Decider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97CE65922DD4E1C004798EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F97CE65A22DD4E1C004798EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 				F91047E222E681F20098D7B6 /* CityCell.m */,
 				F9CD455622E761340038D859 /* RecommendationCell.h */,
 				F9CD455722E761340038D859 /* RecommendationCell.m */,
+				F9619AD222F00AD10051CDAD /* CategoryCell.h */,
+				F9619AD322F00AD10051CDAD /* CategoryCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -526,7 +531,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F953DF6E22EA868500C41C43 /* Routes.m in Sources */,
+				F9619AD722F014780051CDAD /* Routes.m in Sources */,
+				F9619AD622F014730051CDAD /* CategoryCell.m in Sources */,
+				F9619AD522F0146C0051CDAD /* CityCell.m in Sources */,
 				F9E1F5FA22E11EE200458F0C /* HomeViewController.m in Sources */,
 				F9CD455822E761340038D859 /* RecommendationCell.m in Sources */,
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,
@@ -543,7 +550,6 @@
 				F91F4D7022EA501F00D8D1F5 /* EditProfileViewController.m in Sources */,
 				F97CE69622DF9489004798EF /* SwipeViewController.m in Sources */,
 				F97CE69322DF8D74004798EF /* DetailsViewController.m in Sources */,
-				F91047E322E681F20098D7B6 /* CityCell.m in Sources */,
 				F9373AE322EB8C3400EA432F /* LocationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self fetchRecommendations];
+    [self fetchSavedRestaurants];
     
     if(self.user == nil){
         self.user = [PFUser currentUser];
@@ -82,31 +82,47 @@
 }
 
 
-- (void)fetchRecommendations {
-    UIView *window = [UIApplication sharedApplication].keyWindow;
-    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
-    [hud showAnimated:YES];
-    NSURLSessionDataTask *locationTask = [Routes fetchRecommendations:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
-        if (error != nil) {
-            NSLog(@"%@", error.localizedDescription);
-        }
-        else {
-            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            
-            // NSLog(@"%@", results);
-            self.recommendations = [results objectForKey:@"results"];
-            NSLog(@"%@", self.recommendations);
-            
-            // Delegates
-            self.tableView.dataSource = self;
-            self.tableView.delegate = self;
-            [self.tableView reloadData];
-            [hud hideAnimated:YES];
-        }
-    }];
-    if (!locationTask) {
-        NSLog(@"There was a network error");
+- (void)fetchSavedRestaurants {
+    
+    
+    
+    // Delegates
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self.tableView reloadData];
+    
+    self.user = [PFUser currentUser];
+    self.savedRestaurants = [self.user objectForKey:@"savedRestaurants"];
+    if(self.savedRestaurants == nil) {
+        self.savedRestaurants = [[NSMutableArray alloc] init];
+        [self.savedRestaurants addObject:@"No saved restaurants"];
     }
+    
+    
+//    UIView *window = [UIApplication sharedApplication].keyWindow;
+//    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+//    [hud showAnimated:YES];
+//    NSURLSessionDataTask *locationTask = [Routes fetchRecommendations:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
+//        if (error != nil) {
+//            NSLog(@"%@", error.localizedDescription);
+//        }
+//        else {
+//            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+//
+//            // NSLog(@"%@", results);
+//            self.recommendations = [results objectForKey:@"results"];
+//            NSLog(@"%@", self.recommendations);
+//
+//            // Delegates
+//            self.tableView.dataSource = self;
+//            self.tableView.delegate = self;
+//            [self.tableView reloadData];
+//            [hud hideAnimated:YES];
+//        }
+//    }];
+//    if (!locationTask) {
+//        NSLog(@"There was a network error");
+//    }
 }
 
 
@@ -114,12 +130,18 @@
     RecommendationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecommendationCell" forIndexPath:indexPath];
     
     // Update cell with data
-    NSDictionary *restaurantDict = self.recommendations[indexPath.row];
-    cell.restaurant = [[Restaurant alloc] initWithDictionary:restaurantDict];
-    cell.restaurantName.text = cell.restaurant.name;
-    cell.category.text = cell.restaurant.categoryString;
-    cell.numberOfStars.text = cell.restaurant.starRating;
-    cell.price.text = cell.restaurant.priceRating;
+//    NSDictionary *restaurantDict = self.savedRestaurants[indexPath.row];
+    
+    cell.restaurantName.text = self.savedRestaurants[indexPath.row];
+//    cell.restaurant = [[Restaurant alloc] initWithYelpid:self.savedRestaurants[indexPath.row]];
+//    cell.restaurantName.text = cell.restaurant.name;
+//    cell.category.text = cell.restaurant.categoryString;
+//    cell.numberOfStars.text = cell.restaurant.starRating;
+//    cell.price.text = cell.restaurant.priceRating;
+    
+    cell.category.text = @"";
+    cell.numberOfStars.text = @"";
+    cell.price.text = @"";
     
     return cell;
 }

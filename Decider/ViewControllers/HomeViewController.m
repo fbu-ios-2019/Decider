@@ -102,13 +102,13 @@
     UITextField *textField = [self.locationsSearchBar valueForKey:@"_searchField"];
     textField.textColor = [UIColor darkGrayColor];
     textField.placeholder = @"Current location";
-    textField.leftViewMode = UITextFieldViewModeAlways;
     textField.backgroundColor = [UIColor whiteColor];
     // textField.backgroundColor = [UIColor colorWithRed:255/255.0 green:246/255.0 blue:241/255.0 alpha:1.0];
     // textField.font = [UIFont systemFontOfSize:22.0];
     textField.font = [UIFont systemFontOfSize:20 weight:UIFontWeightThin];
     [textField setValue:[UIColor darkGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
     
+    textField.leftViewMode = UITextFieldViewModeNever;
     UIImageView *imgview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 30)];
 //    textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 //    textField.textAlignment = NSTextAlignmentCenter;
@@ -117,7 +117,7 @@
     textField.rightView = imgview;
     textField.rightViewMode = UITextFieldViewModeAlways;
     
-    self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(self.locationsSearchBar.layer.frame.size.width/4, 0);
+    self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(self.locationsSearchBar.layer.frame.size.width/3, 0);
     
     self.locationsTableView.layer.borderWidth = 0;
     self.locationsTableView.layer.borderColor = [UIColor colorWithRed:255.0/255.0 green:98.0/255.0 blue:19.0/255.0 alpha:1.0].CGColor;
@@ -363,16 +363,15 @@
     self.location = self.filteredData[indexPath.row];
     [self.location componentsSeparatedByString:@","];
     self.locationsSearchBar.text = self.filteredData[indexPath.row];
-    self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(self.locationsSearchBar.layer.frame.size.width/4, 0);
-    // self.locationsTableView.hidden = YES;
-    // self.selectedLocationLabel.hidden = NO;
-//    // [self.view endEditing:YES];
+    self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(self.locationsSearchBar.layer.frame.size.width/3, 0);
 //    self.locationsSearchBar.showsCancelButton = NO;
     [self.locationsSearchBar resignFirstResponder];
+    self.filteredData = nil;
+    [self.locationsTableView reloadData];
     // [self searchBarCancelButtonClicked:self.locationsSearchBar];
-    
-
-    
+    [self.locationsSearchBar endEditing:YES];
+    UITextField *textField = [self.locationsSearchBar valueForKey:@"_searchField"];
+    textField.leftViewMode = UITextFieldViewModeNever;
 }
 
 
@@ -398,6 +397,8 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     // self.locationsSearchBar.showsCancelButton = YES;
+    UITextField *textField = [self.locationsSearchBar valueForKey:@"_searchField"];
+    textField.leftViewMode = UITextFieldViewModeAlways;
     self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(0, 0);
 }
 
@@ -410,8 +411,11 @@
 }
 
 
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-}
+//- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+//    self.resignFirstResponder;
+//    self.locationsSearchBar.resignFirstResponder;
+//
+//}
 
 
 - (IBAction)didTapCurrentLocation:(UIButton *)sender {

@@ -92,7 +92,6 @@
         }
     }
     self.images = pictures;
-    
     NSDictionary *coordinates = [dictionary objectForKey:@"coordinates"];
     self.latitude = [[coordinates objectForKey:@"latitude"] doubleValue];
     self.longitude = [[coordinates objectForKey:@"longitude"] doubleValue];

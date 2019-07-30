@@ -104,11 +104,11 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
         NSString *message1 = @"You have swiped ";
         NSString *message2 = [message1 stringByAppendingString:[NSString stringWithFormat:@"%ld", self.swipeTotal]];
         NSString *finalMessage = [message2 stringByAppendingString:@" times."];
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"View Recommendations?"
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"View Recommendations?"
                                                                        message:finalMessage
                                                                 preferredStyle:(UIAlertControllerStyleAlert)];
         
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"View" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAlertAction = [UIAlertAction actionWithTitle:@"View" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             //button click event
            
             // Call review view controller and send it the restaurants
@@ -128,11 +128,11 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
             // [self.tabBarController setSelectedIndex:1];
         
         }];
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Swipe More" style:UIAlertActionStyleCancel handler:nil];
-        [alert addAction:cancel];
-        [alert addAction:ok];
+        UIAlertAction *cancelAlertAction = [UIAlertAction actionWithTitle:@"Swipe More" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAlertAction];
+        [alertController addAction:okAlertAction];
         
-        [self presentViewController:alert animated:YES completion:^{
+        [self presentViewController:alertController animated:YES completion:^{
             // optional code for what happens after the alert controller has finished presenting
         }];
     }
@@ -148,10 +148,9 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     _frontCardView = frontCardView;
     self.currentFood = frontCardView.food;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-    NSUInteger like = [formatter numberFromString:self.likeCount.text].unsignedIntegerValue;
-    NSUInteger unlike = [formatter numberFromString:self.unlikeCount.text].unsignedIntegerValue;
-    NSUInteger sum = like + unlike;
-//    NSLog(@"%ld", self.swipeTotal);
+    NSUInteger likeCount = [formatter numberFromString:self.likeCount.text].unsignedIntegerValue;
+    NSUInteger unlikeCount = [formatter numberFromString:self.unlikeCount.text].unsignedIntegerValue;
+    NSUInteger sum = likeCount + unlikeCount;
     NSDictionary *photoDictionary = [self.restaurants objectAtIndex:sum];
     NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
     self.currentRestaurant = [[Restaurant alloc] initWithYelpid:yelpid];

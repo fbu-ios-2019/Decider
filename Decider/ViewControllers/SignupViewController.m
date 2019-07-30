@@ -63,10 +63,10 @@
     if([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""]) {
         [self dismissViewControllerAnimated:YES completion:nil];
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Sign Up" message:@"Please enter username and password." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *tryAgainButton = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        UIAlertAction *tryAgainAlertAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
             [alertController dismissViewControllerAnimated:YES completion:nil];
         }];
-        [alertController addAction:tryAgainButton];
+        [alertController addAction:tryAgainAlertAction];
         UIViewController *rootViewController=[UIApplication sharedApplication].delegate.window.rootViewController;
         [rootViewController presentViewController:alertController animated:YES completion:nil];
     }

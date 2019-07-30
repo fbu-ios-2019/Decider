@@ -299,20 +299,20 @@
     
     NSLog(@"didFailWithError: %@", error);
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error"
                                                                    message:@"Failed to Get Your Location."
                                                             preferredStyle:(UIAlertControllerStyleAlert)];
     // create an error action
-    UIAlertAction *errorAction = [UIAlertAction actionWithTitle:@"OK"
+    UIAlertAction *errorAlertAction = [UIAlertAction actionWithTitle:@"OK"
                                                           style:UIAlertActionStyleCancel
                                                         handler:^(UIAlertAction * _Nonnull action) {
                                                             // handle try again response here. Doing nothing will dismiss the view.
                                                         }];
     
     // add the error action to the alertController
-    [alert addAction:errorAction];
+    [alertController addAction:errorAlertAction];
     
-    [self presentViewController:alert animated:YES completion:^{
+    [self presentViewController:alertController animated:YES completion:^{
         // optional code for what happens after the alert controller has finished presenting
     }];
 }

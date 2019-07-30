@@ -32,11 +32,7 @@
     [savedRestaurants addObject:self.restaurant.yelpid];
     [user setObject:savedRestaurants forKey:@"savedRestaurants"];
     
-    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            
-        }
-    }];
+    [user saveInBackgroundWithBlock:nil];
 }
 
 
@@ -56,46 +52,49 @@
     
     [user setObject:savedRestaurants forKey:@"savedRestaurants"];
     
-    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            
-        }
-    }];
+    [user saveInBackgroundWithBlock:nil];
 }
 
 
 - (IBAction)didTapLike:(UIButton *)sender {
+        // Refer to current user
+        PFUser *user = [PFUser currentUser];
+    
+        // Save value that's stored on the database
+        NSMutableArray *likedRestaurants = [user objectForKey:@"likedRestaurants"];
+    
+        // Update value
+        if(likedRestaurants == nil) {
+            likedRestaurants = [[NSMutableArray alloc] init];
+        }
+    
+            [likedRestaurants addObject:self.restaurantName.text];
+    
+        // Save new value on database
+        [user setObject:likedRestaurants forKey:@"likedRestaurants"];
+    
+        [user saveInBackgroundWithBlock:nil];
 }
 
 
 - (IBAction)didTapUnlike:(UIButton *)sender {
+    // Refer to current user
+    PFUser *user = [PFUser currentUser];
+    
+    // Save value that's stored on the database
+    NSMutableArray *unlikedRestaurants = [user objectForKey:@"hatedRestaurants"];
+    
+    // Update value
+    if(unlikedRestaurants == nil) {
+        unlikedRestaurants = [[NSMutableArray alloc] init];
+    }
+    
+    [unlikedRestaurants addObject:self.restaurantName.text];
+    
+    // Save new value on database
+    [user setObject:unlikedRestaurants forKey:@"hatedRestaurants"];
+    
+    [user saveInBackgroundWithBlock:nil];
 }
-
-
-//- (IBAction)didTapLike:(UIButton *)sender {
-//    // Refer to current user
-//    PFUser *user = [PFUser currentUser];
-//    
-//    // Save value that's stored on the database
-//    NSMutableArray *likedRestaurants = [user objectForKey:@"likedRestaurants"];
-//    
-//    // Update value
-//    if(likedRestaurants == nil) {
-//        likedRestaurants = [[NSMutableArray alloc] init];
-//    }
-//    
-//    if (self.restaurant.liked) {
-//        [likedRestaurants addObject:self.restaurant.yelpid];
-//    }
-//    
-//    // Save new value on database
-//    [user setObject:likedRestaurants forKey:@"likedRestaurants"];
-//    
-//    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (!error) {
-//            
-//        }
-//    }];
-//}
 
 @end

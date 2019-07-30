@@ -422,6 +422,9 @@
                                                     <state key="normal" title="LIKE">
                                                         <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didTapLike:" destination="tlK-sh-zar" eventType="touchUpInside" id="Rzh-l6-OmO"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i72-bX-933">
                                                     <rect key="frame" x="262" y="42" width="53" height="30"/>
@@ -429,6 +432,9 @@
                                                     <state key="normal" title="UNLIKE">
                                                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didTapUnlike:" destination="tlK-sh-zar" eventType="touchUpInside" id="ybk-cJ-DF9"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsY-YC-lCz">
                                                     <rect key="frame" x="255" y="73" width="59" height="30"/>

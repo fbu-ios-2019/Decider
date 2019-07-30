@@ -400,6 +400,8 @@
     UITextField *textField = [self.locationsSearchBar valueForKey:@"_searchField"];
     textField.leftViewMode = UITextFieldViewModeAlways;
     self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(0, 0);
+    self.currentLocationDefaulted = NO;
+    [self.currentLocationButton setSelected:YES];
 }
 
 
@@ -411,21 +413,30 @@
 }
 
 
-//- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-//    self.resignFirstResponder;
-//    self.locationsSearchBar.resignFirstResponder;
-//
-//}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(self.locationsSearchBar.layer.frame.size.width/3, 0);
+    [self.locationsSearchBar resignFirstResponder];
+    [self.view endEditing:YES];
+    self.filteredData = nil;
+    [self.locationsTableView reloadData];
+    [self.locationsSearchBar endEditing:YES];
+    UITextField *textField = [self.locationsSearchBar valueForKey:@"_searchField"];
+    textField.leftViewMode = UITextFieldViewModeNever;
+}
 
 
 - (IBAction)didTapCurrentLocation:(UIButton *)sender {
     if (self.currentLocationDefaulted == YES) {
         self.currentLocationDefaulted = NO;
         [self.currentLocationButton setSelected:YES];
+        [self searchBarTextDidBeginEditing:self.locationsSearchBar];
     } else {
         self.currentLocationDefaulted = YES;
         [self.currentLocationButton setSelected:NO];
         self.location = self.currentLocation;
+        self.locationsSearchBar.text = @"Current location";
+        [self searchBarTextDidEndEditing:self.locationsSearchBar];
+        [self.locationsTableView reloadData];
     }
 }
 

@@ -14,12 +14,13 @@
 #import "MBProgressHUD/MBProgressHUD.h"
 #import "HomeViewController.h"
 #import "AppDelegate.h"
+#import "DetailsViewController.h"
 
 @interface RecommendationsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *recommendations;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *homeButton;
+//@property (nonatomic, strong) Restaurant *currentRestaurant;
 
 @end
 
@@ -36,17 +37,17 @@
     UIView *window = [UIApplication sharedApplication].keyWindow;
     MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
     [hud showAnimated:YES];
-    NSURLSessionDataTask *locationTask = [Routes fetchRecommendations:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
+    NSURLSessionDataTask *locationTask = [Routes fetchRecommendationsIn:self.location withLikedPhotos:self.foodLiked andHatedPhotos:self.foodUnliked completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error != nil) {
             NSLog(@"%@", error.localizedDescription);
         }
         else {
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            
+
             // NSLog(@"%@", results);
             self.recommendations = [results objectForKey:@"results"];
             NSLog(@"%@", self.recommendations);
-            
+
             // Delegates
             self.tableView.dataSource = self;
             self.tableView.delegate = self;
@@ -70,6 +71,12 @@
     cell.category.text = cell.restaurant.categoryString;
     cell.numberOfStars.text = cell.restaurant.starRating;
     cell.price.text = cell.restaurant.priceRating;
+    
+//    self.currentRestaurant = [[Restaurant alloc] initWithDictionary:restaurantDict];
+//    cell.restaurantName.text = self.currentRestaurant.name;
+//    cell.category.text = self.currentRestaurant.categoryString;
+//    cell.numberOfStars.text = self.currentRestaurant.starRating;
+//    cell.price.text = self.currentRestaurant.priceRating;
     
     return cell;
 }
@@ -97,23 +104,29 @@
 //    appDelegate.window.rootViewController = homeViewController;
 //    
 //    [self dismissViewControllerAnimated:YES completion:nil];
-
 }
 
-//- (IBAction)didTapHome:(id)sender {
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-//    [self showViewController:homeViewController sender:self];
-//}
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"viewSegue"]) {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        NSDictionary *restaurantDictionary = self.recommendations[indexPath.row];
+        NSLog(@"%@", restaurantDictionary);
+        Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:restaurantDictionary];
+        DetailsViewController *detailsViewController =  [segue destinationViewController];
+        detailsViewController.restaurant = restaurant;
+        
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        DetailsViewController *detailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"detailsVC"];
+//        detailsViewController.restaurant = self.currentRestaurant;
+//        [self presentViewController:detailsViewController animated:YES completion:nil];
+    }
 }
-*/
+
 
 @end

@@ -74,4 +74,48 @@
     return task;
 }
 
++ (NSURLSessionDataTask *)fetchRecommendationsIn: (NSString *)location withLikedPhotos: (NSArray *)likedPhotos andHatedPhotos: (NSArray *)hatedPhotos completionHandler:(DeciderCompletionHandler)completionHandler {
+    NSString *urlString = @"https://decider-backend.herokuapp.com/restaurants/recommendations";
+    NSString *likedString = [self stringifyArray:likedPhotos];
+    NSString *hatedString = [self stringifyArray:hatedPhotos];
+    
+    NSString *post = [NSString stringWithFormat:@"location=%@&likedPhotos=%@&hatedPhotos=%@",location,likedString, hatedString];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];
+    return task;
+}
+
++ (NSURLSessionDataTask *) fetchSavedRestaurantsFromIds: (NSArray *)savedIds completionHandler:(DeciderCompletionHandler)completionHandler {
+    NSString *urlString = @"https://decider-backend.herokuapp.com/list";
+    NSString *savedString = [self stringifyArray:savedIds];
+    NSString *post = [NSString stringWithFormat:@"ids=%@",savedString];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];
+    return task;
+}
+
++ (NSString *) stringifyArray: (NSArray *)input {
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:input options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    return jsonString;
+    
+    
+}
+
 @end

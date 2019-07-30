@@ -61,6 +61,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.selectedCategoryLabel.hidden = YES;
+    self.startButton.hidden = YES;
     // UI
     self.swipeButton.layer.cornerRadius = 6;
     // self.startButton.layer.cornerRadius = 2;
@@ -91,17 +93,14 @@
 
     
     // Fetch information
-    //[self fetchRestaurants];
     [self fetchCategories];
     [self fetchLocations];
     [self getCurrentLocation];
     
-    // Search bar style
+        // Location search bar style
     self.currentLocationDefaulted = YES;
-    self.selectedCategoryLabel.layer.cornerRadius = 9.2;
+    // self.selectedCategoryLabel.layer.cornerRadius = 9.2;
     self.locationsSearchBar.placeholder = @"";
-    // self.locationsSearchBar.searchBarStyle = UISearchBarStyleMinimal;
-    
     self.locationsSearchBar.layer.borderWidth = 0;
     self.locationsSearchBar.layer.borderColor = [UIColor clearColor].CGColor;
     self.locationsSearchBar.layer.cornerRadius = 4;
@@ -111,11 +110,9 @@
     // Text field of search bar
     UITextField *textField = [self.locationsSearchBar valueForKey:@"_searchField"];
     textField.textColor = [UIColor darkGrayColor];
-    textField.placeholder = @"Current location";
+    textField.placeholder = @"Location";
     textField.backgroundColor = [UIColor whiteColor];
-    // textField.backgroundColor = [UIColor colorWithRed:255/255.0 green:246/255.0 blue:241/255.0 alpha:1.0];
-    // textField.font = [UIFont systemFontOfSize:22.0];
-    textField.font = [UIFont systemFontOfSize:20 weight:UIFontWeightThin];
+    textField.font = [UIFont systemFontOfSize:18 weight:UIFontWeightThin];
     [textField setValue:[UIColor darkGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
     
     textField.leftViewMode = UITextFieldViewModeNever;
@@ -123,17 +120,43 @@
 //    textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 //    textField.textAlignment = NSTextAlignmentCenter;
     imgview.image = [UIImage imageNamed:@"searchIcon.png"];
-    
     textField.rightView = imgview;
     textField.rightViewMode = UITextFieldViewModeAlways;
     
-    self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(self.locationsSearchBar.layer.frame.size.width/3, 0);
+    self.locationsSearchBar.searchTextPositionAdjustment = UIOffsetMake(self.locationsSearchBar.layer.frame.size.width/8, 0);
     
     self.locationsTableView.layer.borderWidth = 0;
     self.locationsTableView.layer.borderColor = [UIColor colorWithRed:255.0/255.0 green:98.0/255.0 blue:19.0/255.0 alpha:1.0].CGColor;
     
-    self.selectedLocationLabel.layer.cornerRadius = 6;
-    // self.locationsTableView.hidden = YES;
+    
+        // Category search bar style
+    self.categorySearchBar.placeholder = @"";
+    self.categorySearchBar.layer.borderWidth = 0;
+    self.categorySearchBar.layer.borderColor = [UIColor clearColor].CGColor;
+    self.categorySearchBar.layer.cornerRadius = 4;
+    self.categorySearchBar.barTintColor = [UIColor colorWithRed:255.0/255.0 green:98.0/255.0 blue:19.0/255.0 alpha:1.0];
+    self.categorySearchBar.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:98.0/255.0 blue:19.0/255.0 alpha:1.0];
+    
+    // Text field of search bar
+    UITextField *textFieldCategory = [self.categorySearchBar valueForKey:@"_searchField"];
+    textFieldCategory.textColor = [UIColor darkGrayColor];
+    textFieldCategory.placeholder = @"Category";
+    textFieldCategory.backgroundColor = [UIColor whiteColor];
+    textFieldCategory.font = [UIFont systemFontOfSize:18 weight:UIFontWeightThin];
+    [textFieldCategory setValue:[UIColor darkGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
+    
+    textFieldCategory.leftViewMode = UITextFieldViewModeNever;
+    UIImageView *imgviewCategory = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 30)];
+    //    textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    //    textField.textAlignment = NSTextAlignmentCenter;
+    imgviewCategory.image = [UIImage imageNamed:@"searchIcon.png"];
+    textFieldCategory.rightView = imgviewCategory;
+    textFieldCategory.rightViewMode = UITextFieldViewModeAlways;
+    
+    self.categorySearchBar.searchTextPositionAdjustment = UIOffsetMake(self.categorySearchBar.layer.frame.size.width/6, 0);
+    
+    self.categoryTableView.layer.borderWidth = 0;
+    self.categoryTableView.layer.borderColor = [UIColor colorWithRed:255.0/255.0 green:98.0/255.0 blue:19.0/255.0 alpha:1.0].CGColor;
     
     
     // -------->>>  Dropdown menu for category
@@ -154,10 +177,10 @@
     
     
     // Tap gesture for location
-    UITapGestureRecognizer *singleFingerTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-    [self.selectedLocationLabel setUserInteractionEnabled:YES];
-    [self.selectedLocationLabel addGestureRecognizer:singleFingerTap];
+//    UITapGestureRecognizer *singleFingerTap =
+//    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+//    [self.selectedLocationLabel setUserInteractionEnabled:YES];
+//    [self.selectedLocationLabel addGestureRecognizer:singleFingerTap];
 
 }
 
@@ -541,8 +564,5 @@
 
 // Location functions end
 
-- (IBAction)didTap:(id)sender {
-    [self.view endEditing:YES];
-}
 
 @end

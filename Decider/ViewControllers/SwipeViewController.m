@@ -15,6 +15,8 @@
 #import "MBProgressHUD/MBProgressHUD.h"
 #import "ProfileViewController.h"
 #import "RecommendationsViewController.h"
+#import "AppDelegate.h"
+#import "HomeViewController.h"
 
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
 static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
@@ -336,7 +338,9 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 }
 
 - (IBAction)didTapClose:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.tabBarController.tabBar setHidden:NO];
+
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)didTapDecide:(id)sender {

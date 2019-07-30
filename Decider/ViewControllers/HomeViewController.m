@@ -80,6 +80,9 @@
     self.locationsTableView.dataSource = self;
     self.categoryTableView.delegate = self;
     self.categoryTableView.dataSource = self;
+//
+//    [self.categoryTableView setAllowsSelection:YES];
+//    [self.locationsTableView setAllowsSelection:YES];
     
     // Search bar delegates
     self.locationsSearchBar.delegate = self;
@@ -154,10 +157,10 @@
     
     
     // Tap gesture for location
-    UITapGestureRecognizer *singleFingerTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-    [self.selectedLocationLabel setUserInteractionEnabled:YES];
-    [self.selectedLocationLabel addGestureRecognizer:singleFingerTap];
+//    UITapGestureRecognizer *singleFingerTap =
+//    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+//    [self.selectedLocationLabel setUserInteractionEnabled:YES];
+//    [self.selectedLocationLabel addGestureRecognizer:singleFingerTap];
 
 }
 
@@ -541,8 +544,5 @@
 
 // Location functions end
 
-- (IBAction)didTap:(id)sender {
-    [self.view endEditing:YES];
-}
 
 @end

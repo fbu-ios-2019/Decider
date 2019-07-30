@@ -130,9 +130,10 @@
     RecommendationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecommendationCell" forIndexPath:indexPath];
     
     // Update cell with data
-//    NSDictionary *restaurantDict = self.savedRestaurants[indexPath.row];
     
-    cell.restaurantName.text = self.savedRestaurants[indexPath.row];
+    NSString *currentYelpId = self.savedRestaurants[indexPath.row];
+    // cell.restaurant = [[Restaurant alloc] initWithYelpid:currentYelpId];
+    cell.restaurantName.text = currentYelpId;
 //    cell.restaurant = [[Restaurant alloc] initWithYelpid:self.savedRestaurants[indexPath.row]];
 //    cell.restaurantName.text = cell.restaurant.name;
 //    cell.category.text = cell.restaurant.categoryString;
@@ -148,7 +149,7 @@
 
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.savedRestaurants.count;
 }
 
 #pragma mark - Navigation

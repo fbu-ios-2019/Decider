@@ -39,6 +39,39 @@
     }];
 }
 
+
+- (IBAction)didTapUnsave:(UIButton *)sender {
+    PFUser *user = [PFUser currentUser];
+    NSMutableArray *savedRestaurants = [user objectForKey:@"savedRestaurants"];
+    if(savedRestaurants == nil) {
+        savedRestaurants = [[NSMutableArray alloc] init];
+    }
+    
+    
+    for (int i = 0; i < savedRestaurants.count; i++) {
+        if ([savedRestaurants[i] isEqualToString:self.restaurantName.text]) {
+            [savedRestaurants removeObjectAtIndex:i];
+        }
+    }
+    
+    [user setObject:savedRestaurants forKey:@"savedRestaurants"];
+    
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            
+        }
+    }];
+}
+
+
+- (IBAction)didTapLike:(UIButton *)sender {
+}
+
+
+- (IBAction)didTapUnlike:(UIButton *)sender {
+}
+
+
 //- (IBAction)didTapLike:(UIButton *)sender {
 //    // Refer to current user
 //    PFUser *user = [PFUser currentUser];

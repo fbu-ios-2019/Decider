@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *numberOfStars;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (weak, nonatomic) IBOutlet UIButton *unsaveButton;
+@property (weak, nonatomic) IBOutlet UIButton *unlikeButton;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
 
 @end
 

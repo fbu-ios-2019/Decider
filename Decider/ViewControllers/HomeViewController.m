@@ -196,15 +196,21 @@
 
 // Function to prepare before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if (self.category == nil) {
-        self.category = @"all";
-    }
-    
     if([segue.identifier isEqualToString:@"swipeSegue"]) {
         SwipeViewController *swipeViewController = [segue destinationViewController];
-        swipeViewController.category = self.category;
-        swipeViewController.location = self.location;
+        if(self.category == nil) {
+            swipeViewController.category = @"all";
+        }
+        else {
+            swipeViewController.category = self.category;
+        }
+        if(self.location == nil) {
+            swipeViewController.location = @"Menlo Park";
+        }
+        else {
+            swipeViewController.location = self.location;
+        }
+        swipeViewController.hidesBottomBarWhenPushed = YES;
     }
 }
 

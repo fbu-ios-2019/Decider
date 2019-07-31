@@ -16,7 +16,7 @@
 #import "Routes.h"
 #import "MBProgressHUD/MBProgressHUD.h"
 
-@interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, RecommendationCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -33,11 +33,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self fetchSavedRestaurants];
+    [self fetchRestaurantHistory];
     
     if(self.user == nil){
         self.user = [PFUser currentUser];
     }
+    
     
     UILabel *navtitleLabel = [UILabel new];
     NSShadow *shadow = [NSShadow new];
@@ -82,47 +83,20 @@
 }
 
 
-- (void)fetchSavedRestaurants {
+- (void)fetchRestaurantHistory {
     
     
     
     // Delegates
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self.tableView reloadData];
     
     self.user = [PFUser currentUser];
     self.savedRestaurants = [self.user objectForKey:@"savedRestaurants"];
-    if(self.savedRestaurants == nil) {
-        self.savedRestaurants = [[NSMutableArray alloc] init];
-        [self.savedRestaurants addObject:@"No saved restaurants"];
-    }
-    
-    
-    //    UIView *window = [UIApplication sharedApplication].keyWindow;
-    //    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
-    //    [hud showAnimated:YES];
-    //    NSURLSessionDataTask *locationTask = [Routes fetchRecommendations:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
-    //        if (error != nil) {
-    //            NSLog(@"%@", error.localizedDescription);
-    //        }
-    //        else {
-    //            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    //
-    //            // NSLog(@"%@", results);
-    //            self.recommendations = [results objectForKey:@"results"];
-    //            NSLog(@"%@", self.recommendations);
-    //
-    //            // Delegates
-    //            self.tableView.dataSource = self;
-    //            self.tableView.delegate = self;
-    //            [self.tableView reloadData];
-    //            [hud hideAnimated:YES];
-    //        }
-    //    }];
-    //    if (!locationTask) {
-    //        NSLog(@"There was a network error");
-    //    }
+    self.hatedRestaurants = [self.user objectForKey:@"hatedRestaurants"];
+    self.likedRestaurants = [self.user objectForKey:@"likedRestaurants"];
+
+    [self.tableView reloadData];
 }
 
 
@@ -131,20 +105,43 @@
     
     // Update cell with data
     
-    NSString *currentYelpId = self.savedRestaurants[indexPath.row];
-    // cell.restaurant = [[Restaurant alloc] initWithYelpid:currentYelpId];
-    cell.restaurantName.text = currentYelpId;
-    //    cell.restaurant = [[Restaurant alloc] initWithYelpid:self.savedRestaurants[indexPath.row]];
-    //    cell.restaurantName.text = cell.restaurant.name;
-    //    cell.category.text = cell.restaurant.categoryString;
-    //    cell.numberOfStars.text = cell.restaurant.starRating;
-    //    cell.price.text = cell.restaurant.priceRating;
+    Restaurant* newRestaurant = [[Restaurant alloc] init];
+    newRestaurant.yelpid = self.savedRestaurants[indexPath.row];
+    newRestaurant.name = @"Maria's Tacos";
+    newRestaurant.categories = @[@"Mexican"];
+    newRestaurant.starRating = @"3";
+    newRestaurant.priceRating = @"2";
     
-    cell.category.text = @"";
-    cell.numberOfStars.text = @"";
-    cell.price.text = @"";
+    if([self.likedRestaurants containsObject:newRestaurant.yelpid]) {
+        cell.isLiked = YES;
+        
+    } else {
+        cell.isLiked = NO;
+    }
+    
+    if([self.hatedRestaurants containsObject:newRestaurant.yelpid]) {
+        cell.isHated = YES;
+        
+    } else {
+        cell.isHated = NO;
+    }
+    
+    if([self.savedRestaurants containsObject:newRestaurant.yelpid]) {
+        cell.isSaved = YES;
+        
+    } else {
+        cell.isSaved = NO;
+    }
+    
+    [cell setRestaurant:newRestaurant];
+    cell.delegate = self;
     
     return cell;
+}
+
+-(void) restaurantHistoryChanged {
+    [self fetchRestaurantHistory];
+    [self.tableView reloadData];
 }
 
 

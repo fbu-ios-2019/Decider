@@ -83,7 +83,7 @@
 
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.recommendations.count;
 }
 
 - (IBAction)didTapHome:(UIButton *)sender {

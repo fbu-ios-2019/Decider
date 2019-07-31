@@ -79,7 +79,7 @@
     NSString *likedString = [self stringifyArray:likedPhotos];
     NSString *hatedString = [self stringifyArray:hatedPhotos];
     
-    NSString *post = [NSString stringWithFormat:@"location=%@&likedPhotos=%@&hatedPhotos=%@",location,likedString, hatedString];
+    NSString *post = [NSString stringWithFormat:@"location=%@&likedPhotos=%@&hatedPhotos=%@", location,likedString, hatedString];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
     
@@ -93,7 +93,7 @@
     return task;
 }
 
-+ (NSURLSessionDataTask *) fetchSavedRestaurantsFromIds: (NSArray *)savedIds completionHandler:(DeciderCompletionHandler)completionHandler {
++ (NSURLSessionDataTask *)fetchSavedRestaurantsFromIds:(NSArray *)savedIds completionHandler:(DeciderCompletionHandler)completionHandler {
     NSString *urlString = @"https://decider-backend.herokuapp.com/list";
     NSString *savedString = [self stringifyArray:savedIds];
     NSString *post = [NSString stringWithFormat:@"ids=%@",savedString];
@@ -110,10 +110,12 @@
     return task;
 }
 
-+ (NSString *) stringifyArray: (NSArray *)input {
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:input options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    return jsonString;
++ (NSString *)stringifyArray:(NSArray *)input {
+    NSString *joinedInputString = [input componentsJoinedByString:@","];
+//    NSData *jsonData = []
+//    // NSData *jsonData = [NSJSONSerialization dataWithJSONObject:joinedInputString options:NSJSONWritingPrettyPrinted error:nil];
+//    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    return joinedInputString;
 }
 
 @end

@@ -402,6 +402,9 @@
                                 <state key="normal" title="Swipe">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapSwipe:" destination="o3g-vb-DgT" eventType="touchUpInside" id="xod-ah-Qjt"/>
+                                </connections>
                             </button>
                             <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Category" translatesAutoresizingMaskIntoConstraints="NO" id="Mng-eu-Zhl">
                                 <rect key="frame" x="9" y="54" width="357" height="44"/>
@@ -823,7 +826,7 @@
         <!--Swipe View Controller-->
         <scene sceneID="Zj1-aa-7No">
             <objects>
-                <viewController id="tpf-5r-5wA" customClass="SwipeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="swipeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tpf-5r-5wA" customClass="SwipeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AwE-bC-Ti9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -882,7 +885,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ee8-0f-w1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1954" y="1745"/>
+            <point key="canvasLocation" x="-1954" y="1754"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="CjX-qx-GuH">
@@ -1135,7 +1138,7 @@
         <image name="selected_location_icon-29x29" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hmt-O3-5Iz"/>
+        <segue reference="4gb-rm-ZKv"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

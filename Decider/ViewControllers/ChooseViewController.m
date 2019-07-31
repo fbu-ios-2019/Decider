@@ -22,6 +22,12 @@
 @property (strong, nonatomic) NSArray *filteredLocationData;
 @property (assign, nonatomic) BOOL isLocationSearchBar;
 
+//current location
+@property (strong, nonatomic) NSString *currentLocation;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLGeocoder *geocoder;
+@property (strong, nonatomic) CLPlacemark *placemark;
+
 @end
 
 @implementation ChooseViewController
@@ -40,6 +46,19 @@
     
     [self fetchCategories];
     [self fetchLocations];
+    
+    //current location
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.geocoder = [[CLGeocoder alloc] init];
+    
+    [self.locationManager requestAlwaysAuthorization];
+    if ([CLLocationManager locationServicesEnabled]) {
+        self.locationManager.delegate = self;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        [self.locationManager startUpdatingLocation];
+    } else {
+        NSLog(@"Location services are not enabled");
+    }
 }
 
 - (IBAction)didTapClose:(id)sender {
@@ -48,13 +67,13 @@
 
 /*
  #pragma mark - Navigation
- 
+
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
  }
- */
+*/
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ChooseCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ChooseCell"
@@ -186,8 +205,14 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         SwipeViewController *swipeViewController = [storyboard instantiateViewControllerWithIdentifier:@"swipeViewController"];
         swipeViewController.category = self.categorySearchBar.text;
-        swipeViewController.location = [[self.locationSearchBar.text componentsSeparatedByString:@","] objectAtIndex:0];
+        if([self.locationSearchBar.text isEqualToString:@"Current Location"]) {
+            swipeViewController.location = self.currentLocation;
+        }
+        else {
+            swipeViewController.location = [[self.locationSearchBar.text componentsSeparatedByString:@","] objectAtIndex:0];
+        }
         [self showViewController:swipeViewController sender:self];
+        //[self presentViewController:swipeViewController animated:YES completion:nil];
     }
     else {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Swipe"
@@ -199,14 +224,54 @@
                                                               handler:^(UIAlertAction * _Nonnull action) {
                                                                   // handle try again response here. Doing nothing will dismiss the view.
                                                               }];
-        
+
         // add the error action to the alertController
         [alertController addAction:okAlertAction];
-        
+
         [self presentViewController:alertController animated:YES completion:^{
             // optional code for what happens after the alert controller has finished presenting
         }];
     }
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    
+    NSLog(@"didFailWithError: %@", error);
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                   message:@"Failed to Get Your Location."
+                                                            preferredStyle:(UIAlertControllerStyleAlert)];
+    // create an error action
+    UIAlertAction *errorAction = [UIAlertAction actionWithTitle:@"OK"
+                                                          style:UIAlertActionStyleCancel
+                                                        handler:^(UIAlertAction * _Nonnull action) {
+                                                            // handle try again response here. Doing nothing will dismiss the view.
+                                                        }];
+    // add the error action to the alertController
+    [alert addAction:errorAction];
+    
+    [self presentViewController:alert animated:YES completion:^{
+        // optional code for what happens after the alert controller has finished presenting
+    }];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation *newLocation = [locations lastObject];
+    CLLocation *currentLocation = newLocation;
+  
+    // Reverse Geocoding
+    NSLog(@"Resolving the Address");
+    [self.geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if(error == nil && [placemarks count] > 0) {
+            self.placemark = [placemarks lastObject];
+            self.currentLocation = self.placemark.locality;
+        }
+        else {
+            NSLog(@"%@", error.debugDescription);
+        }
+    }];
 }
 
 @end

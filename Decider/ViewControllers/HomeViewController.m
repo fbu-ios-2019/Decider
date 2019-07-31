@@ -68,11 +68,11 @@
     // self.startButton.layer.cornerRadius = 2;
     self.startSwipingLabel.layer.cornerRadius = 4;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                             forBarMetrics:UIBarMetricsDefault];
+                                                  forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
     
-        // Delegates
+    // Delegates
     // Location delegates
     self.locationManager = [[CLLocationManager alloc] init];
     self.geocoder = [[CLGeocoder alloc] init];
@@ -90,14 +90,14 @@
     // Locations table view style
     [self.locationsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.categoryTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-
+    
     
     // Fetch information
     [self fetchCategories];
     [self fetchLocations];
     [self getCurrentLocation];
     
-        // Location search bar style
+    // Location search bar style
     self.currentLocationDefaulted = YES;
     // self.selectedCategoryLabel.layer.cornerRadius = 9.2;
     self.locationsSearchBar.placeholder = @"";
@@ -117,8 +117,8 @@
     
     textField.leftViewMode = UITextFieldViewModeNever;
     UIImageView *imgview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 30)];
-//    textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-//    textField.textAlignment = NSTextAlignmentCenter;
+    //    textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    //    textField.textAlignment = NSTextAlignmentCenter;
     imgview.image = [UIImage imageNamed:@"searchIcon.png"];
     textField.rightView = imgview;
     textField.rightViewMode = UITextFieldViewModeAlways;
@@ -129,7 +129,7 @@
     self.locationsTableView.layer.borderColor = [UIColor colorWithRed:255.0/255.0 green:98.0/255.0 blue:19.0/255.0 alpha:1.0].CGColor;
     
     
-        // Category search bar style
+    // Category search bar style
     self.categorySearchBar.placeholder = @"";
     self.categorySearchBar.layer.borderWidth = 0;
     self.categorySearchBar.layer.borderColor = [UIColor clearColor].CGColor;
@@ -160,28 +160,28 @@
     
     
     // -------->>>  Dropdown menu for category
-//    MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(self.selectedCategoryLabel.frame.origin.x, self.selectedCategoryLabel.frame.origin.y, 351, 44)];
-//    dropdownMenu.dataSource = self;
-//    dropdownMenu.delegate = self;
-//    [self.view addSubview:dropdownMenu];
-//
-//    dropdownMenu.rowSeparatorColor = [UIColor lightGrayColor];
-////    dropdownMenu.dropdownBackgroundColor = [UIColor lightGrayColor];
-//    dropdownMenu.backgroundDimmingOpacity = -0.05;
-//    dropdownMenu.dropdownCornerRadius = 8;
-//
-//
-//    // Change category text field to what the user selected on the category picker
-//    self.selectedCategoryLabel.text =  self.categories[dropdownMenu.selectedComponent];
+    //    MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(self.selectedCategoryLabel.frame.origin.x, self.selectedCategoryLabel.frame.origin.y, 351, 44)];
+    //    dropdownMenu.dataSource = self;
+    //    dropdownMenu.delegate = self;
+    //    [self.view addSubview:dropdownMenu];
+    //
+    //    dropdownMenu.rowSeparatorColor = [UIColor lightGrayColor];
+    ////    dropdownMenu.dropdownBackgroundColor = [UIColor lightGrayColor];
+    //    dropdownMenu.backgroundDimmingOpacity = -0.05;
+    //    dropdownMenu.dropdownCornerRadius = 8;
+    //
+    //
+    //    // Change category text field to what the user selected on the category picker
+    //    self.selectedCategoryLabel.text =  self.categories[dropdownMenu.selectedComponent];
     // -------->>>  Dropdown menu for category
     
     
     // Tap gesture for location
-//    UITapGestureRecognizer *singleFingerTap =
-//    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-//    [self.selectedLocationLabel setUserInteractionEnabled:YES];
-//    [self.selectedLocationLabel addGestureRecognizer:singleFingerTap];
-
+    //    UITapGestureRecognizer *singleFingerTap =
+    //    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    //    [self.selectedLocationLabel setUserInteractionEnabled:YES];
+    //    [self.selectedLocationLabel addGestureRecognizer:singleFingerTap];
+    
 }
 
 
@@ -323,14 +323,14 @@
     NSLog(@"didFailWithError: %@", error);
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                   message:@"Failed to Get Your Location."
-                                                            preferredStyle:(UIAlertControllerStyleAlert)];
+                                                                             message:@"Failed to Get Your Location."
+                                                                      preferredStyle:(UIAlertControllerStyleAlert)];
     // create an error action
     UIAlertAction *errorAlertAction = [UIAlertAction actionWithTitle:@"OK"
-                                                          style:UIAlertActionStyleCancel
-                                                        handler:^(UIAlertAction * _Nonnull action) {
-                                                            // handle try again response here. Doing nothing will dismiss the view.
-                                                        }];
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+                                                                 // handle try again response here. Doing nothing will dismiss the view.
+                                                             }];
     
     // add the error action to the alertController
     [alertController addAction:errorAlertAction];
@@ -357,13 +357,13 @@
         if(error == nil && [placemarks count] > 0) {
             self.placemark = [placemarks lastObject];
             self.location = self.placemark.locality;
-//            self.location = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
-//                             self.placemark.subThoroughfare,
-//                             self.placemark.thoroughfare,
-//                             self.placemark.postalCode,
-//                             self.placemark.locality,
-//                             self.placemark.administrativeArea,
-//                             self.placemark.country];
+            //            self.location = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+            //                             self.placemark.subThoroughfare,
+            //                             self.placemark.thoroughfare,
+            //                             self.placemark.postalCode,
+            //                             self.placemark.locality,
+            //                             self.placemark.administrativeArea,
+            //                             self.placemark.country];
             self.currentLocation = self.location;
         }
         else {
@@ -472,7 +472,7 @@
     } else {
         self.categoryTableView.hidden = NO;
         if (searchText.length != 0) {
-           predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
+            predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
                 return [evaluatedObject containsString:searchText];
             }];
             self.filteredDataCategories = [self.categories filteredArrayUsingPredicate:predicate];

@@ -13,9 +13,9 @@ typedef void(^DeciderCompletionHandler)(NSData *data, NSURLResponse *response, N
 @interface Routes : NSObject
 
 + (NSURLSessionDataTask *)fetchRestaurantsOfCategory:(NSString *)category
-                                                nearLocation:(NSString *)location
-                                                      offset:(int)offset
-                                           completionHandler:(DeciderCompletionHandler)completionHandler;
+                                        nearLocation:(NSString *)location
+                                              offset:(int)offset
+                                   completionHandler:(DeciderCompletionHandler)completionHandler;
 
 + (NSURLSessionDataTask *)fetchCategories:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
 

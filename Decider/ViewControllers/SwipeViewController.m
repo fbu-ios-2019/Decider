@@ -56,8 +56,8 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 }
 
 /*- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
-}*/
+ return UIInterfaceOrientationMaskPortrait;
+ }*/
 
 #pragma mark - MDCSwipeToChooseDelegate Protocol Methods
 
@@ -105,19 +105,19 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
         NSString *message2 = [message1 stringByAppendingString:[NSString stringWithFormat:@"%ld", self.swipeTotal]];
         NSString *finalMessage = [message2 stringByAppendingString:@" times."];
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"View Recommendations?"
-                                                                       message:finalMessage
-                                                                preferredStyle:(UIAlertControllerStyleAlert)];
+                                                                                 message:finalMessage
+                                                                          preferredStyle:(UIAlertControllerStyleAlert)];
         
         UIAlertAction *okAlertAction = [UIAlertAction actionWithTitle:@"View" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             //button click event
-           
+            
             // Call review view controller and send it the restaurants
-//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//            ProfileViewController *profileViewController = [storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
-//            profileViewController.foodLiked = self.foodLiked;
-//            profileViewController.foodUnliked = self.foodUnliked;
-//            [self showViewController:profileViewController sender:self];
-//            [self.tabBarController setSelectedIndex:1];
+            //            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            //            ProfileViewController *profileViewController = [storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
+            //            profileViewController.foodLiked = self.foodLiked;
+            //            profileViewController.foodUnliked = self.foodUnliked;
+            //            [self showViewController:profileViewController sender:self];
+            //            [self.tabBarController setSelectedIndex:1];
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             RecommendationsViewController *recommendationsViewController = [storyboard instantiateViewControllerWithIdentifier:@"recommendationsVC"];
@@ -126,7 +126,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
             recommendationsViewController.location = self.location;
             [self showViewController:recommendationsViewController sender:self];
             // [self.tabBarController setSelectedIndex:1];
-        
+            
         }];
         UIAlertAction *cancelAlertAction = [UIAlertAction actionWithTitle:@"Swipe More" style:UIAlertActionStyleCancel handler:nil];
         [alertController addAction:cancelAlertAction];
@@ -160,7 +160,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     // It would be trivial to download these from a web service
     // as needed, but for the purposes of this sample app we'll
     // simply store them in memory.
-
+    
     NSMutableArray *foods = [[NSMutableArray alloc] init];
     for(int i = 0; i < [self.restaurants count]; i++) {
         NSDictionary *photoDictionary = [self.restaurants objectAtIndex:i];
@@ -195,8 +195,8 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     // Create a foodView with the top food in the food array, then pop
     // that food off the stack.
     ChooseFoodView *foodView = [[ChooseFoodView alloc] initWithFrame:frame
-                                                                    food:self.food[0]
-                                                                   options:options];
+                                                                food:self.food[0]
+                                                             options:options];
     //self.currentFood = [self.food objectAtIndex:0];
     [self.food removeObjectAtIndex:0];
     return foodView;
@@ -339,7 +339,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 
 - (IBAction)didTapClose:(id)sender {
     [self.tabBarController.tabBar setHidden:NO];
-
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -352,25 +352,25 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     [self showViewController:recommendationsViewController sender:self];
 }
 
- #pragma mark - Navigation
+#pragma mark - Navigation
 
 /*
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     if([segue.identifier isEqualToString:@"detailSegue"]) {
-         DetailsViewController *detailsViewController = [segue destinationViewController];
-         //detailsViewController.picture = self.frontCardView.food.image;
-         NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-         NSUInteger like = [formatter numberFromString:self.likeCount.text].unsignedIntegerValue;
-         NSUInteger unlike = [formatter numberFromString:self.unlikeCount.text].unsignedIntegerValue;
-         NSUInteger sum = like + unlike;
-         NSDictionary *photoDictionary = [self.restaurants objectAtIndex:sum];
-         NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
-         Restaurant *restaurant = [[Restaurant alloc] initWithYelpid:yelpid];
-         detailsViewController.restaurant = restaurant;
-         //detailsViewController.yelpid = yelpid;
-     }
+ if([segue.identifier isEqualToString:@"detailSegue"]) {
+ DetailsViewController *detailsViewController = [segue destinationViewController];
+ //detailsViewController.picture = self.frontCardView.food.image;
+ NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+ NSUInteger like = [formatter numberFromString:self.likeCount.text].unsignedIntegerValue;
+ NSUInteger unlike = [formatter numberFromString:self.unlikeCount.text].unsignedIntegerValue;
+ NSUInteger sum = like + unlike;
+ NSDictionary *photoDictionary = [self.restaurants objectAtIndex:sum];
+ NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
+ Restaurant *restaurant = [[Restaurant alloc] initWithYelpid:yelpid];
+ detailsViewController.restaurant = restaurant;
+ //detailsViewController.yelpid = yelpid;
  }
-*/
+ }
+ */
 
 @end

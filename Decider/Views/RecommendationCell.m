@@ -18,7 +18,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
@@ -57,23 +57,23 @@
 
 
 - (IBAction)didTapLike:(UIButton *)sender {
-        // Refer to current user
-        PFUser *user = [PFUser currentUser];
+    // Refer to current user
+    PFUser *user = [PFUser currentUser];
     
-        // Save value that's stored on the database
-        NSMutableArray *likedRestaurants = [user objectForKey:@"likedRestaurants"];
+    // Save value that's stored on the database
+    NSMutableArray *likedRestaurants = [user objectForKey:@"likedRestaurants"];
     
-        // Update value
-        if(likedRestaurants == nil) {
-            likedRestaurants = [[NSMutableArray alloc] init];
-        }
+    // Update value
+    if(likedRestaurants == nil) {
+        likedRestaurants = [[NSMutableArray alloc] init];
+    }
     
-            [likedRestaurants addObject:self.restaurantName.text];
+    [likedRestaurants addObject:self.restaurantName.text];
     
-        // Save new value on database
-        [user setObject:likedRestaurants forKey:@"likedRestaurants"];
+    // Save new value on database
+    [user setObject:likedRestaurants forKey:@"likedRestaurants"];
     
-        [user saveInBackgroundWithBlock:nil];
+    [user saveInBackgroundWithBlock:nil];
 }
 
 

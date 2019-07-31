@@ -36,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.scrollView.alwaysBounceVertical = YES;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;

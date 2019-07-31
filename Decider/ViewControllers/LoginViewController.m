@@ -38,14 +38,14 @@
             NSLog(@"User log in failed: %@", error.localizedDescription);
             if([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""]) {
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Log In"
-                                                                               message:@"Please enter username and password."
-                                                                        preferredStyle:(UIAlertControllerStyleAlert)];
+                                                                                         message:@"Please enter username and password."
+                                                                                  preferredStyle:(UIAlertControllerStyleAlert)];
                 // create a try again action
                 UIAlertAction *tryAgainAlertAction = [UIAlertAction actionWithTitle:@"Try Again"
-                                                                         style:UIAlertActionStyleCancel
-                                                                       handler:^(UIAlertAction * _Nonnull action) {
-                                                                           // handle try again response here. Doing nothing will dismiss the view.
-                                                                       }];
+                                                                              style:UIAlertActionStyleCancel
+                                                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                                                // handle try again response here. Doing nothing will dismiss the view.
+                                                                            }];
                 // add the try again action to the alertController
                 [alertController addAction:tryAgainAlertAction];
                 
@@ -55,14 +55,14 @@
             }
             else {
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Log In"
-                                                                               message:@"Wrong username or password."
-                                                                        preferredStyle:(UIAlertControllerStyleAlert)];
+                                                                                         message:@"Wrong username or password."
+                                                                                  preferredStyle:(UIAlertControllerStyleAlert)];
                 // create a try again action
                 UIAlertAction *tryAgainAlertAction = [UIAlertAction actionWithTitle:@"Try Again"
-                                                                         style:UIAlertActionStyleCancel
-                                                                       handler:^(UIAlertAction * _Nonnull action) {
-                                                                           // handle try again response here. Doing nothing will dismiss the view.
-                                                                       }];
+                                                                              style:UIAlertActionStyleCancel
+                                                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                                                // handle try again response here. Doing nothing will dismiss the view.
+                                                                            }];
                 // add the try again action to the alertController
                 [alertController addAction:tryAgainAlertAction];
                 
@@ -82,13 +82,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

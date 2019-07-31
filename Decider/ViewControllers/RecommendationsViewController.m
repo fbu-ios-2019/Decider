@@ -43,11 +43,11 @@
         }
         else {
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-
+            
             // NSLog(@"%@", results);
             self.recommendations = [results objectForKey:@"results"];
             NSLog(@"%@", self.recommendations);
-
+            
             // Delegates
             self.tableView.dataSource = self;
             self.tableView.delegate = self;
@@ -72,11 +72,11 @@
     cell.numberOfStars.text = cell.restaurant.starRating;
     cell.price.text = cell.restaurant.priceRating;
     
-//    self.currentRestaurant = [[Restaurant alloc] initWithDictionary:restaurantDict];
-//    cell.restaurantName.text = self.currentRestaurant.name;
-//    cell.category.text = self.currentRestaurant.categoryString;
-//    cell.numberOfStars.text = self.currentRestaurant.starRating;
-//    cell.price.text = self.currentRestaurant.priceRating;
+    //    self.currentRestaurant = [[Restaurant alloc] initWithDictionary:restaurantDict];
+    //    cell.restaurantName.text = self.currentRestaurant.name;
+    //    cell.category.text = self.currentRestaurant.categoryString;
+    //    cell.numberOfStars.text = self.currentRestaurant.starRating;
+    //    cell.price.text = self.currentRestaurant.priceRating;
     
     return cell;
 }
@@ -90,20 +90,20 @@
     [self.tabBarController.tabBar setHidden:NO];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-//    homeViewController.hidesBottomBarWhenPushed = NO;
-//
+    //    homeViewController.hidesBottomBarWhenPushed = NO;
+    //
     [self showViewController:homeViewController sender:self];
-//    [self.tabBarController setSelectedIndex:0];
+    //    [self.tabBarController setSelectedIndex:0];
     
     
-//    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-//    // homeViewController.hidesBottomBarWhenPushed = NO;
-//
-//    appDelegate.window.rootViewController = homeViewController;
-//    
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    //    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    //    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    //    // homeViewController.hidesBottomBarWhenPushed = NO;
+    //
+    //    appDelegate.window.rootViewController = homeViewController;
+    //
+    //    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Navigation
@@ -121,12 +121,11 @@
         DetailsViewController *detailsViewController =  [segue destinationViewController];
         detailsViewController.restaurant = restaurant;
         
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        DetailsViewController *detailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"detailsVC"];
-//        detailsViewController.restaurant = self.currentRestaurant;
-//        [self presentViewController:detailsViewController animated:YES completion:nil];
+        //        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        //        DetailsViewController *detailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"detailsVC"];
+        //        detailsViewController.restaurant = self.currentRestaurant;
+        //        [self presentViewController:detailsViewController animated:YES completion:nil];
     }
 }
-
 
 @end

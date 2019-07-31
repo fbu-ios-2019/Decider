@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+    
     self.mapView.myLocationEnabled = YES;
     self.mapView.mapType = kGMSTypeNormal;
     self.mapView.settings.compassButton = YES;
@@ -28,12 +28,12 @@
     self.mapView.delegate = self;
     
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.latitude
-                                                           longitude:self.longitude
-                                                                zoom:15
-                                                             bearing:30
-                                                        viewingAngle:45];
+                                                            longitude:self.longitude
+                                                                 zoom:15
+                                                              bearing:30
+                                                         viewingAngle:45];
     [self.mapView setCamera:camera];
-
+    
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(self.latitude, self.longitude);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = self.name;
@@ -48,13 +48,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

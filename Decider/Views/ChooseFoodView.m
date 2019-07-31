@@ -19,7 +19,7 @@
 #pragma mark - Object Lifecycle
 
 - (instancetype)initWithFrame:(CGRect)frame
-                       food:(Food *)food
+                         food:(Food *)food
                       options:(MDCSwipeToChooseViewOptions *)options {
     self = [super initWithFrame:frame options:options];
     if (self) {

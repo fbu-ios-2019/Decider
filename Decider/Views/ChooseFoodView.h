@@ -16,7 +16,7 @@
 @property (nonatomic, strong, readonly) Food *food;
 
 - (instancetype)initWithFrame:(CGRect)frame
-                       food:(Food *)food
+                         food:(Food *)food
                       options:(MDCSwipeToChooseViewOptions *)options;
 
 @end

@@ -99,30 +99,30 @@
     }
     
     
-//    UIView *window = [UIApplication sharedApplication].keyWindow;
-//    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
-//    [hud showAnimated:YES];
-//    NSURLSessionDataTask *locationTask = [Routes fetchRecommendations:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
-//        if (error != nil) {
-//            NSLog(@"%@", error.localizedDescription);
-//        }
-//        else {
-//            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-//
-//            // NSLog(@"%@", results);
-//            self.recommendations = [results objectForKey:@"results"];
-//            NSLog(@"%@", self.recommendations);
-//
-//            // Delegates
-//            self.tableView.dataSource = self;
-//            self.tableView.delegate = self;
-//            [self.tableView reloadData];
-//            [hud hideAnimated:YES];
-//        }
-//    }];
-//    if (!locationTask) {
-//        NSLog(@"There was a network error");
-//    }
+    //    UIView *window = [UIApplication sharedApplication].keyWindow;
+    //    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    //    [hud showAnimated:YES];
+    //    NSURLSessionDataTask *locationTask = [Routes fetchRecommendations:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
+    //        if (error != nil) {
+    //            NSLog(@"%@", error.localizedDescription);
+    //        }
+    //        else {
+    //            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    //
+    //            // NSLog(@"%@", results);
+    //            self.recommendations = [results objectForKey:@"results"];
+    //            NSLog(@"%@", self.recommendations);
+    //
+    //            // Delegates
+    //            self.tableView.dataSource = self;
+    //            self.tableView.delegate = self;
+    //            [self.tableView reloadData];
+    //            [hud hideAnimated:YES];
+    //        }
+    //    }];
+    //    if (!locationTask) {
+    //        NSLog(@"There was a network error");
+    //    }
 }
 
 
@@ -134,11 +134,11 @@
     NSString *currentYelpId = self.savedRestaurants[indexPath.row];
     // cell.restaurant = [[Restaurant alloc] initWithYelpid:currentYelpId];
     cell.restaurantName.text = currentYelpId;
-//    cell.restaurant = [[Restaurant alloc] initWithYelpid:self.savedRestaurants[indexPath.row]];
-//    cell.restaurantName.text = cell.restaurant.name;
-//    cell.category.text = cell.restaurant.categoryString;
-//    cell.numberOfStars.text = cell.restaurant.starRating;
-//    cell.price.text = cell.restaurant.priceRating;
+    //    cell.restaurant = [[Restaurant alloc] initWithYelpid:self.savedRestaurants[indexPath.row]];
+    //    cell.restaurantName.text = cell.restaurant.name;
+    //    cell.category.text = cell.restaurant.categoryString;
+    //    cell.numberOfStars.text = cell.restaurant.starRating;
+    //    cell.price.text = cell.restaurant.priceRating;
     
     cell.category.text = @"";
     cell.numberOfStars.text = @"";

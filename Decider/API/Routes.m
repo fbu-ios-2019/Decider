@@ -23,9 +23,9 @@
 }
 
 + (NSURLSessionDataTask *)fetchRestaurantsOfCategory:(NSString *)category
-                                    nearLocation:(NSString *)location
-                                          offset:(int)offset
-                               completionHandler:(DeciderCompletionHandler)completionHandler {
+                                        nearLocation:(NSString *)location
+                                              offset:(int)offset
+                                   completionHandler:(DeciderCompletionHandler)completionHandler {
     NSString *baseURl = @"https://decider-backend.herokuapp.com/photos";
     NSString *place = [location stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%i", baseURl, category, place, offset];
@@ -37,7 +37,7 @@
 }
 
 + (NSURLSessionDataTask *)fetchCategories:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
-        NSString *urlString = @"https://decider-backend.herokuapp.com/categories";
+    NSString *urlString = @"https://decider-backend.herokuapp.com/categories";
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];

@@ -9,6 +9,7 @@
 #import "ChooseViewController.h"
 #import "Routes.h"
 #import "ChooseCell.h"
+#import "SwipeViewController.h"
 
 @interface ChooseViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
@@ -19,7 +20,13 @@
 @property (strong, nonatomic) NSArray *filteredCategoryData;
 @property (strong, nonatomic) NSArray *locationData;
 @property (strong, nonatomic) NSArray *filteredLocationData;
-@property (assign, nonatomic) BOOL isCategorySearchBar;
+@property (assign, nonatomic) BOOL isLocationSearchBar;
+
+//current location
+@property (strong, nonatomic) NSString *currentLocation;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLGeocoder *geocoder;
+@property (strong, nonatomic) CLPlacemark *placemark;
 
 @end
 
@@ -32,9 +39,26 @@
     self.tableView.dataSource = self;
     self.categorySearchBar.delegate = self;
     self.locationSearchBar.delegate = self;
+    [self.locationSearchBar setImage:[UIImage imageNamed:@"map-marker"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+    UITextField *textField = [self.locationSearchBar valueForKey:@"searchField"];
+    textField.text = @"Current Location";
+    textField.textColor = UIColor.blueColor;
     
     [self fetchCategories];
     [self fetchLocations];
+    
+    //current location
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.geocoder = [[CLGeocoder alloc] init];
+    
+    [self.locationManager requestAlwaysAuthorization];
+    if ([CLLocationManager locationServicesEnabled]) {
+        self.locationManager.delegate = self;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        [self.locationManager startUpdatingLocation];
+    } else {
+        NSLog(@"Location services are not enabled");
+    }
 }
 
 - (IBAction)didTapClose:(id)sender {
@@ -43,50 +67,45 @@
 
 /*
  #pragma mark - Navigation
- 
+
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
  }
- */
+*/
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ChooseCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ChooseCell"
                                                             forIndexPath:indexPath];
-    if(self.isCategorySearchBar) { //check for category search bar
-        cell.textLabel.text = self.filteredCategoryData[indexPath.row];
+    if(self.isLocationSearchBar) { //check for location search bar
+        if(indexPath.row == 0){
+            cell.textLabel.text = @"Current Location";
+            cell.textLabel.textColor = UIColor.blueColor;
+        }
+        else {
+            cell.textLabel.text = self.filteredLocationData[indexPath.row - 1];
+        }
     }
-    else { //check for location search bar
-        cell.textLabel.text = self.filteredLocationData[indexPath.row];
+    else { //check for category search bar
+        cell.textLabel.textColor = UIColor.blackColor;
+        cell.textLabel.text = self.filteredCategoryData[indexPath.row];
     }
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(self.isCategorySearchBar) { //check for category search bar
-        return self.filteredCategoryData.count;
+    if(self.isLocationSearchBar) { //check for location search bar
+        return self.filteredLocationData.count + 1;
     }
-    else { //check for location search bar
-        return self.filteredLocationData.count;
+    else { //check for category search bar
+        return self.filteredCategoryData.count;
     }
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     [self searchBarTextDidBeginEditing:searchBar];
-    if(self.isCategorySearchBar) { //check for category search bar
-        if (searchText.length != 0) {
-            NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
-                return [evaluatedObject containsString:searchText];
-            }];
-            self.filteredCategoryData = [self.categoryData filteredArrayUsingPredicate:predicate];
-            NSLog(@"%@", self.filteredCategoryData);
-        }
-        else {
-            self.filteredCategoryData = self.categoryData;
-        }
-    }
-    else { //check for location search bar
+    if(self.isLocationSearchBar) { //check for location search bar
         if (searchText.length != 0) {
             NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
                 return [evaluatedObject containsString:searchText];
@@ -96,6 +115,18 @@
         }
         else {
             self.filteredLocationData = self.locationData;
+        }
+    }
+    else { //check for category search bar
+        if (searchText.length != 0) {
+            NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
+                return [evaluatedObject containsString:searchText];
+            }];
+            self.filteredCategoryData = [self.categoryData filteredArrayUsingPredicate:predicate];
+            NSLog(@"%@", self.filteredCategoryData);
+        }
+        else {
+            self.filteredCategoryData = self.categoryData;
         }
     }
     [self.tableView reloadData];
@@ -136,22 +167,111 @@
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    if(searchBar == self.categorySearchBar) {
-        self.isCategorySearchBar = YES;
+    if(searchBar == self.locationSearchBar) {
+        self.isLocationSearchBar = YES;
+        UITextField *textField = [self.locationSearchBar valueForKey:@"searchField"];
+        if([textField.text isEqualToString:@"Current Location"]){
+            textField.text = @"";
+        }
     }
     else {
-        self.isCategorySearchBar = NO;
+        self.isLocationSearchBar = NO;
     }
+    self.tableView.hidden = YES;
+    self.tableView.hidden = NO;
+    [self.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if(self.isCategorySearchBar) {
-        self.categorySearchBar.text = cell.textLabel.text;
-    }
-    else {
+    if(self.isLocationSearchBar && ([cell.textLabel.text isEqualToString:@"Current Location"] || [self.locationData containsObject:cell.textLabel.text])) {
+        UITextField *textField = [self.locationSearchBar valueForKey:@"searchField"];
+        if([cell.textLabel.text isEqualToString:@"Current Location"]) {
+            textField.textColor = UIColor.blueColor;
+        }
+        else {
+            textField.textColor = UIColor.blackColor;
+        }
         self.locationSearchBar.text = cell.textLabel.text;
     }
+    else if(!self.isLocationSearchBar && [self.categoryData containsObject:cell.textLabel.text]) {
+        self.categorySearchBar.text = cell.textLabel.text;
+    }
+}
+
+- (IBAction)didTapSwipe:(id)sender {
+    if([self.categoryData containsObject:self.categorySearchBar.text] && ([self.locationSearchBar.text isEqualToString:@"Current Location"] || [self.locationData containsObject:self.locationSearchBar.text])) {
+        NSLog(@"YAY");
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SwipeViewController *swipeViewController = [storyboard instantiateViewControllerWithIdentifier:@"swipeViewController"];
+        swipeViewController.category = self.categorySearchBar.text;
+        if([self.locationSearchBar.text isEqualToString:@"Current Location"]) {
+            swipeViewController.location = self.currentLocation;
+        }
+        else {
+            swipeViewController.location = [[self.locationSearchBar.text componentsSeparatedByString:@","] objectAtIndex:0];
+        }
+        [self showViewController:swipeViewController sender:self];
+        //[self presentViewController:swipeViewController animated:YES completion:nil];
+    }
+    else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Swipe"
+                                                                                 message:@"Please choose category and location."
+                                                                          preferredStyle:(UIAlertControllerStyleAlert)];
+        // create an error action
+        UIAlertAction *okAlertAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                style:UIAlertActionStyleCancel
+                                                              handler:^(UIAlertAction * _Nonnull action) {
+                                                                  // handle try again response here. Doing nothing will dismiss the view.
+                                                              }];
+
+        // add the error action to the alertController
+        [alertController addAction:okAlertAction];
+
+        [self presentViewController:alertController animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+        }];
+    }
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    
+    NSLog(@"didFailWithError: %@", error);
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                   message:@"Failed to Get Your Location."
+                                                            preferredStyle:(UIAlertControllerStyleAlert)];
+    // create an error action
+    UIAlertAction *errorAction = [UIAlertAction actionWithTitle:@"OK"
+                                                          style:UIAlertActionStyleCancel
+                                                        handler:^(UIAlertAction * _Nonnull action) {
+                                                            // handle try again response here. Doing nothing will dismiss the view.
+                                                        }];
+    // add the error action to the alertController
+    [alert addAction:errorAction];
+    
+    [self presentViewController:alert animated:YES completion:^{
+        // optional code for what happens after the alert controller has finished presenting
+    }];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation *newLocation = [locations lastObject];
+    CLLocation *currentLocation = newLocation;
+  
+    // Reverse Geocoding
+    NSLog(@"Resolving the Address");
+    [self.geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if(error == nil && [placemarks count] > 0) {
+            self.placemark = [placemarks lastObject];
+            self.currentLocation = self.placemark.locality;
+        }
+        else {
+            NSLog(@"%@", error.debugDescription);
+        }
+    }];
 }
 
 @end

@@ -14,7 +14,21 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
 }
+
+-(void)setRestaurant:(Restaurant *)restaurant {
+    _restaurant = restaurant;
+    self.restaurantName.text = self.restaurant.name;
+    self.category.text = [self.restaurant.categories componentsJoinedByString:@", "];
+    self.numberOfStars.text = self.restaurant.starRating;
+    self.price.text = [@"" stringByPaddingToLength:[self.restaurant.priceRating integerValue] withString: @"$" startingAtIndex:0];
+
+    [self.likeButton setSelected:self.isLiked ? YES: NO];
+    [self.unlikeButton setSelected:self.isHated ? YES: NO];
+    [self.saveButton setSelected:self.isSaved ? YES: NO];
+}
+    
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -29,31 +43,25 @@
     if(savedRestaurants == nil) {
         savedRestaurants = [[NSMutableArray alloc] init];
     }
-    [savedRestaurants addObject:self.restaurant.yelpid];
-    [user setObject:savedRestaurants forKey:@"savedRestaurants"];
     
-    [user saveInBackgroundWithBlock:nil];
-}
-
-
-- (IBAction)didTapUnsave:(UIButton *)sender {
-    PFUser *user = [PFUser currentUser];
-    NSMutableArray *savedRestaurants = [user objectForKey:@"savedRestaurants"];
-    if(savedRestaurants == nil) {
-        savedRestaurants = [[NSMutableArray alloc] init];
-    }
-    
-    
-    for (int i = 0; i < savedRestaurants.count; i++) {
-        if ([savedRestaurants[i] isEqualToString:self.restaurantName.text]) {
-            [savedRestaurants removeObjectAtIndex:i];
-        }
+    if (self.isSaved) {
+        [savedRestaurants removeObject:self.restaurant.yelpid];
+        self.isSaved = NO;
+        [self.saveButton setSelected:NO];
+        
+    } else {
+        [savedRestaurants addObject:self.restaurant.yelpid];
+         self.isSaved = YES;
+        [self.saveButton setSelected:YES];
+        
     }
     
     [user setObject:savedRestaurants forKey:@"savedRestaurants"];
     
     [user saveInBackgroundWithBlock:nil];
+    [self.delegate restaurantHistoryChanged];
 }
+
 
 
 - (IBAction)didTapLike:(UIButton *)sender {
@@ -63,17 +71,28 @@
     // Save value that's stored on the database
     NSMutableArray *likedRestaurants = [user objectForKey:@"likedRestaurants"];
     
-    // Update value
     if(likedRestaurants == nil) {
         likedRestaurants = [[NSMutableArray alloc] init];
     }
     
-    [likedRestaurants addObject:self.restaurantName.text];
+   
+    if (self.isLiked) {
+        [likedRestaurants removeObject:self.restaurant.yelpid];
+        self.isLiked = NO;
+        [self.likeButton setSelected:NO];
+        
+    } else {
+        [likedRestaurants addObject:self.restaurant.yelpid];
+        self.isLiked = YES;
+        [self.likeButton setSelected:YES];
+
+    }
     
     // Save new value on database
     [user setObject:likedRestaurants forKey:@"likedRestaurants"];
     
     [user saveInBackgroundWithBlock:nil];
+    [self.delegate restaurantHistoryChanged];
 }
 
 
@@ -82,19 +101,28 @@
     PFUser *user = [PFUser currentUser];
     
     // Save value that's stored on the database
-    NSMutableArray *unlikedRestaurants = [user objectForKey:@"hatedRestaurants"];
+    NSMutableArray *hatedRestaurants = [user objectForKey:@"hatedRestaurants"];
     
-    // Update value
-    if(unlikedRestaurants == nil) {
-        unlikedRestaurants = [[NSMutableArray alloc] init];
+    if(hatedRestaurants == nil) {
+        hatedRestaurants = [[NSMutableArray alloc] init];
     }
     
-    [unlikedRestaurants addObject:self.restaurantName.text];
+    
+    if (self.isHated) {
+        [hatedRestaurants removeObject:self.restaurant.yelpid];
+        self.isHated = NO;
+        [self.unlikeButton setSelected:NO];
+    } else {
+        [hatedRestaurants addObject:self.restaurant.yelpid];
+        self.isHated = YES;
+        [self.unlikeButton setSelected:YES];
+    }
     
     // Save new value on database
-    [user setObject:unlikedRestaurants forKey:@"hatedRestaurants"];
+    [user setObject:hatedRestaurants forKey:@"hatedRestaurants"];
     
     [user saveInBackgroundWithBlock:nil];
+    [self.delegate restaurantHistoryChanged];
 }
 
 @end

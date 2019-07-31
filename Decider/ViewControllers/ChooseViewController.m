@@ -54,8 +54,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ChooseCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ChooseCell"
                                                             forIndexPath:indexPath];
-    //[self searchBarTextDidBeginEditing:self.categorySearchBar];
-    if(self.isCategorySearchBar) {//[self searchBarShouldBeginEditing:self.categorySearchBar]) {//self.isCategorySearchBar) {//check for category search bar
+    if(self.isCategorySearchBar) { //check for category search bar
         cell.textLabel.text = self.filteredCategoryData[indexPath.row];
     }
     else { //check for location search bar
@@ -65,7 +64,6 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    [self searchBarTextDidBeginEditing:self.categorySearchBar];
     if(self.isCategorySearchBar) { //check for category search bar
         return self.filteredCategoryData.count;
     }
@@ -111,8 +109,6 @@
         }
         else {
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            
-            // NSLog(@"%@", results);
             self.categoryData = [results objectForKey:@"results"];
             self.filteredCategoryData = self.categoryData;
         }
@@ -130,8 +126,6 @@
         }
         else {
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            
-            // NSLog(@"%@", results);
             self.locationData = [results objectForKey:@"results"];
             self.filteredLocationData = self.locationData;
         }
@@ -140,15 +134,6 @@
         NSLog(@"There was a network error");
     }
 }
-
-//-(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-//    if(searchBar == self.categorySearchBar) {
-//        return YES;
-//    }
-//    else {
-//        return NO;
-//    }
-//}
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     if(searchBar == self.categorySearchBar) {
@@ -159,23 +144,14 @@
     }
 }
 
-//-(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
-//    if(searchBar == self.categorySearchBar) {
-//        return YES;
-//    }
-//    else {
-//        return NO;
-//    }
-//}
-
-//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-//    if(searchBar == self.categorySearchBar) {
-//        self.isCategorySearchBar = YES;
-//    }
-//    else {
-//        self.isCategorySearchBar = NO;
-//    }
-//}
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if(self.isCategorySearchBar) {
+        self.categorySearchBar.text = cell.textLabel.text;
+    }
+    else {
+        self.locationSearchBar.text = cell.textLabel.text;
+    }
+}
 
 @end

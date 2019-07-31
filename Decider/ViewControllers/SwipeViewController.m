@@ -37,27 +37,15 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 
 @implementation SwipeViewController
 
-#pragma mark - Object Lifecycle
-
-//- (instancetype)init {
-//    self = [super init];
-//    if (self) {
-//        _food = [[self defaultFood] mutableCopy];
-//    }
-//    return self;
-//}
-
 #pragma mark - UIViewController Overrides
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchRestaurants];
-    [self.tabBarController.tabBar setHidden:YES];
 }
 
-/*- (NSUInteger)supportedInterfaceOrientations {
- return UIInterfaceOrientationMaskPortrait;
- }*/
+-(void)viewDidAppear:(BOOL)animated {
+    [self fetchRestaurants];
+}
 
 #pragma mark - MDCSwipeToChooseDelegate Protocol Methods
 
@@ -109,15 +97,6 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
                                                                           preferredStyle:(UIAlertControllerStyleAlert)];
         
         UIAlertAction *okAlertAction = [UIAlertAction actionWithTitle:@"View" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            //button click event
-            
-            // Call review view controller and send it the restaurants
-            //            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            //            ProfileViewController *profileViewController = [storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
-            //            profileViewController.foodLiked = self.foodLiked;
-            //            profileViewController.foodUnliked = self.foodUnliked;
-            //            [self showViewController:profileViewController sender:self];
-            //            [self.tabBarController setSelectedIndex:1];
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             RecommendationsViewController *recommendationsViewController = [storyboard instantiateViewControllerWithIdentifier:@"recommendationsVC"];
@@ -295,9 +274,10 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 
 // Function that fetches restaurants from database
 - (void)fetchRestaurants {
-    UIView *window = [UIApplication sharedApplication].keyWindow;
-    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    UIView *window = [[UIApplication sharedApplication] keyWindow];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
     [hud showAnimated:YES];
+    
     NSURLSessionDataTask *task = [Routes fetchRestaurantsOfCategory:self.category nearLocation:self.location offset:0 completionHandler:^(NSData * _Nonnull data, NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
         if (error != nil) {
             NSLog(@"%@", error.localizedDescription);
@@ -338,9 +318,15 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 }
 
 - (IBAction)didTapClose:(id)sender {
-    [self.tabBarController.tabBar setHidden:NO];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+//    [self showViewController:homeViewController sender:self];
     
+    [self.tabBarController.tabBar setHidden:NO];
     [self.navigationController popToRootViewControllerAnimated:YES];
+    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)didTapDecide:(id)sender {

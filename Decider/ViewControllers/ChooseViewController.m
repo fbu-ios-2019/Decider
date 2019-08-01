@@ -35,6 +35,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    [self.tabBarController.tabBar setHidden:YES];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.categorySearchBar.delegate = self;

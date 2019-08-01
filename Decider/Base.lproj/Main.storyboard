@@ -227,6 +227,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="gnc-JH-SJg" kind="relationship" relationship="viewControllers" id="9FI-qS-jR8"/>
+                        <segue destination="AuI-zu-IGF" kind="relationship" relationship="viewControllers" id="x5v-TP-eqP"/>
                         <segue destination="qsy-iz-zFw" kind="relationship" relationship="viewControllers" id="pbk-K7-gIQ"/>
                     </connections>
                 </tabBarController>
@@ -316,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asU-2R-I6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1127.2" y="984.55772113943033"/>
+            <point key="canvasLocation" x="-2710" y="1745"/>
         </scene>
         <!--DECIDER-->
         <scene sceneID="FMu-YM-g5m">
@@ -349,7 +350,7 @@
                                     <segue destination="Q88-so-auK" kind="presentation" identifier="editProfileSegue" id="oew-VO-eez"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History / Recommendations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcD-vS-kYi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved Restuarants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcD-vS-kYi">
                                 <rect key="frame" x="10" y="178" width="356" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -469,10 +470,10 @@
             </objects>
             <point key="canvasLocation" x="-146.40000000000001" y="984.55772113943033"/>
         </scene>
-        <!--Recommendations View Controller-->
+        <!--History-->
         <scene sceneID="HjG-lF-aok">
             <objects>
-                <viewController storyboardIdentifier="recommendationsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ffc-bk-wi1" customClass="RecommendationsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="recommendationsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ffc-bk-wi1" customClass="RecommendationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oXC-RT-Cds">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -583,6 +584,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Iua-Kx-HkK"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="History" image="review_icon-29x29" id="I7T-gd-BfO"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -591,7 +593,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OgK-YE-Vrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1058.4000000000001" y="1738.3808095952024"/>
+            <point key="canvasLocation" x="-1065" y="1732"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="nVi-Zz-0bP">
@@ -939,6 +941,22 @@
             </objects>
             <point key="canvasLocation" x="-1954.4000000000001" y="3197.4512743628188"/>
         </scene>
+        <!--History-->
+        <scene sceneID="bRl-Dp-jSB">
+            <objects>
+                <viewController id="6SG-QI-XjU" customClass="HistoryViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YgI-aa-7a7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="t6x-d5-CTl"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="History" id="SBU-2A-8G2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m7N-lF-Mph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1066" y="985"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="vQ3-Io-h3B">
             <objects>
@@ -994,6 +1012,25 @@
             </objects>
             <point key="canvasLocation" x="-1954.4000000000001" y="203.74812593703149"/>
         </scene>
+        <!--History-->
+        <scene sceneID="ze1-IH-Akg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AuI-zu-IGF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="History" image="review_icon-29x29" id="FP7-3u-MGa"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WhD-1x-LRA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6SG-QI-XjU" kind="relationship" relationship="rootViewController" id="ZRF-jK-sqm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XiC-6n-LwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1066.4000000000001" y="203.74812593703149"/>
+        </scene>
     </scenes>
     <resources>
         <image name="0" width="16" height="16"/>
@@ -1004,6 +1041,7 @@
         <image name="profile_icon-29x29" width="29" height="29"/>
         <image name="provisional_home_photo" width="1242" height="1671"/>
         <image name="red-thumbs-down" width="50" height="50"/>
+        <image name="review_icon-29x29" width="29" height="29"/>
         <image name="searchbar" width="498" height="61"/>
         <image name="thumbs-up" width="50" height="50"/>
         <image name="white-bookmark" width="50" height="50"/>

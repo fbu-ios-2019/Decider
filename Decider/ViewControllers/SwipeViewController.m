@@ -99,7 +99,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
         UIAlertAction *okAlertAction = [UIAlertAction actionWithTitle:@"View" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            RecommendationsViewController *recommendationsViewController = [storyboard instantiateViewControllerWithIdentifier:@"recommendationsVC"];
+            RecommendationsViewController *recommendationsViewController = [storyboard instantiateViewControllerWithIdentifier:@"recommendationsViewController"];
             recommendationsViewController.foodLiked = self.foodLiked;
             recommendationsViewController.foodUnliked = self.foodUnliked;
             recommendationsViewController.location = self.location;
@@ -318,19 +318,21 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 }
 
 - (IBAction)didTapClose:(id)sender {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-    [self showViewController:homeViewController sender:self];
-    [self.tabBarController.tabBar setHidden:NO];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+//    [self showViewController:homeViewController sender:self];
+//    [self.tabBarController.tabBar setHidden:NO];
     
 //    UINavigationController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
 //    self.view.window.rootViewController = controller;
 //    [self.tabBarController.tabBar setHidden:NO];
+    
+    [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)didTapDecide:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    RecommendationsViewController *recommendationsViewController = [storyboard instantiateViewControllerWithIdentifier:@"recommendationsVC"];
+    RecommendationsViewController *recommendationsViewController = [storyboard instantiateViewControllerWithIdentifier:@"recommendationsViewController"];
     recommendationsViewController.foodLiked = self.foodLiked;
     recommendationsViewController.foodUnliked = self.foodUnliked;
     recommendationsViewController.location = self.location;

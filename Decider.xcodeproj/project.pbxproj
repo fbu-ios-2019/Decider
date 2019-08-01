@@ -35,6 +35,7 @@
 		F9CD455822E761340038D859 /* RecommendationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CD455722E761340038D859 /* RecommendationCell.m */; };
 		F9D4F33A22F10DE60074298D /* ChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4F33922F10DE60074298D /* ChooseCell.m */; };
 		F9D4F33D22F249C40074298D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4F33C22F249C40074298D /* HomeViewController.m */; };
+		F9D4F34322F26B9E0074298D /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4F34222F26B9E0074298D /* HistoryViewController.m */; };
 		F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA322DF99C000032267 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,8 @@
 		F9D4F33922F10DE60074298D /* ChooseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseCell.m; sourceTree = "<group>"; };
 		F9D4F33B22F249C40074298D /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		F9D4F33C22F249C40074298D /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		F9D4F34122F26B9E0074298D /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		F9D4F34222F26B9E0074298D /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		F9F33FA222DF99C000032267 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F9F33FA322DF99C000032267 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -269,6 +272,8 @@
 				F95B710122F109570065AE6F /* ChooseViewController.m */,
 				F9D4F33B22F249C40074298D /* HomeViewController.h */,
 				F9D4F33C22F249C40074298D /* HomeViewController.m */,
+				F9D4F34122F26B9E0074298D /* HistoryViewController.h */,
+				F9D4F34222F26B9E0074298D /* HistoryViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -536,6 +541,7 @@
 				F9CD455822E761340038D859 /* RecommendationCell.m in Sources */,
 				F9D4F33D22F249C40074298D /* HomeViewController.m in Sources */,
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,
+				F9D4F34322F26B9E0074298D /* HistoryViewController.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
 				F988729522E657B800F85972 /* PhotoCollectionCell.m in Sources */,
 				F97CE6A822DFE319004798EF /* Restaurant.m in Sources */,

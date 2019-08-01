@@ -103,24 +103,9 @@
     return self.recommendations.count;
 }
 
-- (IBAction)didTapHome:(UIButton *)sender {
-    [self.tabBarController.tabBar setHidden:NO];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-    //    homeViewController.hidesBottomBarWhenPushed = NO;
-    //
-    [self showViewController:homeViewController sender:self];
-    //    [self.tabBarController setSelectedIndex:0];
-    
-    
-    //    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    //    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-    //    // homeViewController.hidesBottomBarWhenPushed = NO;
-    //
-    //    appDelegate.window.rootViewController = homeViewController;
-    //
-    //    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)didTapHome:(UIButton *)sender {    
+    [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 #pragma mark - Navigation

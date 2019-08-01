@@ -318,15 +318,6 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 }
 
 - (IBAction)didTapClose:(id)sender {
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-//    [self showViewController:homeViewController sender:self];
-//    [self.tabBarController.tabBar setHidden:NO];
-    
-//    UINavigationController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-//    self.view.window.rootViewController = controller;
-//    [self.tabBarController.tabBar setHidden:NO];
-    
     [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
 }
 

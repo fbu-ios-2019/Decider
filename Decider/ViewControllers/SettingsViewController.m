@@ -28,7 +28,11 @@
     self.navigationItem.rightBarButtonItem = doneButton;
     doneButton.tintColor = UIColor.orangeColor;
     
-    self.optionsArray = [[NSMutableArray alloc] initWithObjects:@"price", @"your swipes", @"others likes/dislikes", @"review count", @"rating", nil];
+    NSMutableArray *options = [defaults objectForKey:@"restaurant_criteria"];
+    if (!options) {
+        options = [[NSMutableArray alloc] initWithObjects:@"price", @"your swipes", @"others likes/dislikes", @"review count", @"rating", nil];
+    }
+    self.optionsArray = [NSMutableArray arrayWithArray:options];
     self.optionsTableView.delegate = self;
     self.optionsTableView.dataSource = self;
     [self.optionsTableView setEditing:YES animated:YES];
@@ -82,6 +86,9 @@
 
 - (IBAction)didTapDone:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.optionsArray forKey:@"restaurant_criteria"];
+    [defaults synchronize];
 }
 
 - (IBAction)didChangePrice:(id)sender {

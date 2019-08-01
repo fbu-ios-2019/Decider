@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.optionsTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.priceControl.selectedSegmentIndex = [defaults integerForKey:@"price_index"];
 
@@ -26,6 +27,11 @@
                                    action:@selector(didTapDone:)];
     self.navigationItem.rightBarButtonItem = doneButton;
     doneButton.tintColor = UIColor.orangeColor;
+    
+    self.optionsArray = [[NSMutableArray alloc] initWithObjects:@"price", @"your swipes", @"others likes/dislikes", @"review count", @"rating", nil];
+    self.optionsTableView.delegate = self;
+    self.optionsTableView.dataSource = self;
+    [self.optionsTableView setEditing:YES animated:YES];
 }
 
 /*
@@ -41,13 +47,38 @@
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+//    UITableViewCell *cell = [[UITableViewCell alloc] init];
+//    return cell;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"rankCell"];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"rankCell"];
+    }
+    
+    cell.textLabel.text = [self.optionsArray objectAtIndex:indexPath.row];
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return self.optionsArray.count;
 }
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleNone;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    [self.optionsArray exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
+    [self.optionsTableView reloadData];
+}
+
 
 - (IBAction)didTapDone:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

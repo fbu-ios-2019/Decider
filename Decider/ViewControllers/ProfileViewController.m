@@ -152,7 +152,7 @@
 - (IBAction)didTapSettings:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     SettingsViewController *settingsController = [storyboard instantiateViewControllerWithIdentifier:@"settingsViewController"];
-    [self presentViewController:settingsController animated:YES completion:nil];
+    [self showViewController:settingsController sender:self];
 }
 
 #pragma mark - Navigation

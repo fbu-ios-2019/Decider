@@ -518,42 +518,37 @@
                                                     <color key="textColor" red="0.14517178350000001" green="0.39886289289999999" blue="0.11541619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuK-Uj-Wnt">
-                                                    <rect key="frame" x="323" y="11" width="37" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuK-Uj-Wnt">
+                                                    <rect key="frame" x="328" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="SAVE">
+                                                    <state key="normal" image="white-bookmark">
                                                         <color key="titleColor" red="1" green="0.38431372549999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
+                                                    <state key="selected" image="bookmark"/>
                                                     <connections>
                                                         <action selector="didTapSave:" destination="SUT-YF-NRk" eventType="touchUpInside" id="xMu-hr-sqD"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uE-i3-vla">
-                                                    <rect key="frame" x="329" y="42" width="31" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uE-i3-vla">
+                                                    <rect key="frame" x="328" y="49" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="LIKE">
+                                                    <state key="normal" image="white-thumb">
                                                         <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <state key="selected" image="thumbs-up"/>
                                                     <connections>
                                                         <action selector="didTapLike:" destination="SUT-YF-NRk" eventType="touchUpInside" id="88T-4b-GAm"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iz8-Ji-emh">
-                                                    <rect key="frame" x="262" y="42" width="53" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iz8-Ji-emh">
+                                                    <rect key="frame" x="295" y="49" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="UNLIKE">
+                                                    <state key="normal" image="white-thumbs-down">
                                                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <state key="selected" image="red-thumbs-down"/>
                                                     <connections>
                                                         <action selector="didTapUnlike:" destination="SUT-YF-NRk" eventType="touchUpInside" id="vFN-4m-BmH"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRQ-M4-ia8">
-                                                    <rect key="frame" x="259" y="11" width="59" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="UNSAVE"/>
-                                                    <connections>
-                                                        <action selector="didTapUnsave:" destination="SUT-YF-NRk" eventType="touchUpInside" id="BB9-wP-HUA"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -566,7 +561,6 @@
                                             <outlet property="restaurantName" destination="laF-Kc-LfQ" id="nof-lj-oU2"/>
                                             <outlet property="saveButton" destination="JuK-Uj-Wnt" id="hcY-lE-zjP"/>
                                             <outlet property="unlikeButton" destination="Iz8-Ji-emh" id="beO-0q-d5M"/>
-                                            <outlet property="unsaveButton" destination="FRQ-M4-ia8" id="Idj-fJ-WnK"/>
                                             <segue destination="XeU-f6-TMk" kind="presentation" identifier="viewSegue" id="hmt-O3-5Iz"/>
                                         </connections>
                                     </tableViewCell>
@@ -593,7 +587,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OgK-YE-Vrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1065" y="1732"/>
+            <point key="canvasLocation" x="-1066.4000000000001" y="1731.1844077961021"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="nVi-Zz-0bP">

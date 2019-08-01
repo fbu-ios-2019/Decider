@@ -66,17 +66,34 @@
     
     // Update cell with data
     NSDictionary *restaurantDict = self.recommendations[indexPath.row];
-    cell.restaurant = [[Restaurant alloc] initWithDictionary:restaurantDict];
-    cell.restaurantName.text = cell.restaurant.name;
-    cell.category.text = cell.restaurant.categoryString;
-    cell.numberOfStars.text = cell.restaurant.starRating;
-    cell.price.text = cell.restaurant.priceRating;
+    Restaurant* recommendedRestaurant = [[Restaurant alloc] initWithDictionary:restaurantDict];
+   
+    PFUser *currentUser = [PFUser currentUser];
+    NSMutableArray *hatedRestaurants = [currentUser objectForKey:@"hatedRestaurants"];
+    NSMutableArray *likedRestaurants = [currentUser objectForKey:@"likedRestaurants"];
+    NSMutableArray *savedRestaurants = [currentUser objectForKey:@"savedRestaurants"];
     
-    //    self.currentRestaurant = [[Restaurant alloc] initWithDictionary:restaurantDict];
-    //    cell.restaurantName.text = self.currentRestaurant.name;
-    //    cell.category.text = self.currentRestaurant.categoryString;
-    //    cell.numberOfStars.text = self.currentRestaurant.starRating;
-    //    cell.price.text = self.currentRestaurant.priceRating;
+    if([likedRestaurants containsObject:recommendedRestaurant.yelpid]) {
+        cell.isLiked = YES;
+        
+    } else {
+        cell.isLiked = NO;
+    }
+    
+    if([hatedRestaurants containsObject:recommendedRestaurant.yelpid]) {
+        cell.isHated = YES;
+        
+    } else {
+        cell.isHated = NO;
+    }
+    
+    if([savedRestaurants containsObject:recommendedRestaurant.yelpid]) {
+        cell.isSaved = YES;
+        
+    } else {
+        cell.isSaved = NO;
+    }
+    [cell setRestaurant:recommendedRestaurant];
     
     return cell;
 }

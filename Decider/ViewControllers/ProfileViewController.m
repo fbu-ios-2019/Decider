@@ -15,6 +15,7 @@
 #import "Restaurant.h"
 #import "Routes.h"
 #import "MBProgressHUD/MBProgressHUD.h"
+#import "SettingsViewController.h"
 
 @interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, RecommendationCellDelegate>
 
@@ -147,6 +148,11 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.savedRestaurants.count;
+}
+- (IBAction)didTapSettings:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SettingsViewController *settingsController = [storyboard instantiateViewControllerWithIdentifier:@"settingsViewController"];
+    [self presentViewController:settingsController animated:YES completion:nil];
 }
 
 #pragma mark - Navigation

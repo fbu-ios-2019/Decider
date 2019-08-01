@@ -619,6 +619,9 @@
                                     <segment title="$$$"/>
                                     <segment title="$$$$"/>
                                 </segments>
+                                <connections>
+                                    <action selector="didChangePrice:" destination="m6y-r9-eGD" eventType="valueChanged" id="jaO-Cb-bqP"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Algorithm options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klf-Ff-Z64">
                                 <rect key="frame" x="30" y="216" width="136" height="21"/>
@@ -639,6 +642,7 @@
                     </view>
                     <connections>
                         <outlet property="optionsTableView" destination="3eL-SJ-nPR" id="cLN-uW-kWo"/>
+                        <outlet property="priceControl" destination="Lv4-6L-73P" id="ybo-tb-DoZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ng0-4f-ldw" userLabel="First Responder" sceneMemberID="firstResponder"/>

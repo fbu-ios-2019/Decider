@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.priceControl.selectedSegmentIndex = [defaults integerForKey:@"price_index"];
+
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
                                    initWithTitle:@"Done"
                                    style:UIBarButtonItemStylePlain
@@ -50,6 +53,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)didChangePrice:(id)sender {
+    NSUInteger priceIndex = self.priceControl.selectedSegmentIndex;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:priceIndex forKey:@"price_index"];
+    [defaults synchronize];
+}
 
 
 

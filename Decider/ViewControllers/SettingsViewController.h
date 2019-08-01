@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *optionsTableView;
 @property (strong, nonatomic) NSMutableArray *optionsArray;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *priceControl;
 
 @end
 

@@ -30,6 +30,14 @@
         UIViewAutoresizingFlexibleWidth |
         UIViewAutoresizingFlexibleBottomMargin;
         self.imageView.autoresizingMask = self.autoresizingMask;
+        
+        //Restaurant name label on top of imageView
+        UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 425, 250, 40)];
+
+        myLabel.text = @"Kate's pastries";
+        myLabel.textColor = [UIColor orangeColor];
+        myLabel.font=[UIFont fontWithName:@"Marker Felt" size:35];
+        [self.imageView addSubview:myLabel];
     }
     return self;
 }

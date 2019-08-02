@@ -34,7 +34,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self fetchRestaurantHistory];
+    // Delegates
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    // [self fetchRestaurantHistory];
     
     if(self.user == nil){
         self.user = [PFUser currentUser];
@@ -55,6 +59,9 @@
     self.usernameLabel.text = self.user.username;
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [self fetchRestaurantHistory];
+}
 - (void)viewDidAppear:(BOOL)animated {
     PFFileObject *image = [self.user objectForKey:@"profilePicture"];
     [image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
@@ -85,13 +92,6 @@
 
 
 - (void)fetchRestaurantHistory {
-    
-    
-    
-    // Delegates
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    
     self.user = [PFUser currentUser];
     self.savedRestaurants = [self.user objectForKey:@"savedRestaurants"];
     self.hatedRestaurants = [self.user objectForKey:@"hatedRestaurants"];

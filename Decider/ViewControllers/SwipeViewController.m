@@ -41,10 +41,13 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [self fetchRestaurants];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    [self fetchRestaurants];
+    if(!self.restaurants) {
+        [self fetchRestaurants];
+    }
 }
 
 #pragma mark - MDCSwipeToChooseDelegate Protocol Methods
@@ -104,8 +107,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
             recommendationsViewController.foodUnliked = self.foodUnliked;
             recommendationsViewController.location = self.location;
             [self showViewController:recommendationsViewController sender:self];
-            // [self.tabBarController setSelectedIndex:1];
-            
+        
         }];
         UIAlertAction *cancelAlertAction = [UIAlertAction actionWithTitle:@"Swipe More" style:UIAlertActionStyleCancel handler:nil];
         [alertController addAction:cancelAlertAction];

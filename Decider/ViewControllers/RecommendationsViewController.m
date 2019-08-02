@@ -28,7 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self fetchRecommendations];
 }
 
@@ -105,7 +104,6 @@
 
 - (IBAction)didTapHome:(UIButton *)sender {    
     [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
-
 }
 
 #pragma mark - Navigation

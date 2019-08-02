@@ -8,8 +8,6 @@
 
 #import "HistoryCell.h"
 #import "HistoryCollectionCell.h"
-#import "Routes.h"
-#import "Parse/Parse.h"
 
 @implementation HistoryCell
 

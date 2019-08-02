@@ -42,8 +42,6 @@
         }
         else {
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            
-            // NSLog(@"%@", results);
             self.recommendations = [results objectForKey:@"results"];
             NSLog(@"%@", self.recommendations);
             
@@ -51,27 +49,12 @@
             self.tableView.dataSource = self;
             self.tableView.delegate = self;
             [self.tableView reloadData];
-//            [self saveRestaurantsHistory];
             [hud hideAnimated:YES];
         }
     }];
     if (!locationTask) {
         NSLog(@"There was a network error");
     }
-}
-
-
-- (void)saveRestaurantsHistory {
-//    PFUser *user = [PFUser currentUser];
-//    NSMutableArray *allRestaurants = [user objectForKey:@"allRestaurants"];
-//    if(!allRestaurants) {
-//        allRestaurants = [[NSMutableArray alloc] init];
-//    }
-//    for(int i = 0; i < [self.recommendations count]; i++) {
-//        [allRestaurants addObject:[[self.recommendations objectAtIndex:i] objectForKey:@"yelpId"]];
-//    }
-//    [user setObject:allRestaurants forKey:@"allRestaurants"];
-//    [user saveInBackgroundWithBlock:nil];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {

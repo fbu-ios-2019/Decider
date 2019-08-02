@@ -10,6 +10,7 @@
 #import "HistoryCell.h"
 #import "Routes.h"
 #import "Parse/Parse.h"
+#import "MBProgressHUD/MBProgressHUD.h"
 
 @interface HistoryViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -25,6 +26,9 @@
     [super viewDidLoad];
     
     PFUser *user = [PFUser currentUser];
+    UIView *window = [UIApplication sharedApplication].keyWindow;
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    [hud showAnimated:YES];
     NSURLSessionDataTask *locationTask = [Routes getHistoryofUser:user.objectId completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error != nil) {
             NSLog(@"%@", error.localizedDescription);
@@ -36,6 +40,7 @@
             self.tableView.dataSource = self;
             self.tableView.rowHeight = 150;
             [self.tableView reloadData];
+            [hud hideAnimated:YES];
         }
     }];
     if (!locationTask) {

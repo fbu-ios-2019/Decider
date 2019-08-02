@@ -37,6 +37,8 @@
 		F9D4F33A22F10DE60074298D /* ChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4F33922F10DE60074298D /* ChooseCell.m */; };
 		F9D4F33D22F249C40074298D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4F33C22F249C40074298D /* HomeViewController.m */; };
 		F9D4F34322F26B9E0074298D /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4F34222F26B9E0074298D /* HistoryViewController.m */; };
+		F9E97C6022F4A747008E06C4 /* HistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E97C5F22F4A747008E06C4 /* HistoryCell.m */; };
+		F9E97C6322F4A75E008E06C4 /* HistoryCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E97C6222F4A75E008E06C4 /* HistoryCollectionCell.m */; };
 		F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA322DF99C000032267 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +122,10 @@
 		F9D4F33C22F249C40074298D /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F9D4F34122F26B9E0074298D /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		F9D4F34222F26B9E0074298D /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		F9E97C5E22F4A747008E06C4 /* HistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryCell.h; sourceTree = "<group>"; };
+		F9E97C5F22F4A747008E06C4 /* HistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryCell.m; sourceTree = "<group>"; };
+		F9E97C6122F4A75E008E06C4 /* HistoryCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryCollectionCell.h; sourceTree = "<group>"; };
+		F9E97C6222F4A75E008E06C4 /* HistoryCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryCollectionCell.m; sourceTree = "<group>"; };
 		F9F33FA222DF99C000032267 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F9F33FA322DF99C000032267 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,6 +254,10 @@
 				F9CD455722E761340038D859 /* RecommendationCell.m */,
 				F9D4F33822F10DE60074298D /* ChooseCell.h */,
 				F9D4F33922F10DE60074298D /* ChooseCell.m */,
+				F9E97C5E22F4A747008E06C4 /* HistoryCell.h */,
+				F9E97C5F22F4A747008E06C4 /* HistoryCell.m */,
+				F9E97C6122F4A75E008E06C4 /* HistoryCollectionCell.h */,
+				F9E97C6222F4A75E008E06C4 /* HistoryCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -541,12 +551,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9E97C6322F4A75E008E06C4 /* HistoryCollectionCell.m in Sources */,
 				F9619AD722F014780051CDAD /* Routes.m in Sources */,
 				F95B710222F109570065AE6F /* ChooseViewController.m in Sources */,
 				F9CD455822E761340038D859 /* RecommendationCell.m in Sources */,
 				F9D4F33D22F249C40074298D /* HomeViewController.m in Sources */,
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,
 				F9D4F34322F26B9E0074298D /* HistoryViewController.m in Sources */,
+				F9E97C6022F4A747008E06C4 /* HistoryCell.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,
 				F988729522E657B800F85972 /* PhotoCollectionCell.m in Sources */,
 				F97CE6A822DFE319004798EF /* Restaurant.m in Sources */,

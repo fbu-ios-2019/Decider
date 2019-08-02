@@ -18,21 +18,6 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    PFUser *user = [PFUser currentUser];
-    NSURLSessionDataTask *locationTask = [Routes getHistoryofUser:user.objectId completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error != nil) {
-            NSLog(@"%@", error.localizedDescription);
-        }
-        else {
-            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            self.history = [results objectForKey:@"userHistory"];
-            [self.collectionView reloadData];
-        }
-    }];
-    if (!locationTask) {
-        NSLog(@"There was a network error");
-    }
-    
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 3;
@@ -52,7 +37,6 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HistoryCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HistoryCollectionCell" forIndexPath:indexPath];
     if(cell) {
-        //cell.imageView.image = [UIImage imageNamed:@"photo1"];
         long num = indexPath.row;
         NSString *urlstring = [[[[self.history objectAtIndex:num] objectForKey:@"restaurants"] objectAtIndex:num] objectForKey:@"coverUrl"];
         NSURL *url = [NSURL URLWithString:urlstring];
@@ -60,8 +44,6 @@
         return cell;
     }
     return [[UICollectionViewCell alloc] init];
-    //long num = indexPath.row;
-    //cell.imageView.image = [self.images objectAtIndex:num];
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -71,10 +53,5 @@
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
-
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return CGSizeMake(CGRectGetWidth(collectionView.frame), (CGRectGetHeight(collectionView.frame)));
-//}
 
 @end

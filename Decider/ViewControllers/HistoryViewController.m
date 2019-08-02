@@ -32,7 +32,6 @@
         else {
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             self.history = [results objectForKey:@"userHistory"];
-            
             self.tableView.delegate = self;
             self.tableView.dataSource = self;
             self.tableView.rowHeight = 150;
@@ -42,8 +41,6 @@
     if (!locationTask) {
         NSLog(@"There was a network error");
     }
-    
-    //[self fetchHistory];
 }
 
 /*
@@ -58,8 +55,8 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HistoryCell" forIndexPath:indexPath];
-    self.currentCell = cell;
     if(cell) {
+        cell.history = self.history;
         return cell;
     }
     return [[UITableViewCell alloc] init];
@@ -76,7 +73,7 @@
 - (NSString *)tableView:(UITableView *)tableView
 titleForHeaderInSection:(NSInteger)section {
     NSString *date = [[self.history objectAtIndex:section] objectForKey:@"date"];
-    return date;
+    return [[[date substringWithRange:NSMakeRange(5, 5)] stringByAppendingString:@"-"] stringByAppendingString:[date substringWithRange:NSMakeRange(0, 4)]];
     //return [NSString stringWithFormat:@"%@", date];
 }
 

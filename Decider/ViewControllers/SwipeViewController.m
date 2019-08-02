@@ -53,9 +53,10 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 #pragma mark - MDCSwipeToChooseDelegate Protocol Methods
 
 // This is called when a user didn't fully swipe left or right.
+/*
 - (void)viewDidCancelSwipe:(UIView *)view {
-    //NSLog(@"You couldn't decide");
-}
+
+*/
 
 // This is called then a user swipes the view fully left or right.
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {

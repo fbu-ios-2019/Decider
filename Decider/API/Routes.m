@@ -10,6 +10,10 @@
 
 @implementation Routes
 
+static NSString * const post = @"POST";
+static NSString * const contentType = @"Content-Type";
+static NSString * const contentLength = @"Content-Length";
+
 + (NSURLSessionDataTask *)makeTask:(NSMutableURLRequest *)request completionHandler:(DeciderCompletionHandler)completionHandler {
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -85,9 +89,9 @@
     
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:post];
+    [request setValue:postLength forHTTPHeaderField:contentLength];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:contentType];
     [request setHTTPBody:postData];
     NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];
     return task;
@@ -102,9 +106,9 @@
     
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:post];
+    [request setValue:postLength forHTTPHeaderField:contentLength];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:contentType];
     [request setHTTPBody:postData];
     NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];
     return task;

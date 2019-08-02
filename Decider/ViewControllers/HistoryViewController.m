@@ -8,10 +8,14 @@
 
 #import "HistoryViewController.h"
 #import "HistoryCell.h"
+#import "Routes.h"
+#import "Parse/Parse.h"
 
 @interface HistoryViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *history;
+@property (strong, nonatomic) HistoryCell *currentCell;
 
 @end
 
@@ -19,9 +23,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.rowHeight = 300;
+    
+    PFUser *user = [PFUser currentUser];
+    NSURLSessionDataTask *locationTask = [Routes getHistoryofUser:user.objectId completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error != nil) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        else {
+            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            self.history = [results objectForKey:@"userHistory"];
+            
+            self.tableView.delegate = self;
+            self.tableView.dataSource = self;
+            self.tableView.rowHeight = 150;
+            [self.tableView reloadData];
+        }
+    }];
+    if (!locationTask) {
+        NSLog(@"There was a network error");
+    }
+    
+    //[self fetchHistory];
 }
 
 /*
@@ -36,6 +58,7 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HistoryCell" forIndexPath:indexPath];
+    self.currentCell = cell;
     if(cell) {
         return cell;
     }
@@ -47,12 +70,14 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return [self.history count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView
 titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"Date %ld", (long)section + 1];
+    NSString *date = [[self.history objectAtIndex:section] objectForKey:@"date"];
+    return date;
+    //return [NSString stringWithFormat:@"%@", date];
 }
 
 - (void)didReceiveMemoryWarning {

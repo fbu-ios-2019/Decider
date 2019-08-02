@@ -8,6 +8,8 @@
 
 #import "HistoryCell.h"
 #import "HistoryCollectionCell.h"
+#import "Routes.h"
+#import "Parse/Parse.h"
 
 @implementation HistoryCell
 
@@ -15,6 +17,21 @@
     [super awakeFromNib];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    
+    PFUser *user = [PFUser currentUser];
+    NSURLSessionDataTask *locationTask = [Routes getHistoryofUser:user.objectId completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error != nil) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        else {
+            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            self.history = [results objectForKey:@"userHistory"];
+            [self.collectionView reloadData];
+        }
+    }];
+    if (!locationTask) {
+        NSLog(@"There was a network error");
+    }
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 0;
@@ -35,14 +52,20 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HistoryCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HistoryCollectionCell" forIndexPath:indexPath];
     if(cell) {
-        cell.imageView.image = [UIImage imageNamed:@"photo1"];
+        //cell.imageView.image = [UIImage imageNamed:@"photo1"];
+        long num = indexPath.row;
+        NSString *urlstring = [[[[self.history objectAtIndex:num] objectForKey:@"restaurants"] objectAtIndex:num] objectForKey:@"coverUrl"];
+        NSURL *url = [NSURL URLWithString:urlstring];
+        cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
         return cell;
     }
     return [[UICollectionViewCell alloc] init];
+    //long num = indexPath.row;
+    //cell.imageView.image = [self.images objectAtIndex:num];
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return 3;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

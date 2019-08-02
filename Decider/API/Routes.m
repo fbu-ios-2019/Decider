@@ -110,6 +110,16 @@
     return task;
 }
 
++ (NSURLSessionDataTask *)getHistoryofUser:(NSString*) userId completionHandler:(DeciderCompletionHandler)completionHandler {
+    NSString *urlString = [@"https://decider-backend.herokuapp.com/history/" stringByAppendingString:userId];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];
+    
+    return task;
+}
+
+
 + (NSString *)stringifyArray:(NSArray *)input {
     NSString *joinedInputString = [input componentsJoinedByString:@","];
 //    NSData *jsonData = []
@@ -117,5 +127,7 @@
 //    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     return joinedInputString;
 }
+
+
 
 @end

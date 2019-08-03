@@ -8,9 +8,11 @@
 
 #import "HistoryViewController.h"
 #import "HistoryCell.h"
+#import "HistoryCollectionCell.h"
 #import "Routes.h"
 #import "Parse/Parse.h"
 #import "MBProgressHUD/MBProgressHUD.h"
+#import "DetailsViewController.h"
 
 @interface HistoryViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -38,7 +40,7 @@
             self.history = [results objectForKey:@"userHistory"];
             self.tableView.delegate = self;
             self.tableView.dataSource = self;
-            self.tableView.rowHeight = 150;
+            self.tableView.rowHeight = 125;
             [self.tableView reloadData];
             [hud hideAnimated:YES];
         }
@@ -78,12 +80,22 @@ titleForHeaderInSection:(NSInteger)section {
     [super didReceiveMemoryWarning];
 }
 
-// #pragma mark - Navigation
-//
-// // In a storyboard-based application, you will often want to do a little preparation before navigation
-// - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-// // Get the new view controller using [segue destinationViewController].
-// // Pass the selected object to the new view controller.
-// }
+ #pragma mark - Navigation
+
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+     if([segue.identifier isEqualToString:@"collectionSegue"]) {
+         HistoryCell *tappedCell = sender;
+         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+         NSDictionary *dictionary = self.history[indexPath.row];
+         NSArray *restaurants = [dictionary objectForKey:@"restaurants"];
+         CGPoint touchPoint = [sender convertPoint:CGPointZero toView:self.tableView];
+         Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[restaurants objectAtIndex:(int)(touchPoint.x / 125)]];
+         DetailsViewController *detailsViewController =  [segue destinationViewController];
+         detailsViewController.restaurant = restaurant;
+     }
+ }
 
 @end

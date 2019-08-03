@@ -32,6 +32,8 @@
     // Configure the view for the selected state
 }
 
+#pragma mark - Collection View Methods
+
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HistoryCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HistoryCollectionCell" forIndexPath:indexPath];
     if(cell) {

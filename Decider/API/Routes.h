@@ -12,12 +12,6 @@ typedef void(^DeciderCompletionHandler)(NSData *data, NSURLResponse *response, N
 
 @interface Routes : NSObject
 
-@property (strong, nonatomic) NSString *post;
-@property (strong, nonatomic) NSString *contentLength;
-@property (strong, nonatomic) NSString *contentType;
-
-
-
 + (NSURLSessionDataTask *)fetchRestaurantsOfCategory:(NSString *)category
                                         nearLocation:(NSString *)location
                                               offset:(int)offset

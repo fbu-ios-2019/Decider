@@ -10,7 +10,7 @@
 
 @implementation Routes
 
-static NSString * const post = @"POST";
+static NSString * const postConstant = @"POST";
 static NSString * const contentType = @"Content-Type";
 static NSString * const contentLength = @"Content-Length";
 
@@ -89,7 +89,7 @@ static NSString * const contentLength = @"Content-Length";
     
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
-    [request setHTTPMethod:post];
+    [request setHTTPMethod:postConstant];
     [request setValue:postLength forHTTPHeaderField:contentLength];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:contentType];
     [request setHTTPBody:postData];
@@ -106,7 +106,7 @@ static NSString * const contentLength = @"Content-Length";
     
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
-    [request setHTTPMethod:post];
+    [request setHTTPMethod:postConstant];
     [request setValue:postLength forHTTPHeaderField:contentLength];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:contentType];
     [request setHTTPBody:postData];

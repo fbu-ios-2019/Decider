@@ -21,7 +21,7 @@
     self.priceControl.selectedSegmentIndex = [defaults integerForKey:@"price_index"];
 
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Done"
+                                   initWithTitle:@"SAVE"
                                    style:UIBarButtonItemStylePlain
                                    target:self
                                    action:@selector(didTapDone:)];
@@ -30,7 +30,7 @@
     
     NSMutableArray *options = [defaults objectForKey:@"restaurant_criteria"];
     if (!options) {
-        options = [[NSMutableArray alloc] initWithObjects:@"price", @"your swipes", @"others likes/dislikes", @"review count", @"rating", nil];
+        options = [[NSMutableArray alloc] initWithObjects:@"Image swipes", @"Restaurant's rating", @"Decider's rating", @"Restaurant's price", @"Restaurant's review count", nil];
     }
     self.optionsArray = [NSMutableArray arrayWithArray:options];
     self.optionsTableView.delegate = self;
@@ -49,7 +49,6 @@
 */
 
 
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
 //    UITableViewCell *cell = [[UITableViewCell alloc] init];
 //    return cell;
@@ -64,21 +63,23 @@
     return cell;
 }
 
+
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.optionsArray.count;
 }
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleNone;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
-{
+
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     [self.optionsArray exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
     [self.optionsTableView reloadData];
 }
@@ -90,6 +91,7 @@
     [defaults setObject:self.optionsArray forKey:@"restaurant_criteria"];
     [defaults synchronize];
 }
+
 
 - (IBAction)didChangePrice:(id)sender {
     NSUInteger priceIndex = self.priceControl.selectedSegmentIndex;

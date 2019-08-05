@@ -31,4 +31,12 @@ typedef void(^DeciderCompletionHandler)(NSData *data, NSURLResponse *response, N
 
 + (NSURLSessionDataTask *)getHistoryofUser:(NSString*) userId completionHandler:(DeciderCompletionHandler)completionHandler;
 
++ (NSURLSessionDataTask *)likeRestaurantWithId:(NSString *)yelpId completionHandler:(DeciderCompletionHandler)completionHandler;
+
++ (NSURLSessionDataTask *)unlikeRestaurantWithId:(NSString *)yelpId completionHandler:(DeciderCompletionHandler)completionHandler;
+
++ (NSURLSessionDataTask *)hateRestaurantWithId:(NSString *)yelpId completionHandler:(DeciderCompletionHandler)completionHandler;
+
++ (NSURLSessionDataTask *)unhateRestaurantWithId:(NSString *)yelpId completionHandler:(DeciderCompletionHandler)completionHandler;
+
 @end

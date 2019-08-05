@@ -123,6 +123,52 @@ static NSString * const contentLength = @"Content-Length";
     return task;
 }
 
++ (NSURLSessionDataTask *)likeRestaurantWithId:(NSString *)yelpId completionHandler:(DeciderCompletionHandler)completionHandler {
+    NSString *baseString = @"https://decider-backend.herokuapp.com/rating/like/";
+    NSString *urlString = [baseString stringByAppendingString:yelpId];
+
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    [request setHTTPMethod:@"POST"];
+    NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];
+    return task;
+}
+
++ (NSURLSessionDataTask *)unlikeRestaurantWithId:(NSString *)yelpId completionHandler:(DeciderCompletionHandler)completionHandler {
+    NSString *baseString = @"https://decider-backend.herokuapp.com/rating/unlike/";
+    NSString *urlString = [baseString stringByAppendingString:yelpId];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    [request setHTTPMethod:@"POST"];
+    NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];
+    return task;
+}
+
++ (NSURLSessionDataTask *)hateRestaurantWithId:(NSString *)yelpId completionHandler:(DeciderCompletionHandler)completionHandler {
+    NSString *baseString = @"https://decider-backend.herokuapp.com/rating/hate/";
+    NSString *urlString = [baseString stringByAppendingString:yelpId];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    [request setHTTPMethod:@"POST"];
+    NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];
+    return task;
+}
+
++ (NSURLSessionDataTask *)unhateRestaurantWithId:(NSString *)yelpId completionHandler:(DeciderCompletionHandler)completionHandler {
+    NSString *baseString = @"https://decider-backend.herokuapp.com/rating/unhate/";
+    NSString *urlString = [baseString stringByAppendingString:yelpId];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    [request setHTTPMethod:@"POST"];
+    NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];
+    return task;
+}
+
+
+
 
 + (NSString *)stringifyArray:(NSArray *)input {
     NSString *joinedInputString = [input componentsJoinedByString:@","];

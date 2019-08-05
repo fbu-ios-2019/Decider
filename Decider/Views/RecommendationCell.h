@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @protocol RecommendationCellDelegate
-
+@optional
 -(void)restaurantHistoryChanged;
 
 @end

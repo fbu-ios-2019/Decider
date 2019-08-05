@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RecommendationsViewController : UIViewController
+@interface RecommendationsViewController : UIViewController 
 
 @property (nonatomic, strong) NSMutableArray *foodLiked;
 @property (nonatomic, strong) NSMutableArray *foodUnliked;

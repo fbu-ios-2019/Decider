@@ -16,6 +16,7 @@
 #import "Routes.h"
 #import "MBProgressHUD/MBProgressHUD.h"
 #import "SettingsViewController.h"
+#import "RecommendationsViewController.h"
 
 @interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, RecommendationCellDelegate>
 
@@ -37,8 +38,9 @@
     // Delegates
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    // [self fetchRestaurantHistory];
+    [self fetchRestaurantHistory];
     
     if(self.user == nil){
         self.user = [PFUser currentUser];

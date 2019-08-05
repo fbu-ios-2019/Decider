@@ -16,7 +16,7 @@
 #import "AppDelegate.h"
 #import "DetailsViewController.h"
 
-@interface RecommendationsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface RecommendationsViewController () <UITableViewDataSource, UITableViewDelegate, RecommendationCellDelegate>
 
 @property (strong, nonatomic) NSMutableArray *recommendations;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -90,6 +90,7 @@
         cell.isSaved = NO;
     }
     [cell setRestaurant:recommendedRestaurant];
+    cell.delegate = self;
     
     return cell;
 }
@@ -124,5 +125,6 @@
         //        [self presentViewController:detailsViewController animated:YES completion:nil];
     }
 }
+
 
 @end

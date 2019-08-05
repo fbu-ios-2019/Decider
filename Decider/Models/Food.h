@@ -15,8 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, copy) NSString *yelpid;
+@property (nonatomic, copy) NSString *restaurantName;
 
-- (instancetype)initWithImage:(UIImage *)image yelpid:(NSString *)yelpid;
+- (instancetype)initWithImage:(UIImage *)image yelpid:(NSString *)yelpid restaurantName: (NSString *)name;
 
 @end
 

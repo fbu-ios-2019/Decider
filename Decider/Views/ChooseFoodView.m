@@ -34,9 +34,9 @@
         //Restaurant name label on top of imageView
         UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 425, 250, 40)];
 
-        myLabel.text = @"Kate's pastries";
+        myLabel.text = self.food.restaurantName;
         myLabel.textColor = [UIColor orangeColor];
-        myLabel.font=[UIFont fontWithName:@"Marker Felt" size:35];
+        myLabel.font=[UIFont fontWithName:@"Marker Felt" size:30];
         [self.imageView addSubview:myLabel];
     }
     return self;

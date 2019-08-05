@@ -149,7 +149,8 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
         NSString *url = [photoDictionary valueForKey:@"imageUrl"];
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
         NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
-        [foods addObject:[[Food alloc] initWithImage:image yelpid:yelpid]];
+        NSString *name = [photoDictionary valueForKey:@"restaurantName"];
+        [foods addObject:[[Food alloc] initWithImage:image yelpid:yelpid restaurantName:name]];
     }
     return foods;
 }

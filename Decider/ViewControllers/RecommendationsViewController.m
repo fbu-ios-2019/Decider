@@ -95,6 +95,10 @@
     return cell;
 }
 
+-(void) restaurantHistoryChanged {
+    [self.tableView reloadData];
+}
+
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.recommendations.count;

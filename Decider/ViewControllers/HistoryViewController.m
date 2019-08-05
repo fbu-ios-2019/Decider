@@ -54,11 +54,14 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HistoryCell" forIndexPath:indexPath];
-    if(cell) {
-        cell.history = self.history;
+    //if(cell) {
+        //cell.history = self.history;
+        //NSLog(@"%ld", (long)indexPath.row);
+        //NSLog(@"%ld", (long)indexPath.section);
+        cell.restaurants = [[self.history objectAtIndex:indexPath.section] objectForKey:@"restaurants"];
         return cell;
-    }
-    return [[UITableViewCell alloc] init];
+    //}
+    //return [[UITableViewCell alloc] init];
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -73,7 +76,6 @@
 titleForHeaderInSection:(NSInteger)section {
     NSString *date = [[self.history objectAtIndex:section] objectForKey:@"date"];
     return [[[date substringWithRange:NSMakeRange(5, 5)] stringByAppendingString:@"-"] stringByAppendingString:[date substringWithRange:NSMakeRange(0, 4)]];
-    //return [NSString stringWithFormat:@"%@", date];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,9 +89,11 @@ titleForHeaderInSection:(NSInteger)section {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
      if([segue.identifier isEqualToString:@"collectionSegue"]) {
-         HistoryCell *tappedCell = sender;
-         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-         NSDictionary *dictionary = self.history[indexPath.row];
+         //HistoryCell *tappedCell = sender;
+         //NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+         CGPoint row = [sender convertPoint:CGPointZero toView:self.tableView];
+         NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:row];
+         NSDictionary *dictionary = self.history[indexPath.section];
          NSArray *restaurants = [dictionary objectForKey:@"restaurants"];
          CGPoint touchPoint = [sender convertPoint:CGPointZero toView:self.tableView];
          Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[restaurants objectAtIndex:(int)(touchPoint.x / 125)]];

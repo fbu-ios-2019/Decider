@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HistoryCell : UITableViewCell <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSArray *history;
+//@property (strong, nonatomic) NSArray *history;
+@property (strong, nonatomic) NSArray *restaurants;
 
 @end
 

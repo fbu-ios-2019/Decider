@@ -38,7 +38,8 @@
     HistoryCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HistoryCollectionCell" forIndexPath:indexPath];
     if(cell) {
         long num = indexPath.row;
-        NSString *urlstring = [[[[self.history objectAtIndex:num] objectForKey:@"restaurants"] objectAtIndex:num] objectForKey:@"coverUrl"];
+        //NSString *urlstring = [[[[self.history objectAtIndex:num] objectForKey:@"restaurants"] objectAtIndex:num] objectForKey:@"coverUrl"];
+        NSString *urlstring = [[self.restaurants objectAtIndex:num] objectForKey:@"coverUrl"];
         NSURL *url = [NSURL URLWithString:urlstring];
         cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
         return cell;
@@ -47,7 +48,8 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
+    return [self.restaurants count];
+    //return 3;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

@@ -17,6 +17,7 @@
 #import "RecommendationsViewController.h"
 #import "AppDelegate.h"
 #import "HomeViewController.h"
+#import "ChooseViewController.h"
 
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
 static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
@@ -133,6 +134,27 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     NSUInteger likeCount = [formatter numberFromString:self.likeCount.text].unsignedIntegerValue;
     NSUInteger unlikeCount = [formatter numberFromString:self.unlikeCount.text].unsignedIntegerValue;
     NSUInteger sum = likeCount + unlikeCount;
+    if([self.restaurants count] < 1) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"View Recommendations?"
+                                                                                 message:finalMessage
+                                                                          preferredStyle:(UIAlertControllerStyleAlert)];
+        
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"View" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ChooseViewController *chooseViewController = [storyboard instantiateViewControllerWithIdentifier:@"chooseViewController"];
+            recommendationsViewController.foodLiked = self.foodLiked;
+            recommendationsViewController.foodUnliked = self.foodUnliked;
+            recommendationsViewController.location = self.location;
+            [self showViewController:recommendationsViewController sender:self];
+            
+        }];
+        [alertController addAction:alertAction];
+        
+        [self presentViewController:alertController animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+        }];
+    }
     NSDictionary *photoDictionary = [self.restaurants objectAtIndex:sum];
     NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
     self.currentRestaurant = [[Restaurant alloc] initWithYelpid:yelpid];

@@ -8,6 +8,7 @@
 
 #import "RecommendationCell.h"
 #import "Restaurant.h"
+#import "Routes.h"
 
 @implementation RecommendationCell
 
@@ -81,17 +82,48 @@
         [likedRestaurants removeObject:self.restaurant.yelpid];
         self.isLiked = NO;
         [self.likeButton setSelected:NO];
+        NSURLSessionTask* task = [Routes unlikeRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            if(error) {
+                NSLog(@"%@", error.localizedDescription);
+            }
+        }];
+        
+        if (!task) {
+            NSLog(@"failed to unlike restaurant");
+        }
+        
+        
 
     } else {
         [likedRestaurants addObject:self.restaurant.yelpid];
         self.isLiked = YES;
         [self.likeButton setSelected:YES];
+        NSURLSessionTask* task = [Routes likeRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            if(error) {
+                 NSLog(@"%@", error.localizedDescription);
+            }
+        }];
+        
+        if (!task) {
+            NSLog(@"failed to like restaurant");
+        }
+        
+        
         
         if (self.isHated) {
             [hatedRestaurants removeObject:self.restaurant.yelpid];
             self.isHated = NO;
             [self.unlikeButton setSelected:NO];
             [user setObject:hatedRestaurants forKey:@"hatedRestaurants"];
+            NSURLSessionTask* task = [Routes unhateRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                if(error) {
+                   NSLog(@"%@", error.localizedDescription);
+                }
+            }];
+            
+            if (!task) {
+                NSLog(@"failed to unhate restaurant");
+            }
         }
         
     }
@@ -121,16 +153,47 @@
         [hatedRestaurants removeObject:self.restaurant.yelpid];
         self.isHated = NO;
         [self.unlikeButton setSelected:NO];
+        NSURLSessionTask* task = [Routes unhateRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            if(error) {
+               NSLog(@"%@", error.localizedDescription);
+            }
+        }];
+        
+        if (!task) {
+            NSLog(@"failed to unhate");
+        }
+        
+        
     } else {
         [hatedRestaurants addObject:self.restaurant.yelpid];
         self.isHated = YES;
         [self.unlikeButton setSelected:YES];
+        
+        NSURLSessionTask* task = [Routes hateRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            if(error) {
+                NSLog(@"%@", error.localizedDescription);
+            }
+        }];
+        
+        if (!task) {
+            NSLog(@"failed to hate");
+        }
         
         if(self.isLiked) {
             [likedRestaurants removeObject:self.restaurant.yelpid];
             self.isLiked = NO;
             [self.likeButton setSelected:NO];
             [user setObject:likedRestaurants forKey:@"likedRestaurants"];
+            
+            NSURLSessionTask* task = [Routes unlikeRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                if(error) {
+                    NSLog(@"%@", error.localizedDescription);
+                }
+            }];
+            
+            if (!task) {
+                NSLog(@"failed to unlike");
+            }
         }
     }
     

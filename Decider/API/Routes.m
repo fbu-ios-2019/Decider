@@ -78,12 +78,12 @@ static NSString * const contentLength = @"Content-Length";
     return task;
 }
 
-+ (NSURLSessionDataTask *)fetchRecommendationsIn: (NSString *)location withLikedPhotos: (NSArray *)likedPhotos andHatedPhotos: (NSArray *)hatedPhotos completionHandler:(DeciderCompletionHandler)completionHandler {
++ (NSURLSessionDataTask *)fetchRecommendationsIn:(NSString *)location withUserId:(NSString *)userId withLikedPhotos:(NSArray *)likedPhotos andHatedPhotos:(NSArray *)hatedPhotos completionHandler:(DeciderCompletionHandler)completionHandler {
     NSString *urlString = @"https://decider-backend.herokuapp.com/restaurants/recommendations";
     NSString *likedString = [self stringifyArray:likedPhotos];
     NSString *hatedString = [self stringifyArray:hatedPhotos];
     
-    NSString *post = [NSString stringWithFormat:@"location=%@&likedPhotos=%@&hatedPhotos=%@", location,likedString, hatedString];
+    NSString *post = [NSString stringWithFormat:@"location=%@&userId=%@&likedPhotos=%@&hatedPhotos=%@", location, userId, likedString, hatedString];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
     

@@ -36,7 +36,10 @@
     UIView *window = [UIApplication sharedApplication].keyWindow;
     MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
     [hud showAnimated:YES];
-    NSURLSessionDataTask *locationTask = [Routes fetchRecommendationsIn:self.location withLikedPhotos:self.foodLiked andHatedPhotos:self.foodUnliked completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    
+    PFUser *currentUser = [PFUser currentUser];
+    NSString *userId = currentUser.objectId;
+    NSURLSessionDataTask *locationTask = [Routes fetchRecommendationsIn:self.location withUserId:userId withLikedPhotos:self.foodLiked andHatedPhotos:self.foodUnliked completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error != nil) {
             NSLog(@"%@", error.localizedDescription);
         }

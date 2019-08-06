@@ -36,12 +36,17 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HistoryCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HistoryCollectionCell" forIndexPath:indexPath];
+//    HistoryCollectionCell *cell = [[HistoryCollectionCell alloc] initWithStyle];
     if(cell) {
         long num = indexPath.row;
         //NSString *urlstring = [[[[self.history objectAtIndex:num] objectForKey:@"restaurants"] objectAtIndex:num] objectForKey:@"coverUrl"];
         NSString *urlstring = [[self.restaurants objectAtIndex:num] objectForKey:@"coverUrl"];
         NSURL *url = [NSURL URLWithString:urlstring];
+//        cell.imageView = nil;
+//        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+//        cell.imageView = [[UIImageView alloc] initWithImage:image];
         cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+        cell.imageLabel.text = [[self.restaurants objectAtIndex:num] objectForKey:@"name"];
         return cell;
     }
     return [[UICollectionViewCell alloc] init];
@@ -54,6 +59,11 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    self.collectionView = nil;
 }
 
 @end

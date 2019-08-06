@@ -134,30 +134,38 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     NSUInteger likeCount = [formatter numberFromString:self.likeCount.text].unsignedIntegerValue;
     NSUInteger unlikeCount = [formatter numberFromString:self.unlikeCount.text].unsignedIntegerValue;
     NSUInteger sum = likeCount + unlikeCount;
-    if([self.restaurants count] < 1) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"View Recommendations?"
-                                                                                 message:finalMessage
+    if(sum >= [self.restaurants count]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot load data"
+                                                                                 message:@"Choose another category and location."
                                                                           preferredStyle:(UIAlertControllerStyleAlert)];
         
-        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"View" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            ChooseViewController *chooseViewController = [storyboard instantiateViewControllerWithIdentifier:@"chooseViewController"];
-            recommendationsViewController.foodLiked = self.foodLiked;
-            recommendationsViewController.foodUnliked = self.foodUnliked;
-            recommendationsViewController.location = self.location;
-            [self showViewController:recommendationsViewController sender:self];
-            
+        UIAlertAction *okAlertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//            ChooseViewController *chooseViewController = [storyboard instantiateViewControllerWithIdentifier:@"chooseViewController"];
+//            [self showViewController:chooseViewController sender:self];
+            [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
         }];
-        [alertController addAction:alertAction];
+        [alertController addAction:okAlertAction];
+        if(sum > 0) {
+            UIAlertAction *decideAlertAction = [UIAlertAction actionWithTitle:@"Decide" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                RecommendationsViewController *recommendationsViewController = [storyboard instantiateViewControllerWithIdentifier:@"recommendationsViewController"];
+                recommendationsViewController.foodLiked = self.foodLiked;
+                recommendationsViewController.foodUnliked = self.foodUnliked;
+                recommendationsViewController.location = self.location;
+                [self showViewController:recommendationsViewController sender:self];
+            }];
+            [alertController addAction:decideAlertAction];
+        }
         
         [self presentViewController:alertController animated:YES completion:^{
-            // optional code for what happens after the alert controller has finished presenting
         }];
     }
-    NSDictionary *photoDictionary = [self.restaurants objectAtIndex:sum];
-    NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
-    self.currentRestaurant = [[Restaurant alloc] initWithYelpid:yelpid];
+    else {
+        NSDictionary *photoDictionary = [self.restaurants objectAtIndex:sum];
+        NSString *yelpid = [photoDictionary valueForKey:@"restaurantYelpId"];
+        self.currentRestaurant = [[Restaurant alloc] initWithYelpid:yelpid];
+    }
 }
 
 - (NSArray *)defaultFood {

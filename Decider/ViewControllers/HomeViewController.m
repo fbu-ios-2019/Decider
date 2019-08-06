@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "LPCarouselView.h"
 
 @interface HomeViewController ()
 
@@ -16,7 +17,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+//    LPCarouselView *cv = [LPCarouselView carouselViewWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, 250) placeholderImage:nil images:^NSArray *{
+    LPCarouselView *cv = [LPCarouselView carouselViewWithFrame:CGRectMake(0, 64, 375, 270) placeholderImage:nil images:^NSArray *{
+        return @[
+                 @"image1",
+                 @"image2",
+                 @"image3",
+                 @"image4",
+                 @"image5",
+                 ];
+    } titles:^NSArray *{
+        //return @[@"NO. 1", @"NO. 2", @"NO. 3", @"NO. 4", @"NO. 5"];
+        return nil;
+    } selectedBlock:^(NSInteger index) {
+        //NSLog(@"clicked2----%zi", index);
+    }];
+    cv.carouselImageViewContentMode = UIViewContentModeScaleAspectFill;
+    cv.scrollDuration = 3.f;
+    [self.view addSubview:cv];
 }
 
 /*

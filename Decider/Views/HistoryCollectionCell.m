@@ -10,4 +10,10 @@
 
 @implementation HistoryCollectionCell
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    self.imageLabel.text = @"";
+    self.imageView.image = nil;
+}
+
 @end

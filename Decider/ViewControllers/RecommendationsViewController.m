@@ -99,7 +99,7 @@
 }
 
 -(void) restaurantHistoryChanged {
-    [self.tableView reloadData];
+    NSLog(@"history changed");
 }
 
 

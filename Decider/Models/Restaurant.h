@@ -29,8 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *startTime;
 @property (nonatomic, strong) NSString *endTime;
 @property (nonatomic, strong) NSArray *images;
-@property (nonatomic, assign) NSInteger likeCount;
-@property (nonatomic, assign) NSInteger unlikeCount;
+@property (nonatomic) int likeCount;
+@property (nonatomic) int unlikeCount;
 @property double latitude;
 @property double longitude;
 

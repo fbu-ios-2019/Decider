@@ -88,14 +88,20 @@
         weekday = 6;
     }
     //figuring out hours
-    if(weekday > [self.hours count]) {
-        weekday = 0;
+    if([[dictionary objectForKey:@"hours"] count]) {
+        self.hours = [[[dictionary objectForKey:@"hours"] valueForKey:@"open"] objectAtIndex:0];
+        if(weekday > [self.hours count]) {
+            weekday = 0;
+        }
+        NSDictionary *day = [self.hours objectAtIndex:weekday];
+        self.startTime = [day objectForKey:@"start"];
+        self.endTime = [day objectForKey:@"end"];
+        //self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", start, end];
     }
-    self.hours = [[[dictionary objectForKey:@"hours"] valueForKey:@"open"] objectAtIndex:0];
-    NSDictionary *day = [self.hours objectAtIndex:weekday];
-    self.startTime = [day objectForKey:@"start"];
-    self.endTime = [day objectForKey:@"end"];
-    //self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", start, end];
+    else {
+        self.startTime = @"";
+        self.endTime = @"";
+    }
     
     return self;
 }

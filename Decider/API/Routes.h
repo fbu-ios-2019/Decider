@@ -25,7 +25,13 @@ typedef void(^DeciderCompletionHandler)(NSData *data, NSURLResponse *response, N
 
 + (NSURLSessionDataTask *)fetchRecommendations:(DeciderCompletionHandler)completionHandler;
 
-+ (NSURLSessionDataTask *)fetchRecommendationsIn:(NSString *)location withUserId:(NSString *)userId withLikedPhotos:(NSArray *)likedPhotos andHatedPhotos:(NSArray *)hatedPhotos completionHandler:(DeciderCompletionHandler)completionHandler;
++ (NSURLSessionDataTask *)fetchRecommendationsIn:(NSString *)location
+                                      withUserId:(NSString *)userId
+                                 withLikedPhotos:(NSArray *)likedPhotos
+                                 withHatedPhotos:(NSArray *)hatedPhotos
+                             withPricePreference:(NSInteger)pricePreference
+                             withUserPreferences:(NSArray *)userPreferences
+                               completionHandler:(DeciderCompletionHandler)completionHandler;
 
 + (NSURLSessionDataTask *)fetchSavedRestaurantsFromIds:(NSArray *)savedIds completionHandler:(DeciderCompletionHandler)completionHandler;
 

@@ -175,9 +175,6 @@ static NSString * const contentLength = @"Content-Length";
     return task;
 }
 
-
-
-
 + (NSString *)stringifyArray:(NSArray *)input {
     NSString *joinedInputString = [input componentsJoinedByString:@","];
 //    NSData *jsonData = []

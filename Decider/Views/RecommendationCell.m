@@ -24,6 +24,8 @@
     self.category.text = [self.restaurant.categories componentsJoinedByString:@", "];
     self.numberOfStars.text = self.restaurant.starRating;
     self.price.text = [@"" stringByPaddingToLength:[self.restaurant.priceRating integerValue] withString: @"$" startingAtIndex:0];
+    self.likeLabel.text = [NSString stringWithFormat:@"%lu", self.restaurant.likeCount];
+    self.unlikeLabel.text = [NSString stringWithFormat:@"%lu", self.restaurant.unlikeCount];
 
     [self.likeButton setSelected:self.isLiked ? YES: NO];
     [self.unlikeButton setSelected:self.isHated ? YES: NO];
@@ -82,10 +84,14 @@
         [likedRestaurants removeObject:self.restaurant.yelpid];
         self.isLiked = NO;
         [self.likeButton setSelected:NO];
+        self.restaurant.likeCount -= 1;
+        self.likeLabel.text  = [NSString stringWithFormat:@"%lu", self.restaurant.likeCount];
+        
         NSURLSessionTask* task = [Routes unlikeRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if(error) {
                 NSLog(@"%@", error.localizedDescription);
             }
+            
         }];
         
         if (!task) {
@@ -98,6 +104,8 @@
         [likedRestaurants addObject:self.restaurant.yelpid];
         self.isLiked = YES;
         [self.likeButton setSelected:YES];
+        self.restaurant.likeCount += 1;
+        self.likeLabel.text  = [NSString stringWithFormat:@"%lu", self.restaurant.likeCount];
         NSURLSessionTask* task = [Routes likeRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if(error) {
                  NSLog(@"%@", error.localizedDescription);
@@ -114,6 +122,8 @@
             [hatedRestaurants removeObject:self.restaurant.yelpid];
             self.isHated = NO;
             [self.unlikeButton setSelected:NO];
+            self.restaurant.unlikeCount -= 1;
+            self.unlikeLabel.text  = [NSString stringWithFormat:@"%lu", self.restaurant.unlikeCount];
             [user setObject:hatedRestaurants forKey:@"hatedRestaurants"];
             NSURLSessionTask* task = [Routes unhateRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                 if(error) {
@@ -153,6 +163,8 @@
         [hatedRestaurants removeObject:self.restaurant.yelpid];
         self.isHated = NO;
         [self.unlikeButton setSelected:NO];
+        self.restaurant.unlikeCount -= 1;
+        self.unlikeLabel.text  = [NSString stringWithFormat:@"%lu", self.restaurant.unlikeCount];
         NSURLSessionTask* task = [Routes unhateRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if(error) {
                NSLog(@"%@", error.localizedDescription);
@@ -169,6 +181,9 @@
         self.isHated = YES;
         [self.unlikeButton setSelected:YES];
         
+        self.restaurant.unlikeCount += 1;
+        self.unlikeLabel.text  = [NSString stringWithFormat:@"%lu", self.restaurant.unlikeCount];
+        
         NSURLSessionTask* task = [Routes hateRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if(error) {
                 NSLog(@"%@", error.localizedDescription);
@@ -184,6 +199,9 @@
             self.isLiked = NO;
             [self.likeButton setSelected:NO];
             [user setObject:likedRestaurants forKey:@"likedRestaurants"];
+            
+            self.restaurant.likeCount -= 1;
+            self.likeLabel.text  = [NSString stringWithFormat:@"%lu", self.restaurant.likeCount];
             
             NSURLSessionTask* task = [Routes unlikeRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                 if(error) {

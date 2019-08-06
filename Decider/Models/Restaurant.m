@@ -66,22 +66,6 @@
                     zipcode,
                     self.country];
     
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
-    NSInteger weekday = [comps weekday] - 2;
-    if(weekday == -1) {
-        weekday = 6;
-    }
-    //figuring out hours
-    if(weekday > [self.hours count]) {
-        weekday = 0;
-    }
-    self.hours = [[[dictionary objectForKey:@"hours"] valueForKey:@"open"] objectAtIndex:0];
-    NSDictionary *day = [self.hours objectAtIndex:weekday];
-    self.startTime = [day objectForKey:@"start"];
-    self.endTime = [day objectForKey:@"end"];
-    //self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", start, end];
-    
     NSMutableArray *pictures = [[NSMutableArray alloc] init];
     NSArray *test = [dictionary objectForKey:@"images"];
     for(int i = 0; i < [test count]; i++) {
@@ -92,9 +76,32 @@
         }
     }
     self.images = pictures;
+    
     NSDictionary *coordinates = [dictionary objectForKey:@"coordinates"];
     self.latitude = [[coordinates objectForKey:@"latitude"] doubleValue];
     self.longitude = [[coordinates objectForKey:@"longitude"] doubleValue];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
+    NSInteger weekday = [comps weekday] - 2;
+    if(weekday == -1) {
+        weekday = 6;
+    }
+    //figuring out hours
+    if([[dictionary objectForKey:@"hours"] count]) {
+        self.hours = [[[dictionary objectForKey:@"hours"] valueForKey:@"open"] objectAtIndex:0];
+        if(weekday > [self.hours count]) {
+            weekday = 0;
+        }
+        NSDictionary *day = [self.hours objectAtIndex:weekday];
+        self.startTime = [day objectForKey:@"start"];
+        self.endTime = [day objectForKey:@"end"];
+        //self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", start, end];
+    }
+    else {
+        self.startTime = @"";
+        self.endTime = @"";
+    }
     
     return self;
 }

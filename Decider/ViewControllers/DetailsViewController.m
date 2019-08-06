@@ -50,7 +50,12 @@
     self.reviewCount.text = self.restaurant.reviewCount;
     [self.addressButton setTitle:self.restaurant.address forState:UIControlStateNormal];
     self.addressButton.titleLabel.numberOfLines = 0;
-    self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", self.restaurant.startTime, self.restaurant.endTime];
+    if([self.restaurant.startTime isEqualToString:@""] || [self.restaurant.endTime isEqualToString:@""]) {
+        self.hoursLabel.text = @"no hours";
+    }
+    else {
+        self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", self.restaurant.startTime, self.restaurant.endTime];
+    }
     self.images = self.restaurant.images;
     
     self.mapView.myLocationEnabled = YES;

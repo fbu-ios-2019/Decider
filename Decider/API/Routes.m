@@ -78,12 +78,19 @@ static NSString * const contentLength = @"Content-Length";
     return task;
 }
 
-+ (NSURLSessionDataTask *)fetchRecommendationsIn:(NSString *)location withUserId:(NSString *)userId withLikedPhotos:(NSArray *)likedPhotos andHatedPhotos:(NSArray *)hatedPhotos completionHandler:(DeciderCompletionHandler)completionHandler {
-    NSString *urlString = @"https://decider-backend.herokuapp.com/restaurants/recommendations";
++ (NSURLSessionDataTask *)fetchRecommendationsIn:(NSString *)location
+                                      withUserId:(NSString *)userId
+                                 withLikedPhotos:(NSArray *)likedPhotos
+                                 withHatedPhotos:(NSArray *)hatedPhotos
+                             withPricePreference:(NSInteger)pricePreference
+                              withUserPreferences:(NSArray *)userPreferences completionHandler:(DeciderCompletionHandler)completionHandler {
+    NSString *urlString = @"https://localhost:5000/restaurants/recommendations";
     NSString *likedString = [self stringifyArray:likedPhotos];
     NSString *hatedString = [self stringifyArray:hatedPhotos];
+    NSString *userPreferenceString = [userPreferences componentsJoinedByString:@","];
+    NSString *pricePreferenceString = [NSString stringWithFormat:@"%ld", pricePreference];
     
-    NSString *post = [NSString stringWithFormat:@"location=%@&userId=%@&likedPhotos=%@&hatedPhotos=%@", location, userId, likedString, hatedString];
+    NSString *post = [NSString stringWithFormat:@"location=%@&userId=%@&likedPhotos=%@&hatedPhotos=%@pricePreference=%@&userPreference=%@&", location, userId, likedString, hatedString, pricePreferenceString, userPreferenceString];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
     

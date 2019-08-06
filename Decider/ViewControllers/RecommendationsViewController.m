@@ -39,7 +39,17 @@
     
     PFUser *currentUser = [PFUser currentUser];
     NSString *userId = currentUser.objectId;
-    NSURLSessionDataTask *locationTask = [Routes fetchRecommendationsIn:self.location withUserId:userId withLikedPhotos:self.foodLiked andHatedPhotos:self.foodUnliked completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSInteger pricePreference = [userDefaults integerForKey:@"price_index"];
+    NSArray *userPreference = [userDefaults objectForKey:@"restaurant_criteria"];
+    
+    NSURLSessionDataTask *locationTask = [Routes fetchRecommendationsIn:self.location
+                                                             withUserId:userId
+                                                        withLikedPhotos:self.foodLiked
+                                                        withHatedPhotos:self.foodUnliked
+                                                    withPricePreference:pricePreference
+                                                    withUserPreferences:userPreference
+                                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error != nil) {
             NSLog(@"%@", error.localizedDescription);
         }

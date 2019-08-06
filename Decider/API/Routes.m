@@ -89,9 +89,9 @@ static NSString * const contentLength = @"Content-Length";
     NSString *likedString = [self stringifyArray:likedPhotos];
     NSString *hatedString = [self stringifyArray:hatedPhotos];
     NSString *userPreferenceString = [userPreferences componentsJoinedByString:@","];
-    NSString *pricePreferenceString = [NSString stringWithFormat:@"%ld", pricePreference];
+    NSString *pricePreferenceString = [NSString stringWithFormat:@"%lu", pricePreference];
     
-    NSString *post = [NSString stringWithFormat:@"location=%@&userId=%@&likedPhotos=%@&hatedPhotos=%@pricePreference=%@&userPreference=%@&", location, userId, likedString, hatedString, pricePreferenceString, userPreferenceString];
+    NSString *post = [NSString stringWithFormat:@"location=%@&userId=%@&likedPhotos=%@&hatedPhotos=%@&pricePreference=%@&userPreference=%@&", location, userId, likedString, hatedString, pricePreferenceString, userPreferenceString];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
     

@@ -40,7 +40,7 @@
     PFUser *currentUser = [PFUser currentUser];
     NSString *userId = currentUser.objectId;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSInteger pricePreference = [userDefaults integerForKey:@"price_index"];
+    NSInteger pricePreference = [userDefaults integerForKey:@"price_index"] + 1;
     NSArray *userPreference = [userDefaults objectForKey:@"restaurant_criteria"];
     
     NSURLSessionDataTask *locationTask = [Routes fetchRecommendationsIn:self.location

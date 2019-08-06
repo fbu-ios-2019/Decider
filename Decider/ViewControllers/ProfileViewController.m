@@ -98,7 +98,7 @@
     self.savedRestaurants = [self.user objectForKey:@"savedRestaurants"];
     self.hatedRestaurants = [self.user objectForKey:@"hatedRestaurants"];
     self.likedRestaurants = [self.user objectForKey:@"likedRestaurants"];
-
+    [self fetchSavedRestaurantsDetails];
     [self.tableView reloadData];
 }
 
@@ -167,6 +167,18 @@
         EditProfileViewController *editProfileViewController =  [segue destinationViewController];
         editProfileViewController.user = self.user;
     }
+}
+
+-(void) fetchSavedRestaurantsDetails {
+    NSURLSessionDataTask *task = [Routes fetchSavedRestaurantsFromIds:self.savedRestaurants completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        self.recommendations = [results objectForKey:@"results"];
+        
+    }];
+    if(!task) {
+        NSLog(@"Network error");
+    }
+    
 }
 
 

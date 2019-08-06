@@ -106,7 +106,7 @@ static NSString * const contentLength = @"Content-Length";
 }
 
 + (NSURLSessionDataTask *)fetchSavedRestaurantsFromIds:(NSArray *)savedIds completionHandler:(DeciderCompletionHandler)completionHandler {
-    NSString *urlString = @"https://decider-backend.herokuapp.com/list";
+    NSString *urlString = @"https://decider-backend.herokuapp.com/restaurants/list";
     NSString *savedString = [self stringifyArray:savedIds];
     NSString *post = [NSString stringWithFormat:@"ids=%@",savedString];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -174,6 +174,7 @@ static NSString * const contentLength = @"Content-Length";
     NSURLSessionDataTask *task = [self makeTask:request completionHandler:completionHandler];
     return task;
 }
+
 
 + (NSString *)stringifyArray:(NSArray *)input {
     NSString *joinedInputString = [input componentsJoinedByString:@","];

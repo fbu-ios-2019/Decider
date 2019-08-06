@@ -66,6 +66,21 @@
                     zipcode,
                     self.country];
     
+    NSMutableArray *pictures = [[NSMutableArray alloc] init];
+    NSArray *test = [dictionary objectForKey:@"images"];
+    for(int i = 0; i < [test count]; i++) {
+        NSURL *url = [NSURL URLWithString:[test objectAtIndex:i]];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        if(data != nil) {
+            [pictures addObject:[[UIImage alloc] initWithData:data]];
+        }
+    }
+    self.images = pictures;
+    
+    NSDictionary *coordinates = [dictionary objectForKey:@"coordinates"];
+    self.latitude = [[coordinates objectForKey:@"latitude"] doubleValue];
+    self.longitude = [[coordinates objectForKey:@"longitude"] doubleValue];
+    
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
     NSInteger weekday = [comps weekday] - 2;
@@ -81,20 +96,6 @@
     self.startTime = [day objectForKey:@"start"];
     self.endTime = [day objectForKey:@"end"];
     //self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", start, end];
-    
-    NSMutableArray *pictures = [[NSMutableArray alloc] init];
-    NSArray *test = [dictionary objectForKey:@"images"];
-    for(int i = 0; i < [test count]; i++) {
-        NSURL *url = [NSURL URLWithString:[test objectAtIndex:i]];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        if(data != nil) {
-            [pictures addObject:[[UIImage alloc] initWithData:data]];
-        }
-    }
-    self.images = pictures;
-    NSDictionary *coordinates = [dictionary objectForKey:@"coordinates"];
-    self.latitude = [[coordinates objectForKey:@"latitude"] doubleValue];
-    self.longitude = [[coordinates objectForKey:@"longitude"] doubleValue];
     
     return self;
 }

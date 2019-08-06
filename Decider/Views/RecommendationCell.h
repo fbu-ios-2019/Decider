@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) Boolean isLiked;
 @property (assign, nonatomic) Boolean isHated;
 @property (assign, nonatomic) Boolean isSaved;
+@property (weak, nonatomic) IBOutlet UILabel *unlikeLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *likeLabel;
 
 @end
 

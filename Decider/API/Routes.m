@@ -83,8 +83,9 @@ static NSString * const contentLength = @"Content-Length";
                                  withLikedPhotos:(NSArray *)likedPhotos
                                  withHatedPhotos:(NSArray *)hatedPhotos
                              withPricePreference:(NSInteger)pricePreference
-                              withUserPreferences:(NSArray *)userPreferences completionHandler:(DeciderCompletionHandler)completionHandler {
-    NSString *urlString = @"https://localhost:5000/restaurants/recommendations";
+                              withUserPreferences:(NSArray *)userPreferences
+                               completionHandler:(DeciderCompletionHandler)completionHandler {
+    NSString *urlString = @"http://localhost:5000/restaurants/recommendations";
     NSString *likedString = [self stringifyArray:likedPhotos];
     NSString *hatedString = [self stringifyArray:hatedPhotos];
     NSString *userPreferenceString = [userPreferences componentsJoinedByString:@","];

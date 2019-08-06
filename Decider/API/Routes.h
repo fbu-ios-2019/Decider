@@ -30,7 +30,8 @@ typedef void(^DeciderCompletionHandler)(NSData *data, NSURLResponse *response, N
                                  withLikedPhotos:(NSArray *)likedPhotos
                                  withHatedPhotos:(NSArray *)hatedPhotos
                              withPricePreference:(NSInteger)pricePreference
-                             withUserPreferences:(NSArray *)userPreferences completionHandler:(DeciderCompletionHandler)completionHandler;
+                             withUserPreferences:(NSArray *)userPreferences
+                               completionHandler:(DeciderCompletionHandler)completionHandler;
 
 + (NSURLSessionDataTask *)fetchSavedRestaurantsFromIds:(NSArray *)savedIds completionHandler:(DeciderCompletionHandler)completionHandler;
 

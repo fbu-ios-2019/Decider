@@ -13,6 +13,7 @@ target 'Decider' do
 	pod 'GoogleMaps'
   	pod 'GooglePlaces'
 	pod 'HCSStarRatingView', '~> 1.5'
+	pod 'LPCarouselView', '~> 1.3.0'
 
   target 'DeciderTests' do
     inherit! :search_paths

@@ -114,6 +114,8 @@
     newRestaurant.categories = @[@"Mexican"];
     newRestaurant.starRating = @"3";
     newRestaurant.priceRating = @"2";
+    // newRestaurant.likeCount = 2;
+    // newRestaurant.unlikeCount = 2;
     
     if([self.likedRestaurants containsObject:newRestaurant.yelpid]) {
         cell.isLiked = YES;

@@ -318,7 +318,6 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
         }
         else {
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            NSLog(@"%@", results);
             self.restaurants = [results objectForKey:@"results"];
             
             self.food = [[self defaultFood] mutableCopy];

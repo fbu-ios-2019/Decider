@@ -44,6 +44,8 @@
     self.name = [dictionary valueForKey:@"name"];
     self.starRating = [NSString stringWithFormat:@"%@", [dictionary valueForKey:@"rating"]];
     self.reviewCount = [NSString stringWithFormat:@"%@", [dictionary valueForKey:@"reviewCount"]];
+    self.likeCount = [[dictionary valueForKey:@"likeCount"] integerValue];
+    self.unlikeCount = [[dictionary valueForKey:@"unlikeCount"] integerValue];
     
     long num = [[dictionary valueForKey:@"priceRating"] longValue];
     NSString *price = @"";

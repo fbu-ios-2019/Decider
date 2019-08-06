@@ -114,7 +114,6 @@
                 return [evaluatedObject containsString:searchText];
             }];
             self.filteredLocationData = [self.locationData filteredArrayUsingPredicate:predicate];
-            NSLog(@"%@", self.filteredLocationData);
         }
         else {
             self.filteredLocationData = self.locationData;

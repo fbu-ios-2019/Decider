@@ -118,6 +118,10 @@
     //return 4;
     return self.images.count;
 }
+- (IBAction)callPhone:(id)sender {
+    NSString *phoneString = [NSString stringWithFormat:@"tel://%@", self.phoneButton.titleLabel.text];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneString] options:@{} completionHandler:nil];
+}
 
 - (IBAction)didTapBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

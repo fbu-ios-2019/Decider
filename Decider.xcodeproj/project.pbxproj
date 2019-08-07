@@ -759,13 +759,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q5LT8UR978;
+				DEVELOPMENT_TEAM = 4XDFC548L2;
 				INFOPLIST_FILE = Decider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mohamedallyiddi.Decider;
+				PRODUCT_BUNDLE_IDENTIFIER = com.katelin.chan.Decider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -777,13 +777,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q5LT8UR978;
+				DEVELOPMENT_TEAM = 4XDFC548L2;
 				INFOPLIST_FILE = Decider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mohamedallyiddi.Decider;
+				PRODUCT_BUNDLE_IDENTIFIER = com.katelin.chan.Decider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

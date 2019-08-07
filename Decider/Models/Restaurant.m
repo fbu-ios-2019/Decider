@@ -105,7 +105,16 @@
         self.endTime = @"";
     }
     
-    self.phoneNumber = [dictionary objectForKey:@"phone"];
+    NSString *str = [dictionary objectForKey:@"phone"];
+    self.unformattedPhoneNumber = str;
+    NSString *formattedStr = [[[[[str substringWithRange:NSMakeRange(2, 3)] stringByAppendingString:@") "] stringByAppendingString:[str substringWithRange:NSMakeRange(5, 3)]] stringByAppendingString:@"-"] stringByAppendingString:[str substringWithRange:NSMakeRange(8, 4)]];
+    if(formattedStr) {
+        NSString *finalStr = [@"(" stringByAppendingString:formattedStr];
+        self.phoneNumber = finalStr;
+    }
+    else {
+        self.phoneNumber = @"no phone number";
+    }
     
     return self;
 }

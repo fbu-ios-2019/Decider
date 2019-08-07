@@ -119,8 +119,13 @@
     return self.images.count;
 }
 - (IBAction)callPhone:(id)sender {
-    NSString *phoneString = [NSString stringWithFormat:@"tel://%@", self.phoneButton.titleLabel.text];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneString] options:@{} completionHandler:nil];
+    if([self.phoneButton.titleLabel.text isEqualToString:@"no phone number"]) {
+        NSLog(@"RIP error");
+    }
+    else {
+        NSString *phoneString = [NSString stringWithFormat:@"tel://%@", self.restaurant.unformattedPhoneNumber];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneString] options:@{} completionHandler:nil];
+    }
 }
 
 - (IBAction)didTapBack:(id)sender {

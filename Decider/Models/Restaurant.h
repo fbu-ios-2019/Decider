@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray *hours;
 @property (nonatomic, strong) NSString *startTime;
 @property (nonatomic, strong) NSString *endTime;
+@property (nonatomic, strong) NSString *phoneNumber;
 @property (nonatomic, strong) NSArray *images;
 @property (nonatomic) int likeCount;
 @property (nonatomic) int unlikeCount;

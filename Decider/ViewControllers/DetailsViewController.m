@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hoursLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reviewCount;
+@property (weak, nonatomic) IBOutlet UIButton *phoneButton;
 //@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addressButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -48,6 +49,7 @@
     self.priceLabel.text = self.restaurant.priceRating;
     self.categoryLabel.text = self.restaurant.categoryString;
     self.reviewCount.text = self.restaurant.reviewCount;
+    [self.phoneButton setTitle:self.restaurant.phoneNumber forState:UIControlStateNormal];
     [self.addressButton setTitle:self.restaurant.address forState:UIControlStateNormal];
     self.addressButton.titleLabel.numberOfLines = 0;
     if([self.restaurant.startTime isEqualToString:@""] || [self.restaurant.endTime isEqualToString:@""]) {

@@ -47,6 +47,9 @@
     HistoryCollectionCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"HistoryCollectionCell" forIndexPath:indexPath];
     NSString *urlString = [[[self.history[indexPath.section] objectForKey:@"restaurants"] objectAtIndex:indexPath.row] objectForKey:@"coverUrl"];
     NSURL *url = [NSURL URLWithString:urlString];
+    //NSString *urlString = [[self.history[indexPath.section]] objectForKey:@"coverUrl"];
+    //NSURL *url = [NSURL URLWithString:urlString];
+    
     cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
     //cell.imageView.image = [UIImage imageNamed:[self.dogImages[indexPath.section] objectAtIndex:indexPath.row]];
     return cell;
@@ -63,7 +66,7 @@
         }
         else {
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            self.history = [results objectForKey:@"userHistory"];
+            self.history = [[results objectForKey:@"userHistory"] objectAtIndex:0];
             self.collectionView.delegate = self;
             self.collectionView.dataSource = self;
             //self.tableView.rowHeight = 125;
@@ -79,7 +82,8 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     //return [[self.dogImages objectAtIndex:section] count];
-    return [[[self.history objectAtIndex:section] objectForKey:@"restaurants"] count];
+    //return [[[self.history objectAtIndex:section] objectForKey:@"restaurants"] count];
+    return 3;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -90,9 +94,10 @@
     UICollectionReusableView *reusableview = nil;
     if (kind == UICollectionElementKindSectionHeader) {
         CollectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CollectionHeaderView" forIndexPath:indexPath];
-        NSString *date = [self.history[indexPath.section] objectForKey:@"date"];
-        NSString *formattedDate = [[[date substringWithRange:NSMakeRange(5, 5)] stringByAppendingString:@"-"] stringByAppendingString:[date substringWithRange:NSMakeRange(0, 4)]];
-        NSString *title = [[NSString alloc] initWithFormat:@"%@", formattedDate];
+        //NSString *date = [self.history[indexPath.section] objectForKey:@"date"];
+        //NSString *formattedDate = [[[date substringWithRange:NSMakeRange(5, 5)] stringByAppendingString:@"-"] stringByAppendingString:[date substringWithRange:NSMakeRange(0, 4)]];
+        //NSString *title = [[NSString alloc] initWithFormat:@"%@", formattedDate];
+        NSString *title = [self.history[indexPath.section] objectForKey:@"name"];
         headerView.titleLabel.text = title;
         reusableview = headerView;
     }

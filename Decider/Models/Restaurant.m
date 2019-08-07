@@ -105,6 +105,8 @@
         self.endTime = @"";
     }
     
+    self.phoneNumber = [dictionary objectForKey:@"phone"];
+    
     return self;
 }
 

@@ -28,20 +28,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchRecommendations];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+//    [self fetchRecommendations];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    if(!self.recommendations) {
+        [self fetchRecommendations];
+    }
+}
 
 - (void)fetchRecommendations {
-    UIView *window = [UIApplication sharedApplication].keyWindow;
-    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
-    [hud showAnimated:YES];
-    
     PFUser *currentUser = [PFUser currentUser];
     NSString *userId = currentUser.objectId;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSInteger pricePreference = [userDefaults integerForKey:@"price_index"] + 1;
     NSArray *userPreference = [userDefaults objectForKey:@"restaurant_criteria"];
+    
+    [self.tableView setHidden:YES];
+    UIView *window = [UIApplication sharedApplication].keyWindow;
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    [[UIApplication sharedApplication].keyWindow bringSubviewToFront:hud];
+    [hud showAnimated:YES];
     
     NSURLSessionDataTask *locationTask = [Routes fetchRecommendationsIn:self.location
                                                              withUserId:userId
@@ -62,6 +70,7 @@
             self.tableView.dataSource = self;
             self.tableView.delegate = self;
             [self.tableView reloadData];
+            [self.tableView setHidden:NO];
             [hud hideAnimated:YES];
         }
     }];

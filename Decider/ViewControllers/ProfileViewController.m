@@ -17,6 +17,7 @@
 #import "MBProgressHUD/MBProgressHUD.h"
 #import "SettingsViewController.h"
 #import "RecommendationsViewController.h"
+#import "DetailsViewController.h"
 
 @interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, RecommendationCellDelegate>
 
@@ -62,7 +63,9 @@
 -(void) viewWillAppear:(BOOL)animated {
     [self fetchRestaurantHistory];
 }
+
 - (void)viewDidAppear:(BOOL)animated {
+    
     PFFileObject *image = [self.user objectForKey:@"profilePicture"];
     [image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!data) {
@@ -156,6 +159,16 @@
     if ([segue.identifier isEqualToString:@"editProfileSegue"]) {
         EditProfileViewController *editProfileViewController =  [segue destinationViewController];
         editProfileViewController.user = self.user;
+    }
+    
+    if([segue.identifier isEqualToString:@"detailsSegue"]) {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        NSDictionary *restaurantDictionary = self.savedRestaurantDetails[indexPath.row];
+        Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:restaurantDictionary];
+        DetailsViewController *detailsViewController =  [segue destinationViewController];
+        detailsViewController.restaurant = restaurant;
+        
     }
 }
 

@@ -30,10 +30,26 @@
         UIViewAutoresizingFlexibleWidth |
         UIViewAutoresizingFlexibleBottomMargin;
         self.imageView.autoresizingMask = self.autoresizingMask;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         
-        //Restaurant name label on top of imageView
-        UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 425, 250, 40)];
+        
+        // blur effect
+        UIVisualEffect *blurEffect;
+        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
 
+        UIVisualEffectView *visualEffectView;
+        visualEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
+
+        visualEffectView.frame = self.bounds;
+        
+        // send blur effect to the back
+        self.backgroundColor = [UIColor colorWithPatternImage:self.food.image];
+        [self addSubview:visualEffectView];
+        [self exchangeSubviewAtIndex:0  withSubviewAtIndex:1];
+        
+        //Restaurant name label on top of imageViewxr
+        UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 425, 250, 40)];
+        
         myLabel.text = self.food.restaurantName;
         myLabel.textColor = [UIColor orangeColor];
         myLabel.font=[UIFont fontWithName:@"Marker Felt" size:30];
@@ -41,6 +57,7 @@
     }
     return self;
 }
+
 
 #pragma mark - Internal Methods
 

@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSMutableArray *savedRestaurants;
 @property (strong, nonatomic) NSMutableArray *likedRestaurants;
 @property (strong, nonatomic) NSMutableArray *hatedRestaurants;
+@property (strong, nonatomic) NSMutableArray *savedRestaurantDetails;
 
 
 @end

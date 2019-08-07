@@ -24,8 +24,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) PFUser *user;
-
-@property (strong, nonatomic) NSMutableArray *recommendations;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -99,7 +97,7 @@
     self.hatedRestaurants = [self.user objectForKey:@"hatedRestaurants"];
     self.likedRestaurants = [self.user objectForKey:@"likedRestaurants"];
     [self fetchSavedRestaurantsDetails];
-    [self.tableView reloadData];
+    
 }
 
 
@@ -107,15 +105,8 @@
     RecommendationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecommendationCell" forIndexPath:indexPath];
     
     // Update cell with data
-    
-    Restaurant* newRestaurant = [[Restaurant alloc] init];
-    newRestaurant.yelpid = self.savedRestaurants[indexPath.row];
-    newRestaurant.name = @"Maria's Tacos";
-    newRestaurant.categories = @[@"Mexican"];
-    newRestaurant.starRating = @"3";
-    newRestaurant.priceRating = @"2";
-    // newRestaurant.likeCount = 2;
-    // newRestaurant.unlikeCount = 2;
+    NSDictionary *restaurantDict = self.savedRestaurantDetails[indexPath.row];
+    Restaurant* newRestaurant = [[Restaurant alloc] initWithDictionary:restaurantDict];
     
     if([self.likedRestaurants containsObject:newRestaurant.yelpid]) {
         cell.isLiked = YES;
@@ -146,7 +137,6 @@
 
 -(void) restaurantHistoryChanged {
     [self fetchRestaurantHistory];
-    [self.tableView reloadData];
 }
 
 
@@ -170,10 +160,17 @@
 }
 
 -(void) fetchSavedRestaurantsDetails {
+    [self.tableView setHidden:YES];
+    UIView *window = [[UIApplication sharedApplication] keyWindow];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    [hud showAnimated:YES];
+    
     NSURLSessionDataTask *task = [Routes fetchSavedRestaurantsFromIds:self.savedRestaurants completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        self.recommendations = [results objectForKey:@"results"];
-        
+        self.savedRestaurantDetails = [results objectForKey:@"results"];
+        [self.tableView reloadData];
+        [self.tableView setHidden:NO];
+        [hud hideAnimated:YES];
     }];
     if(!task) {
         NSLog(@"Network error");

@@ -27,8 +27,8 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 @property (nonatomic, strong) NSMutableArray *food;
 @property (nonatomic, strong) NSMutableArray *foodLiked;
 @property (nonatomic, strong) NSMutableArray *foodUnliked;
-@property (weak, nonatomic) IBOutlet UILabel *unlikeCount;
-@property (weak, nonatomic) IBOutlet UILabel *likeCount;
+@property long unlikeCount;
+@property long likeCount;
 @property long swipeTotal;
 @property (nonatomic, copy) NSString *yelpid;
 @property (nonatomic, strong) Restaurant *currentRestaurant;
@@ -72,8 +72,8 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
         [self.foodLiked addObject:self.currentFood.yelpid];
     }
     
-    self.unlikeCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.foodUnliked count]];
-    self.likeCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.foodLiked count]];
+    self.unlikeCount = [self.foodUnliked count];
+    self.likeCount = [self.foodLiked count];
     
     // MDCSwipeToChooseView removes the view from the view hierarchy
     // after it is swiped (this behavior can be customized via the
@@ -93,7 +93,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     }
     
     self.swipeTotal = (long)[self.foodLiked count] + (long)[self.foodUnliked count];
-    if(self.swipeTotal % 5 == 0) {
+    if(self.swipeTotal % 10 == 0) {
         NSString *message1 = @"You have swiped ";
         NSString *message2 = [message1 stringByAppendingString:[NSString stringWithFormat:@"%ld", self.swipeTotal]];
         NSString *finalMessage = [message2 stringByAppendingString:@" times."];
@@ -130,10 +130,8 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     // Quick and dirty, just for the purposes of this sample app.
     _frontCardView = frontCardView;
     self.currentFood = frontCardView.food;
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-    NSUInteger likeCount = [formatter numberFromString:self.likeCount.text].unsignedIntegerValue;
-    NSUInteger unlikeCount = [formatter numberFromString:self.unlikeCount.text].unsignedIntegerValue;
-    NSUInteger sum = likeCount + unlikeCount;
+    //NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+    long sum = self.likeCount + self.unlikeCount;
     if(sum >= [self.restaurants count]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot load data"
                                                                                  message:@"Choose another category and location."

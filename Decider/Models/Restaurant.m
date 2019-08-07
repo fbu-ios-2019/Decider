@@ -96,8 +96,8 @@
             weekday = 0;
         }
         NSDictionary *day = [self.hours objectAtIndex:weekday];
-        self.startTime = [day objectForKey:@"start"];
-        self.endTime = [day objectForKey:@"end"];
+        self.startTime = [self formatTime:[day objectForKey:@"start"]];
+        self.endTime = [self formatTime:[day objectForKey:@"end"]];
         //self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", start, end];
     }
     else {
@@ -117,6 +117,19 @@
     }
     
     return self;
+}
+
+- (NSString *)formatTime:(NSString *)time {
+    long num = [time longLongValue];
+    if(num > 1200) {
+        num = num - 1200;
+        NSString *str = [NSString stringWithFormat:@"%ld", num];
+        NSUInteger number = [str length] - 2;
+        return [[[[str substringWithRange:NSMakeRange(0, number)] stringByAppendingString:@":"] stringByAppendingString:[str substringWithRange:NSMakeRange(number, 2)]] stringByAppendingString:@"PM"];
+    }
+    NSString *str = [NSString stringWithFormat:@"%ld", num];
+    NSUInteger number = [str length] - 2;
+    return [[[[str substringWithRange:NSMakeRange(0, number)] stringByAppendingString:@":"] stringByAppendingString:[str substringWithRange:NSMakeRange(number, 2)]] stringByAppendingString:@"AM"];
 }
 
 @end

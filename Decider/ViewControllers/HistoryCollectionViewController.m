@@ -45,11 +45,10 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HistoryCollectionCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"HistoryCollectionCell" forIndexPath:indexPath];
-    NSString *urlString = [[[self.history[indexPath.section] objectForKey:@"restaurants"] objectAtIndex:indexPath.row] objectForKey:@"coverUrl"];
+//    NSString *urlString = [[[self.history[indexPath.section] objectForKey:@"restaurants"] objectAtIndex:indexPath.row] objectForKey:@"coverUrl"];
+//    NSURL *url = [NSURL URLWithString:urlString];
+    NSString *urlString = [[[self.history objectAtIndex:indexPath.section] objectForKey:@"images"] objectAtIndex:indexPath.row];
     NSURL *url = [NSURL URLWithString:urlString];
-    //NSString *urlString = [[self.history[indexPath.section]] objectForKey:@"coverUrl"];
-    //NSURL *url = [NSURL URLWithString:urlString];
-    
     cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
     //cell.imageView.image = [UIImage imageNamed:[self.dogImages[indexPath.section] objectAtIndex:indexPath.row]];
     return cell;
@@ -83,7 +82,8 @@
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     //return [[self.dogImages objectAtIndex:section] count];
     //return [[[self.history objectAtIndex:section] objectForKey:@"restaurants"] count];
-    return 3;
+    //return 3;
+    return [[[self.history objectAtIndex:section] objectForKey:@"images"] count];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -120,7 +120,8 @@
         //CGPoint touchPoint = [sender convertPoint:CGPointZero toView:self.tableView];
         //Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[restaurants objectAtIndex:(int)(touchPoint.x / 125)]];
         DetailsViewController *detailsViewController =  [segue destinationViewController];
-        Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[[self.history[indexPath.section] objectForKey:@"restaurants"] objectAtIndex:indexPath.row]];
+//        Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[[self.history[indexPath.section] objectForKey:@"restaurants"] objectAtIndex:indexPath.row]];
+        Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[self.history objectAtIndex:indexPath.section]];
         detailsViewController.restaurant = restaurant;
     }
 }

@@ -118,7 +118,12 @@
 }
 
 -(void) restaurantHistoryChanged {
-    NSLog(@"history changed");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Liked" object:nil];
+
+}
+
+-(void) savedRestaurantsChanged {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Saved" object:nil];
 }
 
 

@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) PFUser *user;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *profileCardView;
 
 @end
 
@@ -34,9 +35,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restaurantHistoryChanged) name:@"Liked" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchRestaurantHistory) name:@"Saved" object:nil];
     // Delegates
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.tableHeaderView = self.profileCardView;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self fetchRestaurantHistory];
@@ -58,10 +62,6 @@
     self.navigationItem.titleView = navtitleLabel;
     self.nameLabel.text = [self.user objectForKey:@"name"];
     self.usernameLabel.text = self.user.username;
-}
-
--(void) viewWillAppear:(BOOL)animated {
-    [self fetchRestaurantHistory];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -99,7 +99,7 @@
     self.savedRestaurants = [self.user objectForKey:@"savedRestaurants"];
     self.hatedRestaurants = [self.user objectForKey:@"hatedRestaurants"];
     self.likedRestaurants = [self.user objectForKey:@"likedRestaurants"];
-    [self fetchSavedRestaurantsDetails];
+    [self fetchDetailsWithHud];
     
 }
 
@@ -139,6 +139,14 @@
 }
 
 -(void) restaurantHistoryChanged {
+    self.user = [PFUser currentUser];
+    self.savedRestaurants = [self.user objectForKey:@"savedRestaurants"];
+    self.hatedRestaurants = [self.user objectForKey:@"hatedRestaurants"];
+    self.likedRestaurants = [self.user objectForKey:@"likedRestaurants"];
+    [self fetchSavedRestaurantsDetails];
+}
+
+-(void) savedRestaurantsChanged {
     [self fetchRestaurantHistory];
 }
 
@@ -173,14 +181,32 @@
 }
 
 -(void) fetchSavedRestaurantsDetails {
+
+    NSURLSessionDataTask *task = [Routes fetchSavedRestaurantsFromIds:self.savedRestaurants completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (data) {
+            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            self.savedRestaurantDetails = [results objectForKey:@"results"];
+        }
+        [self.tableView reloadData];
+      
+    }];
+    if(!task) {
+        NSLog(@"Network error");
+    }
+    
+}
+
+-(void) fetchDetailsWithHud {
     [self.tableView setHidden:YES];
     UIView *window = [[UIApplication sharedApplication] keyWindow];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
     [hud showAnimated:YES];
     
     NSURLSessionDataTask *task = [Routes fetchSavedRestaurantsFromIds:self.savedRestaurants completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        self.savedRestaurantDetails = [results objectForKey:@"results"];
+        if (data) {
+            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            self.savedRestaurantDetails = [results objectForKey:@"results"];
+        }
         [self.tableView reloadData];
         [self.tableView setHidden:NO];
         [hud hideAnimated:YES];
@@ -188,7 +214,6 @@
     if(!task) {
         NSLog(@"Network error");
     }
-    
 }
 
 

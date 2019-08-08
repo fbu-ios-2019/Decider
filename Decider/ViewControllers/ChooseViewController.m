@@ -35,9 +35,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self.navigationController setNavigationBarHidden:YES animated:YES];
-//    [self.tabBarController.tabBar setHidden:YES];
-    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.categorySearchBar.delegate = self;
@@ -50,7 +47,6 @@
     [self fetchCategories];
     [self fetchLocations];
     
-    //current location
     self.locationManager = [[CLLocationManager alloc] init];
     self.geocoder = [[CLGeocoder alloc] init];
     

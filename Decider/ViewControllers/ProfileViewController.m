@@ -18,6 +18,7 @@
 #import "SettingsViewController.h"
 #import "RecommendationsViewController.h"
 #import "DetailsViewController.h"
+#import "WalkthroughViewController.h"
 
 @interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, RecommendationCellDelegate>
 
@@ -84,8 +85,10 @@
         if(PFUser.currentUser == nil) {
             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-            appDelegate.window.rootViewController = loginViewController;
+//            LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+//            appDelegate.window.rootViewController = loginViewController;
+            WalkthroughViewController *walkthroughViewController = [storyboard instantiateViewControllerWithIdentifier:@"WalkthroughViewController"];
+            appDelegate.window.rootViewController = walkthroughViewController;
             
             NSLog(@"User logged out successfully");
         } else {

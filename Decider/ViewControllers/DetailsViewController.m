@@ -16,7 +16,6 @@
 @interface DetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource, GMSMapViewDelegate>
 
 @property (nonatomic, strong) NSArray *images;
-@property (weak, nonatomic) IBOutlet UIImageView *coverView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -24,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *hoursLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reviewCount;
 @property (weak, nonatomic) IBOutlet UIButton *phoneButton;
-//@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addressButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
@@ -41,10 +39,18 @@
     self.scrollView.alwaysBounceVertical = YES;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    //self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
+    layout.minimumInteritemSpacing = 5;
+    layout.minimumLineSpacing = 5;
+    
+    CGFloat postersPerLine = 3;
+    CGFloat itemWidth = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine - 1)) / postersPerLine;
+    CGFloat itemHeight = itemWidth * 1;
+    layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     //loading the details page information
-    self.coverView.image = self.restaurant.coverImage;
     self.nameLabel.text = self.restaurant.name;
     self.priceLabel.text = self.restaurant.priceRating;
     self.categoryLabel.text = self.restaurant.categoryString;
@@ -80,7 +86,7 @@
     //star rating animation
     self.ratingLabel.text = self.restaurant.starRating;
     double starRating = [self.ratingLabel.text floatValue];
-    HCSStarRatingView *starRatingView = [[HCSStarRatingView alloc] initWithFrame:CGRectMake(8, 165, 95, 20)];
+    HCSStarRatingView *starRatingView = [[HCSStarRatingView alloc] initWithFrame:CGRectMake(8, 171, 95, 20)];
     starRatingView.maximumValue = 5;
     starRatingView.minimumValue = 0;
     starRatingView.allowsHalfStars = YES;
@@ -88,6 +94,7 @@
     starRatingView.tintColor = [UIColor orangeColor];
     //[starRatingView addTarget:self action:@selector(didChangeValue:) forControlEvents:UIControlEventValueChanged];
     [self.scrollView addSubview:starRatingView];
+    //[self.mapView bringSubviewToFront:self.addressButton];
 }
 
 #pragma mark - Navigation
@@ -111,6 +118,8 @@
     PhotoCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCollectionCell" forIndexPath:indexPath];
     long num = indexPath.row;
     cell.imageView.image = [self.images objectAtIndex:num];
+    cell.layer.masksToBounds = YES;
+    cell.layer.cornerRadius = cell.imageView.frame.size.height/10;
     return cell;
 }
 

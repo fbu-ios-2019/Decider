@@ -92,7 +92,7 @@
     //figuring out hours
     if([[dictionary objectForKey:@"hours"] count]) {
         self.hours = [[[dictionary objectForKey:@"hours"] valueForKey:@"open"] objectAtIndex:0];
-        if(weekday > [self.hours count]) {
+        if(weekday >= [self.hours count]) {
             weekday = 0;
         }
         NSDictionary *day = [self.hours objectAtIndex:weekday];

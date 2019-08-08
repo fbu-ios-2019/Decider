@@ -85,7 +85,7 @@ static NSString * const contentLength = @"Content-Length";
                              withPricePreference:(NSInteger)pricePreference
                               withUserPreferences:(NSArray *)userPreferences
                                completionHandler:(DeciderCompletionHandler)completionHandler {
-    NSString *urlString = @"https://decider-backend.herokuapp.com/restaurants/recommendations";
+    NSString *urlString = @"http://localhost:5000/restaurants/recommendations";
     NSString *likedString = [self stringifyArray:likedPhotos];
     NSString *hatedString = [self stringifyArray:hatedPhotos];
     NSString *userPreferenceString = [userPreferences componentsJoinedByString:@","];

@@ -33,6 +33,8 @@
 		F97CE6A822DFE319004798EF /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE6A722DFE319004798EF /* Restaurant.m */; };
 		F97CE6AD22E0ECD7004798EF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */; };
 		F988729522E657B800F85972 /* PhotoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F988729422E657B800F85972 /* PhotoCollectionCell.m */; };
+		F9B3C08322FCC2970058D24C /* WalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B3C08222FCC2970058D24C /* WalkthroughViewController.m */; };
+		F9B3C08622FCC2AC0058D24C /* WalkthroughContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B3C08522FCC2AC0058D24C /* WalkthroughContentViewController.m */; };
 		F9B9F7E022EC2429003AACDB /* RecommendationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B9F7DF22EC2429003AACDB /* RecommendationsViewController.m */; };
 		F9CD455822E761340038D859 /* RecommendationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CD455722E761340038D859 /* RecommendationCell.m */; };
 		F9D4F33A22F10DE60074298D /* ChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4F33922F10DE60074298D /* ChooseCell.m */; };
@@ -116,6 +118,10 @@
 		F97CE6AC22E0ECD7004798EF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F988729322E657B800F85972 /* PhotoCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionCell.h; sourceTree = "<group>"; };
 		F988729422E657B800F85972 /* PhotoCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionCell.m; sourceTree = "<group>"; };
+		F9B3C08122FCC2970058D24C /* WalkthroughViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalkthroughViewController.h; sourceTree = "<group>"; };
+		F9B3C08222FCC2970058D24C /* WalkthroughViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalkthroughViewController.m; sourceTree = "<group>"; };
+		F9B3C08422FCC2AC0058D24C /* WalkthroughContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalkthroughContentViewController.h; sourceTree = "<group>"; };
+		F9B3C08522FCC2AC0058D24C /* WalkthroughContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalkthroughContentViewController.m; sourceTree = "<group>"; };
 		F9B9F7DE22EC2429003AACDB /* RecommendationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendationsViewController.h; sourceTree = "<group>"; };
 		F9B9F7DF22EC2429003AACDB /* RecommendationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendationsViewController.m; sourceTree = "<group>"; };
 		F9CD455622E761340038D859 /* RecommendationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendationCell.h; sourceTree = "<group>"; };
@@ -299,6 +305,10 @@
 				F9E97C8322FBE1AF008E06C4 /* ImageViewController.m */,
 				86D431BF22FCB06500AFD3A6 /* UserActionsViewController.h */,
 				86D431C022FCB06500AFD3A6 /* UserActionsViewController.m */,
+				F9B3C08122FCC2970058D24C /* WalkthroughViewController.h */,
+				F9B3C08222FCC2970058D24C /* WalkthroughViewController.m */,
+				F9B3C08422FCC2AC0058D24C /* WalkthroughContentViewController.h */,
+				F9B3C08522FCC2AC0058D24C /* WalkthroughContentViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -573,12 +583,14 @@
 				F97CE6A822DFE319004798EF /* Restaurant.m in Sources */,
 				F91F4D6722E7CBEA00D8D1F5 /* Food.m in Sources */,
 				F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */,
+				F9B3C08322FCC2970058D24C /* WalkthroughViewController.m in Sources */,
 				F9E97C7222F945B8008E06C4 /* CollectionHeaderView.m in Sources */,
 				86D431C122FCB06500AFD3A6 /* UserActionsViewController.m in Sources */,
 				F97CE6A222DFACA0004798EF /* ImageView.m in Sources */,
 				F91F4D6D22E8CAD500D8D1F5 /* SignupViewController.m in Sources */,
 				F97CE69F22DFAA7B004798EF /* ChooseFoodView.m in Sources */,
 				F9B9F7E022EC2429003AACDB /* RecommendationsViewController.m in Sources */,
+				F9B3C08622FCC2AC0058D24C /* WalkthroughContentViewController.m in Sources */,
 				F9D4F33A22F10DE60074298D /* ChooseCell.m in Sources */,
 				F91F4D6A22E8CAC800D8D1F5 /* LoginViewController.m in Sources */,
 				F91F4D7022EA501F00D8D1F5 /* EditProfileViewController.m in Sources */,

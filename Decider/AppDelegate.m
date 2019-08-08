@@ -35,6 +35,11 @@
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
     }
     
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageControl.backgroundColor = [UIColor whiteColor];
+    
     return YES;
 }
 

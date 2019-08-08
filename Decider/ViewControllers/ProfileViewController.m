@@ -182,7 +182,7 @@
 }
 - (IBAction)didTapSettings:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    SettingsViewController *settingsController = [storyboard instantiateViewControllerWithIdentifier:@"settingsViewController"];
+    SettingsViewController *settingsController = [storyboard instantiateViewControllerWithIdentifier:@"userSettingsViewController"];
     [self showViewController:settingsController sender:self];
 }
 

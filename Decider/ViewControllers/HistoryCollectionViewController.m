@@ -13,6 +13,7 @@
 #import "Parse/Parse.h"
 #import "MBProgressHUD/MBProgressHUD.h"
 #import "DetailsViewController.h"
+#import "ImageViewController.h"
 
 @interface HistoryCollectionViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -90,9 +91,25 @@
         CollectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CollectionHeaderView" forIndexPath:indexPath];
         NSString *title = [self.history[indexPath.section] objectForKey:@"name"];
         headerView.titleLabel.text = title;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                       initWithTarget:self
+                                       action:@selector(handleTapGuesture:)];
+        headerView.tag = indexPath.section;
+        [headerView addGestureRecognizer:tap];
+        
         reusableview = headerView;
     }
     return reusableview;
+}
+
+- (void)handleTapGuesture:(UITapGestureRecognizer *)gesture {
+    int section = (int)gesture.view.tag;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    DetailsViewController *detailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"detailsVC"];
+    Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[self.history objectAtIndex:section]];
+    detailsViewController.restaurant = restaurant;
+    [self presentViewController:detailsViewController animated:YES completion:nil];
 }
 
 #pragma mark - Navigation
@@ -101,13 +118,22 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([segue.identifier isEqualToString:@"collectionSegue"]) {
+
+    if([segue.identifier isEqualToString:@"pictureSegue"]) {
         HistoryCollectionCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
-        DetailsViewController *detailsViewController =  [segue destinationViewController];
-        Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[self.history objectAtIndex:indexPath.section]];
-        detailsViewController.restaurant = restaurant;
+        ImageViewController *imageViewController =  [segue destinationViewController];
+        NSString *urlString = [[[self.history objectAtIndex:indexPath.section] objectForKey:@"images"] objectAtIndex:indexPath.row];
+        imageViewController.urlString = urlString;
     }
+    
+//    if([segue.identifier isEqualToString:@"collectionSegue"]) {
+//        HistoryCollectionCell *tappedCell = sender;
+//        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+//        DetailsViewController *detailsViewController =  [segue destinationViewController];
+//        Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[self.history objectAtIndex:indexPath.section]];
+//        detailsViewController.restaurant = restaurant;
+//    }
 }
 
 @end

@@ -41,6 +41,7 @@
 		F9E97C6322F4A75E008E06C4 /* HistoryCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E97C6222F4A75E008E06C4 /* HistoryCollectionCell.m */; };
 		F9E97C6F22F94481008E06C4 /* HistoryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E97C6E22F94481008E06C4 /* HistoryCollectionViewController.m */; };
 		F9E97C7222F945B8008E06C4 /* CollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E97C7122F945B8008E06C4 /* CollectionHeaderView.m */; };
+		F9E97C8422FBE1AF008E06C4 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E97C8322FBE1AF008E06C4 /* ImageViewController.m */; };
 		F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA322DF99C000032267 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +133,8 @@
 		F9E97C6E22F94481008E06C4 /* HistoryCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryCollectionViewController.m; sourceTree = "<group>"; };
 		F9E97C7022F945B8008E06C4 /* CollectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionHeaderView.h; sourceTree = "<group>"; };
 		F9E97C7122F945B8008E06C4 /* CollectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionHeaderView.m; sourceTree = "<group>"; };
+		F9E97C8222FBE1AF008E06C4 /* ImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		F9E97C8322FBE1AF008E06C4 /* ImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		F9F33FA222DF99C000032267 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F9F33FA322DF99C000032267 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -299,6 +302,8 @@
 				86F5A78822F35F4E00ABEFE5 /* SettingsViewController.m */,
 				F9E97C6D22F94481008E06C4 /* HistoryCollectionViewController.h */,
 				F9E97C6E22F94481008E06C4 /* HistoryCollectionViewController.m */,
+				F9E97C8222FBE1AF008E06C4 /* ImageViewController.h */,
+				F9E97C8322FBE1AF008E06C4 /* ImageViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 				F9CD455822E761340038D859 /* RecommendationCell.m in Sources */,
 				F9D4F33D22F249C40074298D /* HomeViewController.m in Sources */,
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,
+				F9E97C8422FBE1AF008E06C4 /* ImageViewController.m in Sources */,
 				F9D4F34322F26B9E0074298D /* HistoryViewController.m in Sources */,
 				F9E97C6022F4A747008E06C4 /* HistoryCell.m in Sources */,
 				F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */,

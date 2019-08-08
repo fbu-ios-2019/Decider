@@ -140,6 +140,30 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        // remove id from savedRestaurants
+        NSString *removedId = self.savedRestaurantDetails[indexPath.row][@"yelpId"];
+        [self.savedRestaurants removeObject:removedId];
+        
+        // remove object from restaurant details
+        [self.savedRestaurantDetails removeObjectAtIndex:indexPath.row];
+        
+        // save the user
+        PFUser *user = [PFUser currentUser];
+        [user setObject:self.savedRestaurants forKey:@"savedRestaurants"];
+        [user saveInBackgroundWithBlock:nil];
+        
+        [self.tableView reloadData];
+        
+    }
+}
+
 -(void) restaurantHistoryChanged {
     self.user = [PFUser currentUser];
     self.savedRestaurants = [self.user objectForKey:@"savedRestaurants"];
@@ -154,7 +178,7 @@
 
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.savedRestaurants.count;
+    return self.savedRestaurantDetails.count;
 }
 - (IBAction)didTapSettings:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

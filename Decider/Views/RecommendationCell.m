@@ -40,6 +40,7 @@
     //self.ratingLabel.text = self.restaurant.starRating;
     double starRating = [self.restaurant.starRating floatValue];
     HCSStarRatingView *starRatingView = [[HCSStarRatingView alloc] initWithFrame:CGRectMake(123, 36, 95, 20)];
+    starRatingView.userInteractionEnabled = NO;
     starRatingView.maximumValue = 5;
     starRatingView.minimumValue = 0;
     starRatingView.allowsHalfStars = YES;

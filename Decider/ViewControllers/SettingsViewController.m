@@ -21,7 +21,7 @@
     self.priceControl.selectedSegmentIndex = [defaults integerForKey:@"price_index"];
 
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"SAVE"
+                                   initWithTitle:@"Save"
                                    style:UIBarButtonItemStylePlain
                                    target:self
                                    action:@selector(didTapDone:)];

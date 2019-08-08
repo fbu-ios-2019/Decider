@@ -35,8 +35,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restaurantHistoryChanged) name:@"Liked" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchRestaurantHistory) name:@"Saved" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restaurantHistoryChanged) name:@"update" object:nil];
+
     // Delegates
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -171,11 +171,6 @@
     self.likedRestaurants = [self.user objectForKey:@"likedRestaurants"];
     [self fetchSavedRestaurantsDetails];
 }
-
--(void) savedRestaurantsChanged {
-    [self fetchRestaurantHistory];
-}
-
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.savedRestaurantDetails.count;

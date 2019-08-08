@@ -40,6 +40,7 @@
     // Delegates
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.rowHeight = 150;
     self.tableView.tableHeaderView = self.profileCardView;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     

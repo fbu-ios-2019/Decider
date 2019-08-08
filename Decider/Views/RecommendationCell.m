@@ -20,16 +20,32 @@
 
 -(void)setRestaurant:(Restaurant *)restaurant {
     _restaurant = restaurant;
+    //self.imageView.frame = CGRectMake(15, 12, 100, 100);
+    //self.imageView.image = self.restaurant.coverImage;
+    
+    self.coverView.image = self.restaurant.coverImage;
     self.restaurantName.text = self.restaurant.name;
     self.category.text = [self.restaurant.categories componentsJoinedByString:@", "];
-    self.numberOfStars.text = self.restaurant.starRating;
-    self.price.text = [@"" stringByPaddingToLength:[self.restaurant.priceRating integerValue] withString: @"$" startingAtIndex:0];
+    self.price.text = self.restaurant.priceRating;
     self.likeLabel.text = [NSString stringWithFormat:@"%d", self.restaurant.likeCount];
     self.unlikeLabel.text = [NSString stringWithFormat:@"%d", self.restaurant.unlikeCount];
+    self.addressLabel.text = [[self.restaurant.address componentsSeparatedByString:@"US"] objectAtIndex:0];
 
     [self.likeButton setSelected:self.isLiked ? YES: NO];
     [self.unlikeButton setSelected:self.isHated ? YES: NO];
     [self.saveButton setSelected:self.isSaved ? YES: NO];
+    
+    //star rating animation
+    //self.ratingLabel.text = self.restaurant.starRating;
+    double starRating = [self.restaurant.starRating floatValue];
+    HCSStarRatingView *starRatingView = [[HCSStarRatingView alloc] initWithFrame:CGRectMake(123, 36, 95, 20)];
+    starRatingView.maximumValue = 5;
+    starRatingView.minimumValue = 0;
+    starRatingView.allowsHalfStars = YES;
+    starRatingView.value = starRating;
+    starRatingView.tintColor = [UIColor orangeColor];
+    //[starRatingView addTarget:self action:@selector(didChangeValue:) forControlEvents:UIControlEventValueChanged];
+    [self addSubview:starRatingView];
 }
     
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Restaurant.h"
 #import "Parse/Parse.h"
+#import "HCSStarRatingView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) Restaurant *restaurant;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantName;
 @property (weak, nonatomic) IBOutlet UILabel *category;
-@property (weak, nonatomic) IBOutlet UILabel *numberOfStars;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
@@ -28,8 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) Boolean isHated;
 @property (assign, nonatomic) Boolean isSaved;
 @property (weak, nonatomic) IBOutlet UILabel *unlikeLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *likeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *coverView;
+@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 
 @end
 

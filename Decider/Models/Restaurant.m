@@ -96,9 +96,18 @@
             weekday = 0;
         }
         NSDictionary *day = [self.hours objectAtIndex:weekday];
-        self.startTime = [self formatTime:[day objectForKey:@"start"]];
-        self.endTime = [self formatTime:[day objectForKey:@"end"]];
-        //self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", start, end];
+        if([day objectForKey:@"start"]) {
+            self.startTime = [self formatTime:[day objectForKey:@"start"]];
+        }
+        else {
+            self.startTime = @"";
+        }
+        if([day objectForKey:@"end"]) {
+            self.endTime = [self formatTime:[day objectForKey:@"end"]];
+        }
+        else {
+            self.endTime = @"";
+        }
     }
     else {
         self.startTime = @"";
@@ -126,6 +135,9 @@
 
 - (NSString *)formatTime:(NSString *)time {
     long num = [time longLongValue];
+    if(num == 0) {
+        return @"";
+    }
     if(num > 1200) {
         num = num - 1200;
         NSString *str = [NSString stringWithFormat:@"%ld", num];

@@ -7,6 +7,9 @@
 //
 
 #import "UserActionsViewController.h"
+#import "Parse/Parse.h"
+#import "AppDelegate.h"
+#import "WalkthroughViewController.h"
 
 @interface UserActionsViewController ()
 
@@ -34,6 +37,21 @@
 
 - (IBAction)viewAbout:(id)sender {
     [self performSegueWithIdentifier:@"aboutSegue" sender:self];
+}
+- (IBAction)logout:(id)sender {
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        if(PFUser.currentUser == nil) {
+            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+           
+            WalkthroughViewController *walkthroughViewController = [storyboard instantiateViewControllerWithIdentifier:@"WalkthroughViewController"];
+            appDelegate.window.rootViewController = walkthroughViewController;
+            
+            NSLog(@"User logged out successfully");
+        } else {
+            NSLog(@"Error logging out: %@", error);
+        }
+    }];
 }
 
 /*

@@ -9,7 +9,6 @@
 #import "ProfileViewController.h"
 #import "Parse/Parse.h"
 #import "LoginViewController.h"
-#import "AppDelegate.h"
 #import "EditProfileViewController.h"
 #import "RecommendationCell.h"
 #import "Restaurant.h"
@@ -18,7 +17,7 @@
 #import "SettingsViewController.h"
 #import "RecommendationsViewController.h"
 #import "DetailsViewController.h"
-#import "WalkthroughViewController.h"
+
 
 @interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, RecommendationCellDelegate>
 
@@ -80,22 +79,6 @@
 }
 
 
-- (IBAction)didTapLogout:(id)sender {
-    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        if(PFUser.currentUser == nil) {
-            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//            LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-//            appDelegate.window.rootViewController = loginViewController;
-            WalkthroughViewController *walkthroughViewController = [storyboard instantiateViewControllerWithIdentifier:@"WalkthroughViewController"];
-            appDelegate.window.rootViewController = walkthroughViewController;
-            
-            NSLog(@"User logged out successfully");
-        } else {
-            NSLog(@"Error logging out: %@", error);
-        }
-    }];
-}
 
 
 - (void)fetchRestaurantHistory {

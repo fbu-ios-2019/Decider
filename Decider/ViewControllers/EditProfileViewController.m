@@ -22,6 +22,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    PFFileObject *image = [self.user objectForKey:@"profilePicture"];
+    [image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (data) {
+            self.profileView.image = [UIImage imageWithData:data];
+        }
+        
+    }];
     self.profileView.layer.cornerRadius = self.profileView.frame.size.height/5;
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]

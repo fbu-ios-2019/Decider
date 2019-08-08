@@ -24,6 +24,7 @@
     //self.imageView.image = self.restaurant.coverImage;
     
     self.coverView.image = self.restaurant.coverImage;
+    self.coverView.layer.cornerRadius = self.coverView.frame.size.height/25;
     self.restaurantName.text = self.restaurant.name;
     self.category.text = [self.restaurant.categories componentsJoinedByString:@", "];
     self.price.text = self.restaurant.priceRating;

@@ -109,6 +109,7 @@
     RecommendationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecommendationCell" forIndexPath:indexPath];
     
     // Update cell with data
+    cell.numberLabel.text = [[NSString stringWithFormat:@"%ld", (long)indexPath.row + 1] stringByAppendingString:@"."];
     NSDictionary *restaurantDict = self.savedRestaurantDetails[indexPath.row];
     Restaurant* newRestaurant = [[Restaurant alloc] initWithDictionary:restaurantDict];
     

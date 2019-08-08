@@ -536,6 +536,7 @@
                                             <outlet property="saveButton" destination="IqE-Nb-pow" id="Qh9-uR-t0r"/>
                                             <outlet property="unlikeButton" destination="Dd0-OK-xGi" id="cFR-yH-K53"/>
                                             <outlet property="unlikeLabel" destination="i5Y-n9-odR" id="eLa-Tk-Zhn"/>
+                                            <segue destination="XeU-f6-TMk" kind="presentation" identifier="detailsSegue" id="VW1-GR-C9y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1313,7 +1314,7 @@
         <image name="white-thumbs-down" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hmt-O3-5Iz"/>
+        <segue reference="VW1-GR-C9y"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

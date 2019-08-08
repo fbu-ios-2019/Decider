@@ -13,8 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HistoryCollectionCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-//@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-//@property (weak, nonatomic) IBOutlet UILabel *imageLabel;
 
 @end
 

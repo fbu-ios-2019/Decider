@@ -9,7 +9,9 @@
 #import "HomeViewController.h"
 #import "LPCarouselView.h"
 
-@interface HomeViewController ()
+@interface HomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 

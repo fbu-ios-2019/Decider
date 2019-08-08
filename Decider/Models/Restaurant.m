@@ -96,9 +96,18 @@
             weekday = 0;
         }
         NSDictionary *day = [self.hours objectAtIndex:weekday];
-        self.startTime = [day objectForKey:@"start"];
-        self.endTime = [day objectForKey:@"end"];
-        //self.hoursLabel.text = [NSString stringWithFormat:@"%@-%@", start, end];
+        if([day objectForKey:@"start"]) {
+            self.startTime = [self formatTime:[day objectForKey:@"start"]];
+        }
+        else {
+            self.startTime = @"";
+        }
+        if([day objectForKey:@"end"]) {
+            self.endTime = [self formatTime:[day objectForKey:@"end"]];
+        }
+        else {
+            self.endTime = @"";
+        }
     }
     else {
         self.startTime = @"";
@@ -107,16 +116,37 @@
     
     NSString *str = [dictionary objectForKey:@"phone"];
     self.unformattedPhoneNumber = str;
-    NSString *formattedStr = [[[[[str substringWithRange:NSMakeRange(2, 3)] stringByAppendingString:@") "] stringByAppendingString:[str substringWithRange:NSMakeRange(5, 3)]] stringByAppendingString:@"-"] stringByAppendingString:[str substringWithRange:NSMakeRange(8, 4)]];
-    if(formattedStr) {
-        NSString *finalStr = [@"(" stringByAppendingString:formattedStr];
-        self.phoneNumber = finalStr;
+    if([str isEqualToString:@""]) {
+        self.phoneNumber = @"no phone number";
     }
     else {
-        self.phoneNumber = @"no phone number";
+        NSString *formattedStr = [[[[[str substringWithRange:NSMakeRange(2, 3)] stringByAppendingString:@") "] stringByAppendingString:[str substringWithRange:NSMakeRange(5, 3)]] stringByAppendingString:@"-"] stringByAppendingString:[str substringWithRange:NSMakeRange(8, 4)]];
+        if(formattedStr) {
+            NSString *finalStr = [@"(" stringByAppendingString:formattedStr];
+            self.phoneNumber = finalStr;
+        }
+        else {
+            self.phoneNumber = @"no phone number";
+        }
     }
     
     return self;
+}
+
+- (NSString *)formatTime:(NSString *)time {
+    long num = [time longLongValue];
+    if(num == 0) {
+        return @"";
+    }
+    if(num > 1200) {
+        num = num - 1200;
+        NSString *str = [NSString stringWithFormat:@"%ld", num];
+        NSUInteger number = [str length] - 2;
+        return [[[[str substringWithRange:NSMakeRange(0, number)] stringByAppendingString:@":"] stringByAppendingString:[str substringWithRange:NSMakeRange(number, 2)]] stringByAppendingString:@"PM"];
+    }
+    NSString *str = [NSString stringWithFormat:@"%ld", num];
+    NSUInteger number = [str length] - 2;
+    return [[[[str substringWithRange:NSMakeRange(0, number)] stringByAppendingString:@":"] stringByAppendingString:[str substringWithRange:NSMakeRange(number, 2)]] stringByAppendingString:@"AM"];
 }
 
 @end

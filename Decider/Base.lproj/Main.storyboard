@@ -48,9 +48,18 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-WO-0Mu">
+                                                    <rect key="frame" x="20" y="109" width="110" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <connections>
+                                            <outlet property="categoryLabel" destination="1MC-WO-0Mu" id="NRO-8z-bel"/>
                                             <outlet property="imageView" destination="Enq-Yh-PWG" id="CGQ-HU-Tmb"/>
                                         </connections>
                                     </collectionViewCell>

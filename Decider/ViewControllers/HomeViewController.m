@@ -8,10 +8,12 @@
 
 #import "HomeViewController.h"
 #import "LPCarouselView.h"
+#import "CategoryCollectionCell.h"
 
 @interface HomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSArray *categories;
 
 @end
 
@@ -48,5 +50,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    CategoryCollectionCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CategoryCollectionCell" forIndexPath:indexPath];
+    return cell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 10;
+}
 
 @end

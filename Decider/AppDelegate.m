@@ -22,7 +22,7 @@
     [GMSServices provideAPIKey:@"AIzaSyAPCQMOoqpetifgQvKIhYrhBHS_DCL0tIM"];
     [GMSPlacesClient provideAPIKey:@"AIzaSyAPCQMOoqpetifgQvKIhYrhBHS_DCL0tIM"];
     
-    ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+    ParseClientConfiguration *config = [ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         
         configuration.applicationId = @"decider-fbu";
         configuration.server = @"http://decider-fbu.herokuapp.com/parse";

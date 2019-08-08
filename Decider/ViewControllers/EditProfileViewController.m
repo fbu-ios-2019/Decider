@@ -23,11 +23,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.profileView.layer.cornerRadius = self.profileView.frame.size.height/5;
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done"
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(didTapDone:)];
+    self.navigationItem.rightBarButtonItem = doneButton;
+    doneButton.tintColor = UIColor.orangeColor;
 }
 
-- (IBAction)didTapCancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 - (IBAction)didTapDone:(id)sender {
     if(![self.passwordField.text  isEqual: @""]) {
@@ -45,7 +50,7 @@
             }
         }];
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)didTapChange:(id)sender {

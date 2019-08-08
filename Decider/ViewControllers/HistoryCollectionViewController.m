@@ -45,12 +45,9 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HistoryCollectionCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"HistoryCollectionCell" forIndexPath:indexPath];
-//    NSString *urlString = [[[self.history[indexPath.section] objectForKey:@"restaurants"] objectAtIndex:indexPath.row] objectForKey:@"coverUrl"];
-//    NSURL *url = [NSURL URLWithString:urlString];
     NSString *urlString = [[[self.history objectAtIndex:indexPath.section] objectForKey:@"images"] objectAtIndex:indexPath.row];
     NSURL *url = [NSURL URLWithString:urlString];
     cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-    //cell.imageView.image = [UIImage imageNamed:[self.dogImages[indexPath.section] objectAtIndex:indexPath.row]];
     return cell;
 }
 
@@ -68,7 +65,6 @@
             self.history = [[results objectForKey:@"userHistory"] objectAtIndex:0];
             self.collectionView.delegate = self;
             self.collectionView.dataSource = self;
-            //self.tableView.rowHeight = 125;
             [self.collectionView reloadData];
             [hud hideAnimated:YES];
         }
@@ -80,10 +76,8 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    //return [[self.dogImages objectAtIndex:section] count];
-    //return [[[self.history objectAtIndex:section] objectForKey:@"restaurants"] count];
-    //return 3;
-    return [[[self.history objectAtIndex:section] objectForKey:@"images"] count];
+    return 3;
+    //return [[[self.history objectAtIndex:section] objectForKey:@"images"] count];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -94,9 +88,6 @@
     UICollectionReusableView *reusableview = nil;
     if (kind == UICollectionElementKindSectionHeader) {
         CollectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CollectionHeaderView" forIndexPath:indexPath];
-        //NSString *date = [self.history[indexPath.section] objectForKey:@"date"];
-        //NSString *formattedDate = [[[date substringWithRange:NSMakeRange(5, 5)] stringByAppendingString:@"-"] stringByAppendingString:[date substringWithRange:NSMakeRange(0, 4)]];
-        //NSString *title = [[NSString alloc] initWithFormat:@"%@", formattedDate];
         NSString *title = [self.history[indexPath.section] objectForKey:@"name"];
         headerView.titleLabel.text = title;
         reusableview = headerView;
@@ -113,14 +104,7 @@
     if([segue.identifier isEqualToString:@"collectionSegue"]) {
         HistoryCollectionCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
-        //CGPoint row = [sender convertPoint:CGPointZero toView:self.tableView];
-        //NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:row];
-        //NSDictionary *dictionary = self.history[indexPath.section];
-        //NSArray *restaurants = [dictionary objectForKey:@"restaurants"];
-        //CGPoint touchPoint = [sender convertPoint:CGPointZero toView:self.tableView];
-        //Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[restaurants objectAtIndex:(int)(touchPoint.x / 125)]];
         DetailsViewController *detailsViewController =  [segue destinationViewController];
-//        Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[[self.history[indexPath.section] objectForKey:@"restaurants"] objectAtIndex:indexPath.row]];
         Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[self.history objectAtIndex:indexPath.section]];
         detailsViewController.restaurant = restaurant;
     }

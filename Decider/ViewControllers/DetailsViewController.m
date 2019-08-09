@@ -93,7 +93,7 @@
     
     //star rating animation
     self.ratingLabel.text = self.restaurant.starRating;
-    double starRating = [self.ratingLabel.text floatValue];
+    double starRating = [self.restaurant.starRating floatValue];
     // 8, 171
     HCSStarRatingView *starRatingView = [[HCSStarRatingView alloc] initWithFrame:CGRectMake(8, 210, 95, 20)];
     starRatingView.maximumValue = 5;
@@ -139,7 +139,8 @@
         categoryCell.categoryLabel.textColor = [UIColor whiteColor];
         categoryCell.categoryLabel.layer.masksToBounds = YES;
         categoryCell.categoryLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BACKGROUND"]];
-        categoryCell.categoryLabel.layer.cornerRadius = 6;
+        categoryCell.categoryLabel.layer.cornerRadius = 10;
+        categoryCell.categoryLabel.adjustsFontSizeToFitWidth = YES;
         categoryCell.categoryLabel.text = self.restaurant.categories[indexPath.row];
         return categoryCell;
     }

@@ -42,10 +42,18 @@
 
 
 -(void)makeCategoryBubbles {
-    CGRect labelFrame = CGRectMake(0, 0, 200.0f, 25.0f);
+    CGRect labelFrame = CGRectMake(15.0f, 0, 200.0f, 25.0f);
     UILabel *categoryBubble = [[UILabel alloc] initWithFrame:labelFrame];
     
     categoryBubble.text = @"Category";
+    categoryBubble.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BACKGROUND"]];
+    categoryBubble.layer.masksToBounds = YES;
+    categoryBubble.layer.cornerRadius = 6;
+    categoryBubble.textColor = [UIColor whiteColor];
+    
+    
+
+
     
     [self.scrollView addSubview:categoryBubble];
 }

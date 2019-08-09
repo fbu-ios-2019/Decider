@@ -40,6 +40,11 @@
     [self addChildViewController: self.pageViewController];
     [self.view addSubview: self.pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
+    
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    //pageControl.backgroundColor = [UIColor whiteColor];
 }
 
 #pragma mark - Page View Controller Data Source

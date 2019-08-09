@@ -14,6 +14,7 @@ target 'Decider' do
   	pod 'GooglePlaces'
 	pod 'HCSStarRatingView', '~> 1.5'
 	pod 'LPCarouselView', '~> 1.3.0'
+	pod 'AFNetworking'
 
   target 'DeciderTests' do
     inherit! :search_paths

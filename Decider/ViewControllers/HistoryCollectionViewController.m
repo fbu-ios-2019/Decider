@@ -14,6 +14,7 @@
 #import "MBProgressHUD/MBProgressHUD.h"
 #import "DetailsViewController.h"
 #import "ImageViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface HistoryCollectionViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -49,6 +50,14 @@
     NSString *urlString = [[[self.history objectAtIndex:indexPath.section] objectForKey:@"images"] objectAtIndex:indexPath.row];
     NSURL *url = [NSURL URLWithString:urlString];
     cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(addImageViewWithImage:)];
+    NSString *position = [[NSString stringWithFormat:@"%ld", (long)indexPath.section] stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)indexPath.row]];
+    cell.tag = [position integerValue];
+    [cell addGestureRecognizer:tap];
+    
     return cell;
 }
 
@@ -112,6 +121,38 @@
     [self presentViewController:detailsViewController animated:YES completion:nil];
 }
 
+- (void)removeImage:(UITapGestureRecognizer *)gesture {
+    UIImageView *imgView = (UIImageView*)[self.view viewWithTag:100];
+    [imgView removeFromSuperview];
+    [self.collectionView setUserInteractionEnabled:YES];
+}
+
+- (void)addImageViewWithImage:(UITapGestureRecognizer *)gesture {
+    NSString *str = [NSString stringWithFormat:@"%d", (int)gesture.view.tag];
+    long num = [str length] - 1;
+    long section = [[str substringWithRange:NSMakeRange(0, num)] longLongValue];
+    long row = [[str substringWithRange:NSMakeRange(num, 1)] longLongValue];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
+    imgView.backgroundColor = [UIColor whiteColor];
+    NSString *urlString = [[[self.history objectAtIndex:section]objectForKey:@"images"] objectAtIndex:row];
+    NSURL *url = [NSURL URLWithString:urlString];
+    imgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+    imgView.tag = 100;
+    imgView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *dismissTap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                          action:@selector(removeImage:)];
+    dismissTap.numberOfTapsRequired = 1;
+    [imgView addGestureRecognizer:dismissTap];
+    [UIView animateWithDuration:1 animations:^{
+        [self.view addSubview:imgView];
+    } completion:^(BOOL finished) {
+        NSLog(@"error");
+    }];
+    [self.collectionView setUserInteractionEnabled:NO];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -119,13 +160,13 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 
-    if([segue.identifier isEqualToString:@"pictureSegue"]) {
-        HistoryCollectionCell *tappedCell = sender;
-        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
-        ImageViewController *imageViewController =  [segue destinationViewController];
-        NSString *urlString = [[[self.history objectAtIndex:indexPath.section] objectForKey:@"images"] objectAtIndex:indexPath.row];
-        imageViewController.urlString = urlString;
-    }
+//    if([segue.identifier isEqualToString:@"pictureSegue"]) {
+//        HistoryCollectionCell *tappedCell = sender;
+//        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+//        ImageViewController *imageViewController =  [segue destinationViewController];
+//        NSString *urlString = [[[self.history objectAtIndex:indexPath.section] objectForKey:@"images"] objectAtIndex:indexPath.row];
+//        imageViewController.urlString = urlString;
+//    }
     
 //    if([segue.identifier isEqualToString:@"collectionSegue"]) {
 //        HistoryCollectionCell *tappedCell = sender;

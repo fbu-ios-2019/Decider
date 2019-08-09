@@ -13,7 +13,8 @@
 @interface HomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSArray *categories;
+@property (strong, nonatomic) NSArray *categoryList;
+@property (strong, nonatomic) NSArray *categoryIconList;
 
 @end
 
@@ -39,6 +40,12 @@
     cv.carouselImageViewContentMode = UIViewContentModeScaleAspectFill;
     cv.scrollDuration = 3.f;
     [self.view addSubview:cv];
+    
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    
+    self.categoryList = [NSArray arrayWithObjects:@"All", @"Chinese", @"Thai", @"Indian", @"Coffee & Tea", @"Mexican", nil];
+    self.categoryIconList = [NSArray arrayWithObjects:@"all", @"chinese", @"thai", @"indian", @"coffee", @"mexican", nil];
 }
 
 /*
@@ -53,11 +60,13 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     CategoryCollectionCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CategoryCollectionCell" forIndexPath:indexPath];
+    cell.categoryLabel.text = [self.categoryList objectAtIndex:indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:[self.categoryIconList objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return 6;
 }
 
 @end

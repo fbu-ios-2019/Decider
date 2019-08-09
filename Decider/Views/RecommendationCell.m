@@ -79,8 +79,11 @@
     
     [user setObject:savedRestaurants forKey:@"savedRestaurants"];
     
-    [user saveInBackgroundWithBlock:nil];
-    [self.delegate restaurantHistoryChanged];
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(succeeded) {
+            [self.delegate restaurantHistoryChanged];
+        }
+    }];
 }
 
 
@@ -104,65 +107,69 @@
         [self.likeButton setSelected:NO];
         self.restaurant.likeCount -= 1;
         self.likeLabel.text  = [NSString stringWithFormat:@"%d", self.restaurant.likeCount];
+        [user setObject:likedRestaurants forKey:@"likedRestaurants"];
         
         NSURLSessionTask* task = [Routes unlikeRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if(error) {
                 NSLog(@"%@", error.localizedDescription);
             }
-            [user setObject:likedRestaurants forKey:@"likedRestaurants"];
-            
-            [user saveInBackgroundWithBlock:nil];
-            [self.delegate restaurantHistoryChanged];
-            
+            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if(succeeded) {
+                    [self.delegate restaurantHistoryChanged];
+                }
+            }];
+           
         }];
         
         if (!task) {
             NSLog(@"failed to unlike restaurant");
         }
         
-        
-
     } else {
         [likedRestaurants addObject:self.restaurant.yelpid];
         self.isLiked = YES;
         [self.likeButton setSelected:YES];
         self.restaurant.likeCount += 1;
         self.likeLabel.text  = [NSString stringWithFormat:@"%d", self.restaurant.likeCount];
+        
+        if(self.isHated) {
+            [hatedRestaurants removeObject:self.restaurant.yelpid];
+            [self.unlikeButton setSelected:NO];
+            self.restaurant.unlikeCount -= 1;
+            self.unlikeLabel.text  = [NSString stringWithFormat:@"%d", self.restaurant.unlikeCount];
+            [user setObject:hatedRestaurants forKey:@"hatedRestaurants"];
+        }
+        [user setObject:likedRestaurants forKey:@"likedRestaurants"];
+        
+        
         NSURLSessionTask* task = [Routes likeRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if(error) {
                  NSLog(@"%@", error.localizedDescription);
             }
             
             if (self.isHated) {
-                [hatedRestaurants removeObject:self.restaurant.yelpid];
                 self.isHated = NO;
-                [self.unlikeButton setSelected:NO];
-                self.restaurant.unlikeCount -= 1;
-                self.unlikeLabel.text  = [NSString stringWithFormat:@"%d", self.restaurant.unlikeCount];
-                [user setObject:hatedRestaurants forKey:@"hatedRestaurants"];
                 NSURLSessionTask* task = [Routes unhateRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                     if(error) {
                         NSLog(@"%@", error.localizedDescription);
                     }
-                    // Save new value on database
-                    [user setObject:likedRestaurants forKey:@"likedRestaurants"];
-                    
-                    [user saveInBackgroundWithBlock:nil];
-                    [self.delegate restaurantHistoryChanged];
-                    
+                    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                        if(succeeded) {
+                            [self.delegate restaurantHistoryChanged];
+                        }
+                    }];
+                   
                 }];
                 
                 if (!task) {
                     NSLog(@"failed to unhate restaurant");
                 }
             } else {
-                // Save new value on database
-                [user setObject:likedRestaurants forKey:@"likedRestaurants"];
-                
-                [user saveInBackgroundWithBlock:nil];
-                [self.delegate restaurantHistoryChanged];
-                
-                
+                [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    if(succeeded) {
+                        [self.delegate restaurantHistoryChanged];
+                    }
+                }];
             }
             
         }];
@@ -195,17 +202,21 @@
         [self.unlikeButton setSelected:NO];
         self.restaurant.unlikeCount -= 1;
         self.unlikeLabel.text  = [NSString stringWithFormat:@"%d", self.restaurant.unlikeCount];
+        
+        // Save new value on database
+        [user setObject:hatedRestaurants forKey:@"hatedRestaurants"];
+        [user setObject:likedRestaurants forKey:@"likedRestaurants"];
+        
         NSURLSessionTask* task = [Routes unhateRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if(error) {
                NSLog(@"%@", error.localizedDescription);
             }
+            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if(succeeded) {
+                    [self.delegate restaurantHistoryChanged];
+                }
+            }];
             
-            // Save new value on database
-            [user setObject:hatedRestaurants forKey:@"hatedRestaurants"];
-            [user setObject:likedRestaurants forKey:@"likedRestaurants"];
-            
-            [user saveInBackgroundWithBlock:nil];
-            [self.delegate restaurantHistoryChanged];
         }];
         
         if (!task) {
@@ -221,56 +232,54 @@
         self.restaurant.unlikeCount += 1;
         self.unlikeLabel.text  = [NSString stringWithFormat:@"%d", self.restaurant.unlikeCount];
         
+        if (self.isLiked) {
+            [likedRestaurants removeObject:self.restaurant.yelpid];
+            [self.likeButton setSelected:NO];
+            [user setObject:likedRestaurants forKey:@"likedRestaurants"];
+            
+            self.restaurant.likeCount -= 1;
+            self.likeLabel.text  = [NSString stringWithFormat:@"%d", self.restaurant.likeCount];
+            
+        }
+        // Save new value on database
+        [user setObject:hatedRestaurants forKey:@"hatedRestaurants"];
+        [user setObject:likedRestaurants forKey:@"likedRestaurants"];
+
         NSURLSessionTask* task = [Routes hateRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if(error) {
                 NSLog(@"%@", error.localizedDescription);
             }
             if(self.isLiked) {
-                [likedRestaurants removeObject:self.restaurant.yelpid];
                 self.isLiked = NO;
-                [self.likeButton setSelected:NO];
-                [user setObject:likedRestaurants forKey:@"likedRestaurants"];
-                
-                self.restaurant.likeCount -= 1;
-                self.likeLabel.text  = [NSString stringWithFormat:@"%d", self.restaurant.likeCount];
-                
                 NSURLSessionTask* task = [Routes unlikeRestaurantWithId:self.restaurant.yelpid completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                     if(error) {
                         NSLog(@"%@", error.localizedDescription);
                     }
-                    
-                    // Save new value on database
-                    [user setObject:hatedRestaurants forKey:@"hatedRestaurants"];
-                    [user setObject:likedRestaurants forKey:@"likedRestaurants"];
-                    
-                    [user saveInBackgroundWithBlock:nil];
-                    [self.delegate restaurantHistoryChanged];
+                    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                        if(succeeded) {
+                            [self.delegate restaurantHistoryChanged];
+                        }
+                    }];
                 }];
                 
                 if (!task) {
                     NSLog(@"failed to unlike");
                 }
             } else {
-                // Save new value on database
-                [user setObject:hatedRestaurants forKey:@"hatedRestaurants"];
-                [user setObject:likedRestaurants forKey:@"likedRestaurants"];
-                
-                [user saveInBackgroundWithBlock:nil];
-                [self.delegate restaurantHistoryChanged];
+                [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    if(succeeded) {
+                        [self.delegate restaurantHistoryChanged];
+                    }
+                }];
                 
             }
-            
-            
         }];
         
         if (!task) {
             NSLog(@"failed to hate");
         }
-        
-        
     }
-    
-    
+
 }
 
 @end

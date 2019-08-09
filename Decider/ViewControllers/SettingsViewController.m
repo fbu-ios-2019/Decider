@@ -59,6 +59,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"rankCell"];
     }
     
+    
     cell.textLabel.text = [self.optionsArray objectAtIndex:indexPath.row];
     return cell;
 }

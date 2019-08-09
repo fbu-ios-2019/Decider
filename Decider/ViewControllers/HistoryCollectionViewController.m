@@ -16,11 +16,16 @@
 #import "ImageViewController.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface HistoryCollectionViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface HistoryCollectionViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *history;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) NSArray *filteredHistory;
+
+//@property (strong, nonatomic) NSArray *restaurants;
+
 
 @end
 
@@ -75,6 +80,16 @@
             self.history = [[results objectForKey:@"userHistory"] objectAtIndex:0];
             self.collectionView.delegate = self;
             self.collectionView.dataSource = self;
+            
+            self.searchBar.delegate = self;
+            
+//            NSMutableArray *names = [[NSMutableArray alloc] init];
+//            for(int i = 0; i < [self.history count]; i++) {
+//                [names addObject:[[self.history objectAtIndex:i] objectForKey:@"name"]];
+//            }
+//            self.restaurants = names;
+            self.filteredHistory = self.history;
+            
             [self.collectionView reloadData];
             [hud hideAnimated:YES];
         }
@@ -91,14 +106,15 @@
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return [self.history count];
+    //return [self.history count];
+    return [self.filteredHistory count];
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     UICollectionReusableView *reusableview = nil;
     if (kind == UICollectionElementKindSectionHeader) {
         CollectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CollectionHeaderView" forIndexPath:indexPath];
-        NSString *title = [self.history[indexPath.section] objectForKey:@"name"];
+        NSString *title = [self.filteredHistory[indexPath.section] objectForKey:@"name"];
         headerView.titleLabel.text = title;
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -153,17 +169,19 @@
     [self.collectionView setUserInteractionEnabled:NO];
 }
 
-//- (IBAction)didTapNext:(id)sender {
-////    int section = (int)gesture.view.tag;
-//
-////    CGPoint touchPoint = [sender convertPoint:CGPointZero toView:self.collectionView];
-//    
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    DetailsViewController *detailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"detailsVC"];
-//    //Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[self.history objectAtIndex:section]];
-//    //detailsViewController.restaurant = restaurant;
-//    [self presentViewController:detailsViewController animated:YES completion:nil];
-//}
+//search bar
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchText.length != 0) {
+        NSString *substring = [NSString stringWithString:searchText];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name contains[c] %@)", substring];
+        self.filteredHistory = [self.history filteredArrayUsingPredicate:predicate];
+        NSLog(@"%@", self.filteredHistory);
+    }
+    else {
+        self.filteredHistory = self.history;
+    }
+    [self.collectionView reloadData];
+}
 
 #pragma mark - Navigation
 

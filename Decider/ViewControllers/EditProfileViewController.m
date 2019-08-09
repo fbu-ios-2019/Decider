@@ -24,6 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (!self.user) {
+        self.user = [PFUser currentUser];
+    }
+    
     PFFileObject *image = [self.user objectForKey:@"profilePicture"];
     [image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (data) {
@@ -45,7 +49,12 @@
 
 - (IBAction)didTapDone:(id)sender {
     if(![self.passwordField.text  isEqual: @""]) {
-        [self.user setObject:self.passwordField.text forKey:@"password"];
+        if (![self.passwordField.text isEqualToString:self.confirmPasswordField.text]) {
+            [self passwordMatchValidation];
+        }
+        else {
+            [self.user setObject:self.passwordField.text forKey:@"password"];
+        }
     }
     if(![self.nameField.text  isEqual: @""]) {
         [self.user setObject:self.nameField.text forKey:@"name"];
@@ -111,6 +120,18 @@
     UIGraphicsEndImageContext();
     
     return newImage;
+}
+
+- (void)passwordMatchValidation {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Change Password"
+                                                                   message:@"Password does not match."
+                                                            preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *passwordAlert = [UIAlertAction actionWithTitle:@"Ok"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * _Nonnull action) {
+                                                          }];
+    [alert addAction:passwordAlert];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 /*

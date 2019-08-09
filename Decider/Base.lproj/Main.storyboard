@@ -19,9 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0U-Wb-Z8Z">
-                                <rect key="frame" x="16" y="342" width="343" height="44"/>
+                                <rect key="frame" x="0.0" y="349" width="375" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="searchbar"/>
+                                <state key="normal" image="BACKGROUND"/>
                                 <connections>
                                     <segue destination="o3g-vb-DgT" kind="presentation" id="47Y-9A-RSl"/>
                                 </connections>
@@ -66,6 +66,26 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="start munchin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmJ-zH-mpW">
+                                <rect key="frame" x="-3" y="361" width="310" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="42"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="swipe_white" translatesAutoresizingMaskIntoConstraints="NO" id="7yZ-Fv-VR2">
+                                <rect key="frame" x="299" y="358" width="59" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="start munchin to find the restaurants you love" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGl-vL-c3f">
+                                <rect key="frame" x="8" y="448" width="358" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
+                                <color key="textColor" white="0.88586258559999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -1602,6 +1622,7 @@
     </scenes>
     <resources>
         <image name="0" width="16" height="16"/>
+        <image name="BACKGROUND" width="1638" height="1638"/>
         <image name="bookmark" width="50" height="50"/>
         <image name="close-icon" width="26" height="24"/>
         <image name="decide_icon-40x40" width="40" height="40"/>
@@ -1616,7 +1637,7 @@
         <image name="profile_tabBar_icon" width="29" height="29"/>
         <image name="red-thumbs-down" width="50" height="50"/>
         <image name="review_icon-29x29" width="29" height="29"/>
-        <image name="searchbar" width="498" height="61"/>
+        <image name="swipe_white" width="864" height="866"/>
         <image name="thumbs-up" width="50" height="50"/>
         <image name="white-bookmark" width="50" height="50"/>
         <image name="white-thumb" width="50" height="50"/>

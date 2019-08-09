@@ -62,6 +62,12 @@
     [self.view addSubview:logoImageView];
     [self.view bringSubviewToFront:logoView];
     
+//    
+//    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 150, 150, 20)];
+//    descriptionLabel.textColor = [UIColor lightGrayColor];
+//    descriptionLabel.text = @"";
+//    
+//    [self.view addSubview:descriptionLabel];
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;

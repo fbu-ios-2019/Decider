@@ -1426,6 +1426,11 @@
                                             <segue destination="yvp-y4-TIw" kind="presentation" identifier="locationSegue" id="3VD-NU-7fW"/>
                                         </connections>
                                     </button>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="anf-QD-Gqm" customClass="CategoryView">
+                                        <rect key="frame" x="250" y="171" width="117" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR6-X1-HhL">
@@ -1447,6 +1452,7 @@
                     <connections>
                         <outlet property="addressButton" destination="iRS-vP-KuN" id="twP-Uw-dhJ"/>
                         <outlet property="categoryLabel" destination="ap6-Nq-oAh" id="yVA-Ha-6L3"/>
+                        <outlet property="categoryViewBubbles" destination="anf-QD-Gqm" id="emW-da-kdC"/>
                         <outlet property="collectionView" destination="FkO-zT-c25" id="F6s-qX-WWg"/>
                         <outlet property="flowLayout" destination="c85-GJ-JgS" id="QtB-dZ-aSd"/>
                         <outlet property="hoursLabel" destination="3ni-sL-IPG" id="EgM-bP-Xel"/>
@@ -1456,7 +1462,7 @@
                         <outlet property="priceLabel" destination="6V9-p2-gyK" id="wKE-j6-cJP"/>
                         <outlet property="ratingLabel" destination="9yB-ZO-6qr" id="bwG-ZE-W6A"/>
                         <outlet property="reviewCount" destination="4bt-YV-ETh" id="Mzn-rk-6KY"/>
-                        <outlet property="scrollView" destination="hnq-Zg-oGm" id="o5B-Wl-S7Y"/>
+                        <outlet property="scrollView" destination="hnq-Zg-oGm" id="B6c-Da-USk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwY-1e-JfM" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -45,6 +45,8 @@
 		F9E97C7222F945B8008E06C4 /* CollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E97C7122F945B8008E06C4 /* CollectionHeaderView.m */; };
 		F9E97C8422FBE1AF008E06C4 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E97C8322FBE1AF008E06C4 /* ImageViewController.m */; };
 		F9F33FA422DF99C000032267 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F33FA322DF99C000032267 /* ProfileViewController.m */; };
+		F9FE888B22FD3865000432E5 /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9FE888A22FD3865000432E5 /* CategoryView.xib */; };
+		F9FE888E22FD39C4000432E5 /* CategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FE888D22FD39C4000432E5 /* CategoryView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +145,9 @@
 		F9E97C8322FBE1AF008E06C4 /* ImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		F9F33FA222DF99C000032267 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F9F33FA322DF99C000032267 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		F9FE888A22FD3865000432E5 /* CategoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryView.xib; sourceTree = "<group>"; };
+		F9FE888C22FD39C4000432E5 /* CategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryView.h; sourceTree = "<group>"; };
+		F9FE888D22FD39C4000432E5 /* CategoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +236,7 @@
 				F97CE65A22DD4E1C004798EF /* AppDelegate.m */,
 				F97CE66222DD4E1D004798EF /* Assets.xcassets */,
 				F97CE65F22DD4E1C004798EF /* Main.storyboard */,
+				F9FE888A22FD3865000432E5 /* CategoryView.xib */,
 				F97CE66422DD4E1D004798EF /* LaunchScreen.storyboard */,
 				F97CE66722DD4E1D004798EF /* Info.plist */,
 				F97CE66822DD4E1D004798EF /* main.m */,
@@ -275,6 +281,8 @@
 				F9E97C7122F945B8008E06C4 /* CollectionHeaderView.m */,
 				F9B3C08722FCD56C0058D24C /* CategoryCollectionCell.h */,
 				F9B3C08822FCD56C0058D24C /* CategoryCollectionCell.m */,
+				F9FE888C22FD39C4000432E5 /* CategoryView.h */,
+				F9FE888D22FD39C4000432E5 /* CategoryView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,6 +456,7 @@
 			files = (
 				F97CE66622DD4E1D004798EF /* LaunchScreen.storyboard in Resources */,
 				F97CE66322DD4E1D004798EF /* Assets.xcassets in Resources */,
+				F9FE888B22FD3865000432E5 /* CategoryView.xib in Resources */,
 				F97CE66122DD4E1C004798EF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,6 +601,7 @@
 				F9E97C7222F945B8008E06C4 /* CollectionHeaderView.m in Sources */,
 				86D431C122FCB06500AFD3A6 /* UserActionsViewController.m in Sources */,
 				F97CE6A222DFACA0004798EF /* ImageView.m in Sources */,
+				F9FE888E22FD39C4000432E5 /* CategoryView.m in Sources */,
 				F91F4D6D22E8CAD500D8D1F5 /* SignupViewController.m in Sources */,
 				F9B3C08922FCD56C0058D24C /* CategoryCollectionCell.m in Sources */,
 				F97CE69F22DFAA7B004798EF /* ChooseFoodView.m in Sources */,

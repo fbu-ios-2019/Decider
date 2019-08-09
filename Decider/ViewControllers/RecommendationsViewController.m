@@ -118,9 +118,13 @@
     return cell;
 }
 
--(void) restaurantHistoryChanged {
+-(void) restaurantLikedChanged {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"update" object:nil];
 
+}
+
+-(void) restaurantSavedChanged {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"update" object:nil];
 }
 
 

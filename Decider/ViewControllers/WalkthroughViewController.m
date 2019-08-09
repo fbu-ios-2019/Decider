@@ -14,7 +14,7 @@
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) NSArray *pageInfoStrings;
 @property (strong, nonatomic) NSArray *pageImageNames;
-@property (weak, nonatomic) IBOutlet UILabel *logoLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *logoLabel;
 
 @end
 
@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupLogoLabel];
+//    [self setupLogoLabel];
     //    self.pageInfoStrings = @[@"Get ideas for fun acts of kindness you can do every day", @"Complete acts of kindness to level up and earn achievements", @"Read and share stories of how kindness has touched your life"];
     self.pageInfoStrings = @[@"Add information 1", @"Add information 2", @"Add information 3"];
     self.pageImageNames = @[@"catalogueSS", @"profileSS", @"timelineSS"];
@@ -35,7 +35,7 @@
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     // Change the size of page view controller
-    self.pageViewController.view.frame = CGRectMake(0, 90, self.view.frame.size.width, self.view.frame.size.height - 150);
+    self.pageViewController.view.frame = CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height - 150);
     
     [self addChildViewController: self.pageViewController];
     [self.view addSubview: self.pageViewController.view];
@@ -102,28 +102,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setupLogoLabel {
-    NSMutableAttributedString *attributed = [[NSMutableAttributedString alloc] initWithString:@"Munch"];
-    
-    NSRange range = NSMakeRange(4, 1);
-    
-    UIColor *color = [[UIColor alloc] initWithRed:255/255.f
-                                            green:209/255.f
-                                             blue:102/255.f
-                                            alpha:1];
-    
-    UIFont *font = [UIFont fontWithName:@"Bradley Hand" size:72];
-    
-    [attributed beginEditing];
-    [attributed addAttribute:NSForegroundColorAttributeName
-                       value:color
-                       range:range];
-    [attributed addAttribute:NSFontAttributeName
-                       value:font
-                       range:range];
-    [attributed endEditing];
-    self.logoLabel.attributedText = attributed;
-}
+//- (void)setupLogoLabel {
+//    NSMutableAttributedString *attributed = [[NSMutableAttributedString alloc] initWithString:@"Munch"];
+//    
+//    NSRange range = NSMakeRange(4, 1);
+//    
+//    UIColor *color = [[UIColor alloc] initWithRed:255/255.f
+//                                            green:209/255.f
+//                                             blue:102/255.f
+//                                            alpha:1];
+//    
+//    UIFont *font = [UIFont fontWithName:@"Bradley Hand" size:72];
+//    
+//    [attributed beginEditing];
+//    [attributed addAttribute:NSForegroundColorAttributeName
+//                       value:color
+//                       range:range];
+//    [attributed addAttribute:NSFontAttributeName
+//                       value:font
+//                       range:range];
+//    [attributed endEditing];
+//    self.logoLabel.attributedText = attributed;
+//}
 
 /*
 #pragma mark - Navigation

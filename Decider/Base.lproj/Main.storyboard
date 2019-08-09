@@ -548,11 +548,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="124" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d8K-Il-6rU">
-                                <rect key="frame" x="0.0" y="-6" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="-6" width="375" height="673"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" restorationIdentifier="profileCardView" id="Ice-WG-FEu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pfp" translatesAutoresizingMaskIntoConstraints="NO" id="BpO-VG-d2q">
@@ -587,7 +587,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved Restaurants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcD-vS-kYi">
-                                            <rect key="frame" x="20" y="123" width="356" height="27"/>
+                                            <rect key="frame" x="20" y="152" width="321" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <nil key="textColor"/>
@@ -598,7 +598,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecommendationCell" rowHeight="150" id="Fh7-bz-vhx" customClass="RecommendationCell">
-                                        <rect key="frame" x="0.0" y="198" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="215" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fh7-bz-vhx" id="I15-pw-Tdl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
@@ -625,10 +625,10 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t82-Mt-Yx2">
                                                     <rect key="frame" x="64" y="120" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="white-thumb">
+                                                    <state key="normal" image="like">
                                                         <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
-                                                    <state key="selected" image="thumbs-up"/>
+                                                    <state key="selected" image="like_filled"/>
                                                     <connections>
                                                         <action selector="didTapLike:" destination="Fh7-bz-vhx" eventType="touchUpInside" id="81t-g1-XcJ"/>
                                                     </connections>
@@ -636,10 +636,10 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd0-OK-xGi">
                                                     <rect key="frame" x="15" y="120" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="white-thumbs-down">
+                                                    <state key="normal" image="unlike">
                                                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
-                                                    <state key="selected" image="red-thumbs-down"/>
+                                                    <state key="selected" image="unlike_filled"/>
                                                     <connections>
                                                         <action selector="didTapUnlike:" destination="Fh7-bz-vhx" eventType="touchUpInside" id="clm-rP-LLA"/>
                                                     </connections>
@@ -783,10 +783,10 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uE-i3-vla">
                                                     <rect key="frame" x="64" y="120" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="white-thumb">
+                                                    <state key="normal" image="like">
                                                         <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
-                                                    <state key="selected" image="thumbs-up"/>
+                                                    <state key="selected" image="like_filled"/>
                                                     <connections>
                                                         <action selector="didTapLike:" destination="SUT-YF-NRk" eventType="touchUpInside" id="88T-4b-GAm"/>
                                                     </connections>
@@ -794,10 +794,10 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iz8-Ji-emh">
                                                     <rect key="frame" x="15" y="120" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="white-thumbs-down">
+                                                    <state key="normal" image="unlike">
                                                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
-                                                    <state key="selected" image="red-thumbs-down"/>
+                                                    <state key="selected" image="unlike_filled"/>
                                                     <connections>
                                                         <action selector="didTapUnlike:" destination="SUT-YF-NRk" eventType="touchUpInside" id="vFN-4m-BmH"/>
                                                     </connections>
@@ -910,11 +910,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKH-Ox-Wjr">
-                                <rect key="frame" x="111" y="204" width="155" height="30"/>
+                                <rect key="frame" x="104" y="204" width="173" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Change Profile Photo">
-                                    <color key="titleColor" red="0.48078325710000003" green="0.6127910526" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="1" green="0.55177544919999999" blue="0.12601156899999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapChange:" destination="Q88-so-auK" eventType="touchUpInside" id="ex2-Py-j1X"/>
@@ -923,7 +923,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDg-Bs-JX0">
                                 <rect key="frame" x="17" y="242" width="45" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -935,21 +935,21 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbD-kD-HET">
-                                <rect key="frame" x="16" y="309" width="138" height="21"/>
+                                <rect key="frame" x="16" y="334" width="137" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Bd-3C-UBV">
-                                <rect key="frame" x="17" y="338" width="343" height="30"/>
+                                <rect key="frame" x="17" y="363" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a5D-Vu-qWu">
-                                <rect key="frame" x="17" y="376" width="343" height="30"/>
+                                <rect key="frame" x="17" y="401" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1013,7 +1013,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3eL-SJ-nPR">
-                                <rect key="frame" x="0.0" y="279" width="375" height="267"/>
+                                <rect key="frame" x="-24" y="279" width="399" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -1029,7 +1029,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ng0-4f-ldw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="754" y="2490"/>
+            <point key="canvasLocation" x="752.79999999999995" y="2489.5052473763121"/>
         </scene>
         <!--About-->
         <scene sceneID="3DY-W3-FDf">
@@ -1634,6 +1634,8 @@
         <image name="decide_icon-40x40" width="40" height="40"/>
         <image name="home_tabBar_icon" width="29" height="29"/>
         <image name="katelin" width="2331" height="3109"/>
+        <image name="like" width="100" height="100"/>
+        <image name="like_filled" width="96" height="96"/>
         <image name="list" width="29" height="29"/>
         <image name="maria" width="3024" height="4032"/>
         <image name="mo" width="6888" height="9000"/>
@@ -1641,17 +1643,15 @@
         <image name="pfp" width="720" height="720"/>
         <image name="profile_icon-20x20" width="20" height="20"/>
         <image name="profile_tabBar_icon" width="29" height="29"/>
-        <image name="red-thumbs-down" width="50" height="50"/>
         <image name="review_icon-29x29" width="29" height="29"/>
         <image name="swipe_white" width="864" height="866"/>
-        <image name="thumbs-up" width="50" height="50"/>
+        <image name="unlike" width="100" height="100"/>
+        <image name="unlike_filled" width="96" height="96"/>
         <image name="white-bookmark" width="50" height="50"/>
-        <image name="white-thumb" width="50" height="50"/>
-        <image name="white-thumbs-down" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4gb-rm-ZKv"/>
-        <segue reference="CQ7-wT-U9N"/>
+        <segue reference="VW1-GR-C9y"/>
+        <segue reference="hQL-Vj-Le9"/>
         <segue reference="LzK-f9-hc1"/>
         <segue reference="mHf-vf-c8s"/>
     </inferredMetricsTieBreakers>

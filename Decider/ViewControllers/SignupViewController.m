@@ -8,7 +8,7 @@
 
 #import "SignupViewController.h"
 #import "Parse/Parse.h"
-#import "SignupViewController.h"
+#import "LoginViewController.h"
 
 @interface SignupViewController ()
 
@@ -27,50 +27,93 @@
 }
 
 - (IBAction)didTapSignin:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self showViewController:loginViewController sender:self];}
 
 - (IBAction)didTapRegister:(id)sender {
     [self registerUser];
 }
 
 - (void)registerUser {
-    // initialize a user object
     PFUser *newUser = [PFUser user];
-    
-    // set user properties
     [newUser setObject:self.nameField.text forKey:@"name"];
     [newUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            
         }
     }];
     newUser.username = self.usernameField.text;
     newUser.email = self.emailField.text;
     newUser.password = self.passwordField.text;
     
-    // call sign up function on the object
-    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        if (error != nil) {
-            NSLog(@"Error: %@", error.localizedDescription);
-            [self showAlert];
-        } else {
-            NSLog(@"User registered successfully");
-        }
-    }];
+    if (![self.passwordField.text isEqualToString:self.confirmPasswordField.text]) {
+        [self passwordMatchValidation];
+    }
+    else {
+        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+            if (error != nil) {
+                NSLog(@"Error: %@", error.localizedDescription);
+                if ([self.usernameField.text isEqualToString:@""] || [self.passwordField.text isEqualToString:@""]) {
+                    [self signupValidation];
+                }
+                else if ([self.emailField.text rangeOfString:@"@"].location == NSNotFound) {
+                    [self emailValidation];
+                }
+            } else {
+                NSLog(@"User registered successfully");
+                [self registerComplete];
+            }
+        }];
+    }
 }
 
-- (void)showAlert {
-    if([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""]) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Sign Up" message:@"Please enter username and password." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *tryAgainAlertAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-            [alertController dismissViewControllerAnimated:YES completion:nil];
-        }];
-        [alertController addAction:tryAgainAlertAction];
-        UIViewController *rootViewController=[UIApplication sharedApplication].delegate.window.rootViewController;
-        [rootViewController presentViewController:alertController animated:YES completion:nil];
-    }
+- (void)signupValidation {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Sign Up"
+                                                                   message:@"Please enter username and password."
+                                                            preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *usernameAlert = [UIAlertAction actionWithTitle:@"Ok"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * _Nonnull action) {
+                                                              // handle response here.
+                                                          }];
+    [alert addAction:usernameAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)passwordMatchValidation {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Sign Up"
+                                                                   message:@"Password does not match"
+                                                            preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *passwordAlert = [UIAlertAction actionWithTitle:@"Ok"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * _Nonnull action) {
+                                                          }];
+    [alert addAction:passwordAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)emailValidation {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Sign Up"
+                                                                   message:@"Please enter valid email."
+                                                            preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *passwordAlert = [UIAlertAction actionWithTitle:@"Ok"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * _Nonnull action) {
+                                                          }];
+    [alert addAction:passwordAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)registerComplete {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sign Up Complete"
+                                                                   message:@"Please login now."
+                                                            preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *passwordAlert = [UIAlertAction actionWithTitle:@"Ok"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * _Nonnull action) {
+                                                          }];
+    [alert addAction:passwordAlert];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 /*

@@ -37,38 +37,10 @@
         if (error != nil) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
             if([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""]) {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Log In"
-                                                                                         message:@"Please enter username and password."
-                                                                                  preferredStyle:(UIAlertControllerStyleAlert)];
-                // create a try again action
-                UIAlertAction *tryAgainAlertAction = [UIAlertAction actionWithTitle:@"Try Again"
-                                                                              style:UIAlertActionStyleCancel
-                                                                            handler:^(UIAlertAction * _Nonnull action) {
-                                                                                // handle try again response here. Doing nothing will dismiss the view.
-                                                                            }];
-                // add the try again action to the alertController
-                [alertController addAction:tryAgainAlertAction];
-                
-                [self presentViewController:alertController animated:YES completion:^{
-                    // optional code for what happens after the alert controller has finished presenting
-                }];
+                [self emptyLogin];
             }
             else {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Log In"
-                                                                                         message:@"Wrong username or password."
-                                                                                  preferredStyle:(UIAlertControllerStyleAlert)];
-                // create a try again action
-                UIAlertAction *tryAgainAlertAction = [UIAlertAction actionWithTitle:@"Try Again"
-                                                                              style:UIAlertActionStyleCancel
-                                                                            handler:^(UIAlertAction * _Nonnull action) {
-                                                                                // handle try again response here. Doing nothing will dismiss the view.
-                                                                            }];
-                // add the try again action to the alertController
-                [alertController addAction:tryAgainAlertAction];
-                
-                [self presentViewController:alertController animated:YES completion:^{
-                    // optional code for what happens after the alert controller has finished presenting
-                }];
+                [self loginValidation];
             }
         } else {
             NSLog(@"User logged in successfully");
@@ -77,14 +49,38 @@
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
+}
+
+- (void)emptyLogin {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Log In"
+                                                                             message:@"Please enter username and password."
+                                                                      preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *tryAgainAlertAction = [UIAlertAction actionWithTitle:@"Try Again"
+                                                                  style:UIAlertActionStyleCancel
+                                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                                }];
+    [alertController addAction:tryAgainAlertAction];
     
-    //    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
-    //
-    //    }];
+    [self presentViewController:alertController animated:YES completion:^{
+    }];
+}
+
+- (void)loginValidation {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Log In"
+                                                                             message:@"Wrong username or password."
+                                                                      preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *tryAgainAlertAction = [UIAlertAction actionWithTitle:@"Try Again"
+                                                                  style:UIAlertActionStyleCancel
+                                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                                }];
+    [alertController addAction:tryAgainAlertAction];
+    
+    [self presentViewController:alertController animated:YES completion:^{
+    }];
 }
 
 - (IBAction)didTapBack:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

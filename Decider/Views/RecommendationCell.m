@@ -80,7 +80,7 @@
     [user setObject:savedRestaurants forKey:@"savedRestaurants"];
     
     [user saveInBackgroundWithBlock:nil];
-    [self.delegate savedRestaurantsChanged];
+    [self.delegate restaurantHistoryChanged];
 }
 
 

@@ -30,7 +30,6 @@
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = 150;
-//    [self fetchRecommendations];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -120,12 +119,8 @@
 }
 
 -(void) restaurantHistoryChanged {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Liked" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"update" object:nil];
 
-}
-
--(void) savedRestaurantsChanged {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Saved" object:nil];
 }
 
 

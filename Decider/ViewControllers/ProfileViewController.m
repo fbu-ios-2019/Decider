@@ -9,7 +9,6 @@
 #import "ProfileViewController.h"
 #import "Parse/Parse.h"
 #import "LoginViewController.h"
-#import "AppDelegate.h"
 #import "EditProfileViewController.h"
 #import "RecommendationCell.h"
 #import "Restaurant.h"
@@ -18,7 +17,7 @@
 #import "SettingsViewController.h"
 #import "RecommendationsViewController.h"
 #import "DetailsViewController.h"
-#import "WalkthroughViewController.h"
+
 
 @interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, RecommendationCellDelegate>
 
@@ -36,8 +35,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restaurantHistoryChanged) name:@"Liked" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchRestaurantHistory) name:@"Saved" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restaurantHistoryChanged) name:@"update" object:nil];
+
     // Delegates
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -80,22 +79,6 @@
 }
 
 
-- (IBAction)didTapLogout:(id)sender {
-    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        if(PFUser.currentUser == nil) {
-            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//            LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-//            appDelegate.window.rootViewController = loginViewController;
-            WalkthroughViewController *walkthroughViewController = [storyboard instantiateViewControllerWithIdentifier:@"WalkthroughViewController"];
-            appDelegate.window.rootViewController = walkthroughViewController;
-            
-            NSLog(@"User logged out successfully");
-        } else {
-            NSLog(@"Error logging out: %@", error);
-        }
-    }];
-}
 
 
 - (void)fetchRestaurantHistory {
@@ -174,11 +157,6 @@
     self.likedRestaurants = [self.user objectForKey:@"likedRestaurants"];
     [self fetchSavedRestaurantsDetails];
 }
-
--(void) savedRestaurantsChanged {
-    [self fetchRestaurantHistory];
-}
-
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.savedRestaurantDetails.count;

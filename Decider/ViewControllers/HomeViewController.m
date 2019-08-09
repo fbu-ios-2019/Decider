@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "LPCarouselView.h"
 #import "CategoryCollectionCell.h"
+#import "ChooseViewController.h"
 
 @interface HomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -44,19 +45,23 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    self.categoryList = [NSArray arrayWithObjects:@"All", @"Chinese", @"Thai", @"Indian", @"Coffee & Tea", @"Mexican", nil];
-    self.categoryIconList = [NSArray arrayWithObjects:@"all", @"chinese", @"thai", @"indian", @"coffee", @"mexican", nil];
+    self.categoryList = [NSArray arrayWithObjects:@"All", @"Bakeries", @"Chinese", @"Coffee & Tea", @"Ice Cream & Frozen Yogurt", @"Indian", @"Italian", @"Mexican", @"Seafood", @"Thai", nil];
+    self.categoryIconList = [NSArray arrayWithObjects:@"all", @"bakery", @"chinese", @"coffee", @"icecream", @"indian", @"italian", @"mexican", @"seafood", @"thai", nil];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"categorySegue"]) {
+        CategoryCollectionCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+        ChooseViewController *chooseViewController = [segue destinationViewController];
+        chooseViewController.category = self.categoryList[indexPath.row];
+    }
 }
-*/
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     CategoryCollectionCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CategoryCollectionCell" forIndexPath:indexPath];
@@ -66,7 +71,7 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 6;
+    return 10;
 }
 
 @end

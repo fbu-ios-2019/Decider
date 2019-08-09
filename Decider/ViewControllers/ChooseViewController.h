@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ChooseViewController : UIViewController <CLLocationManagerDelegate>
 
+@property (strong, nonatomic) NSString *category;
+
 @end
 
 NS_ASSUME_NONNULL_END

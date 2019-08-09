@@ -27,6 +27,7 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLGeocoder *geocoder;
 @property (strong, nonatomic) CLPlacemark *placemark;
+@property (strong, nonatomic) UILabel *instructionsLabel;
 
 @end
 
@@ -43,6 +44,14 @@
     UITextField *textField = [self.locationSearchBar valueForKey:@"searchField"];
     textField.text = @"Current Location";
     textField.textColor = UIColor.blueColor;
+    UITextField *textField2 = [self.categorySearchBar valueForKey:@"searchField"];
+    textField2.text = self.category;
+    [self.tableView setHidden:YES];
+    
+    self.instructionsLabel = [[UILabel alloc]initWithFrame:CGRectMake(18, 300, 300, 200)];
+    self.instructionsLabel.numberOfLines = 0;
+    self.instructionsLabel.text = @"Choose a category and location or use current location to begin munchin!";
+    [self.view addSubview:self.instructionsLabel];
     
     [self fetchCategories];
     [self fetchLocations];
@@ -165,12 +174,15 @@
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [self.instructionsLabel removeFromSuperview];
+    [self.tableView setHidden:NO];
     if(searchBar == self.locationSearchBar) {
         self.isLocationSearchBar = YES;
         UITextField *textField = [self.locationSearchBar valueForKey:@"searchField"];
         if([textField.text isEqualToString:@"Current Location"]){
             textField.text = @"";
         }
+        textField.textColor = [UIColor blackColor];
     }
     else {
         self.isLocationSearchBar = NO;

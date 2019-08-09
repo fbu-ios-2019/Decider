@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restaurantHistoryChanged) name:@"update" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTriggeredFromRecommendation) name:@"update" object:nil];
 
     // Delegates
     self.tableView.dataSource = self;
@@ -155,8 +155,17 @@
     self.savedRestaurants = [self.user objectForKey:@"savedRestaurants"];
     self.hatedRestaurants = [self.user objectForKey:@"hatedRestaurants"];
     self.likedRestaurants = [self.user objectForKey:@"likedRestaurants"];
+    
+}
+
+-(void) changeTriggeredFromRecommendation {
+    self.user = [PFUser currentUser];
+    self.savedRestaurants = [self.user objectForKey:@"savedRestaurants"];
+    self.hatedRestaurants = [self.user objectForKey:@"hatedRestaurants"];
+    self.likedRestaurants = [self.user objectForKey:@"likedRestaurants"];
     [self fetchSavedRestaurantsDetails];
 }
+    
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.savedRestaurantDetails.count;

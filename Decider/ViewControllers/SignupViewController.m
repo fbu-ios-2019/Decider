@@ -105,15 +105,17 @@
 }
 
 - (void)registerComplete {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sign Up Complete"
-                                                                   message:@"Please login now."
-                                                            preferredStyle:(UIAlertControllerStyleAlert)];
-    UIAlertAction *passwordAlert = [UIAlertAction actionWithTitle:@"Ok"
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * _Nonnull action) {
-                                                          }];
-    [alert addAction:passwordAlert];
-    [self presentViewController:alert animated:YES completion:nil];
+    [PFUser logInWithUsernameInBackground:self.usernameField.text password:self.passwordField.text block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+        NSLog(@"%@", error);
+        NSLog(@"%@", user);
+        if (error != nil) {
+            NSLog(@"User log in failed: %@", error.localizedDescription);
+        } else {
+            NSLog(@"User logged in successfully");
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            self.view.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+        }
+    }];
 }
 
 /*

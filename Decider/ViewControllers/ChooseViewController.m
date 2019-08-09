@@ -48,7 +48,7 @@
     textField2.text = self.category;
     [self.tableView setHidden:YES];
     
-    self.instructionsLabel = [[UILabel alloc]initWithFrame:CGRectMake(18, 300, 300, 200)];
+    self.instructionsLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 80, 300, 200)];
     self.instructionsLabel.numberOfLines = 0;
     self.instructionsLabel.text = @"Choose a category and location or use current location to begin munchin!";
     [self.view addSubview:self.instructionsLabel];

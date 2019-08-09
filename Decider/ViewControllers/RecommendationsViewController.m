@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) NSMutableArray *recommendations;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @end
 
@@ -29,12 +30,15 @@
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = 150;
+    self.tableView.tableHeaderView = self.headerView;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
+    [self.tableView.tableHeaderView setHidden:YES];
     if(!self.recommendations) {
         [self fetchRecommendations];
     }
+    [self.tableView.tableHeaderView setHidden:NO];
 }
 
 - (void)fetchRecommendations {

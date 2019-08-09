@@ -46,7 +46,6 @@
             NSLog(@"User logged in successfully");
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             self.view.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
-        
         }
     }];
 }

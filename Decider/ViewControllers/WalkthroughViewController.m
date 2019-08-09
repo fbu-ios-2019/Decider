@@ -25,7 +25,7 @@
     [super viewDidLoad];
 //    [self setupLogoLabel];
     //    self.pageInfoStrings = @[@"Get ideas for fun acts of kindness you can do every day", @"Complete acts of kindness to level up and earn achievements", @"Read and share stories of how kindness has touched your life"];
-    self.pageInfoStrings = @[@"Add information 1", @"Add information 2", @"Add information 3"];
+    self.pageInfoStrings = @[@"Select the type of food you're craving and where you are", @"Munch all you need to, we got you covered with 3 top recommendations", @"Save, see details, rate, but most importantly, enjoy!"];
     self.pageImageNames = @[@"catalogueSS", @"profileSS", @"timelineSS"];
     
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];

@@ -24,7 +24,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    LPCarouselView *cv = [LPCarouselView carouselViewWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, 250) placeholderImage:nil images:^NSArray *{
-    LPCarouselView *cv = [LPCarouselView carouselViewWithFrame:CGRectMake(0, 64, 375, 270) placeholderImage:nil images:^NSArray *{
+    
+    // Make navigation bar transparent
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    
+    
+    LPCarouselView *cv = [LPCarouselView carouselViewWithFrame:CGRectMake(0, 0, 375, 350) placeholderImage:nil images:^NSArray *{
         return @[
                  @"image1",
                  @"image2",

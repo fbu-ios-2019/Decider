@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="qqV-mx-f7P">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z7s-I6-OeA" customClass="HomeViewController" sceneMemberID="viewController">
@@ -71,7 +71,7 @@
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Nld-Vj-Miq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="Nu8-PI-WBb"/>
+                    <navigationItem key="navigationItem" id="Nu8-PI-WBb"/>
                     <connections>
                         <outlet property="collectionView" destination="CoL-P9-eBg" id="bWE-2L-duI"/>
                     </connections>
@@ -1569,6 +1569,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="81K-X7-BMD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

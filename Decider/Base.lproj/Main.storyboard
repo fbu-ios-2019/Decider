@@ -607,12 +607,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqE-Nb-pow">
-                                                    <rect key="frame" x="335" y="120" width="25" height="25"/>
+                                                    <rect key="frame" x="314" y="101" width="46" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="white-bookmark">
+                                                    <state key="normal" image="bookmark-1">
                                                         <color key="titleColor" red="1" green="0.38431372549999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
-                                                    <state key="selected" image="bookmark"/>
+                                                    <state key="selected" image="bookmark_filled"/>
                                                     <connections>
                                                         <action selector="didTapSave:" destination="Fh7-bz-vhx" eventType="touchUpInside" id="xGB-bO-qQY"/>
                                                     </connections>
@@ -765,12 +765,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuK-Uj-Wnt">
-                                                    <rect key="frame" x="335" y="120" width="25" height="25"/>
+                                                    <rect key="frame" x="324" y="109" width="36" height="36"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="white-bookmark">
+                                                    <state key="normal" image="bookmark-1">
                                                         <color key="titleColor" red="1" green="0.38431372549999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
-                                                    <state key="selected" image="bookmark"/>
+                                                    <state key="selected" image="bookmark_filled"/>
                                                     <connections>
                                                         <action selector="didTapSave:" destination="SUT-YF-NRk" eventType="touchUpInside" id="xMu-hr-sqD"/>
                                                     </connections>
@@ -1342,57 +1342,36 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8n-20-UOV">
-                                        <rect key="frame" x="8" y="142" width="359" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8n-20-UOV">
+                                        <rect key="frame" x="8" y="135" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yB-ZO-6qr">
-                                        <rect key="frame" x="8" y="171" width="95" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="27"/>
+                                        <color key="textColor" red="1" green="0.1529411765" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6V9-p2-gyK">
-                                        <rect key="frame" x="9" y="200" width="81" height="21"/>
+                                        <rect key="frame" x="178" y="176" width="81" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bt-YV-ETh">
-                                        <rect key="frame" x="153" y="171" width="49" height="21"/>
+                                        <rect key="frame" x="169" y="208" width="49" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ni-sL-IPG">
-                                        <rect key="frame" x="9" y="229" width="358" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ap6-Nq-oAh">
-                                        <rect key="frame" x="153" y="200" width="214" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zIL-tE-95N" customClass="GMSMapView">
-                                        <rect key="frame" x="0.0" y="258" width="375" height="283"/>
+                                        <rect key="frame" x="0.0" y="272" width="375" height="270"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOT-6F-VUo">
-                                        <rect key="frame" x="153" y="223" width="214" height="33"/>
+                                        <rect key="frame" x="241" y="171" width="126" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                         <state key="normal" title="Phone Number">
                                             <color key="titleColor" red="0.48078325710000003" green="0.6127910526" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
@@ -1431,15 +1410,16 @@
                                         </cells>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVm-Nt-rOT">
-                                        <rect key="frame" x="210" y="171" width="63" height="21"/>
+                                        <rect key="frame" x="204" y="208" width="65" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRS-vP-KuN">
-                                        <rect key="frame" x="8" y="549" width="179" height="46"/>
+                                        <rect key="frame" x="8" y="544" width="363" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                         <state key="normal" title="Address">
                                             <color key="titleColor" red="0.48078325710000003" green="0.6127910526" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
@@ -1447,6 +1427,46 @@
                                             <segue destination="yvp-y4-TIw" kind="presentation" identifier="locationSegue" id="3VD-NU-7fW"/>
                                         </connections>
                                     </button>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S01-zm-zbo">
+                                        <rect key="frame" x="9" y="232" width="358" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vwO-eD-Pzb">
+                                            <size key="itemSize" width="75" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryBubbleCell" id="s8y-pn-ZlJ" customClass="CategoryBubbleCell">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2h-iX-hCv">
+                                                            <rect key="frame" x="0.0" y="4" width="75" height="26"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </view>
+                                                <connections>
+                                                    <outlet property="categoryLabel" destination="p2h-iX-hCv" id="ilq-8T-tjy"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ni-sL-IPG">
+                                        <rect key="frame" x="8" y="179" width="358" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR6-X1-HhL">
@@ -1467,7 +1487,7 @@
                     <navigationItem key="navigationItem" id="ged-be-I7u"/>
                     <connections>
                         <outlet property="addressButton" destination="iRS-vP-KuN" id="twP-Uw-dhJ"/>
-                        <outlet property="categoryLabel" destination="ap6-Nq-oAh" id="yVA-Ha-6L3"/>
+                        <outlet property="categoryCollectionView" destination="S01-zm-zbo" id="cGK-ta-Lqs"/>
                         <outlet property="collectionView" destination="FkO-zT-c25" id="F6s-qX-WWg"/>
                         <outlet property="flowLayout" destination="c85-GJ-JgS" id="QtB-dZ-aSd"/>
                         <outlet property="hoursLabel" destination="3ni-sL-IPG" id="EgM-bP-Xel"/>
@@ -1475,7 +1495,6 @@
                         <outlet property="nameLabel" destination="a8n-20-UOV" id="9De-fY-Uou"/>
                         <outlet property="phoneButton" destination="tOT-6F-VUo" id="cOR-6B-uEe"/>
                         <outlet property="priceLabel" destination="6V9-p2-gyK" id="wKE-j6-cJP"/>
-                        <outlet property="ratingLabel" destination="9yB-ZO-6qr" id="bwG-ZE-W6A"/>
                         <outlet property="reviewCount" destination="4bt-YV-ETh" id="Mzn-rk-6KY"/>
                         <outlet property="scrollView" destination="hnq-Zg-oGm" id="B6c-Da-USk"/>
                     </connections>
@@ -1618,7 +1637,8 @@
     <resources>
         <image name="0" width="16" height="16"/>
         <image name="BACKGROUND" width="1638" height="1638"/>
-        <image name="bookmark" width="50" height="50"/>
+        <image name="bookmark-1" width="700" height="700"/>
+        <image name="bookmark_filled" width="700" height="700"/>
         <image name="close-icon" width="26" height="24"/>
         <image name="decide_icon-40x40" width="40" height="40"/>
         <image name="home_tabBar_icon" width="29" height="29"/>
@@ -1637,10 +1657,9 @@
         <image name="swipe_white" width="864" height="866"/>
         <image name="unlike" width="100" height="100"/>
         <image name="unlike_filled" width="96" height="96"/>
-        <image name="white-bookmark" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VW1-GR-C9y"/>
+        <segue reference="hmt-O3-5Iz"/>
         <segue reference="hQL-Vj-Le9"/>
         <segue reference="LzK-f9-hc1"/>
         <segue reference="mHf-vf-c8s"/>

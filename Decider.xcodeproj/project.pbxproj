@@ -17,6 +17,7 @@
 		F91F4D6D22E8CAD500D8D1F5 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6C22E8CAD500D8D1F5 /* SignupViewController.m */; };
 		F91F4D7022EA501F00D8D1F5 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4D6F22EA501F00D8D1F5 /* EditProfileViewController.m */; };
 		F9373AE322EB8C3400EA432F /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9373AE222EB8C3400EA432F /* LocationViewController.m */; };
+		F9582FED22FE01D9009A6B05 /* CategoryBubbleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9582FEC22FE01D9009A6B05 /* CategoryBubbleCell.m */; };
 		F95B710222F109570065AE6F /* ChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95B710122F109570065AE6F /* ChooseViewController.m */; };
 		F9619AD722F014780051CDAD /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8610AE3C22DFD53500957D7C /* Routes.m */; };
 		F97CE65B22DD4E1C004798EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F97CE65A22DD4E1C004798EF /* AppDelegate.m */; };
@@ -90,6 +91,8 @@
 		F91F4D6F22EA501F00D8D1F5 /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		F9373AE122EB8C3400EA432F /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		F9373AE222EB8C3400EA432F /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		F9582FEB22FE01D9009A6B05 /* CategoryBubbleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryBubbleCell.h; sourceTree = "<group>"; };
+		F9582FEC22FE01D9009A6B05 /* CategoryBubbleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryBubbleCell.m; sourceTree = "<group>"; };
 		F95B710022F109570065AE6F /* ChooseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseViewController.h; sourceTree = "<group>"; };
 		F95B710122F109570065AE6F /* ChooseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseViewController.m; sourceTree = "<group>"; };
 		F97CE65622DD4E1C004798EF /* Decider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decider.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +278,8 @@
 				F9E97C7122F945B8008E06C4 /* CollectionHeaderView.m */,
 				F9B3C08722FCD56C0058D24C /* CategoryCollectionCell.h */,
 				F9B3C08822FCD56C0058D24C /* CategoryCollectionCell.m */,
+				F9582FEB22FE01D9009A6B05 /* CategoryBubbleCell.h */,
+				F9582FEC22FE01D9009A6B05 /* CategoryBubbleCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 				F9E97C6322F4A75E008E06C4 /* HistoryCollectionCell.m in Sources */,
 				F9619AD722F014780051CDAD /* Routes.m in Sources */,
 				F95B710222F109570065AE6F /* ChooseViewController.m in Sources */,
+				F9582FED22FE01D9009A6B05 /* CategoryBubbleCell.m in Sources */,
 				F9CD455822E761340038D859 /* RecommendationCell.m in Sources */,
 				F9D4F33D22F249C40074298D /* HomeViewController.m in Sources */,
 				F97CE66922DD4E1D004798EF /* main.m in Sources */,

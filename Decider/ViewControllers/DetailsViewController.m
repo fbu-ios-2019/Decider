@@ -12,6 +12,7 @@
 #import "LocationViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "HCSStarRatingView.h"
+#import "CategoryBubbleCell.h"
 
 @interface DetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource, GMSMapViewDelegate>
 
@@ -28,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet UICollectionView *categoryCollectionView;
 
 
 @end
@@ -39,8 +41,12 @@
     [super viewDidLoad];
     
     self.scrollView.alwaysBounceVertical = YES;
+    
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    
+    self.categoryCollectionView.dataSource = self;
+    self.categoryCollectionView.delegate = self;
     //self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
@@ -88,7 +94,8 @@
     //star rating animation
     self.ratingLabel.text = self.restaurant.starRating;
     double starRating = [self.ratingLabel.text floatValue];
-    HCSStarRatingView *starRatingView = [[HCSStarRatingView alloc] initWithFrame:CGRectMake(8, 171, 95, 20)];
+    // 8, 171
+    HCSStarRatingView *starRatingView = [[HCSStarRatingView alloc] initWithFrame:CGRectMake(8, 210, 95, 20)];
     starRatingView.maximumValue = 5;
     starRatingView.minimumValue = 0;
     starRatingView.allowsHalfStars = YES;
@@ -118,16 +125,37 @@
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    PhotoCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCollectionCell" forIndexPath:indexPath];
-    long num = indexPath.row;
-    cell.imageView.image = [self.images objectAtIndex:num];
-    cell.layer.masksToBounds = YES;
-    cell.layer.cornerRadius = cell.imageView.frame.size.height/10;
-    return cell;
+    
+    if (collectionView == self.collectionView) {
+        PhotoCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCollectionCell" forIndexPath:indexPath];
+        long num = indexPath.row;
+        cell.imageView.image = [self.images objectAtIndex:num];
+        cell.layer.masksToBounds = YES;
+        cell.layer.cornerRadius = cell.imageView.frame.size.height/10;
+        return cell;
+    } else {
+        
+        CategoryBubbleCell *categoryCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CategoryBubbleCell" forIndexPath:indexPath];
+        categoryCell.categoryLabel.textColor = [UIColor whiteColor];
+        categoryCell.categoryLabel.layer.masksToBounds = YES;
+        categoryCell.categoryLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BACKGROUND"]];
+        categoryCell.categoryLabel.layer.cornerRadius = 6;
+        categoryCell.categoryLabel.text = self.restaurant.categories[indexPath.row];
+        return categoryCell;
+    }
+    
+    
+    
+    
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     //return 4;
+    if (collectionView == self.collectionView) {
+        return self.images.count;
+    } else {
+        return self.restaurant.categories.count;
+    }
     return self.images.count;
 }
 - (IBAction)callPhone:(id)sender {

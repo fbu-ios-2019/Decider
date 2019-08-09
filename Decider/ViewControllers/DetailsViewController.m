@@ -12,7 +12,6 @@
 #import "LocationViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "HCSStarRatingView.h"
-#import "CategoryView.h"
 
 @interface DetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource, GMSMapViewDelegate>
 
@@ -29,7 +28,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
-@property (weak, nonatomic) IBOutlet CategoryView *categoryViewBubbles;
 
 
 @end

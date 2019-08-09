@@ -1446,11 +1446,6 @@
                                             <segue destination="yvp-y4-TIw" kind="presentation" identifier="locationSegue" id="3VD-NU-7fW"/>
                                         </connections>
                                     </button>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="anf-QD-Gqm" customClass="CategoryView">
-                                        <rect key="frame" x="250" y="171" width="117" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
                                 </subviews>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR6-X1-HhL">
@@ -1472,7 +1467,6 @@
                     <connections>
                         <outlet property="addressButton" destination="iRS-vP-KuN" id="twP-Uw-dhJ"/>
                         <outlet property="categoryLabel" destination="ap6-Nq-oAh" id="yVA-Ha-6L3"/>
-                        <outlet property="categoryViewBubbles" destination="anf-QD-Gqm" id="emW-da-kdC"/>
                         <outlet property="collectionView" destination="FkO-zT-c25" id="F6s-qX-WWg"/>
                         <outlet property="flowLayout" destination="c85-GJ-JgS" id="QtB-dZ-aSd"/>
                         <outlet property="hoursLabel" destination="3ni-sL-IPG" id="EgM-bP-Xel"/>

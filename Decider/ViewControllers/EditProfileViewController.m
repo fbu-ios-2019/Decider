@@ -24,6 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (!self.user) {
+        self.user = [PFUser currentUser];
+    }
+    
     PFFileObject *image = [self.user objectForKey:@"profilePicture"];
     [image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (data) {

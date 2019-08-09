@@ -14,6 +14,7 @@
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) NSArray *pageInfoStrings;
 @property (strong, nonatomic) NSArray *pageImageNames;
+@property (weak, nonatomic) IBOutlet UIImageView *logoView;
 //@property (weak, nonatomic) IBOutlet UILabel *logoLabel;
 
 @end
@@ -44,7 +45,13 @@
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    //pageControl.backgroundColor = [UIColor whiteColor];
+    
+    if(self.navigationController.navigationBar) {
+        [self.logoView setHidden:YES];
+    }
+    else {
+        [self.logoView setHidden:NO];
+    }
 }
 
 #pragma mark - Page View Controller Data Source

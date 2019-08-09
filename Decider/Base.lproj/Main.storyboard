@@ -1542,7 +1542,7 @@
         <scene sceneID="vQ3-Io-h3B">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qsy-iz-zFw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="profile_icon-29x29" id="gb4-iP-4jO"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile_tabBar_icon" id="gb4-iP-4jO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QKr-X9-IwT">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1564,7 +1564,7 @@
         <scene sceneID="dmm-kY-rt6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gnc-JH-SJg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="decide_icon-29x29" id="qBy-RG-nw2"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home_tabBar_icon" id="qBy-RG-nw2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="81K-X7-BMD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1583,7 +1583,7 @@
         <scene sceneID="rRe-Bq-HCu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y5S-B1-6ub" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" image="review_icon-29x29" id="hOh-wX-34r"/>
+                    <tabBarItem key="tabBarItem" title="History" image="list" id="hOh-wX-34r"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5vo-tl-NvI">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1603,15 +1603,16 @@
         <image name="0" width="16" height="16"/>
         <image name="bookmark" width="50" height="50"/>
         <image name="close-icon" width="26" height="24"/>
-        <image name="decide_icon-29x29" width="29" height="29"/>
         <image name="decide_icon-40x40" width="40" height="40"/>
+        <image name="home_tabBar_icon" width="29" height="29"/>
         <image name="katelin" width="2331" height="3109"/>
+        <image name="list" width="29" height="29"/>
         <image name="maria" width="3024" height="4032"/>
         <image name="mo" width="6888" height="9000"/>
         <image name="next-icon" width="50" height="50"/>
         <image name="pfp" width="720" height="720"/>
         <image name="profile_icon-20x20" width="20" height="20"/>
-        <image name="profile_icon-29x29" width="29" height="29"/>
+        <image name="profile_tabBar_icon" width="29" height="29"/>
         <image name="red-thumbs-down" width="50" height="50"/>
         <image name="review_icon-29x29" width="29" height="29"/>
         <image name="searchbar" width="498" height="61"/>

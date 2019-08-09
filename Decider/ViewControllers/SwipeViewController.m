@@ -130,7 +130,6 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     // Quick and dirty, just for the purposes of this sample app.
     _frontCardView = frontCardView;
     self.currentFood = frontCardView.food;
-    //NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
     long sum = self.likeCount + self.unlikeCount;
     if(sum >= [self.restaurants count]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot load data"
@@ -138,9 +137,6 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
                                                                           preferredStyle:(UIAlertControllerStyleAlert)];
         
         UIAlertAction *okAlertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//            ChooseViewController *chooseViewController = [storyboard instantiateViewControllerWithIdentifier:@"chooseViewController"];
-//            [self showViewController:chooseViewController sender:self];
             [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
         }];
         [alertController addAction:okAlertAction];
@@ -151,7 +147,6 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
                 recommendationsViewController.foodLiked = self.foodLiked;
                 recommendationsViewController.foodUnliked = self.foodUnliked;
                 recommendationsViewController.location = self.location;
-                [self showViewController:recommendationsViewController sender:self];
             }];
             [alertController addAction:decideAlertAction];
         }

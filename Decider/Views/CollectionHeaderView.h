@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CollectionHeaderView : UICollectionReusableView
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 @end
 

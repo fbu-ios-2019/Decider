@@ -153,6 +153,18 @@
     [self.collectionView setUserInteractionEnabled:NO];
 }
 
+//- (IBAction)didTapNext:(id)sender {
+////    int section = (int)gesture.view.tag;
+//
+////    CGPoint touchPoint = [sender convertPoint:CGPointZero toView:self.collectionView];
+//    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    DetailsViewController *detailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"detailsVC"];
+//    //Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[self.history objectAtIndex:section]];
+//    //detailsViewController.restaurant = restaurant;
+//    [self presentViewController:detailsViewController animated:YES completion:nil];
+//}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

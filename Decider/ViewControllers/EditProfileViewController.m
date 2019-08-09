@@ -123,8 +123,8 @@
 }
 
 - (void)passwordMatchValidation {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Sign Up"
-                                                                   message:@"Password does not match"
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Change Password"
+                                                                   message:@"Password does not match."
                                                             preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *passwordAlert = [UIAlertAction actionWithTitle:@"Ok"
                                                             style:UIAlertActionStyleDefault

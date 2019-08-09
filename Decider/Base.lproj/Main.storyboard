@@ -897,10 +897,10 @@
             </objects>
             <point key="canvasLocation" x="-1066.4000000000001" y="1731.1844077961021"/>
         </scene>
-        <!--Edit Profile View Controller-->
+        <!--Edit Profile-->
         <scene sceneID="nVi-Zz-0bP">
             <objects>
-                <viewController id="Q88-so-auK" customClass="EditProfileViewController" sceneMemberID="viewController">
+                <viewController title="Edit Profile" id="Q88-so-auK" customClass="EditProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pEB-aA-DHx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -946,14 +946,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a5D-Vu-qWu">
                                 <rect key="frame" x="17" y="401" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -970,10 +970,10 @@
             </objects>
             <point key="canvasLocation" x="-62" y="2490"/>
         </scene>
-        <!--Settings-->
+        <!--Preferences-->
         <scene sceneID="2hD-tc-yGL">
             <objects>
-                <viewController storyboardIdentifier="userPreferenceViewController" title="Settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m6y-r9-eGD" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userPreferenceViewController" title="Preferences" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m6y-r9-eGD" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="neV-zi-wUL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

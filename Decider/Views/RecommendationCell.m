@@ -81,7 +81,7 @@
     
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded) {
-            [self.delegate restaurantHistoryChanged];
+            [self.delegate restaurantSavedChanged];
         }
     }];
 }
@@ -115,7 +115,7 @@
             }
             [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if(succeeded) {
-                    [self.delegate restaurantHistoryChanged];
+                    [self.delegate restaurantLikedChanged];
                 }
             }];
            
@@ -155,7 +155,7 @@
                     }
                     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                         if(succeeded) {
-                            [self.delegate restaurantHistoryChanged];
+                            [self.delegate restaurantLikedChanged];
                         }
                     }];
                    
@@ -167,7 +167,7 @@
             } else {
                 [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                     if(succeeded) {
-                        [self.delegate restaurantHistoryChanged];
+                        [self.delegate restaurantLikedChanged];
                     }
                 }];
             }
@@ -213,7 +213,7 @@
             }
             [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if(succeeded) {
-                    [self.delegate restaurantHistoryChanged];
+                    [self.delegate restaurantLikedChanged];
                 }
             }];
             
@@ -257,7 +257,7 @@
                     }
                     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                         if(succeeded) {
-                            [self.delegate restaurantHistoryChanged];
+                            [self.delegate restaurantLikedChanged];
                         }
                     }];
                 }];
@@ -268,7 +268,7 @@
             } else {
                 [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                     if(succeeded) {
-                        [self.delegate restaurantHistoryChanged];
+                        [self.delegate restaurantLikedChanged];
                     }
                 }];
                 

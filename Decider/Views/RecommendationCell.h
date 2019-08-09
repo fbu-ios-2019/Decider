@@ -37,8 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol RecommendationCellDelegate
 @optional
--(void)restaurantHistoryChanged;
--(void)savedRestaurantsChanged;
+-(void)restaurantLikedChanged;
+-(void)restaurantSavedChanged;
 
 @end
 

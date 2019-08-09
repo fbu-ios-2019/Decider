@@ -150,13 +150,18 @@
     }
 }
 
--(void) restaurantHistoryChanged {
+-(void) restaurantLikedChanged {
     self.user = [PFUser currentUser];
     self.savedRestaurants = [self.user objectForKey:@"savedRestaurants"];
     self.hatedRestaurants = [self.user objectForKey:@"hatedRestaurants"];
     self.likedRestaurants = [self.user objectForKey:@"likedRestaurants"];
     
 }
+
+-(void) restaurantSavedChanged {
+    [self changeTriggeredFromRecommendation];
+}
+
 
 -(void) changeTriggeredFromRecommendation {
     self.user = [PFUser currentUser];

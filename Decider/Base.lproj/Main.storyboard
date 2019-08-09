@@ -1082,7 +1082,7 @@
                                 <rect key="frame" x="138" y="299" width="87" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mo" translatesAutoresizingMaskIntoConstraints="NO" id="i73-VH-hZi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mudi" translatesAutoresizingMaskIntoConstraints="NO" id="i73-VH-hZi">
                                 <rect key="frame" x="256" y="299" width="87" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1641,7 +1641,7 @@
         <image name="like_filled" width="96" height="96"/>
         <image name="list" width="29" height="29"/>
         <image name="maria" width="3024" height="4032"/>
-        <image name="mo" width="6888" height="9000"/>
+        <image name="mudi" width="3024" height="4032"/>
         <image name="munchTitle" width="751" height="226"/>
         <image name="next-icon" width="50" height="50"/>
         <image name="pfp" width="720" height="720"/>

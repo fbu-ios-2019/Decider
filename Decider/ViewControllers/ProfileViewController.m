@@ -28,12 +28,17 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *profileCardView;
 
+
 @end
 
 @implementation ProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.screenTitle.clipsToBounds = YES;
+    self.screenTitle.layer.cornerRadius = 6;
+    self.screenTitle.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"labels_background"]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTriggeredFromRecommendation) name:@"update" object:nil];
 

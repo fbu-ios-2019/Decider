@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSMutableArray *likedRestaurants;
 @property (strong, nonatomic) NSMutableArray *hatedRestaurants;
 @property (strong, nonatomic) NSMutableArray *savedRestaurantDetails;
+@property (weak, nonatomic) IBOutlet UILabel *screenTitle;
 
 
 @end

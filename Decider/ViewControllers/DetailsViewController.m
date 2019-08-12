@@ -47,7 +47,6 @@
     
     self.categoryCollectionView.dataSource = self;
     self.categoryCollectionView.delegate = self;
-    //self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 5;

@@ -258,11 +258,11 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 // Create and add the "like" button.
 - (void)constructLikedButton {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage *image = [UIImage imageNamed:@"like"];
+    UIImage *image = [UIImage imageNamed:@"liked"];
     button.frame = CGRectMake(CGRectGetMaxX(self.view.frame) - image.size.width - ChooseFoodButtonHorizontalPadding,
-                              CGRectGetMaxY(self.frontCardView.frame) + ChooseFoodButtonVerticalPadding,
-                              image.size.width,
-                              image.size.height);
+                              592,//CGRectGetMaxY(self.frontCardView.frame) + ChooseFoodButtonVerticalPadding,
+                              42,//image.size.width,
+                              42);//image.size.height);
     [button setImage:image forState:UIControlStateNormal];
     [button setTintColor:[UIColor colorWithRed:29.f/255.f
                                          green:245.f/255.f

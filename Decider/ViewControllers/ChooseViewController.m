@@ -51,7 +51,7 @@
     self.instructionsLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.layer.frame.size.width/10, self.view.layer.frame.size.height/2, 300, 200)];
     self.instructionsLabel.numberOfLines = 0;
     self.instructionsLabel.text = @"Choose the type of food you're craving and where you are";
-    [self.instructionsLabel setFont:[UIFont fontWithName:@"Avenir" size:24]];
+    [self.instructionsLabel setFont:[UIFont fontWithName:@"Avenir" size:20]];
     [self.view addSubview:self.instructionsLabel];
     self.instructionsLabel.textColor = [UIColor lightGrayColor];
     [self.instructionsLabel setTextAlignment:NSTextAlignmentCenter];

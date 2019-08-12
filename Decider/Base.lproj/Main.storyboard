@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0U-Wb-Z8Z">
-                                <rect key="frame" x="0.0" y="361" width="375" height="99"/>
+                                <rect key="frame" x="0.0" y="370" width="375" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="BACKGROUND"/>
                                 <connections>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="start munchin to find the restaurants you love" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGl-vL-c3f">
-                                <rect key="frame" x="0.0" y="420" width="375" height="29"/>
+                                <rect key="frame" x="0.0" y="429" width="375" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
@@ -75,7 +75,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="start munchin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmJ-zH-mpW">
-                                <rect key="frame" x="0.0" y="361" width="375" height="88"/>
+                                <rect key="frame" x="0.0" y="370" width="375" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="44"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -95,16 +95,16 @@
             </objects>
             <point key="canvasLocation" x="-1954.4000000000001" y="984.55772113943033"/>
         </scene>
-        <!--History-->
+        <!--history-->
         <scene sceneID="Ofx-vy-wE4">
             <objects>
                 <viewController id="wQT-1J-atW" customClass="HistoryCollectionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NZb-Mi-xNT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VHJ-Xd-u2d">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zqe-cl-XbC">
@@ -138,15 +138,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9e-MK-eFb">
-                                            <rect key="frame" x="346" y="28" width="21" height="21"/>
+                                            <rect key="frame" x="343" y="15" width="21" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="next-icon"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2q-HW-VWt">
-                                            <rect key="frame" x="8" y="28" width="359" height="21"/>
+                                            <rect key="frame" x="10" y="17" width="330" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="22"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -156,17 +156,33 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search Restaurant" translatesAutoresizingMaskIntoConstraints="NO" id="mcB-FV-bcH">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Search for a restaurant" translatesAutoresizingMaskIntoConstraints="NO" id="mcB-FV-bcH">
+                                <rect key="frame" x="0.0" y="32" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="1" green="0.26666666666666666" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="the place to find all your previous recommendations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRA-9Y-71X">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.2666666667" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaC-rJ-QU0" userLabel="Line">
+                                <rect key="frame" x="0.0" y="28" width="375" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.2666666667" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gQ7-gd-D8c"/>
                     </view>
-                    <navigationItem key="navigationItem" title="History" id="dYv-3e-8gu"/>
+                    <navigationItem key="navigationItem" title="history" id="dYv-3e-8gu"/>
                     <connections>
                         <outlet property="collectionView" destination="VHJ-Xd-u2d" id="VWR-Pi-5Nz"/>
                         <outlet property="searchBar" destination="mcB-FV-bcH" id="RIf-54-Fam"/>
@@ -1648,9 +1664,16 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y5S-B1-6ub" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="History" image="list" id="hOh-wX-34r"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5vo-tl-NvI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="5vo-tl-NvI">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="0.2666666667" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="26"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

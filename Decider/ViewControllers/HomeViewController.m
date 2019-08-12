@@ -32,7 +32,7 @@
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
     
-    LPCarouselView *cv = [LPCarouselView carouselViewWithFrame:CGRectMake(0, 0, 375, 362) placeholderImage:nil images:^NSArray *{
+    LPCarouselView *cv = [LPCarouselView carouselViewWithFrame:CGRectMake(0, 0, 375, 372) placeholderImage:nil images:^NSArray *{
         return @[
                  @"image1",
                  @"image2",

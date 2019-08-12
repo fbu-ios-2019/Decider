@@ -138,7 +138,7 @@
     long num = [str length] - 1;
     long section = [[str substringWithRange:NSMakeRange(0, num)] longLongValue];
     long row = [[str substringWithRange:NSMakeRange(num, 1)] longLongValue];
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 375, 554)];
     imgView.contentMode = UIViewContentModeScaleAspectFit;
     imgView.backgroundColor = [UIColor whiteColor];
     NSString *urlString = [[[self.history objectAtIndex:section]objectForKey:@"images"] objectAtIndex:row];
@@ -151,11 +151,7 @@
                                           action:@selector(removeImage:)];
     dismissTap.numberOfTapsRequired = 1;
     [imgView addGestureRecognizer:dismissTap];
-    [UIView animateWithDuration:1 animations:^{
-        [self.view addSubview:imgView];
-    } completion:^(BOOL finished) {
-        NSLog(@"error");
-    }];
+    [self.view addSubview:imgView];
     [self.collectionView setUserInteractionEnabled:NO];
 }
 

@@ -24,9 +24,6 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *filteredHistory;
 
-//@property (strong, nonatomic) NSArray *restaurants;
-
-
 @end
 
 @implementation HistoryCollectionViewController
@@ -82,12 +79,6 @@
             self.collectionView.dataSource = self;
             
             self.searchBar.delegate = self;
-            
-//            NSMutableArray *names = [[NSMutableArray alloc] init];
-//            for(int i = 0; i < [self.history count]; i++) {
-//                [names addObject:[[self.history objectAtIndex:i] objectForKey:@"name"]];
-//            }
-//            self.restaurants = names;
             self.filteredHistory = self.history;
             
             [self.collectionView reloadData];
@@ -106,7 +97,6 @@
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    //return [self.history count];
     return [self.filteredHistory count];
 }
 
@@ -132,7 +122,7 @@
     int section = (int)gesture.view.tag;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DetailsViewController *detailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"detailsVC"];
-    Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[self.history objectAtIndex:section]];
+    Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[self.filteredHistory objectAtIndex:section]];
     detailsViewController.restaurant = restaurant;
     [self presentViewController:detailsViewController animated:YES completion:nil];
 }
@@ -179,32 +169,21 @@
     }
     else {
         self.filteredHistory = self.history;
+        [self.searchBar performSelector: @selector(resignFirstResponder)
+                        withObject: nil
+                        afterDelay: 0.1];
     }
     [self.collectionView reloadData];
 }
 
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-
-//    if([segue.identifier isEqualToString:@"pictureSegue"]) {
-//        HistoryCollectionCell *tappedCell = sender;
-//        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
-//        ImageViewController *imageViewController =  [segue destinationViewController];
-//        NSString *urlString = [[[self.history objectAtIndex:indexPath.section] objectForKey:@"images"] objectAtIndex:indexPath.row];
-//        imageViewController.urlString = urlString;
-//    }
-    
-//    if([segue.identifier isEqualToString:@"collectionSegue"]) {
-//        HistoryCollectionCell *tappedCell = sender;
-//        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
-//        DetailsViewController *detailsViewController =  [segue destinationViewController];
-//        Restaurant *restaurant = [[Restaurant alloc] initWithDictionary:[self.history objectAtIndex:indexPath.section]];
-//        detailsViewController.restaurant = restaurant;
-//    }
 }
+ */
 
 @end

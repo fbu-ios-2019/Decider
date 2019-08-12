@@ -74,7 +74,6 @@
     UIAlertAction *usernameAlert = [UIAlertAction actionWithTitle:@"Ok"
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * _Nonnull action) {
-                                                              // handle response here.
                                                           }];
     [alert addAction:usernameAlert];
     [self presentViewController:alert animated:YES completion:nil];
@@ -114,6 +113,7 @@
             NSLog(@"User logged in successfully");
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             self.view.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+            [self.view endEditing:YES];
         }
     }];
 }

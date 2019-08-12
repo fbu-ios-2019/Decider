@@ -23,9 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    LPCarouselView *cv = [LPCarouselView carouselViewWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, 250) placeholderImage:nil images:^NSArray *{
-    
     // Make navigation bar transparent
+    [self.navigationController.navigationBar setBarStyle:UIStatusBarStyleLightContent];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -42,10 +41,8 @@
                  @"image5",
                  ];
     } titles:^NSArray *{
-        //return @[@"NO. 1", @"NO. 2", @"NO. 3", @"NO. 4", @"NO. 5"];
         return nil;
     } selectedBlock:^(NSInteger index) {
-        //NSLog(@"clicked2----%zi", index);
     }];
     cv.carouselImageViewContentMode = UIViewContentModeScaleAspectFill;
     cv.scrollDuration = 3.f;
@@ -61,13 +58,6 @@
     
     [self.view addSubview:logoImageView];
     [self.view bringSubviewToFront:logoView];
-    
-//    
-//    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 150, 150, 20)];
-//    descriptionLabel.textColor = [UIColor lightGrayColor];
-//    descriptionLabel.text = @"";
-//    
-//    [self.view addSubview:descriptionLabel];
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;

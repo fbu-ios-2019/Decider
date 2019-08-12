@@ -35,7 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setNeedsStatusBarAppearanceUpdate];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.categorySearchBar.delegate = self;
@@ -282,6 +282,10 @@
             NSLog(@"%@", error.debugDescription);
         }
     }];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end

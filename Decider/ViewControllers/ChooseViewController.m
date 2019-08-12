@@ -48,11 +48,13 @@
     textField2.text = self.category;
     [self.tableView setHidden:YES];
     
-    self.instructionsLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 80, 300, 200)];
+    self.instructionsLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.layer.frame.size.width/10, self.view.layer.frame.size.height/2, 300, 200)];
     self.instructionsLabel.numberOfLines = 0;
-    self.instructionsLabel.text = @"Choose a category and location or use current location to begin munchin!";
+    self.instructionsLabel.text = @"Choose the type of food you're craving and where you are";
+    [self.instructionsLabel setFont:[UIFont fontWithName:@"Avenir" size:28]];
     [self.view addSubview:self.instructionsLabel];
-    
+    self.instructionsLabel.textColor = [UIColor lightGrayColor];
+    [self.instructionsLabel setTextAlignment:NSTextAlignmentCenter];
     [self fetchCategories];
     [self fetchLocations];
     

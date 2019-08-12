@@ -48,11 +48,12 @@
         [self exchangeSubviewAtIndex:0  withSubviewAtIndex:1];
         
         //Restaurant name label on top of imageViewxr
-        UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 425, 250, 40)];
+        UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 425, 335, 40)];
         
         myLabel.text = self.food.restaurantName;
-        myLabel.textColor = [UIColor orangeColor];
-        myLabel.font=[UIFont fontWithName:@"Marker Felt" size:30];
+        myLabel.textColor = [UIColor whiteColor];
+//        myLabel.font = [UIFont boldSystemFontOfSize:21.0f];
+        myLabel.font = [UIFont fontWithName:@"Avenir-Heavy" size:20.5];
         [self.imageView addSubview:myLabel];
     }
     return self;

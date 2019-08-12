@@ -30,7 +30,7 @@
     
     NSMutableArray *options = [defaults objectForKey:@"restaurant_criteria"];
     if (!options) {
-        options = [[NSMutableArray alloc] initWithObjects:@"Image swipes", @"Restaurant's rating", @"Decider's rating", @"Restaurant's price", @"Restaurant's review count", nil];
+        options = [[NSMutableArray alloc] initWithObjects:@"Image swipes", @"Restaurant's rating", @"Munch rating", @"Restaurant's price", @"Restaurant's review count", nil];
     }
     self.optionsArray = [NSMutableArray arrayWithArray:options];
     self.optionsTableView.delegate = self;

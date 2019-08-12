@@ -36,8 +36,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.screenTitle.clipsToBounds = YES;
-    self.screenTitle.layer.cornerRadius = 6;
     self.screenTitle.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"labels_background"]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTriggeredFromRecommendation) name:@"update" object:nil];
@@ -45,7 +43,7 @@
     // Delegates
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 150;
+    self.tableView.rowHeight = 178;
     self.tableView.tableHeaderView = self.profileCardView;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -54,20 +52,9 @@
     if(self.user == nil){
         self.user = [PFUser currentUser];
     }
-    
-    
-    UILabel *navtitleLabel = [UILabel new];
-    NSShadow *shadow = [NSShadow new];
-    NSString *navTitle = self.user.username;
-    NSAttributedString *titleText = [[NSAttributedString alloc] initWithString:navTitle
-                                                                    attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:18],
-                                                                                 NSForegroundColorAttributeName : [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8],
-                                                                                 NSShadowAttributeName : shadow}];
-    navtitleLabel.attributedText = titleText;
-    [navtitleLabel sizeToFit];
-    self.navigationItem.titleView = navtitleLabel;
+
     self.nameLabel.text = [self.user objectForKey:@"name"];
-    self.usernameLabel.text = self.user.username;
+    self.usernameLabel.text = [@"@" stringByAppendingString:self.user.username];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

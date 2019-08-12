@@ -104,10 +104,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="the place to find all your previous recommendations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRA-9Y-71X">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
+                                <rect key="frame" x="0.0" y="-15" width="375" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.2666666667" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -160,9 +160,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2q-HW-VWt">
-                                            <rect key="frame" x="8" y="27" width="344" height="21"/>
+                                            <rect key="frame" x="8" y="18" width="344" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="21"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -627,9 +627,9 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved Restaurants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcD-vS-kYi">
-                                            <rect key="frame" x="10" y="113" width="355" height="27"/>
+                                            <rect key="frame" x="0.0" y="112" width="375" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -637,121 +637,129 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecommendationCell" rowHeight="150" id="Fh7-bz-vhx" customClass="RecommendationCell">
-                                        <rect key="frame" x="0.0" y="182" width="375" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecommendationCell" rowHeight="178" id="1MS-wI-ruN" customClass="RecommendationCell">
+                                        <rect key="frame" x="0.0" y="182" width="375" height="178"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fh7-bz-vhx" id="I15-pw-Tdl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1MS-wI-ruN" id="Nd8-zy-PmH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="177.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmo-W5-L2p">
-                                                    <rect key="frame" x="123" y="61" width="43" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibv-6x-LOT">
+                                                    <rect key="frame" x="241" y="36" width="38" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.18783469110000001" green="0.66853545979999995" blue="0.4465986938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                                    <color key="textColor" red="0.1037027715" green="0.5" blue="0.082074776279999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqE-Nb-pow">
-                                                    <rect key="frame" x="314" y="101" width="46" height="44"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9l-yv-N7j">
+                                                    <rect key="frame" x="324" y="132" width="36" height="36"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="bookmark-1">
+                                                    <state key="normal" image="bk">
                                                         <color key="titleColor" red="1" green="0.38431372549999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
-                                                    <state key="selected" image="bookmark_filled"/>
+                                                    <state key="selected" image="bk_orange"/>
                                                     <connections>
-                                                        <action selector="didTapSave:" destination="Fh7-bz-vhx" eventType="touchUpInside" id="xGB-bO-qQY"/>
+                                                        <action selector="didTapSave:" destination="1MS-wI-ruN" eventType="touchUpInside" id="eva-4U-vzC"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t82-Mt-Yx2">
-                                                    <rect key="frame" x="64" y="120" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="like">
-                                                        <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <state key="selected" image="like_filled"/>
-                                                    <connections>
-                                                        <action selector="didTapLike:" destination="Fh7-bz-vhx" eventType="touchUpInside" id="81t-g1-XcJ"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd0-OK-xGi">
-                                                    <rect key="frame" x="15" y="120" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="unlike">
-                                                        <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <state key="selected" image="unlike_filled"/>
-                                                    <connections>
-                                                        <action selector="didTapUnlike:" destination="Fh7-bz-vhx" eventType="touchUpInside" id="clm-rP-LLA"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5Y-n9-odR">
-                                                    <rect key="frame" x="43" y="120" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8A-gL-Kdq">
-                                                    <rect key="frame" x="94" y="120" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofn-cw-E1N">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axa-N1-rrp">
                                                     <rect key="frame" x="123" y="36" width="0.0" height="0.0"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj6-eH-wRR">
-                                                    <rect key="frame" x="174" y="60" width="186" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fs-mh-MDS">
+                                                    <rect key="frame" x="123" y="62" width="237" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ET1-Ec-D35">
-                                                    <rect key="frame" x="123" y="85" width="200" height="63"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDq-EU-ftm">
+                                                    <rect key="frame" x="123" y="112" width="193" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cWy-Yp-aaZ">
-                                                    <rect key="frame" x="15" y="11" width="100" height="100"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QY3-8g-gge">
+                                                    <rect key="frame" x="15" y="39" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="H9a-WO-ygC"/>
+                                                        <constraint firstAttribute="height" constant="100" id="e6Z-XK-CFc"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Te1-UA-2uu">
-                                                    <rect key="frame" x="123" y="11" width="18" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeW-Dl-8ia">
+                                                    <rect key="frame" x="19" y="2" width="20" height="31"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gi-1N-L47">
-                                                    <rect key="frame" x="140" y="11" width="211" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShG-0v-swp">
+                                                    <rect key="frame" x="44" y="1" width="316" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAl-zI-P1N">
+                                                    <rect key="frame" x="71" y="141" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="like">
+                                                        <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <state key="selected" image="like_green"/>
+                                                    <connections>
+                                                        <action selector="didTapLike:" destination="1MS-wI-ruN" eventType="touchUpInside" id="Qmp-Dp-8Om"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKM-xQ-mMl">
+                                                    <rect key="frame" x="22" y="148" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="unlike">
+                                                        <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <state key="selected" image="unlike_red"/>
+                                                    <connections>
+                                                        <action selector="didTapUnlike:" destination="1MS-wI-ruN" eventType="touchUpInside" id="RVt-Qk-Zwm"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLy-cv-Ofd">
+                                                    <rect key="frame" x="50" y="144" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Baj-Or-9h3">
+                                                    <rect key="frame" x="101" y="144" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QY3-8g-gge" firstAttribute="leading" secondItem="Nd8-zy-PmH" secondAttribute="leading" constant="15" id="5hZ-OY-CVm"/>
+                                                <constraint firstItem="QY3-8g-gge" firstAttribute="top" secondItem="VeW-Dl-8ia" secondAttribute="bottom" constant="6" id="8NT-67-6KQ"/>
+                                                <constraint firstItem="VeW-Dl-8ia" firstAttribute="top" secondItem="Nd8-zy-PmH" secondAttribute="top" constant="2" id="MZG-yn-gaH"/>
+                                                <constraint firstItem="VeW-Dl-8ia" firstAttribute="leading" secondItem="Nd8-zy-PmH" secondAttribute="leading" constant="19" id="fWg-hd-Aev"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addressLabel" destination="ET1-Ec-D35" id="52r-Fn-ehR"/>
-                                            <outlet property="category" destination="bj6-eH-wRR" id="k08-sD-GZl"/>
-                                            <outlet property="coverView" destination="cWy-Yp-aaZ" id="TMU-x9-Ii6"/>
-                                            <outlet property="likeButton" destination="t82-Mt-Yx2" id="Cdd-on-68k"/>
-                                            <outlet property="likeLabel" destination="G8A-gL-Kdq" id="trb-Uk-fDT"/>
-                                            <outlet property="numberLabel" destination="Te1-UA-2uu" id="kNA-sP-AsA"/>
-                                            <outlet property="price" destination="Nmo-W5-L2p" id="B3g-x7-uaV"/>
-                                            <outlet property="restaurantName" destination="9gi-1N-L47" id="E67-Kh-1Z2"/>
-                                            <outlet property="saveButton" destination="IqE-Nb-pow" id="Qh9-uR-t0r"/>
-                                            <outlet property="unlikeButton" destination="Dd0-OK-xGi" id="cFR-yH-K53"/>
-                                            <outlet property="unlikeLabel" destination="i5Y-n9-odR" id="eLa-Tk-Zhn"/>
-                                            <segue destination="XeU-f6-TMk" kind="presentation" identifier="detailsSegue" id="VW1-GR-C9y"/>
+                                            <outlet property="addressLabel" destination="CDq-EU-ftm" id="owY-PW-3rH"/>
+                                            <outlet property="category" destination="0Fs-mh-MDS" id="QxU-s4-MNX"/>
+                                            <outlet property="coverView" destination="QY3-8g-gge" id="Tan-YJ-3O1"/>
+                                            <outlet property="likeButton" destination="OAl-zI-P1N" id="juM-YA-tFJ"/>
+                                            <outlet property="likeLabel" destination="Baj-Or-9h3" id="7BU-Wd-NSl"/>
+                                            <outlet property="numberLabel" destination="VeW-Dl-8ia" id="3TE-Vh-mo0"/>
+                                            <outlet property="price" destination="Ibv-6x-LOT" id="CFt-Jd-OPU"/>
+                                            <outlet property="restaurantName" destination="ShG-0v-swp" id="TnR-JA-7Re"/>
+                                            <outlet property="saveButton" destination="Z9l-yv-N7j" id="TqO-hf-f85"/>
+                                            <outlet property="unlikeButton" destination="bKM-xQ-mMl" id="379-fN-0O9"/>
+                                            <outlet property="unlikeLabel" destination="CLy-cv-Ofd" id="R8X-7D-9yH"/>
+                                            <segue destination="XeU-f6-TMk" kind="presentation" identifier="detailsSegue" id="9WU-mv-7hu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -761,7 +769,7 @@
                         <viewLayoutGuide key="safeArea" id="Kgq-4r-L7Z"/>
                     </view>
                     <navigationItem key="navigationItem" id="xdU-17-hId">
-                        <barButtonItem key="rightBarButtonItem" image="settings-1" id="3Fe-f8-eJ3">
+                        <barButtonItem key="rightBarButtonItem" title="Profile" image="settings-1" id="3Fe-f8-eJ3">
                             <inset key="imageInsets" minX="605" minY="0.0" maxX="-11" maxY="0.0"/>
                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -1391,7 +1399,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bt-YV-ETh">
-                                        <rect key="frame" x="169" y="208" width="49" height="21"/>
+                                        <rect key="frame" x="149" y="208" width="49" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -1403,11 +1411,11 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOT-6F-VUo">
-                                        <rect key="frame" x="226" y="177" width="141" height="33"/>
+                                        <rect key="frame" x="150" y="177" width="141" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                         <state key="normal" title="Phone Number">
-                                            <color key="titleColor" red="0.48078325710000003" green="0.6127910526" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" red="0.23529411764705882" green="0.37647058823529411" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
                                             <action selector="callPhone:" destination="XeU-f6-TMk" eventType="touchUpInside" id="Jqm-PP-N6E"/>
@@ -1444,7 +1452,7 @@
                                         </cells>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVm-Nt-rOT">
-                                        <rect key="frame" x="211" y="208" width="54" height="21"/>
+                                        <rect key="frame" x="191" y="208" width="54" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -1484,25 +1492,25 @@
                                         </cells>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ni-sL-IPG">
-                                        <rect key="frame" x="8" y="183" width="146" height="21"/>
+                                        <rect key="frame" x="11" y="183" width="146" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6V9-p2-gyK">
-                                        <rect key="frame" x="150" y="183" width="81" height="21"/>
+                                        <rect key="frame" x="309" y="183" width="53" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                         <color key="textColor" red="0.1037027715" green="0.5" blue="0.082074776279999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRS-vP-KuN">
                                         <rect key="frame" x="11" y="273" width="356" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
                                         <state key="normal" title="Address">
-                                            <color key="titleColor" red="0.23361011732493142" green="0.37551962661843641" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" red="0.23529411764705882" green="0.37647058823529411" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
                                             <segue destination="yvp-y4-TIw" kind="presentation" identifier="locationSegue" id="3VD-NU-7fW"/>
@@ -1694,8 +1702,6 @@
         <image name="BACKGROUND" width="1638" height="1638"/>
         <image name="bk" width="50" height="50"/>
         <image name="bk_orange" width="50" height="50"/>
-        <image name="bookmark-1" width="700" height="700"/>
-        <image name="bookmark_filled" width="700" height="700"/>
         <image name="close-icon" width="26" height="24"/>
         <image name="close_orange" width="50" height="50"/>
         <image name="decide_icon-40x40" width="40" height="40"/>
@@ -1704,7 +1710,6 @@
         <image name="info" width="700" height="700"/>
         <image name="katelin" width="2331" height="3109"/>
         <image name="like" width="100" height="100"/>
-        <image name="like_filled" width="96" height="96"/>
         <image name="like_green" width="48" height="48"/>
         <image name="list" width="29" height="29"/>
         <image name="maria" width="3024" height="4032"/>
@@ -1720,12 +1725,11 @@
         <image name="review_icon-29x29" width="29" height="29"/>
         <image name="settings-1" width="700" height="700"/>
         <image name="unlike" width="100" height="100"/>
-        <image name="unlike_filled" width="96" height="96"/>
         <image name="unlike_red" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hmt-O3-5Iz"/>
-        <segue reference="CQ7-wT-U9N"/>
+        <segue reference="9WU-mv-7hu"/>
+        <segue reference="hQL-Vj-Le9"/>
         <segue reference="LzK-f9-hc1"/>
         <segue reference="6Xo-o2-oI0"/>
     </inferredMetricsTieBreakers>

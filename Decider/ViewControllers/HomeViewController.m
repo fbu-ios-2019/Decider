@@ -32,7 +32,7 @@
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
     
-    LPCarouselView *cv = [LPCarouselView carouselViewWithFrame:CGRectMake(0, 0, 375, 350) placeholderImage:nil images:^NSArray *{
+    LPCarouselView *cv = [LPCarouselView carouselViewWithFrame:CGRectMake(0, 0, 375, 362) placeholderImage:nil images:^NSArray *{
         return @[
                  @"image1",
                  @"image2",
@@ -51,7 +51,7 @@
     UIView *logoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
     
     UIImage *logo = [UIImage imageNamed:@"MUNCH_WHITE"];
-    UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(133, 18, 110, 130)];
+    UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(142, 18, 90, 108)];
     
     logoImageView.image = logo;
     

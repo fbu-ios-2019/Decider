@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSMutableArray *recommendations;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 @end
 
@@ -28,9 +29,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    self.tableView.estimatedRowHeight = 186;
+    self.doneButton.layer.cornerRadius = 6;
     [self.headerView setHidden:YES];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.rowHeight = 150;
+    self.tableView.rowHeight = 178;
     self.tableView.tableHeaderView = self.headerView;
 }
 

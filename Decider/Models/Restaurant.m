@@ -134,6 +134,9 @@
 }
 
 - (NSString *)formatTime:(NSString *)time {
+    if([time isEqualToString:@"0000"]){
+        return [@"12:00" stringByAppendingString:@"AM"];
+    }
     long num = [time longLongValue];
     if(num == 0) {
         return @"";

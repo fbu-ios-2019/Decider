@@ -23,7 +23,7 @@
     if ([self.imageName isEqualToString:@"catalogueSS"]) {
         NSMutableArray *frames = [NSMutableArray new];
         int i = 0;
-        while (i < 68) {
+        while (i < 78) {
             NSString *imgName = [NSString stringWithFormat:@"home%d", i];
             [frames addObject:[UIImage imageNamed:imgName]];
             i += 1;
@@ -36,7 +36,7 @@
     else if ([self.imageName isEqualToString:@"profileSS"]) {
         NSMutableArray *frames = [NSMutableArray new];
         int i = 0;
-        while (i < 114) {
+        while (i < 106) {
             NSString *imgName = [NSString stringWithFormat:@"swipe%d", i];
             [frames addObject:[UIImage imageNamed:imgName]];
             i += 1;
@@ -49,13 +49,13 @@
     else {
         NSMutableArray *frames = [NSMutableArray new];
         int i = 0;
-        while (i < 121) {
+        while (i < 160) {
             NSString *imgName = [NSString stringWithFormat:@"view%d", i];
             [frames addObject:[UIImage imageNamed:imgName]];
             i += 1;
         }
         self.infoImage.animationImages = frames;
-        self.infoImage.animationDuration = 8.0f;
+        self.infoImage.animationDuration = 10.0f;
         self.infoImage.animationRepeatCount = 0;
         [self.infoImage startAnimating];
     }

@@ -13,6 +13,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "HCSStarRatingView.h"
 #import "CategoryBubbleCell.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface DetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource, GMSMapViewDelegate>
 
@@ -30,7 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *categoryCollectionView;
-
+@property (strong,nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -77,6 +78,15 @@
     }
     self.images = self.restaurant.images;
     
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager requestAlwaysAuthorization];
+    if ([CLLocationManager locationServicesEnabled]) {
+        self.locationManager.delegate = self;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        [self.locationManager startUpdatingLocation];
+    } else {
+        NSLog(@"Location services are not enabled");
+    }
     self.mapView.myLocationEnabled = YES;
     self.mapView.mapType = kGMSTypeNormal;
     self.mapView.settings.compassButton = YES;
@@ -147,10 +157,6 @@
         categoryCell.categoryLabel.text = self.restaurant.categories[indexPath.row];
         return categoryCell;
     }
-    
-    
-    
-    
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

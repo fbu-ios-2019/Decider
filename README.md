@@ -1,4 +1,4 @@
-Decider
+Munch
 ===
 **Katelin Chan, Mary Pestana, and Mohamed Ally**
 
@@ -115,6 +115,14 @@ Optional:
     * numberImages (Number)
     * reviews (NSArray of Strings)
     * numberReviews (Number)
+    
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='http://g.recordit.co/eSZoRGo0nO.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [Recordit](http://recordit.co/).
 
 ### Networking
  - FoodViewController

@@ -26,7 +26,7 @@ Food & Drink / Travel app that displays pictures of food and allows the user to 
 ### 1. User Stories (Required and Optional)
 
 **Required Must-have Stories**
-* User can limit food options by choosing a specific category.
+* User can limit food options by choosing a specific category and setting their location
 * User can swipe left or right on each image of food, left for "don't like" and right for "like".
 * User can see several images of the same restaurant.
 * User can see a detailed view of a restaurant by clicking on a food image.
@@ -37,7 +37,9 @@ Food & Drink / Travel app that displays pictures of food and allows the user to 
     * Number of stars
     * Reviews
 * User can see a detailed view of the recommended restaurant including reviews, number of stars, price range, location, and pictures of the menu.
-* User can see on a map the distance to the restaurant.
+* User can see on a map the location of the restaurant.
+* User can save and unsave restaurants we recommend to their profile
+* User can see saved restaurants from their profile
 
 **Optional Nice-to-have Stories**
 * User sees an error message when there's a networking error.
@@ -49,12 +51,17 @@ Food & Drink / Travel app that displays pictures of food and allows the user to 
 * User can see a changing emoji when swiping the pictures.
 * User can view restaurants in a list form.
 * User can add a price range filter (where only images of restaurants inside his budget are considered).
-* User can share the Decider's recommendation via WhatsApp, Messenger, and more.
+* User can share the Munch's recommendation via WhatsApp, Messenger, and more.
 * User can create an account and set it up.
     * User can create an account using Yelp, Google, and Facebook.
     * User can see his past recommendations saved, as well as a list of his preferences.
     * User can receive recommendations from the app, without the need of swiping.
     * User can write a review and rate a restaurant.
+* User can see previously recommender restaurants via a history tab
+* User can edit their profile
+   * User can change profile picture, change their name, and username
+* User can choose what's more important to them when we recommend restaurants to them (by reordering our recommendation criteria)
+* User can swipe to unsave a restaurant from the profile page
 
 ### 2. Screen Archetypes
 

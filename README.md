@@ -136,6 +136,6 @@ Optional:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/eSZoRGo0nO.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/FhbOCi0ptl.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Recordit](http://recordit.co/).

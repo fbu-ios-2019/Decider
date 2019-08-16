@@ -115,14 +115,6 @@ Optional:
     * numberImages (Number)
     * reviews (NSArray of Strings)
     * numberReviews (Number)
-    
-## Video Walkthrough
-
-Here's a walkthrough of implemented user stories:
-
-<img src='http://g.recordit.co/eSZoRGo0nO.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-GIF created with [Recordit](http://recordit.co/).
 
 ### Networking
  - FoodViewController
@@ -138,3 +130,11 @@ GIF created with [Recordit](http://recordit.co/).
         this API would be useful in opeining a map whena user taps ona specific business' location from the DetailsViewController. 
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='http://g.recordit.co/eSZoRGo0nO.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [Recordit](http://recordit.co/).
